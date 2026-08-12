@@ -1,0 +1,258 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+
+// SEO Configuration
+const seoConfig = {
+  title: 'Scam Awareness - Cyber Security Finland',
+  description: 'Learn about scams impersonating Cyber Security Finland Oy. Protect yourself from fraudulent messages, calls, and crypto scams.',
+  keywords: 'scam awareness, fraud alert, cybersecurity scams, impersonation, crypto scams',
+  type: 'awareness' as const,
+};
+
+const path = Astro.url.pathname;
+const currentLang = path.startsWith('/it') ? 'it' : path.startsWith('/de') ? 'de' : 'en';
+
+const translations = {
+  en: {
+    title: 'Scam Alert: Cyber Security Finland Impersonation',
+    subtitle: 'Information about fraudulent schemes targeting our clients and impersonating Cyber Security Finland Oy',
+    warning: 'If you receive suspicious messages: Do NOT share personal information, Trust Wallet details, or send money. Contact local police immediately.',
+    whatHappening: 'What is happening?',
+    whatHappeningText: 'Scammers are impersonating Cyber Security Finland Oy through WhatsApp, email, and phone calls. They ask for money and personal information.',
+    weHaveNothing: '⚠️ We have NOTHING to do with these scams.',
+    ourContact: 'Our REAL Contact Information',
+    onlyTrust: 'Only trust these official channels:',
+    email: 'Email:',
+    website: 'Website:',
+    neverUse: '❌ We NEVER use fake emails like: support@cyber-agency.cc',
+    commonScams: 'Common Scam Methods',
+    realExamples: 'Real Examples We\'ve Seen',
+    protect: 'How to Protect Yourself',
+    doThis: '✅ DO THIS',
+    neverDo: '❌ NEVER DO THIS',
+    ifScammed: '🚨 If You\'ve Been Scammed',
+    contactUs: 'Contact Us',
+    whatWeDontDo: 'What Cyber Security Finland Does NOT Do',
+    strengthenSecurity: 'Strengthen Your Cybersecurity',
+    learnMore: 'Learn More About DORA',
+    report: 'Report a Scam',
+    backToHome: 'Back to Home'
+  },
+  it: {
+    title: 'Avviso di Truffa: Rappresentazione Fraudolenta di Cyber Security Finland',
+    subtitle: 'Informazioni sui sistemi fraudolenti che mirano ai nostri clienti',
+    warning: 'Se ricevi messaggi sospetti: NON condividere informazioni personali, dettagli di Trust Wallet o denaro.',
+    whatHappening: 'Cosa sta succedendo?',
+    whatHappeningText: 'I truffatori si stanno facendo passare per Cyber Security Finland Oy tramite WhatsApp, email e telefono.',
+    weHaveNothing: '⚠️ NON abbiamo NULLA a che fare con queste truffe.',
+    ourContact: 'Le Nostre VERE Informazioni di Contatto',
+    onlyTrust: 'Fidati solo di questi canali ufficiali:',
+    email: 'Email:',
+    website: 'Sito Web:',
+    neverUse: '❌ Non usiamo MAI email false come: support@cyber-agency.cc',
+    commonScams: 'Metodi di Truffa Comuni',
+    realExamples: 'Esempi Reali',
+    protect: 'Come Proteggersi',
+    doThis: '✅ FAI QUESTO',
+    neverDo: '❌ NON FARE MAI QUESTO',
+    ifScammed: 'Se Sei Stato Truffato',
+    contactUs: 'Contattaci',
+    whatWeDontDo: 'Cosa Cyber Security Finland NON Fa',
+    strengthenSecurity: 'Rafforza la Tua Sicurezza Informatica',
+    learnMore: 'Scopri di più su DORA',
+    report: 'Segnala una Truffa',
+    backToHome: 'Torna alla Home'
+  },
+  de: {
+    title: 'Betrugwarnung: Betrügerische Darstellung von Cyber Security Finland',
+    subtitle: 'Informationen über betrügerische Machenschaften gegen unsere Kunden',
+    warning: 'Wenn Sie verdächtige Nachrichten erhalten: Geben Sie KEINE persönlichen Daten weiter.',
+    whatHappening: 'Was passiert?',
+    whatHappeningText: 'Betrüger geben sich als Cyber Security Finland Oy aus, über WhatsApp, E-Mail und Telefon.',
+    weHaveNothing: '⚠️ Wir haben NICHTS mit diesen Betrügereien zu tun.',
+    ourContact: 'Unsere ECHTEN Kontaktdaten',
+    onlyTrust: 'Vertrauen Sie nur diesen offiziellen Kanälen:',
+    email: 'E-Mail:',
+    website: 'Website:',
+    neverUse: '❌ Wir verwenden NIEMALS gefälschte E-Mails',
+    commonScams: 'Häufige Betrugsmethoden',
+    realExamples: 'Echte Beispiele',
+    protect: 'So schützen Sie sich',
+    doThis: '✅ TUN SIE DIES',
+    neverDo: '❌ TUN SIE NIEMALS DIES',
+    ifScammed: 'Wenn Sie betrogen wurden',
+    contactUs: 'Kontaktieren Sie uns',
+    whatWeDontDo: 'Was Cyber Security Finland NICHT tut',
+    strengthenSecurity: 'Stärken Sie Ihre Cybersicherheit',
+    learnMore: 'Mehr über DORA erfahren',
+    report: 'Betrug melden',
+    backToHome: 'Zurück zur Startseite'
+  }
+};
+
+const t = translations[currentLang] || translations.en;
+---
+
+<Layout {...seoConfig}>
+
+<!-- Hero Section - Centered with icon, matching home page style -->
+<section class="bg-gradient-to-br from-blue-50 to-white text-slate-900 py-20 md:py-28">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <div class="flex justify-center mb-4">
+      <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center">
+        <Icon name="alert-triangle" class="w-8 h-8 text-red-600" />
+      </div>
+    </div>
+    
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-[#1E2A7A]">
+      {t.title}
+    </h1>
+    
+    <p class="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+      {t.subtitle}
+    </p>
+    
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb hint -->
+    <div class="text-sm text-slate-400 mb-8">
+      Home / Resources / Scam Awareness
+    </div>
+    
+    <!-- What is happening -->
+    <div class="mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {t.whatHappening}
+      </h2>
+      <p class="text-slate-700 text-base mb-3">
+        {t.whatHappeningText}
+      </p>
+      <div class="bg-red-50 p-4 rounded-xl border-l-4 border-red-500">
+        <p class="text-red-700 font-bold">{t.weHaveNothing}</p>
+      </div>
+    </div>
+
+    <!-- Our Real Contact Information -->
+    <div class="mb-12 bg-blue-50 p-6 rounded-2xl border-l-4 border-blue-500">
+      <h3 class="text-xl font-bold text-[#1E2A7A] mb-3">{t.ourContact}</h3>
+      <p class="text-slate-700 mb-3 font-semibold">{t.onlyTrust}</p>
+      <div class="space-y-2">
+        <p class="text-slate-700"><strong>{t.email}</strong> <span class="font-mono">info@cybersecurity.fi</span></p>
+        <p class="text-slate-700"><strong>{t.website}</strong> <span class="font-mono">cybersecurity.fi</span></p>
+      </div>
+      <p class="text-red-600 font-bold mt-4">{t.neverUse}</p>
+    </div>
+
+    <!-- Common Scam Methods -->
+    <div class="mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1E2A7A] mb-6">
+        {t.commonScams}
+      </h2>
+      
+      <div class="space-y-4">
+        <div class="bg-red-50 p-5 rounded-xl border-l-4 border-red-500 hover:shadow-md transition-all duration-300">
+          <h3 class="font-bold text-slate-900 mb-2">1️⃣ Cryptocurrency Recovery Scams</h3>
+          <p class="text-slate-700 text-sm">They claim you have "blocked money" in crypto that needs recovery through Trust Wallet.</p>
+          <div class="mt-2 text-xs text-red-600 font-semibold">🚫 RED FLAGS: Unknown senders, remote access requests, wallet access demands</div>
+        </div>
+
+        <div class="bg-red-50 p-5 rounded-xl border-l-4 border-red-500 hover:shadow-md transition-all duration-300">
+          <h3 class="font-bold text-slate-900 mb-2">2️⃣ WhatsApp & SMS Impersonation</h3>
+          <p class="text-slate-700 text-sm">Scammers contact you via WhatsApp or SMS claiming to be from Cyber Security Finland.</p>
+          <div class="mt-2 text-xs text-red-600 font-semibold">🚫 RED FLAGS: WhatsApp messages, fake employee names, urgency tactics</div>
+        </div>
+
+        <div class="bg-red-50 p-5 rounded-xl border-l-4 border-red-500 hover:shadow-md transition-all duration-300">
+          <h3 class="font-bold text-slate-900 mb-2">3️⃣ Personal Information Harvesting</h3>
+          <p class="text-slate-700 text-sm">They request ID documents, passport copies, bank statements as "verification".</p>
+          <div class="mt-2 text-xs text-red-600 font-semibold">🚫 RED FLAGS: Requests for POI/POR, passport photos, bank statements</div>
+        </div>
+
+        <div class="bg-red-50 p-5 rounded-xl border-l-4 border-red-500 hover:shadow-md transition-all duration-300">
+          <h3 class="font-bold text-slate-900 mb-2">4️⃣ Money Requests (The Final Step)</h3>
+          <p class="text-slate-700 text-sm">After gaining trust, they ask for money via bank transfer or cryptocurrency.</p>
+          <div class="mt-2 text-xs text-red-600 font-semibold">🚫 RED FLAGS: "Processing fees", "legal fees", ever-increasing amounts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Protection Tips -->
+    <div class="mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#1E2A7A] mb-6">
+        {t.protect}
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-500">
+          <h3 class="font-bold text-green-800 mb-3">{t.doThis}</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+            <li class="flex items-start gap-2"><span class="text-green-600">✓</span> Check sender's email address carefully</li>
+            <li class="flex items-start gap-2"><span class="text-green-600">✓</span> Contact us directly at info@cybersecurity.fi</li>
+            <li class="flex items-start gap-2"><span class="text-green-600">✓</span> Report suspicious messages to the platform</li>
+            <li class="flex items-start gap-2"><span class="text-green-600">✓</span> Enable two-factor authentication</li>
+          </ul>
+        </div>
+
+        <div class="bg-red-50 p-6 rounded-xl border-l-4 border-red-500">
+          <h3 class="font-bold text-red-800 mb-3">{t.neverDo}</h3>
+          <ul class="space-y-2 text-sm text-slate-700">
+            <li class="flex items-start gap-2"><span class="text-red-600">✗</span> Share passport or ID documents</li>
+            <li class="flex items-start gap-2"><span class="text-red-600">✗</span> Download AnyDesk or similar software</li>
+            <li class="flex items-start gap-2"><span class="text-red-600">✗</span> Send money for "recovery" or "fees"</li>
+            <li class="flex items-start gap-2"><span class="text-red-600">✗</span> Share cryptocurrency wallet info</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- If Scammed -->
+    <div class="mb-12 bg-orange-50 p-6 rounded-xl border-l-4 border-orange-500">
+      <h2 class="text-xl font-bold text-orange-800 mb-4">{t.ifScammed}</h2>
+      <ol class="space-y-2 text-sm text-slate-700">
+        <li><strong>1.</strong> Call local police - File a fraud report</li>
+        <li><strong>2.</strong> Contact your bank - Report the fraud</li>
+        <li><strong>3.</strong> Change passwords - Update all important accounts</li>
+        <li><strong>4.</strong> Email us - Send details to info@cybersecurity.fi</li>
+      </ol>
+    </div>
+
+    <!-- What We Don't Do -->
+    <div class="mb-12 bg-slate-50 p-6 rounded-xl border-l-4 border-[#1E2A7A]">
+      <h3 class="text-xl font-bold text-[#1E2A7A] mb-3">{t.whatWeDontDo}</h3>
+      <div class="grid md:grid-cols-2 gap-2 text-sm text-slate-700">
+        <p>❌ Contact via WhatsApp or chat apps</p>
+        <p>❌ Ask for personal documents (ID, passport)</p>
+        <p>❌ Request cryptocurrency recovery help</p>
+        <p>❌ Ask for bank statements or financial info</p>
+        <p>❌ Demand immediate money transfers</p>
+        <p>❌ Use fake email domains</p>
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-[#1E2A7A] to-[#3B82F6] text-white hover:from-[#3B82F6] hover:to-[#1E2A7A] transition-all duration-300 hover:shadow-lg font-medium text-sm gap-2">
+        {t.contactUs}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+      
+      <a href="/" class="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-[#1E40AF] text-[#1E40AF] hover:bg-gradient-to-r hover:from-[#1E2A7A] hover:to-[#3B82F6] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm gap-2">
+        {t.backToHome}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+</Layout>

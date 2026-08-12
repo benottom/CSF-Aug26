@@ -1,0 +1,440 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "Anti-Fraud Services";
+
+const content = {
+  en: {
+    title: "Anti-Fraud Services",
+    subtitle: "Protect Against BEC & Invoice Fraud",
+    heroDescription: "Expert fraud risk management services to protect your organization against business email compromise, invoice fraud, and payment scams. Our Anti-Fraud Services provide comprehensive protection against increasingly sophisticated fraud attacks, with expert controls, detection systems, and rapid response capabilities to safeguard your finances and reputation.",
+    forWho: "For organizations vulnerable to business email compromise, invoice fraud, and payment scams.",
+    achieve: "Comprehensive fraud protection with advanced controls, detection systems, and rapid response.",
+    overview: {
+      title: "Overview",
+      description: "Business email compromise (BEC) and invoice fraud are among the most costly cyber threats facing organizations today, with losses exceeding billions of dollars annually. These sophisticated attacks target finance and procurement processes to redirect payments to fraudulent accounts.",
+      highlight: "Our Anti-Fraud Services provide comprehensive protection through advanced controls, detection systems, staff training, and rapid incident response to prevent financial losses and protect your organization's reputation."
+    },
+    fraudTypes: {
+      title: "Fraud Threats We Address",
+      subtitle: "Comprehensive protection against all major fraud attack vectors",
+      items: [
+        "Business Email Compromise (BEC)",
+        "Invoice Fraud & Manipulation",
+        "Payment Redirection Fraud",
+        "Vendor Impersonation",
+        "CEO/Executive Fraud",
+        "Wire Transfer Fraud",
+        "Procurement Fraud",
+        "Social Engineering Attacks"
+      ]
+    },
+    controls: {
+      title: "Multi-Layer Fraud Controls",
+      subtitle: "Comprehensive defense-in-depth approach to fraud prevention",
+      items: [
+        { control: "Email Security", description: "Advanced email filtering, DMARC, and anti-phishing controls" },
+        { control: "Payment Verification", description: "Multi-factor authentication and out-of-band verification for payments" },
+        { control: "Vendor Management", description: "Secure vendor onboarding and change management processes" },
+        { control: "User Training", description: "Regular phishing simulations and fraud awareness training" }
+      ]
+    },
+    industries: {
+      title: "Industries We Protect",
+      subtitle: "Specialized fraud protection across high-risk sectors",
+      items: [
+        "Financial Services",
+        "Manufacturing",
+        "Healthcare",
+        "Professional Services",
+        "Technology",
+        "Retail & E-commerce",
+        "Real Estate",
+        "Government & Public Sector"
+      ]
+    },
+    features: {
+      title: "Our Anti-Fraud Services",
+      subtitle: "Comprehensive fraud prevention and response services to protect your organization",
+      items: [
+        { title: "BEC & Invoice Fraud Controls", description: "Comprehensive controls to prevent business email compromise and invoice fraud attacks", icon: "shield" },
+        { title: "Fraud Detection & Monitoring", description: "Advanced detection systems and monitoring capabilities to identify fraudulent activities", icon: "eye" },
+        { title: "Incident Response & Investigation", description: "Rapid response and thorough investigation of fraud incidents and security breaches", icon: "alert" },
+        { title: "Payment Controls & Verification", description: "Multi-layer payment approval processes and vendor verification systems", icon: "check" },
+        { title: "Security Awareness Training", description: "Comprehensive training programs to educate staff on fraud prevention and recognition", icon: "users" },
+        { title: "Risk Assessment & Monitoring", description: "Ongoing fraud risk assessments and continuous monitoring of threat landscape", icon: "chart" }
+      ]
+    },
+    deliverables: {
+      title: "What You Get",
+      items: [
+        "Fraud risk assessment and gap analysis",
+        "BEC and invoice fraud control framework",
+        "Payment verification and approval processes",
+        "Fraud detection and monitoring systems",
+        "Incident response procedures and playbooks",
+        "Staff training and awareness programs",
+        "Vendor verification and due diligence processes",
+        "Ongoing fraud risk monitoring and reporting"
+      ]
+    },
+    benefits: {
+      title: "Key Benefits",
+      items: [
+        "Prevent costly business email compromise attacks",
+        "Protect against invoice and payment fraud",
+        "Reduce financial losses and reputational damage",
+        "Improve staff awareness and fraud detection",
+        "Ensure rapid response to fraud incidents"
+      ]
+    }
+  },
+  fi: {
+    title: "Petostentorjuntapalvelut",
+    subtitle: "Suojaa BEC- ja laskupetoksilta",
+    heroDescription: "Asiantuntevat petostentorjuntapalvelut suojaamaan organisaatiotasi yrityssähköpostihuijauksilta, laskupetoksilta ja maksuhuijauksilta. Petostentorjuntapalvelumme tarjoavat kattavan suojan yhä kehittyneempiä petoshyökkäyksiä vastaan asiantuntevilla kontrolleilla, havainnointijärjestelmillä ja nopeilla reagointikyvykkyyksillä suojellaksesi talouttasi ja mainettasi.",
+    forWho: "Organisaatioille, jotka ovat alttiita yrityssähköpostihuijauksille, laskupetoksille ja maksuhuijauksille.",
+    achieve: "Kattava petossuoja edistyneillä kontrolleilla, havainnointijärjestelmillä ja nopealla reagoinnilla.",
+    overview: {
+      title: "Yleiskatsaus",
+      description: "Yrityssähköpostihuijaukset (BEC) ja laskupetokset ovat yksiä kalleimmista kyberuhkista, joita organisaatiot kohtaavat nykyään, ja niiden tappiot nousevat vuosittain miljardeihin dollareihin. Nämä kehittyneet hyökkäykset kohdistuvat talous- ja hankintaprosesseihin ohjatakseen maksut petollisille tileille.",
+      highlight: "Petostentorjuntapalvelumme tarjoavat kattavan suojan edistyneiden kontrollien, havainnointijärjestelmien, henkilöstökoulutuksen ja nopean tapahtumien hallinnan avulla estääkseen taloudellisia tappioita ja suojellakseen organisaatiosi mainetta."
+    },
+    fraudTypes: {
+      title: "Petosuhkat joihin vastaamme",
+      subtitle: "Kattava suoja kaikkia merkittäviä petoshyökkäysvektoreita vastaan",
+      items: [
+        "Yrityssähköpostihuijaukset (BEC)",
+        "Laskupetokset ja manipulaatio",
+        "Maksujen uudelleenohjauspetokset",
+        "Toimittajien jäljittely",
+        "Toimitusjohtaja/johdon petokset",
+        "Tilisiirtopetokset",
+        "Hankintapetokset",
+        "Sosiaalisen manipuloinnin hyökkäykset"
+      ]
+    },
+    controls: {
+      title: "Monikerroksiset petoskontrollit",
+      subtitle: "Kattava puolustus syvyydessä -lähestymistapa petosten estämiseen",
+      items: [
+        { control: "Sähköpostiturvallisuus", description: "Edistynyt sähköpostisuodatus, DMARC ja tietojenkalastelukontrollit" },
+        { control: "Maksujen varmennus", description: "Monivaiheinen tunnistautuminen ja kanavan ulkopuolinen varmennus maksuille" },
+        { control: "Toimittajahallinta", description: "Turvallinen toimittajien käyttöönotto ja muutostenhallintaprosessit" },
+        { control: "Käyttäjäkoulutus", description: "Säännölliset tietojenkalastelusimulaatiot ja petostietoisuuskoulutus" }
+      ]
+    },
+    industries: {
+      title: "Toimialat joita suojaamme",
+      subtitle: "Erikoistunut petossuoja riskialttiilla sektoreilla",
+      items: [
+        "Rahoituspalvelut",
+        "Teollisuus",
+        "Terveydenhuolto",
+        "Asiantuntijapalvelut",
+        "Teknologia",
+        "Vähittäiskauppa ja verkkokauppa",
+        "Kiinteistöala",
+        "Julkinen sektori"
+      ]
+    },
+    features: {
+      title: "Petostentorjuntapalvelumme",
+      subtitle: "Kattavat petosten estämis- ja reagointipalvelut suojaamaan organisaatiotasi",
+      items: [
+        { title: "BEC- ja laskupetoskontrollit", description: "Kattavat kontrollit yrityssähköpostihuijausten ja laskupetosten estämiseksi", icon: "shield" },
+        { title: "Petosten havaitseminen ja seuranta", description: "Edistyneet havainnointijärjestelmät ja seurantakyvykkyydet petollisten toimien tunnistamiseksi", icon: "eye" },
+        { title: "Tapahtumien hallinta ja tutkinta", description: "Nopea reagointi ja perusteellinen tutkinta petostapauksista ja tietoturvaloukkauksista", icon: "alert" },
+        { title: "Maksukontrollit ja varmennus", description: "Monikerroksiset maksujen hyväksymisprosessit ja toimittajien varmennusjärjestelmät", icon: "check" },
+        { title: "Tietoturvatietoisuuskoulutus", description: "Kattavat koulutusohjelmat henkilöstön kouluttamiseksi petosten estämiseen ja tunnistamiseen", icon: "users" },
+        { title: "Riskinarviointi ja seuranta", description: "Jatkuvat petosriskien arvioinnit ja uhkakentän jatkuva seuranta", icon: "chart" }
+      ]
+    },
+    deliverables: {
+      title: "Mitä saat",
+      items: [
+        "Petosriskin arviointi ja aukkoanalyysi",
+        "BEC- ja laskupetoskontrollikehys",
+        "Maksujen varmennus- ja hyväksymisprosessit",
+        "Petosten havaitsemis- ja seurantajärjestelmät",
+        "Tapahtumien hallintamenettelyt ja toimintasuunnitelmat",
+        "Henkilöstön koulutus- ja tietoisuusohjelmat",
+        "Toimittajien varmennus- ja due diligence -prosessit",
+        "Jatkuva petosriskien seuranta ja raportointi"
+      ]
+    },
+    benefits: {
+      title: "Keskeiset edut",
+      items: [
+        "Estä kalliit yrityssähköpostihuijaushyökkäykset",
+        "Suojaa lasku- ja maksupetoksilta",
+        "Vähennä taloudellisia tappioita ja mainehaittoja",
+        "Paranna henkilöstön tietoisuutta ja petosten havaitsemista",
+        "Varmista nopea reagointi petostapauksiin"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6">
+        <p class="text-sm text-slate-600 leading-relaxed">{currentContent.overview.description}</p>
+        <p class="text-sm text-blue-600 font-semibold mt-3">{currentContent.overview.highlight}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fraud Types Section - Centered -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.fraudTypes.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.fraudTypes.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {currentContent.fraudTypes.items.map((fraud) => (
+          <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3bb1f6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-3 group text-center">
+            <div class="w-6 h-6 bg-[#3B82F6] rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-[#3B82F6] transition-colors duration-300">{fraud}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Controls Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.controls.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.controls.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        {currentContent.controls.items.map((control) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex items-start gap-3 mb-1.5">
+              <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center flex-shrink-0
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <svg class="w-4 h-4 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-sm font-bold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+                {control.control}
+              </h3>
+            </div>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left pl-11 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {control.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section - Centered -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.industries.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.industries.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {currentContent.industries.items.map((industry) => (
+          <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3bb1f6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-3 group text-center">
+            <div class="w-6 h-6 bg-[#3B82F6] rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-[#3B82F6] transition-colors duration-300">{industry}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.features.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.features.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.features.items.map((feature) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={feature.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {feature.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables & Benefits Section - Centered with colored border -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-3xl mx-auto">
+        
+        <!-- Deliverables -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.deliverables.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.deliverables.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.benefits.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.benefits.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</Layout>

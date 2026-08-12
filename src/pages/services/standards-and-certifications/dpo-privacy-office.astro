@@ -1,0 +1,364 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "DPO/Privacy Office-as-a-Service";
+
+const content = {
+  en: {
+    title: "DPO/Privacy Office",
+    subtitle: "Outsourced Data Protection Officer",
+    heroDescription: "Expert outsourced Data Protection Officer services providing comprehensive privacy governance, GDPR compliance, and regulatory liaison. Our qualified DPO-as-a-Service provides organizations with expert privacy leadership without the cost of a full-time executive. We handle all aspects of data protection compliance from DPIAs to breach management.",
+    forWho: "For organizations required to appoint a Data Protection Officer under GDPR Article 37 or seeking expert privacy leadership.",
+    achieve: "Full GDPR compliance with expert DPO services, comprehensive privacy governance, and regulatory confidence.",
+    overview: {
+      title: "Overview",
+      description: "Under GDPR Article 37, many organizations are required to appoint a Data Protection Officer. Our DPO-as-a-Service provides qualified, experienced privacy professionals who can serve as your organization's DPO, ensuring compliance while providing strategic privacy guidance.",
+      highlight: "We offer flexible engagement models from virtual DPO services to on-site support, tailored to your organization's specific privacy needs and regulatory requirements."
+    },
+    engagementTypes: {
+      title: "Service Models",
+      subtitle: "Flexible DPO services tailored to your organization's needs",
+      items: [
+        { type: "Virtual DPO", commitment: "Part-time", description: "Remote DPO services with regular check-ins and oversight" },
+        { type: "On-site DPO", commitment: "Flexible", description: "Regular on-site presence for complex organizations" },
+        { type: "Project-based", commitment: "As needed", description: "Specific privacy projects and assessments" }
+      ]
+    },
+    gdprServices: {
+      title: "GDPR Article Compliance",
+      subtitle: "Comprehensive coverage of key GDPR requirements",
+      items: [
+        "Article 30 RoPA Creation",
+        "Article 35 DPIA Execution",
+        "Article 37 DPO Appointment",
+        "Article 33/34 Breach Notification",
+        "Article 13/14 Privacy Notices",
+        "Article 7 Consent Management"
+      ]
+    },
+    features: {
+      title: "Our DPO Services",
+      subtitle: "Comprehensive privacy services covering all aspects of data protection compliance",
+      items: [
+        { title: "Outsourced DPO Services", description: "Qualified Data Protection Officer providing expert privacy oversight and regulatory compliance", icon: "users" },
+        { title: "Data Protection Impact Assessments", description: "Comprehensive DPIAs for high-risk processing activities and new projects", icon: "clipboard" },
+        { title: "Records of Processing Activities", description: "Creation and maintenance of detailed RoPAs for GDPR Article 30 compliance", icon: "document" },
+        { title: "Privacy Governance & Policies", description: "Development of privacy frameworks, policies, and governance structures", icon: "shield" },
+        { title: "Breach Management & Response", description: "Incident response, breach assessment, and regulatory notification support", icon: "alert" },
+        { title: "Regulatory Liaison", description: "Direct communication with supervisory authorities and regulatory representation", icon: "network" }
+      ]
+    },
+    deliverables: {
+      title: "What You Get",
+      items: [
+        "Qualified DPO appointment and services",
+        "Privacy program assessment and roadmap",
+        "Data Protection Impact Assessments (DPIAs)",
+        "Records of Processing Activities (RoPAs)",
+        "Privacy policies and procedures framework",
+        "Data breach response procedures",
+        "Staff privacy training programs",
+        "Regulatory correspondence and liaison"
+      ]
+    },
+    benefits: {
+      title: "Key Benefits",
+      items: [
+        "Meet GDPR DPO appointment requirements",
+        "Expert privacy guidance without full-time costs",
+        "Reduced regulatory risk and potential fines",
+        "Professional breach response capabilities",
+        "Enhanced customer and stakeholder trust"
+      ]
+    }
+  },
+  fi: {
+    title: "DPO/Tietosuojatoimisto",
+    subtitle: "Ulkoistettu tietosuojavastaava",
+    heroDescription: "Asiantuntevat ulkoistetut tietosuojavastaavapalvelut, jotka tarjoavat kattavaa tietosuojahallintaa, GDPR-vaatimustenmukaisuutta ja sääntely-yhteistyötä. Laadukas DPO-palveluna tarjoaa organisaatioille asiantuntevaa tietosuojajohtamista ilman kokopäiväisen toimitusjohtajan kustannuksia. Hoidamme kaikki tietosuojan vaatimustenmukaisuuden näkökohdat DPIAn käsittelystä tietoturvaloukkausten hallintaan.",
+    forWho: "Organisaatioille, joiden on nimettävä tietosuojavastaava GDPR:n 37 artiklan mukaisesti tai jotka tarvitsevat asiantuntevaa tietosuojajohtamista.",
+    achieve: "Täysi GDPR-vaatimustenmukaisuus asiantuntevilla DPO-palveluilla, kattavalla tietosuojahallinnalla ja sääntelyluottamuksella.",
+    overview: {
+      title: "Yleiskatsaus",
+      description: "GDPR:n 37 artiklan mukaan monien organisaatioiden on nimettävä tietosuojavastaava. DPO-palveluna tarjoaa päteviä, kokeneita tietosuoja-ammattilaisia, jotka voivat toimia organisaatiosi tietosuojavastaavana varmistaen vaatimustenmukaisuuden samalla kun tarjoavat strategista tietosuojaohjausta.",
+      highlight: "Tarjoamme joustavia toimintamalleja virtuaalisista DPO-palveluista paikan päällä tapahtuvaan tukeen, räätälöitynä organisaatiosi erityisiin tietosuojatarpeisiin ja sääntelyvaatimuksiin."
+    },
+    engagementTypes: {
+      title: "Palvelumallit",
+      subtitle: "Joustavat DPO-palvelut räätälöitynä organisaatiosi tarpeisiin",
+      items: [
+        { type: "Virtuaalinen DPO", commitment: "Osa-aikainen", description: "Etä-DPO-palvelut säännöllisillä tarkistuksilla ja valvonnalla" },
+        { type: "Paikan päällä oleva DPO", commitment: "Joustava", description: "Säännöllinen paikan päällä läsnäolo monimutkaisille organisaatioille" },
+        { type: "Projektipohjainen", commitment: "Tarpeen mukaan", description: "Erityiset tietosuojaprojektit ja arvioinnit" }
+      ]
+    },
+    gdprServices: {
+      title: "GDPR-artiklan vaatimustenmukaisuus",
+      subtitle: "Kattava kattavuus keskeisistä GDPR-vaatimuksista",
+      items: [
+        "Artikla 30 RoPA -luominen",
+        "Artikla 35 DPIA -toteutus",
+        "Artikla 37 DPO -nimitys",
+        "Artikloiden 33/34 tietoturvaloukkauksesta ilmoittaminen",
+        "Artikloiden 13/14 tietosuojaselosteet",
+        "Artikla 7 suostumushallinta"
+      ]
+    },
+    features: {
+      title: "DPO-palvelumme",
+      subtitle: "Kattavat tietosuojapalvelut, jotka kattavat kaikki tietosuojan vaatimustenmukaisuuden näkökohdat",
+      items: [
+        { title: "Ulkoistetut DPO-palvelut", description: "Pätevä tietosuojavastaava, joka tarjoaa asiantuntevaa tietosuojavalvontaa ja sääntelyn vaatimustenmukaisuutta", icon: "users" },
+        { title: "Tietosuojan vaikutusten arvioinnit", description: "Kattavat DPIAt riskialttiille tietojenkäsittelytoimille ja uusille hankkeille", icon: "clipboard" },
+        { title: "Kirjanpito käsittelytoimista", description: "Yksityiskohtaisten RoPA:iden luominen ja ylläpito GDPR:n 30 artiklan vaatimustenmukaisuutta varten", icon: "document" },
+        { title: "Tietosuojahallinta ja -käytännöt", description: "Tietosuojakehysten, -käytäntöjen ja -hallintorakenteiden kehittäminen", icon: "shield" },
+        { title: "Tietoturvaloukkausten hallinta ja reagointi", description: "Tapahtumien hallinta, loukkausten arviointi ja sääntelyilmoitustuki", icon: "alert" },
+        { title: "Sääntely-yhteistyö", description: "Suora viestintä valvontaviranomaisten kanssa ja sääntelyedustus", icon: "network" }
+      ]
+    },
+    deliverables: {
+      title: "Mitä saat",
+      items: [
+        "Pätevän DPO:n nimitys ja palvelut",
+        "Tietosuojaohjelman arviointi ja tiekartta",
+        "Tietosuojan vaikutusten arvioinnit (DPIAt)",
+        "Kirjanpito käsittelytoimista (RoPAt)",
+        "Tietosuojakäytäntöjen ja -menettelyjen kehys",
+        "Tietoturvaloukkauksen hallintamenettelyt",
+        "Henkilöstön tietosuojakoulutusohjelmat",
+        "Sääntelykirjeenvaihto ja -yhteistyö"
+      ]
+    },
+    benefits: {
+      title: "Keskeiset edut",
+      items: [
+        "Täytä GDPR:n tietosuojavastaavan nimittämisvaatimukset",
+        "Asiantuntevaa tietosuojaohjausta ilman kokoaikaisia kustannuksia",
+        "Vähennetyt sääntelyriskit ja mahdolliset sakot",
+        "Ammattimaiset tietoturvaloukkauksen hallintakyvykkyydet",
+        "Parannettu asiakkaiden ja sidosryhmien luottamus"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6">
+        <p class="text-sm text-slate-600 leading-relaxed">{currentContent.overview.description}</p>
+        <p class="text-sm text-blue-600 font-semibold mt-3">{currentContent.overview.highlight}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Engagement Types Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.engagementTypes.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.engagementTypes.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        {currentContent.engagementTypes.items.map((engagement) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden text-center">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+              {engagement.type}
+            </h3>
+            <p class="text-xs font-medium text-[#3B82F6] mb-2 relative z-10">{engagement.commitment}</p>
+            <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">{engagement.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GDPR Services Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.gdprServices.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.gdprServices.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {currentContent.gdprServices.items.map((service) => (
+          <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3bb1f6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-3 group">
+            <div class="w-6 h-6 bg-[#3B82F6] rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-[#3B82F6] transition-colors duration-300">{service}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.features.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.features.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.features.items.map((feature) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={feature.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {feature.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables & Benefits Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-3xl mx-auto">
+        
+        <!-- Deliverables -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.deliverables.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.deliverables.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.benefits.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.benefits.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</Layout>

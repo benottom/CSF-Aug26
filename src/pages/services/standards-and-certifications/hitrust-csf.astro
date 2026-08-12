@@ -1,0 +1,307 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "HITRUST CSF";
+
+const content = {
+  en: {
+    title: "HITRUST CSF",
+    subtitle: "Risk Management & Compliance Framework",
+    heroDescription: "HITRUST CSF is a certifiable framework for managing regulatory compliance and risk. We provide readiness assessments, control mapping, and validated assessment support to help organizations achieve HITRUST certification.",
+    forWho: "For healthcare and regulated organizations seeking HITRUST CSF certification.",
+    achieve: "HITRUST CSF certification with comprehensive readiness assessments and validated support.",
+    overview: {
+      title: "Overview",
+      description: "HITRUST CSF (Common Security Framework) is a certifiable framework for managing regulatory compliance and risk. It combines multiple regulations and standards into a single, comprehensive framework designed specifically for healthcare and regulated industries.",
+      highlight: "Our expert team provides end-to-end HITRUST CSF support, from readiness assessments and gap analysis through control mapping and validated assessment assistance, helping you achieve certification efficiently."
+    },
+    services: {
+      title: "Our Services",
+      subtitle: "Comprehensive HITRUST CSF support across all certification phases",
+      items: [
+        { title: "Readiness Assessments", description: "Evaluate current security posture against HITRUST CSF requirements", icon: "clipboard" },
+        { title: "Gap Analysis", description: "Identify gaps in controls and documentation for certification", icon: "search" },
+        { title: "Control Mapping", description: "Map existing controls to HITRUST CSF requirements", icon: "map" },
+        { title: "Documentation Support", description: "Create and maintain required HITRUST CSF documentation", icon: "document" },
+        { title: "Validated Assessment Support", description: "Expert support during the validated assessment process", icon: "shield" },
+        { title: "Remediation Planning", description: "Develop and implement remediation plans for identified gaps", icon: "wrench" }
+      ]
+    },
+    keyFeatures: {
+      title: "HITRUST CSF Features",
+      subtitle: "Comprehensive framework for risk management and compliance",
+      items: [
+        "Multi-regulatory framework integration",
+        "Risk-based approach to compliance",
+        "Scalable assessment levels",
+        "Continuous monitoring and improvement"
+      ]
+    },
+    deliverables: {
+      title: "What You Get",
+      items: [
+        "Readiness assessment report",
+        "Gap analysis and remediation plan",
+        "Control mapping documentation",
+        "HITRUST CSF evidence package",
+        "Validated assessment support",
+        "Certification preparation materials"
+      ]
+    },
+    benefits: {
+      title: "Key Benefits",
+      items: [
+        "Achieve HITRUST CSF certification",
+        "Demonstrate compliance across multiple regulations",
+        "Streamline audit processes",
+        "Enhance security posture",
+        "Build stakeholder confidence"
+      ]
+    }
+  },
+  fi: {
+    title: "HITRUST CSF",
+    subtitle: "Riskienhallinta- ja vaatimustenmukaisuuskehys",
+    heroDescription: "HITRUST CSF on sertifioitava kehys sääntelyn vaatimustenmukaisuuden ja riskien hallintaan. Tarjoamme valmiusarviointeja, kontrollikartoitusta ja validoituja arviointitukipalveluita auttaaksemme organisaatioita saavuttamaan HITRUST-sertifioinnin.",
+    forWho: "Terveydenhuolto- ja säännellyille organisaatioille, jotka tavoittelevat HITRUST CSF -sertifiointia.",
+    achieve: "HITRUST CSF -sertifiointi kattavilla valmiusarvioinneilla ja validoidulla tuella.",
+    overview: {
+      title: "Yleiskatsaus",
+      description: "HITRUST CSF (Common Security Framework) on sertifioitava kehys sääntelyn vaatimustenmukaisuuden ja riskien hallintaan. Se yhdistää useat säädökset ja standardit yhdeksi kattavaksi kehykseksi, joka on suunniteltu erityisesti terveydenhuolto- ja säännellyille toimialoille.",
+      highlight: "Asiantuntijatiimimme tarjoaa kattavaa HITRUST CSF -tukea valmiusarvioinneista ja aukkoanalyysistä kontrollikartoitukseen ja validoituun arviointitukeen auttaen sinua saavuttamaan sertifioinnin tehokkaasti."
+    },
+    services: {
+      title: "Palvelumme",
+      subtitle: "Kattava HITRUST CSF -tuki kaikissa sertifiointivaiheissa",
+      items: [
+        { title: "Valmiusarvioinnit", description: "Arvioi nykyinen tietoturvataso HITRUST CSF -vaatimuksia vastaan", icon: "clipboard" },
+        { title: "Aukkoanalyysi", description: "Tunnista puutteet kontrolleissa ja dokumentaatiossa sertifiointia varten", icon: "search" },
+        { title: "Kontrollien kartoitus", description: "Kartoi olemassa olevat kontrollit HITRUST CSF -vaatimuksiin", icon: "map" },
+        { title: "Dokumentointituki", description: "Luo ja ylläpidä vaadittua HITRUST CSF -dokumentaatiota", icon: "document" },
+        { title: "Validoitu arviointituki", description: "Asiantunteva tuki validoidun arviointiprosessin aikana", icon: "shield" },
+        { title: "Korjaustoimenpiteiden suunnittelu", description: "Kehitä ja toteuta korjaussuunnitelmat tunnistetuille puutteille", icon: "wrench" }
+      ]
+    },
+    keyFeatures: {
+      title: "HITRUST CSF -ominaisuudet",
+      subtitle: "Kattava kehys riskienhallintaan ja vaatimustenmukaisuuteen",
+      items: [
+        "Monisääntelykehyksen integrointi",
+        "Riskipohjainen lähestymistapa vaatimustenmukaisuuteen",
+        "Skaalautuvat arviointitasot",
+        "Jatkuva seuranta ja parantaminen"
+      ]
+    },
+    deliverables: {
+      title: "Mitä saat",
+      items: [
+        "Valmiusarviointiraportti",
+        "Aukkoanalyysi ja korjaussuunnitelma",
+        "Kontrollien kartoitustiedot",
+        "HITRUST CSF -todistepaketti",
+        "Validoitu arviointituki",
+        "Sertifiointivalmistelumateriaalit"
+      ]
+    },
+    benefits: {
+      title: "Keskeiset edut",
+      items: [
+        "Saavuta HITRUST CSF -sertifiointi",
+        "Osoita vaatimustenmukaisuus useiden säädösten osalta",
+        "Virtaviivaista auditointiprosesseja",
+        "Paranna tietoturvatasoa",
+        "Rakenna sidosryhmien luottamusta"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6">
+        <p class="text-sm text-slate-600 leading-relaxed">{currentContent.overview.description}</p>
+        <p class="text-sm text-blue-600 font-semibold mt-3">{currentContent.overview.highlight}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.services.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.services.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.services.items.map((service) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={service.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {service.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {service.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.keyFeatures.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.keyFeatures.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {currentContent.keyFeatures.items.map((feature) => (
+          <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3bb1f6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-3 group">
+            <div class="w-6 h-6 bg-[#3B82F6] rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-[#3B82F6] transition-colors duration-300">{feature}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables & Benefits Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-3xl mx-auto">
+        
+        <!-- Deliverables -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.deliverables.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.deliverables.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.benefits.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.benefits.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</Layout>

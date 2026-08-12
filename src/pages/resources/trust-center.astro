@@ -1,0 +1,458 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+
+// SEO Configuration
+const seoConfig = {
+  title: 'Trust Center - Cyber Security Finland',
+  description: 'Our Trust Center provides comprehensive information about security, compliance, and operational practices at Cyber Security Finland.',
+  keywords: 'trust center, security practices, compliance, ISO 27001, GDPR, NIS2, data protection',
+  type: 'trust' as const,
+};
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+
+const content = {
+  en: {
+    hero: {
+      title: "Trust Center",
+      subtitle: "Comprehensive information about our security practices, compliance, and commitment to protecting your data",
+    },
+    security: {
+      title: "Security & Compliance",
+      items: [
+        { title: "ISO 27001 Certified", description: "Cyber Security Finland maintains ISO 27001 certification, demonstrating our commitment to information security management and best practices in protecting client data." },
+        { title: "GDPR Compliant", description: "We fully comply with the General Data Protection Regulation (GDPR) and maintain robust data protection policies. All personal data is processed lawfully and securely." },
+        { title: "NIS2 Directive Aligned", description: "Our operations and security practices align with the Network and Information Systems Security (NIS2) Directive, ensuring operational resilience and incident management capabilities." }
+      ]
+    },
+    dataProtection: {
+      title: "Data Protection Practices",
+      items: [
+        { title: "Data Minimization", description: "We collect only the minimum data necessary to provide our services." },
+        { title: "Encryption in Transit and at Rest", description: "All data communications use TLS/SSL encryption, and stored data is encrypted." },
+        { title: "Access Controls", description: "Strict access controls ensure only authorized personnel can access client data." },
+        { title: "Regular Backups", description: "We maintain regular encrypted backups to ensure business continuity and data recovery." },
+        { title: "Incident Response", description: "We have documented incident response procedures and notification protocols." }
+      ]
+    },
+    infrastructure: {
+      title: "Infrastructure Security",
+      items: [
+        { title: "Cloud Infrastructure", description: "Our cloud infrastructure is hosted with leading providers that maintain SOC 2 Type II compliance and advanced security measures." },
+        { title: "Network Security", description: "Advanced firewalls, DDoS protection, and intrusion detection systems protect our infrastructure from threats." },
+        { title: "Vulnerability Management", description: "Regular security assessments and penetration testing identify and remediate vulnerabilities promptly." },
+        { title: "Monitoring & Logging", description: "Continuous monitoring and comprehensive logging ensure we can detect and respond to security incidents." }
+      ]
+    },
+    certifications: {
+      title: "Certifications & Standards",
+      items: [
+        "ISO 27001 - Information Security Management",
+        "GDPR - General Data Protection Regulation",
+        "NIS2 - Network and Information Systems Security Directive",
+        "SOC 2 Type II - Service Organization Control",
+        "OWASP - Web Application Security Practices"
+      ]
+    },
+    businessContinuity: {
+      title: "Business Continuity & Disaster Recovery",
+      description: "We maintain comprehensive business continuity and disaster recovery plans to ensure service availability:",
+      points: [
+        "Recovery Time Objective (RTO): Committed to restoring services within defined timeframes",
+        "Recovery Point Objective (RPO): Minimal data loss through frequent backups",
+        "Regular Testing: DR procedures are tested regularly to ensure effectiveness",
+        "Redundancy: Geographically distributed infrastructure provides failover capabilities"
+      ]
+    },
+    privacy: {
+      title: "Privacy & Transparency",
+      items: [
+        { title: "Privacy Policy", description: "Our comprehensive privacy policy outlines how we collect, use, and protect personal data in compliance with GDPR and other regulations.", link: "/about", linkText: "Read our Privacy Policy" },
+        { title: "Data Processing Agreement (DPA)", description: "We provide Data Processing Agreements for clients requiring formal documentation of our data handling practices.", link: "/about", linkText: "Request a DPA" },
+        { title: "Transparency Reports", description: "We are committed to transparency in our operations and security practices. For questions, please contact us.", link: "mailto:info@cybersecurity.fi", linkText: "Contact Us" }
+      ]
+    },
+    cta: {
+      title: "Questions About Security & Trust?",
+      subtitle: "If you have concerns about our security practices or need detailed information about compliance certifications:",
+      buttonText: "Contact Our Security Team",
+      buttonHref: "mailto:info@cybersecurity.fi"
+    },
+    resources: {
+      title: "Related Resources",
+      items: [
+        { title: "Scam Awareness", description: "Learn about common scams and how to protect yourself.", href: "/resources/scam-awareness" },
+        { title: "DORA Compliance", description: "Understanding Digital Operational Resilience Act requirements.", href: "/resources/dora-compliance" }
+      ]
+    }
+  },
+  fi: {
+    hero: {
+      title: "Luottamuskeskus",
+      subtitle: "Kattava tieto turvallisuuskäytännöistämme, vaatimustenmukaisuudesta ja sitoutumisestamme tietojesi suojaamiseen",
+    },
+    security: {
+      title: "Turvallisuus & vaatimustenmukaisuus",
+      items: [
+        { title: "ISO 27001 -sertifioitu", description: "Cyber Security Finland ylläpitää ISO 27001 -sertifiointia, mikä osoittaa sitoutumisemme tietoturvallisuuden hallintaan ja parhaisiin käytäntöihin asiakastietojen suojaamisessa." },
+        { title: "GDPR-yhteensopiva", description: "Noudatamme täysin yleistä tietosuoja-asetusta (GDPR) ja ylläpidämme vankkoja tietosuojakäytäntöjä. Kaikkia henkilötietoja käsitellään lainmukaisesti ja turvallisesti." },
+        { title: "NIS2-direktiivin mukainen", description: "Toimintamme ja turvallisuuskäytäntömme ovat NIS2-direktiivin mukaisia, mikä varmistaa operatiivisen resilienssin ja tapahtumien hallintakyvyt." }
+      ]
+    },
+    dataProtection: {
+      title: "Tietosuojakäytännöt",
+      items: [
+        { title: "Tietojen minimointi", description: "Keräämme vain vähimmäismäärän tietoja, jotka ovat tarpeen palvelujemme tarjoamiseksi." },
+        { title: "Salaus siirrossa ja levossa", description: "Kaikki tiedonsiirrot käyttävät TLS/SSL-salausta, ja tallennetut tiedot on salattu." },
+        { title: "Käyttöoikeuksien hallinta", description: "Tiukat käyttöoikeuksien hallintakäytännöt varmistavat, että vain valtuutettu henkilöstö pääsee käsiksi asiakastietoihin." },
+        { title: "Säännölliset varmuuskopiot", description: "Ylläpidämme säännöllisiä salattuja varmuuskopioita liiketoiminnan jatkuvuuden ja tietojen palauttamisen varmistamiseksi." },
+        { title: "Tapahtumien hallinta", description: "Meillä on dokumentoidut tapahtumien hallintamenettelyt ja ilmoitusprotokollat." }
+      ]
+    },
+    infrastructure: {
+      title: "Infrastruktuurin turvallisuus",
+      items: [
+        { title: "Pilvi-infrastruktuuri", description: "Pilvi-infrastruktuurimme on isännöity johtavien palveluntarjoajien kanssa, jotka ylläpitävät SOC 2 Type II -vaatimustenmukaisuutta ja edistyneitä turvatoimia." },
+        { title: "Verkkoturvallisuus", description: "Edistyneet palomuurit, DDoS-suojaus ja tunkeilijoiden havainnointijärjestelmät suojaavat infrastruktuuriamme uhilta." },
+        { title: "Haavoittuvuuksien hallinta", description: "Säännölliset tietoturva-arvioinnit ja tunkeutumistestaukset tunnistavat ja korjaavat haavoittuvuudet nopeasti." },
+        { title: "Valvonta & kirjaus", description: "Jatkuva valvonta ja kattava kirjaus varmistavat, että voimme havaita ja reagoida tietoturvatapahtumiin." }
+      ]
+    },
+    certifications: {
+      title: "Sertifikaatit & standardit",
+      items: [
+        "ISO 27001 - Tietoturvallisuuden hallinta",
+        "GDPR - Yleinen tietosuoja-asetus",
+        "NIS2 - Verkko- ja tietoturvadirektiivi",
+        "SOC 2 Type II - Palveluorganisaation valvonta",
+        "OWASP - Verkkosovellusten turvallisuuskäytännöt"
+      ]
+    },
+    businessContinuity: {
+      title: "Liiketoiminnan jatkuvuus & katastrofipalautus",
+      description: "Ylläpidämme kattavia liiketoiminnan jatkuvuus- ja katastrofipalautussuunnitelmia palveluiden saatavuuden varmistamiseksi:",
+      points: [
+        "Palautumisaikatavoite (RTO): Sitoudumme palauttamaan palvelut määritellyissä aikatauluissa",
+        "Palautuspistetavoite (RPO): Minimaalinen tietohäviö tiheiden varmuuskopioiden avulla",
+        "Säännöllinen testaus: DR-menettelyjä testataan säännöllisesti tehokkuuden varmistamiseksi",
+        "Redundanssi: Maantieteellisesti hajautettu infrastruktuuri tarjoaa vikasietoisuuden"
+      ]
+    },
+    privacy: {
+      title: "Tietosuoja & läpinäkyvyys",
+      items: [
+        { title: "Tietosuojakäytäntö", description: "Kattava tietosuojakäytäntömme kuvaa, miten keräämme, käytämme ja suojaamme henkilötietoja GDPR:n ja muiden säännösten mukaisesti.", link: "/about", linkText: "Lue tietosuojakäytäntömme" },
+        { title: "Tietojenkäsittelysopimus (DPA)", description: "Tarjoamme tietojenkäsittelysopimuksia asiakkaille, jotka tarvitsevat muodollista dokumentaatiota tietojenkäsittelykäytännöistämme.", link: "/about", linkText: "Pyydä DPA" },
+        { title: "Läpinäkyvyysraportit", description: "Olemme sitoutuneet läpinäkyvyyteen toiminnassamme ja turvallisuuskäytännöissämme. Kysyttävää? Ota yhteyttä.", link: "mailto:info@cybersecurity.fi", linkText: "Ota yhteyttä" }
+      ]
+    },
+    cta: {
+      title: "Kysyttävää turvallisuudesta ja luottamuksesta?",
+      subtitle: "Jos sinulla on huolenaiheita turvallisuuskäytännöistämme tai tarvitset yksityiskohtaisia tietoja vaatimustenmukaisuussertifikaateista:",
+      buttonText: "Ota yhteyttä turvallisuustiimiimme",
+      buttonHref: "mailto:info@cybersecurity.fi"
+    },
+    resources: {
+      title: "Aiheeseen liittyvät resurssit",
+      items: [
+        { title: "Petostietoisuus", description: "Opi yleisistä huijauksista ja kuinka suojautua niiltä.", href: "/resources/scam-awareness" },
+        { title: "DORA-vaatimustenmukaisuus", description: "Digitaalisen toimintakyvyn säädös (DORA) -vaatimusten ymmärtäminen.", href: "/resources/dora-compliance" }
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+---
+
+<Layout {...seoConfig}>
+
+<!-- Hero Section - Centered with icon, matching home page -->
+<section class="bg-gradient-to-br from-blue-50 to-white text-slate-900 py-20 md:py-28">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    
+    <div class="flex justify-center mb-4">
+      <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center">
+        <Icon name="shield-check" class="w-8 h-8 text-[#1E2A7A]" />
+      </div>
+    </div>
+    
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-[#1E2A7A]">
+      {currentContent.hero.title}
+    </h1>
+    
+    <p class="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+      {currentContent.hero.subtitle}
+    </p>
+    
+  </div>
+</section>
+
+<!-- Security & Compliance Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {currentContent.security.title}
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {currentContent.security.items.map((item) => (
+        <div class="bg-slate-50/50 rounded-xl border border-slate-100
+                    hover:border-blue-300 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-2
+                    transition-all duration-300
+                    p-6 group">
+          
+          <div class="flex justify-end mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center
+                        transition-all duration-300
+                        group-hover:bg-gradient-to-r group-hover:from-[#1E2A7A] group-hover:to-[#3B82F6] group-hover:shadow-lg">
+              <Icon name="shield-check" class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+            </div>
+          </div>
+          
+          <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors duration-300 text-left">
+            {item.title}
+          </h3>
+          
+          <p class="text-slate-500 text-sm leading-relaxed text-left">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Data Protection Practices -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {currentContent.dataProtection.title}
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {currentContent.dataProtection.items.map((item) => (
+        <div class="bg-slate-50/50 rounded-xl border border-slate-100
+                    hover:border-blue-300 hover:bg-slate-50 hover:shadow-lg
+                    transition-all duration-300
+                    p-5 group">
+          
+          <h3 class="text-md font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors duration-300 flex items-center gap-2">
+            <span class="text-blue-500 text-lg">✓</span> {item.title}
+          </h3>
+          <p class="text-slate-500 text-xs leading-relaxed pl-6">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Infrastructure Security -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {currentContent.infrastructure.title}
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {currentContent.infrastructure.items.map((item) => (
+        <div class="bg-slate-50/50 rounded-xl border border-slate-100
+                    hover:border-blue-300 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-2
+                    transition-all duration-300
+                    p-6 group">
+          
+          <div class="flex justify-end mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center
+                        transition-all duration-300
+                        group-hover:bg-gradient-to-r group-hover:from-[#1E2A7A] group-hover:to-[#3B82F6] group-hover:shadow-lg">
+              <Icon name="server" class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+            </div>
+          </div>
+          
+          <h3 class="text-md font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors duration-300 text-left">
+            {item.title}
+          </h3>
+          
+          <p class="text-slate-500 text-xs leading-relaxed text-left">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Certifications & Standards -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {currentContent.certifications.title}
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {currentContent.certifications.items.map((item) => (
+        <div class="bg-slate-50/50 rounded-xl border border-slate-100
+                    hover:border-blue-300 hover:bg-slate-50 hover:shadow-md
+                    transition-all duration-300
+                    p-4 text-center group">
+          <div class="text-blue-500 text-2xl mb-2">★</div>
+          <p class="text-slate-700 text-sm group-hover:text-blue-700 transition-colors duration-300">{item}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Business Continuity -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {currentContent.businessContinuity.title}
+      </h2>
+      <p class="text-base md:text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
+        {currentContent.businessContinuity.description}
+      </p>
+    </div>
+
+    <div class="bg-slate-50/50 rounded-xl border border-slate-100 p-8">
+      <ul class="grid md:grid-cols-2 gap-4">
+        {currentContent.businessContinuity.points.map((point) => (
+          <li class="flex items-start gap-3 text-slate-600 text-sm">
+            <span class="text-blue-500">•</span> {point}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Privacy & Transparency -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {currentContent.privacy.title}
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {currentContent.privacy.items.map((item) => (
+        <div class="bg-slate-50/50 rounded-xl border border-slate-100
+                    hover:border-blue-300 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-2
+                    transition-all duration-300
+                    p-6 text-center group">
+          
+          <div class="flex justify-center mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center
+                        transition-all duration-300
+                        group-hover:bg-gradient-to-r group-hover:from-[#1E2A7A] group-hover:to-[#3B82F6] group-hover:shadow-lg">
+              <Icon name="file-text" class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
+            </div>
+          </div>
+          
+          <h3 class="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors duration-300">
+            {item.title}
+          </h3>
+          
+          <p class="text-slate-500 text-sm leading-relaxed mb-4">
+            {item.description}
+          </p>
+          
+          <a href={item.link} class="inline-flex items-center text-[#1E40AF] hover:text-[#3B82F6] font-semibold text-sm gap-1 transition-all duration-300">
+            {item.linkText}
+            <svg class="w-3 h-3 transition-transform duration-300 group-hover/link:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="bg-slate-50/50 rounded-2xl border border-slate-100 p-12 text-center shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300">
+      
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[#1E2A7A]">
+        {currentContent.cta.title}
+      </h2>
+
+      <p class="text-base md:text-lg text-slate-500 mb-8 max-w-2xl mx-auto leading-relaxed">
+        {currentContent.cta.subtitle}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        
+        <a href={currentContent.cta.buttonHref} 
+           class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-[#1E2A7A] to-[#3B82F6] text-white hover:from-[#3B82F6] hover:to-[#1E2A7A] transition-all duration-300 hover:shadow-lg font-medium gap-2">
+          📧 {currentContent.cta.buttonText}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        
+        <a href="/contact" 
+           class="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-[#1E40AF] text-[#1E40AF] hover:bg-gradient-to-r hover:from-[#1E2A7A] hover:to-[#3B82F6] hover:text-white hover:border-transparent transition-all duration-300 font-medium">
+          Contact Us
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Related Resources -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1E2A7A] mb-4">
+        {currentContent.resources.title}
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      {currentContent.resources.items.map((resource) => (
+        <a href={resource.href} 
+           class="bg-slate-50/50 rounded-xl border border-slate-100 p-5 text-center
+                  hover:border-blue-300 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-2
+                  transition-all duration-300 group block">
+          
+          <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors duration-300">
+            {resource.title}
+          </h3>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            {resource.description}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+</Layout>

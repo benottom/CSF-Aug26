@@ -1,0 +1,368 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "Compliance-as-a-Service";
+
+const content = {
+  en: {
+    title: "Compliance-as-a-Service",
+    subtitle: "Dedicated Compliance Manager",
+    heroDescription: "Dedicated Compliance Manager services providing ongoing ISMS/BCMS operation, evidence management, and audit support for sustained compliance. Our Compliance-as-a-Service provides organizations with dedicated compliance management expertise to operate security and business continuity management systems, ensuring continuous compliance and audit readiness.",
+    forWho: "For organizations needing ongoing compliance management expertise without full-time recruitment costs.",
+    achieve: "Continuous compliance with dedicated expertise, efficient evidence management, and audit readiness.",
+    overview: {
+      title: "Overview",
+      description: "Maintaining compliance certifications requires continuous effort, evidence collection, and operational management. Our Compliance-as-a-Service provides dedicated compliance management expertise to handle the day-to-day operations of your compliance programs.",
+      highlight: "We serve as your organization's Compliance Manager, handling everything from ISMS operation to audit coordination, allowing your internal teams to focus on core business activities while ensuring sustained compliance."
+    },
+    serviceModels: {
+      title: "Service Models",
+      subtitle: "Flexible compliance support tailored to your organization's needs",
+      items: [
+        { type: "Dedicated Compliance Manager", commitment: "Part-time/Full-time", description: "Dedicated resource managing your compliance program" },
+        { type: "Compliance Operations Support", commitment: "As needed", description: "Operational support for specific compliance activities" },
+        { type: "Audit Season Support", commitment: "Project-based", description: "Intensive support during audit and certification periods" }
+      ]
+    },
+    frameworks: {
+      title: "Supported Frameworks",
+      subtitle: "Comprehensive compliance management across multiple standards and frameworks",
+      items: [
+        "ISO 27001 ISMS",
+        "ISO 22301 BCMS",
+        "ISO 9001 QMS",
+        "SOC 2 Type II",
+        "HITRUST CSF",
+        "PCI DSS",
+        "GDPR/Privacy",
+        "Industry Frameworks"
+      ]
+    },
+    features: {
+      title: "Our Compliance Services",
+      subtitle: "Comprehensive compliance management covering all aspects of certification maintenance",
+      items: [
+        { title: "ISMS/BCMS Operation", description: "Full operational management of Information Security and Business Continuity Management Systems", icon: "cog" },
+        { title: "Evidence Collection & Management", description: "Systematic collection, organization, and maintenance of compliance evidence", icon: "folder" },
+        { title: "Audit Support & Coordination", description: "Comprehensive support for internal and external audits, including preparation and follow-up", icon: "clipboard" },
+        { title: "Attestation Management", description: "Coordination of compliance attestations and certification maintenance activities", icon: "award" },
+        { title: "Compliance Monitoring", description: "Continuous monitoring of compliance status and early identification of issues", icon: "monitor" },
+        { title: "Reporting & Dashboards", description: "Regular compliance reporting and executive dashboards for stakeholder communication", icon: "chart" }
+      ]
+    },
+    deliverables: {
+      title: "What You Get",
+      items: [
+        "Compliance program operation and management",
+        "Evidence repository and documentation system",
+        "Internal audit programs and execution",
+        "External audit coordination and support",
+        "Compliance monitoring and tracking system",
+        "Monthly compliance reports and dashboards",
+        "Certification maintenance and renewal support",
+        "Continuous improvement recommendations"
+      ]
+    },
+    benefits: {
+      title: "Key Benefits",
+      items: [
+        "Dedicated compliance expertise without full-time costs",
+        "Reduced compliance burden on internal teams",
+        "Consistent audit readiness and preparation",
+        "Improved compliance efficiency and effectiveness",
+        "Reduced risk of certification lapses"
+      ]
+    }
+  },
+  fi: {
+    title: "Vaatimustenmukaisuus-palveluna",
+    subtitle: "Dedikoitu vaatimustenmukaisuuspäällikkö",
+    heroDescription: "Dedikoidut vaatimustenmukaisuuspäällikköpalvelut, jotka tarjoavat jatkuvaa ISMS/BCMS-toimintaa, todisteiden hallintaa ja auditointitukea kestävään vaatimustenmukaisuuteen. Vaatimustenmukaisuus-palveluna tarjoaa organisaatioille dedikoitua vaatimustenmukaisuuden hallintaosaamista tietoturva- ja liiketoiminnan jatkuvuuden hallintajärjestelmien operointiin varmistaen jatkuvan vaatimustenmukaisuuden ja auditointivalmiuden.",
+    forWho: "Organisaatioille, jotka tarvitsevat jatkuvaa vaatimustenmukaisuuden hallintaosaamista ilman kokoaikaisia rekrytointikustannuksia.",
+    achieve: "Jatkuva vaatimustenmukaisuus dedikoidulla asiantuntemuksella, tehokkaalla todisteiden hallinnalla ja auditointivalmiudella.",
+    overview: {
+      title: "Yleiskatsaus",
+      description: "Vaatimustenmukaisuussertifikaattien ylläpito vaatii jatkuvaa työtä, todisteiden keruuta ja operatiivista hallintaa. Vaatimustenmukaisuus-palveluna tarjoaa dedikoitua vaatimustenmukaisuuden hallintaosaamista hoitamaan vaatimustenmukaisuusohjelmiesi päivittäisiä toimintoja.",
+      highlight: "Toimimme organisaatiosi vaatimustenmukaisuuspäällikkönä hoitaen kaiken ISMS-toiminnasta auditointikoordinointiin, jolloin sisäiset tiimisi voivat keskittyä ydintoimintoihin samalla kun varmistamme jatkuvan vaatimustenmukaisuuden."
+    },
+    serviceModels: {
+      title: "Palvelumallit",
+      subtitle: "Joustava vaatimustenmukaisuustuki organisaatiosi tarpeisiin",
+      items: [
+        { type: "Dedikoitu vaatimustenmukaisuuspäällikkö", commitment: "Osa-aikainen/Kokoaikainen", description: "Dedikoitu resurssi vaatimustenmukaisuusohjelmasi hallintaan" },
+        { type: "Vaatimustenmukaisuusoperaatioiden tuki", commitment: "Tarpeen mukaan", description: "Operatiivinen tuki erityisiin vaatimustenmukaisuustoimintoihin" },
+        { type: "Auditointikauden tuki", commitment: "Projektipohjainen", description: "Tehostettu tuki auditointi- ja sertifiointijaksojen aikana" }
+      ]
+    },
+    frameworks: {
+      title: "Tuetut kehykset",
+      subtitle: "Kattava vaatimustenmukaisuuden hallinta useiden standardien ja kehysten välillä",
+      items: [
+        "ISO 27001 ISMS",
+        "ISO 22301 BCMS",
+        "ISO 9001 QMS",
+        "SOC 2 Type II",
+        "HITRUST CSF",
+        "PCI DSS",
+        "GDPR/Tietosuoja",
+        "Toimialakehykset"
+      ]
+    },
+    features: {
+      title: "Vaatimustenmukaisuuspalvelumme",
+      subtitle: "Kattava vaatimustenmukaisuuden hallinta, joka kattaa kaikki sertifioinnin ylläpidon osa-alueet",
+      items: [
+        { title: "ISMS/BCMS-toiminta", description: "Tietoturva- ja liiketoiminnan jatkuvuuden hallintajärjestelmien täysi operatiivinen hallinta", icon: "cog" },
+        { title: "Todisteiden keruu ja hallinta", description: "Systemaattinen vaatimustenmukaisuustodisteiden keruu, järjestäminen ja ylläpito", icon: "folder" },
+        { title: "Auditointituki ja koordinointi", description: "Kattava tuki sisäisille ja ulkoisille auditoinneille, mukaan lukien valmistelu ja seuranta", icon: "clipboard" },
+        { title: "Sertifiointien hallinta", description: "Vaatimustenmukaisuussertifiointien ja sertifiointien ylläpitotoimien koordinointi", icon: "award" },
+        { title: "Vaatimustenmukaisuuden seuranta", description: "Vaatimustenmukaisuusaseman jatkuva seuranta ja ongelmien varhainen tunnistaminen", icon: "monitor" },
+        { title: "Raportointi ja hallintapaneelit", description: "Säännöllinen vaatimustenmukaisuusraportointi ja johdon hallintapaneelit sidosryhmäviestintää varten", icon: "chart" }
+      ]
+    },
+    deliverables: {
+      title: "Mitä saat",
+      items: [
+        "Vaatimustenmukaisuusohjelman operointi ja hallinta",
+        "Todisteiden arkisto ja dokumentointijärjestelmä",
+        "Sisäiset auditointiohjelmat ja toteutus",
+        "Ulkoisten auditointien koordinointi ja tuki",
+        "Vaatimustenmukaisuuden seuranta- ja seurantajärjestelmä",
+        "Kuukausittaiset vaatimustenmukaisuusraportit ja hallintapaneelit",
+        "Sertifioinnin ylläpito- ja uusimistuki",
+        "Jatkuvan parantamisen suositukset"
+      ]
+    },
+    benefits: {
+      title: "Keskeiset edut",
+      items: [
+        "Dedikoitu vaatimustenmukaisuusosaaminen ilman kokoaikaisia kustannuksia",
+        "Vähentynyt vaatimustenmukaisuustaakka sisäisille tiimeille",
+        "Johdonmukainen auditointivalmius ja valmistautuminen",
+        "Parantunut vaatimustenmukaisuuden tehokkuus ja vaikuttavuus",
+        "Vähentynyt sertifiointien umpeutumisen riski"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6">
+        <p class="text-sm text-slate-600 leading-relaxed">{currentContent.overview.description}</p>
+        <p class="text-sm text-blue-600 font-semibold mt-3">{currentContent.overview.highlight}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Models Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.serviceModels.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.serviceModels.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        {currentContent.serviceModels.items.map((model) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden text-center">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+              {model.type}
+            </h3>
+            <p class="text-xs font-medium text-[#3B82F6] mb-2 relative z-10">{model.commitment}</p>
+            <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">{model.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Frameworks Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.frameworks.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.frameworks.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {currentContent.frameworks.items.map((framework) => (
+          <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3bb1f6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-3 group">
+            <div class="w-6 h-6 bg-[#3B82F6] rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-[#3B82F6] transition-colors duration-300">{framework}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.features.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.features.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.features.items.map((feature) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={feature.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {feature.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables & Benefits Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-3xl mx-auto">
+        
+        <!-- Deliverables -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.deliverables.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.deliverables.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.benefits.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.benefits.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</Layout>

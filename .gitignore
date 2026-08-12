@@ -1,0 +1,21 @@
+node_modules
+.astro/
+dist/
+.vercel/
+*.tsbuildinfo
+# Local env files
+.env
+.env.*
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+# Logs
+*.log
+logs/
+npm-debug.log*
+.aider*
+# Editor / tool configs
+.claude/
+.vscode/
+.idea/

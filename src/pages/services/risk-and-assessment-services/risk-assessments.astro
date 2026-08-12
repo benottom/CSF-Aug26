@@ -1,0 +1,376 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = lang === 'fi' ? 'Riskienhallinta & Arviointi' : 'Risk & Assessment Services';
+const tagline = lang === 'fi' ? 'Tunnista, arvioi ja vähennä kyberturvallisuusriskejä' : 'Identify, assess, and mitigate cybersecurity risks';
+
+const stats = [
+  { value: "3+", label: lang === 'fi' ? 'Palvelualuetta' : 'Service Areas' },
+  { value: "100%", label: lang === 'fi' ? 'Riskien kattavuus' : 'Risk Coverage' },
+  { value: "24/7", label: lang === 'fi' ? 'Asiantuntijatuki' : 'Expert Support' },
+  { value: "98%", label: lang === 'fi' ? 'Asiakastyytyväisyys' : 'Client Satisfaction' }
+];
+
+const content = {
+  en: {
+    assessmentTypes: {
+      title: "Assessment Types",
+      subtitle: "Comprehensive risk assessments across all organizational areas.",
+      items: [
+        { title: "Technical Risk Assessments", description: "Security risks in systems, networks and applications", icon: "computer" },
+        { title: "Organizational Assessments", description: "Risk assessments of processes, personnel and operations", icon: "users" },
+        { title: "Vendor Assessments", description: "Third-party services and vendor assessments", icon: "building" },
+        { title: "Security Audits", description: "Comprehensive information security compliance assessments", icon: "shield" }
+      ]
+    },
+    methodologies: {
+      title: "Used Methodologies",
+      subtitle: "We utilize industry-leading and internationally recognized risk assessment methodologies.",
+      items: [
+        { title: "ISO 27005", description: "International standard for information security risk management", icon: "target" },
+        { title: "NIST Framework", description: "NIST Cybersecurity Framework-based assessment", icon: "shield-check" },
+        { title: "FAIR Model", description: "Factor Analysis of Information Risk methodology", icon: "book-open" },
+        { title: "OCTAVE", description: "Operationally Critical Threat, Asset, and Vulnerability Evaluation", icon: "database" }
+      ]
+    },
+    assessmentScope: {
+      title: "Assessment Scope",
+      subtitle: "Three-dimensional approach to comprehensive risk assessment.",
+      items: [
+        { title: "Technical Assessment", items: ["Vulnerability scans", "Penetration testing", "Configuration reviews", "Network security"] },
+        { title: "Process Assessment", items: ["Policy review", "Process documentation", "Control testing", "Compliance assessment"] },
+        { title: "Personnel Assessment", items: ["Training needs assessment", "Awareness testing", "Access rights review", "Social engineering"] }
+      ]
+    },
+    deliverables: {
+      title: "Deliverables",
+      subtitle: "You receive practical and actionable results that guide your security investments.",
+      items: [
+        { title: "Risk Assessment Report", description: "Comprehensive report of identified risks and recommendations", icon: "file-text" },
+        { title: "Risk Prioritization", description: "Risks prioritized by impact and likelihood", icon: "trending-up" },
+        { title: "Remediation Plan", description: "Detailed plan for risk treatment", icon: "tool" },
+        { title: "Timeline and Tracking", description: "Implementation timeline and progress tracking model", icon: "clock" }
+      ]
+    },
+    process: {
+      title: "Assessment Process",
+      subtitle: "Systematic and documented approach to effective risk assessment.",
+      items: [
+        { number: "01", title: "Scope Definition", description: "Assessment target and boundary definition" },
+        { number: "02", title: "Data Collection", description: "Systems, processes and documentation mapping" },
+        { number: "03", title: "Risk Identification", description: "Threat, vulnerability and risk identification" },
+        { number: "04", title: "Risk Analysis", description: "Risk probability and impact assessment" },
+        { number: "05", title: "Reporting", description: "Results reporting and recommendations" }
+      ]
+    }
+  },
+  fi: {
+    assessmentTypes: {
+      title: "Arviointityypit",
+      subtitle: "Kattavat riskiarvioinnit kaikilla organisaation osa-alueilla.",
+      items: [
+        { title: "Tekniset riskiarvioinnit", description: "Järjestelmien, verkkojen ja sovellusten turvallisuusriskit", icon: "computer" },
+        { title: "Organisatoriset arvioinnit", description: "Prosessien, henkilöstön ja toimintojen riskiarvioinnit", icon: "users" },
+        { title: "Toimittaja-arvioinnit", description: "Kolmannen osapuolen palveluiden ja toimittajien arviointi", icon: "building" },
+        { title: "Tietoturva-auditit", description: "Kattavat tietoturvallisuuden compliance-arvioinnit", icon: "shield" }
+      ]
+    },
+    methodologies: {
+      title: "Käytetyt menetelmät",
+      subtitle: "Hyödynnämme alan parhaita ja kansainvälisesti tunnustettuja riskiarviointimenetelmiä.",
+      items: [
+        { title: "ISO 27005", description: "Kansainvälinen standardi tietoturvariskien hallintaan", icon: "target" },
+        { title: "NIST Framework", description: "NIST Cybersecurity Framework -pohjainen arviointi", icon: "shield-check" },
+        { title: "FAIR Model", description: "Factor Analysis of Information Risk -menetelmä", icon: "book-open" },
+        { title: "OCTAVE", description: "Operationally Critical Threat, Asset, and Vulnerability Evaluation", icon: "database" }
+      ]
+    },
+    assessmentScope: {
+      title: "Arvioinnin laajuus",
+      subtitle: "Kolmiulotteinen lähestymistapa kattavaan riskiarviointiin.",
+      items: [
+        { title: "Tekninen arviointi", items: ["Haavoittuvuusskannaukset", "Penetraatiotestaukset", "Konfiguraation tarkastukset", "Verkkoturvallisuus"] },
+        { title: "Prosessiarviointi", items: ["Politiikkojen tarkastelu", "Prosessien dokumentointi", "Kontrollien testaus", "Compliance-arviointi"] },
+        { title: "Henkilöstöarviointi", items: ["Koulutustarpeiden kartoitus", "Tietoisuuden testaus", "Käyttöoikeuksien tarkastelu", "Sosiaalinen manipulointi"] }
+      ]
+    },
+    deliverables: {
+      title: "Toimitukset",
+      subtitle: "Saat käytännölliset ja toiminnalliset tulokset, jotka ohjaavat tietoturvainvestointejasi.",
+      items: [
+        { title: "Riskiarviointiraportti", description: "Kattava raportti tunnistetuista riskeistä ja suosituksista", icon: "file-text" },
+        { title: "Riskipriorisointi", description: "Riski prioriteettijärjestyksessä vaikutuksen ja todennäköisyyden mukaan", icon: "trending-up" },
+        { title: "Korjaustoimenpiteet", description: "Yksityiskohtainen suunnitelma riskien käsittelyyn", icon: "tool" },
+        { title: "Aikataulu ja seuranta", description: "Toteutusaikataulu ja edistymisen seurantamalli", icon: "clock" }
+      ]
+    },
+    process: {
+      title: "Arviointiprosessi",
+      subtitle: "Systemaattinen ja dokumentoitu lähestymistapa tehokkaaseen riskiarviointiin.",
+      items: [
+        { number: "01", title: "Laajuuden määrittely", description: "Arvioinnin kohteen ja rajauksen määrittely" },
+        { number: "02", title: "Tiedonkeruu", description: "Järjestelmien, prosessien ja dokumenttien kartoitus" },
+        { number: "03", title: "Riskien tunnistus", description: "Uhkien, haavoittuvuuksien ja riskien tunnistaminen" },
+        { number: "04", title: "Riskianalyysi", description: "Riskien todennäköisyyden ja vaikutuksen arviointi" },
+        { number: "05", title: "Raportointi", description: "Tulosten raportointi ja suositukset" }
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {title}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {tagline}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-8 bg-slate-50 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {stats.map((stat) => (
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-bold text-[#3B82F6] mb-1">
+              {stat.value}
+            </div>
+            <div class="text-slate-500 text-sm">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Types Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.assessmentTypes.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.assessmentTypes.subtitle}
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.assessmentTypes.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col h-full p-5 md:p-6 group cursor-pointer text-center">
+            
+            <div class="flex justify-center mb-3 relative">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-center">
+              {item.title}
+            </h3>
+            
+            <p class="text-xs text-slate-500 mb-3 group-hover:text-slate-600 transition-colors duration-300 text-center flex-1">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodologies Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.methodologies.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.methodologies.subtitle}
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.methodologies.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col h-full p-5 md:p-6 group cursor-pointer text-center">
+            
+            <div class="flex justify-center mb-3 relative">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-center">
+              {item.title}
+            </h3>
+            
+            <p class="text-xs text-slate-500 mb-3 group-hover:text-slate-600 transition-colors duration-300 text-center flex-1">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Scope Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.assessmentScope.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.assessmentScope.subtitle}
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        {currentContent.assessmentScope.items.map((scope, index) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col h-full p-5 md:p-6 group cursor-pointer text-center">
+            
+            <div class="flex justify-center mb-3 relative">
+              <div class="w-12 h-12 bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                {index + 1}
+              </div>
+            </div>
+            
+            <h3 class="text-base font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-center">
+              {scope.title}
+            </h3>
+            
+            <div class="mt-auto pt-3 border-t-2 border-slate-200 group-hover:border-[#3B82F6] transition-colors duration-300">
+              <ul class="space-y-1.5 text-left mx-auto w-full max-w-xs">
+                {scope.items.map((item) => (
+                  <li class="flex items-start text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300">
+                    <svg class="w-3 h-3 text-[#3B82F6] mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.deliverables.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.deliverables.subtitle}
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.deliverables.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col h-full p-5 md:p-6 group cursor-pointer text-center">
+            
+            <div class="flex justify-center mb-3 relative">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-center">
+              {item.title}
+            </h3>
+            
+            <p class="text-xs text-slate-500 mb-3 group-hover:text-slate-600 transition-colors duration-300 text-center flex-1">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Process Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.process.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.process.subtitle}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {currentContent.process.items.map((step) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden text-center">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-center mb-2 relative z-10">
+              <div class="w-10 h-10 bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                {step.number}
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+              {step.title}
+            </h3>
+            <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

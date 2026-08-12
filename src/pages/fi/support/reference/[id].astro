@@ -1,0 +1,10 @@
+---
+// Disable prerendering for this dynamic route
+export const prerender = false;
+
+const { id } = Astro.params;
+const lang = 'fi';
+---
+
+<h1>Viitettä ei löydy</h1>
+<p>Viitettä ID: {id} ei löydy.</p>

@@ -1,0 +1,168 @@
+---
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+
+const languages = {
+  en: { code: 'en', name: 'English', label: 'EN' },
+  fi: { code: 'fi', name: 'Suomi', label: 'FI' }
+};
+
+const getLocalizedUrl = (path: string, targetLang: string) => {
+  // First clean the path of any existing language prefix
+  const cleanPath = path.startsWith('/fi') ? path.replace('/fi', '') || '/' : path;
+
+  if (targetLang === 'fi') {
+    return cleanPath === '/' ? '/fi' : `/fi${cleanPath}`;
+  } else {
+    // target is 'en'
+    return cleanPath;
+  }
+};
+---
+
+<div class="relative language-selector-wrapper">
+  <button
+    aria-label="Change language"
+    class="language-selector-button flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors duration-200"
+    aria-expanded="false"
+    aria-haspopup="true"
+  >
+    <!-- US Flag SVG for English -->
+    {currentLang === 'en' && (
+      <svg class="w-5 h-4 rounded-sm shadow-sm flex-shrink-0" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+        <g fill-rule="evenodd">
+          <g stroke-width="1pt">
+            <path fill="#bd3d44" d="M0 0h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8V197H0zm0 78.8h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8v39.4H0zm0 78.8h972.8V560H0z" transform="scale(.9375 .857)"/>
+            <path fill="#fff" d="M0 39.4h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8v39.4H0z" transform="scale(.9375 .857)"/>
+          </g>
+          <path fill="#192f5d" d="M0 0h389.1v275.7H0z" transform="scale(.9375 .857)"/>
+        </g>
+      </svg>
+    )}
+    <!-- Finnish Flag SVG -->
+    {currentLang === 'fi' && (
+      <svg class="w-5 h-4 rounded-sm shadow-sm flex-shrink-0" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#fff" d="M0 0h640v480H0z"/>
+        <path fill="#003580" d="M0 174.5h640v131H0z"/>
+        <path fill="#003580" d="M175.5 0h130.9v480h-131z"/>
+      </svg>
+    )}
+    <span class="font-medium">{currentLang.toUpperCase()}</span>
+    <svg xmlns="http://www.w3.org/2000/svg"
+      class="language-chevron w-4 h-4 transition-transform duration-200"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div
+    class="language-dropdown absolute right-0 mt-2 w-44 bg-white shadow-lg rounded-md border border-slate-200 opacity-0 invisible scale-95 transform translate-y-1 transition-all duration-200 z-50 origin-top-right"
+  >
+    <div class="py-1">
+
+      {Object.entries(languages).map(([code, lang]) => {
+        // Render all languages so user can see which one is selected or choose another
+        const localizedUrl = getLocalizedUrl(currentPath, code);
+        const isCurrent = code === currentLang;
+        return (
+          <a
+            href={localizedUrl}
+            class={`flex items-center px-4 py-2.5 text-sm transition-colors duration-200 ${isCurrent ? 'bg-slate-50 text-blue-600 font-medium' : 'text-slate-700 hover:bg-slate-100'}`}
+            data-lang-code={code}
+            data-is-current={isCurrent}
+          >
+            <!-- US Flag SVG -->
+            {code === 'en' && (
+              <svg class="w-5 h-4 mr-3 rounded-sm shadow-sm flex-shrink-0" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+                <g fill-rule="evenodd">
+                  <g stroke-width="1pt">
+                    <path fill="#bd3d44" d="M0 0h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8V197H0zm0 78.8h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8v39.4H0zm0 78.8h972.8V560H0z" transform="scale(.9375 .857)"/>
+                    <path fill="#fff" d="M0 39.4h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.8h972.8v39.4H0zm0 78.7h972.8v39.4H0z" transform="scale(.9375 .857)"/>
+                  </g>
+                  <path fill="#192f5d" d="M0 0h389.1v275.7H0z" transform="scale(.9375 .857)"/>
+                </g>
+              </svg>
+            )}
+            <!-- Finnish Flag SVG -->
+            {code === 'fi' && (
+              <svg class="w-5 h-4 mr-3 rounded-sm shadow-sm flex-shrink-0" viewBox="0 0 640 480" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#fff" d="M0 0h640v480H0z"/>
+                <path fill="#003580" d="M0 174.5h640v131H0z"/>
+                <path fill="#003580" d="M175.5 0h130.9v480h-131z"/>
+              </svg>
+            )}
+            <span>{lang.name}</span>
+            {isCurrent && (
+              <svg class="w-4 h-4 ml-auto text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrappers = document.querySelectorAll('.language-selector-wrapper');
+
+    wrappers.forEach(wrapper => {
+      const button = wrapper.querySelector('.language-selector-button');
+      const dropdown = wrapper.querySelector('.language-dropdown');
+      const chevron = wrapper.querySelector('.language-chevron');
+
+      if (!button || !dropdown) return;
+
+      // Toggle dropdown visibility
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        // Toggle expanded state
+        button.setAttribute('aria-expanded', String(!isExpanded));
+
+        // Toggle dropdown visibility
+        if (!isExpanded) {
+          dropdown.classList.remove('opacity-0', 'invisible', 'scale-95', 'translate-y-1');
+          dropdown.classList.add('opacity-100', 'visible', 'scale-100', 'translate-y-0');
+          if (chevron) chevron.classList.add('rotate-180');
+        } else {
+          dropdown.classList.add('opacity-0', 'invisible', 'scale-95', 'translate-y-1');
+          dropdown.classList.remove('opacity-100', 'visible', 'scale-100', 'translate-y-0');
+          if (chevron) chevron.classList.remove('rotate-180');
+        }
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!wrapper.contains(e.target)) {
+          button.setAttribute('aria-expanded', 'false');
+          dropdown.classList.add('opacity-0', 'invisible', 'scale-95', 'translate-y-1');
+          dropdown.classList.remove('opacity-100', 'visible', 'scale-100', 'translate-y-0');
+          if (chevron) chevron.classList.remove('rotate-180');
+        }
+      });
+
+      // Handle keyboard navigation
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          button.click();
+        } else if (e.key === 'Escape') {
+          button.setAttribute('aria-expanded', 'false');
+          dropdown.classList.add('opacity-0', 'invisible', 'scale-95', 'translate-y-1');
+          dropdown.classList.remove('opacity-100', 'visible', 'scale-100', 'translate-y-0');
+          if (chevron) chevron.classList.remove('rotate-180');
+          button.focus();
+        }
+      });
+    });
+  });
+</script>

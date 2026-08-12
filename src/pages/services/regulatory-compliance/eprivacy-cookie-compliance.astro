@@ -1,0 +1,545 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "ePrivacy & Cookie Compliance";
+
+const content = {
+  en: {
+    title: "ePrivacy & Cookie Compliance",
+    subtitle: "Consent Management & Tracking Governance",
+    heroDescription: "Comprehensive ePrivacy and cookie compliance solutions including consent management, cookie audits, tracking governance, and digital marketing compliance for EU regulations.",
+    forWho: "For organizations operating websites and digital services that need to comply with ePrivacy Directive and GDPR cookie requirements.",
+    achieve: "Full ePrivacy compliance with proper consent management, cookie governance, and user trust.",
+    benefits: {
+      title: "Why ePrivacy & Cookie Compliance Matters",
+      subtitle: "Navigate complex cookie and tracking regulations with confidence while maintaining effective digital marketing and analytics capabilities.",
+      items: [
+        { title: "Regulatory Compliance", description: "Ensure compliance with ePrivacy Directive, GDPR cookie requirements, and national implementations across EU member states.", icon: "shield-check" },
+        { title: "Avoid Penalties", description: "Prevent hefty fines and sanctions from data protection authorities with proper cookie consent and tracking compliance.", icon: "alert-triangle" },
+        { title: "Build Trust", description: "Enhance customer trust and brand reputation through transparent cookie practices and user consent management.", icon: "users" },
+        { title: "Optimize Marketing", description: "Balance compliance requirements with effective digital marketing through strategic consent management.", icon: "trending-up" },
+        { title: "Technical Implementation", description: "Implement robust technical solutions for cookie scanning, consent management, and tracking technology governance.", icon: "cog" },
+        { title: "Continuous Monitoring", description: "Ongoing monitoring and maintenance of cookie compliance as technologies and regulations evolve.", icon: "refresh-cw" }
+      ]
+    },
+    regulatory: {
+      title: "ePrivacy Regulatory Landscape",
+      subtitle: "Navigate the complex web of EU cookie and electronic communications regulations.",
+      items: [
+        { title: "ePrivacy Directive (2002/58/EC)", description: "Fundamental framework for electronic communications privacy, including cookie consent requirements.", status: "Current" },
+        { title: "GDPR Article 5(3) Integration", description: "Cookie consent requirements enhanced by GDPR's consent standards and data protection principles.", status: "Current" },
+        { title: "National Implementations", description: "Varying national laws across EU member states with different enforcement approaches and requirements.", status: "Active" },
+        { title: "Upcoming ePrivacy Regulation", description: "Anticipated replacement of the directive with harmonized EU-wide regulation and enhanced requirements.", status: "Pending" }
+      ],
+      requirements: [
+        "Prior Informed Consent - Explicit consent required before placing non-essential cookies",
+        "Clear Information - Transparent information about cookies, their purposes, and data processing",
+        "Consent Management - Technical infrastructure to collect, record, and manage user consent",
+        "Withdrawal Rights - Easy mechanisms for users to withdraw consent and manage preferences"
+      ]
+    },
+    process: {
+      title: "Cookie Compliance Implementation Process",
+      subtitle: "Systematic approach to achieving comprehensive ePrivacy and cookie compliance.",
+      items: [
+        { number: "01", title: "Cookie Audit & Discovery", description: "Comprehensive scanning and cataloging of all cookies, tracking technologies, and third-party integrations." },
+        { number: "02", title: "Legal Compliance Assessment", description: "Evaluate current practices against applicable ePrivacy and GDPR requirements across relevant jurisdictions." },
+        { number: "03", title: "Consent Management Implementation", description: "Deploy and configure consent management platform with user-friendly interfaces and technical controls." },
+        { number: "04", title: "Monitoring & Maintenance", description: "Ongoing monitoring, updates, and compliance validation as technologies and regulations evolve." }
+      ]
+    },
+    services: {
+      title: "Comprehensive ePrivacy Services",
+      technical: {
+        title: "Cookie Management & Technical Implementation",
+        items: [
+          "Comprehensive cookie auditing and discovery",
+          "Consent management platform implementation",
+          "Cookie categorization and classification",
+          "Technical consent controls and blocking",
+          "Third-party tracking integration management",
+          "Server-side tracking and analytics setup"
+        ]
+      },
+      legal: {
+        title: "Legal & Governance Framework",
+        items: [
+          "Cookie policy development and legal notices",
+          "Privacy notice updates and integration",
+          "Multi-jurisdictional compliance assessment",
+          "Consent records management and documentation",
+          "Vendor and third-party agreement updates",
+          "Regulatory compliance monitoring and reporting"
+        ]
+      }
+    },
+    cookieCategories: {
+      title: "Cookie Categories & Management",
+      subtitle: "Proper categorization and management of different cookie types for compliant user choice.",
+      items: [
+        { title: "Essential Cookies", description: "Necessary for basic website functionality and security.", consent: "No Consent Required", icon: "shield-check" },
+        { title: "Analytics Cookies", description: "Website performance and user behavior analysis.", consent: "Consent Required", icon: "chart-line" },
+        { title: "Marketing Cookies", description: "Advertising, retargeting, and personalized marketing.", consent: "Consent Required", icon: "target" },
+        { title: "Preference Cookies", description: "User preferences and website customization.", consent: "Consent Required", icon: "settings" }
+      ]
+    },
+    challenges: {
+      title: "Common Compliance Challenges",
+      subtitle: "Address typical cookie compliance obstacles with expert guidance and proven solutions.",
+      items: [
+        { title: "Hidden Tracking Technologies", description: "Identifying and managing all tracking mechanisms including pixels, beacons, fingerprinting, and embedded third-party content.", icon: "search" },
+        { title: "Complex Consent Flows", description: "Designing user-friendly consent interfaces that meet legal requirements while maintaining conversion rates.", icon: "users" },
+        { title: "Technical Implementation", description: "Implementing robust technical controls that reliably block non-consented tracking while preserving functionality.", icon: "cog" },
+        { title: "Multi-Jurisdiction Compliance", description: "Navigating varying national implementations of ePrivacy rules across different EU member states.", icon: "globe-alt" },
+        { title: "Vendor Management", description: "Managing compliance across complex ecosystems of third-party vendors and marketing technology platforms.", icon: "building-library" },
+        { title: "Documentation & Proof", description: "Maintaining comprehensive records of consent and compliance measures for regulatory inquiries.", icon: "document-check" }
+      ]
+    }
+  },
+  fi: {
+    title: "ePrivacy & Evästeiden vaatimustenmukaisuus",
+    subtitle: "Suostumushallinta & seurannan hallinta",
+    heroDescription: "Kattavat ePrivacy- ja evästeiden vaatimustenmukaisuusratkaisut, mukaan lukien suostumushallinta, evästekatselmukset, seurannan hallinta ja digitaalisen markkinoinnin vaatimustenmukaisuus EU-säännösten osalta.",
+    forWho: "Organisaatioille, jotka ylläpitävät verkkosivustoja ja digitaalisia palveluita ja joiden on noudatettava ePrivacy-direktiivin ja GDPR-evästevaatimuksia.",
+    achieve: "Täysi ePrivacy-vaatimustenmukaisuus asianmukaisella suostumushallinnalla, evästeiden hallinnalla ja käyttäjien luottamuksella.",
+    benefits: {
+      title: "Miksi ePrivacy- ja evästeiden vaatimustenmukaisuus on tärkeää",
+      subtitle: "Navigoi monimutkaisissa eväste- ja seurantasäännöksissä luottavaisesti säilyttäen samalla tehokkaat digitaalisen markkinoinnin ja analytiikan kyvykkyydet.",
+      items: [
+        { title: "Sääntelyvaatimustenmukaisuus", description: "Varmista ePrivacy-direktiivin, GDPR-evästevaatimusten ja kansallisten täytäntöönpanojen noudattaminen EU:n jäsenvaltioissa.", icon: "shield-check" },
+        { title: "Vältä seuraamukset", description: "Estä suuret sakot ja seuraamukset tietosuojaviranomaisilta asianmukaisella evästeiden suostumuksella ja seurannan vaatimustenmukaisuudella.", icon: "alert-triangle" },
+        { title: "Rakenna luottamusta", description: "Paranna asiakkaiden luottamusta ja brändin mainetta läpinäkyvillä evästekäytännöillä ja käyttäjien suostumushallinnalla.", icon: "users" },
+        { title: "Optimoi markkinointi", description: "Tasapainota vaatimustenmukaisuusvaatimukset tehokkaan digitaalisen markkinoinnin kanssa strategisen suostumushallinnan avulla.", icon: "trending-up" },
+        { title: "Tekninen toteutus", description: "Toteuta vankat tekniset ratkaisut evästeiden skannaukseen, suostumushallintaan ja seurantateknologian hallintaan.", icon: "cog" },
+        { title: "Jatkuva seuranta", description: "Jatkuva evästeiden vaatimustenmukaisuuden seuranta ja ylläpito teknologioiden ja säännösten kehittyessä.", icon: "refresh-cw" }
+      ]
+    },
+    regulatory: {
+      title: "ePrivacy-sääntelymaisema",
+      subtitle: "Navigoi EU:n eväste- ja sähköisen viestinnän säännösten monimutkaisessa verkostossa.",
+      items: [
+        { title: "ePrivacy-direktiivi (2002/58/EY)", description: "Perustavanlaatuinen kehys sähköisen viestinnän yksityisyydelle, mukaan lukien evästeiden suostumusvaatimukset.", status: "Voimassa" },
+        { title: "GDPR:n 5(3) artiklan integrointi", description: "Evästeiden suostumusvaatimuksia on tehostettu GDPR:n suostumusstandardeilla ja tietosuojan periaatteilla.", status: "Voimassa" },
+        { title: "Kansalliset täytäntöönpanot", description: "Vaihtelevat kansalliset lait EU:n jäsenvaltioissa erilaisilla täytäntöönpanotavoilla ja vaatimuksilla.", status: "Aktiivinen" },
+        { title: "Tuleva ePrivacy-asetus", description: "Direktiivin korvaaminen yhdenmukaistetulla EU-laajuisella asetuksella ja tehostetuilla vaatimuksilla.", status: "Odottaa" }
+      ],
+      requirements: [
+        "Ennakkosuostumus - Nimenomainen suostumus vaaditaan ennen kuin muita kuin välttämättömiä evästeitä voidaan asettaa",
+        "Selkeät tiedot - Läpinäkyvät tiedot evästeistä, niiden tarkoituksista ja tietojen käsittelystä",
+        "Suostumushallinta - Tekninen infrastruktuuri käyttäjien suostumusasetusten keräämiseen, tallentamiseen ja hallintaan",
+        "Peruuttamisoikeudet - Helppokäyttöiset mekanismit käyttäjille suostumuksen peruuttamiseen ja asetusten hallintaan"
+      ]
+    },
+    process: {
+      title: "Evästeiden vaatimustenmukaisuuden toteutusprosessi",
+      subtitle: "Systemaattinen lähestymistapa kattavan ePrivacy- ja evästeiden vaatimustenmukaisuuden saavuttamiseksi.",
+      items: [
+        { number: "01", title: "Evästekatselmus & löytäminen", description: "Kattava kaikkien evästeiden, seurantateknologioiden ja kolmannen osapuolen integraatioiden skannaus ja luettelointi." },
+        { number: "02", title: "Oikeudellinen vaatimustenmukaisuusarviointi", description: "Nykyisten käytäntöjen arviointi sovellettavia ePrivacy- ja GDPR-vaatimuksia vastaan eri lainkäyttöalueilla." },
+        { number: "03", title: "Suostumushallinnan toteutus", description: "Suostumushallinta-alustan käyttöönotto ja konfigurointi käyttäjäystävällisillä käyttöliittymillä ja teknisillä kontrolleilla." },
+        { number: "04", title: "Seuranta & ylläpito", description: "Jatkuva seuranta, päivitykset ja vaatimustenmukaisuuden validointi teknologioiden ja säännösten kehittyessä." }
+      ]
+    },
+    services: {
+      title: "Kattavat ePrivacy-palvelut",
+      technical: {
+        title: "Evästeiden hallinta & tekninen toteutus",
+        items: [
+          "Kattava evästeiden auditointi ja löytäminen",
+          "Suostumushallinta-alustan toteutus",
+          "Evästeiden kategorisointi ja luokittelu",
+          "Tekniset suostumuskontrollit ja estäminen",
+          "Kolmannen osapuolen seurantaintegraatioiden hallinta",
+          "Palvelinpuolen seuranta ja analytiikan asennus"
+        ]
+      },
+      legal: {
+        title: "Oikeudellinen & hallinnollinen kehys",
+        items: [
+          "Evästekäytännön kehitys ja oikeudelliset ilmoitukset",
+          "Tietosuojailmoitusten päivitykset ja integrointi",
+          "Monen lainkäyttöalueen vaatimustenmukaisuusarviointi",
+          "Suostumustietueiden hallinta ja dokumentointi",
+          "Toimittaja- ja kolmannen osapuolen sopimuspäivitykset",
+          "Sääntelyvaatimustenmukaisuuden seuranta ja raportointi"
+        ]
+      }
+    },
+    cookieCategories: {
+      title: "Evästekategoriat & hallinta",
+      subtitle: "Erityyppisten evästeiden asianmukainen kategorisointi ja hallinta vaatimustenmukaisen käyttäjän valinnan mahdollistamiseksi.",
+      items: [
+        { title: "Välttämättömät evästeet", description: "Tarpeellisia verkkosivuston perustoiminnallisuuden ja turvallisuuden kannalta.", consent: "Suostumusta ei vaadita", icon: "shield-check" },
+        { title: "Analytiikkaevästeet", description: "Verkkosivuston suorituskyvyn ja käyttäjäkäyttäytymisen analysointi.", consent: "Suostumus vaaditaan", icon: "chart-line" },
+        { title: "Markkinointievästeet", description: "Mainonta, uudelleenkohdistaminen ja personoitu markkinointi.", consent: "Suostumus vaaditaan", icon: "target" },
+        { title: "Asetusevästeet", description: "Käyttäjien asetukset ja verkkosivuston mukauttaminen.", consent: "Suostumus vaaditaan", icon: "settings" }
+      ]
+    },
+    challenges: {
+      title: "Yleiset vaatimustenmukaisuushaasteet",
+      subtitle: "Käsittele tyypillisiä evästeiden vaatimustenmukaisuuden esteitä asiantuntijaohjauksella ja todistetuilla ratkaisuilla.",
+      items: [
+        { title: "Piilotetut seurantateknologiat", description: "Kaikkien seurantamekanismien tunnistaminen ja hallinta, mukaan lukien pikselit, majakat, sormenjäljitys ja upotettu kolmannen osapuolen sisältö.", icon: "search" },
+        { title: "Monimutkaiset suostumusvirrat", description: "Käyttäjäystävällisten suostumuskäyttöliittymien suunnittelu, jotka täyttävät oikeudelliset vaatimukset säilyttäen samalla konversioprosentit.", icon: "users" },
+        { title: "Tekninen toteutus", description: "Vankkojen teknisten kontrollien toteuttaminen, jotka luotettavasti estävät ei-suostutun seurannan säilyttäen samalla toiminnallisuuden.", icon: "cog" },
+        { title: "Monen lainkäyttöalueen vaatimustenmukaisuus", description: "ePrivacy-sääntöjen vaihtelevien kansallisten täytäntöönpanojen läpi navigointi eri EU:n jäsenvaltioissa.", icon: "globe-alt" },
+        { title: "Toimittajahallinta", description: "Vaatimustenmukaisuuden hallinta monimutkaisissa kolmannen osapuolen toimittajien ja markkinointiteknologia-alustojen ekosysteemeissä.", icon: "building-library" },
+        { title: "Dokumentointi & todisteet", description: "Kattavien tietueiden ylläpito suostumuksesta ja vaatimustenmukaisuustoimenpiteistä sääntelytiedusteluja varten.", icon: "document-check" }
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.benefits.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.benefits.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.benefits.items.map((benefit) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={benefit.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {benefit.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {benefit.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+<!-- Regulatory Landscape Section - Right card centered -->
+<section class="py-12 md:py-16 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-8 md:mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        {currentContent.regulatory.title}
+      </h2>
+      <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        {currentContent.regulatory.subtitle}
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Left Column - Frameworks (takes 2/3) -->
+      <div class="lg:col-span-2 bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                  hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                  transition-all duration-300
+                  flex flex-col p-4 md:p-5 group relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+        <h3 class="text-sm font-bold text-[#1E40AF] mb-3 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+          {isFi ? 'Nykyinen oikeudellinen kehys' : 'Current Legal Framework'}
+        </h3>
+        <ul class="space-y-3 relative z-10">
+          {currentContent.regulatory.items.map((item, idx) => (
+            <li class="flex items-start gap-3">
+              <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="text-xs font-bold text-[#1E2A7A]">{idx + 1}</span>
+              </div>
+              <div>
+                <strong class="text-xs font-semibold text-slate-700">{item.title}</strong>
+                <p class="text-xs text-slate-500 mt-0.5">{item.description}</p>
+                <span class="inline-block text-xs text-[#3B82F6] bg-blue-50 px-2 py-0.5 rounded mt-1 border border-[#3B82F6]">{item.status}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Right Column - Requirements (takes 1/3 - centered both horizontally and vertically) -->
+      <div class="lg:col-span-1 flex items-center justify-center">
+        <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                    hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                    transition-all duration-300
+                    flex flex-col p-4 md:p-5 group relative overflow-hidden w-full">
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+          <h3 class="text-sm font-bold text-[#1E40AF] mb-3 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+            {isFi ? 'Keskeiset vaatimukset' : 'Key Compliance Requirements'}
+          </h3>
+          <ul class="space-y-2 relative z-10">
+            {currentContent.regulatory.requirements.map((req) => (
+              <li class="flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <p class="text-xs text-slate-600">{req}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Implementation Process Section - Centered with max-width -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.process.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.process.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-xl mx-auto space-y-4">
+        {currentContent.process.items.map((step) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col md:flex-row md:items-center gap-4 p-4 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex-shrink-0 relative z-10">
+              <div class="w-10 h-10 bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] text-white rounded-xl flex items-center justify-center text-sm font-bold">
+                {step.number}
+              </div>
+            </div>
+            <div class="flex-1 relative z-10">
+              <h3 class="text-sm font-bold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                {step.title}
+              </h3>
+              <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section - Centered and narrower -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.services.title}
+        </h2>
+      </div>
+      
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                    hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                    transition-all duration-300
+                    flex flex-col p-4 md:p-5 group relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+          <h3 class="text-sm font-bold text-[#1E40AF] mb-3 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+            {currentContent.services.technical.title}
+          </h3>
+          <ul class="space-y-1.5 relative z-10">
+            {currentContent.services.technical.items.map((item) => (
+              <li class="flex items-start text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300">
+                <svg class="w-3 h-3 text-[#3B82F6] mr-1.5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                    hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                    transition-all duration-300
+                    flex flex-col p-4 md:p-5 group relative overflow-hidden">
+          <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+          <h3 class="text-sm font-bold text-[#1E40AF] mb-3 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+            {currentContent.services.legal.title}
+          </h3>
+          <ul class="space-y-1.5 relative z-10">
+            {currentContent.services.legal.items.map((item) => (
+              <li class="flex items-start text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300">
+                <svg class="w-3 h-3 text-[#3B82F6] mr-1.5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cookie Categories Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.cookieCategories.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.cookieCategories.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.cookieCategories.items.map((category) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-9 h-9 bg-white rounded-lg flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={category.icon} class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {category.title}
+            </h3>
+            <p class="text-xs text-slate-500 mb-2 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {category.description}
+            </p>
+            <span class="inline-block text-xs font-medium text-[#3B82F6] bg-blue-50 px-2 py-0.5 rounded-full border border-[#3B82F6] w-fit group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300 relative z-10">
+              {category.consent}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.challenges.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.challenges.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.challenges.items.map((challenge) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex items-start gap-3 mb-1.5">
+              <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center flex-shrink-0
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={challenge.icon} class="w-4 h-4 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+              <div>
+                <h3 class="text-sm font-bold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+                  {challenge.title}
+                </h3>
+                <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+                  {challenge.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

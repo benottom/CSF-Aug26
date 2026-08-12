@@ -1,0 +1,371 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "Cyber Essentials";
+
+const content = {
+  en: {
+    title: "Cyber Essentials",
+    subtitle: "UK Government Cyber Security Scheme",
+    heroDescription: "Fast-track UK Cyber Essentials certification with expert rapid hardening, testing, and certification preparation services. Cyber Essentials and Cyber Essentials Plus are UK government-backed cybersecurity schemes that demonstrate your organization has secure defenses against the most common cyber attacks.",
+    forWho: "For organizations seeking UK government-backed cybersecurity certification and government contract eligibility.",
+    achieve: "Cyber Essentials or Cyber Essentials Plus certification with rapid implementation in 30-60 days.",
+    overview: {
+      title: "Overview",
+      description: "Cyber Essentials is a UK government-backed certification scheme that helps organizations demonstrate they have implemented basic cybersecurity controls. The scheme covers five key technical controls that protect against the most common cyber attacks.",
+      highlight: "Our rapid implementation methodology gets organizations from assessment to certification in just 30-60 days, with minimal business disruption and maximum efficiency."
+    },
+    certificationTypes: {
+      title: "Certification Options",
+      subtitle: "Choose the level of certification that meets your requirements",
+      items: [
+        { type: "Cyber Essentials", description: "Self-assessment questionnaire demonstrating basic controls", timeframe: "30-45 days", testing: "Self-declaration" },
+        { type: "Cyber Essentials Plus", description: "Independent technical verification of implemented controls", timeframe: "45-60 days", testing: "External testing" }
+      ]
+    },
+    controls: {
+      title: "Five Essential Controls",
+      subtitle: "The core security controls covered by Cyber Essentials certification",
+      items: [
+        "Firewalls and Gateway Protection",
+        "Secure Configuration",
+        "User Access Control",
+        "Malware Protection",
+        "Software Security Updates"
+      ]
+    },
+    features: {
+      title: "Our Cyber Essentials Services",
+      subtitle: "Comprehensive certification services for rapid Cyber Essentials compliance",
+      items: [
+        { title: "Rapid Hardening & Implementation", description: "Fast-track implementation of Cyber Essentials controls with minimal business disruption", icon: "shield" },
+        { title: "Pre-Assessment Testing", description: "Comprehensive testing and validation of controls before formal certification assessment", icon: "clipboard" },
+        { title: "Certification Preparation", description: "Complete preparation for both Cyber Essentials and Cyber Essentials Plus assessments", icon: "award" },
+        { title: "Gap Analysis & Remediation", description: "Detailed gap analysis with prioritized remediation plans for quick compliance", icon: "wrench" },
+        { title: "Documentation & Evidence", description: "Comprehensive documentation and evidence collection for certification requirements", icon: "document" },
+        { title: "Ongoing Compliance", description: "Annual renewal support and continuous compliance monitoring", icon: "monitor" }
+      ]
+    },
+    deliverables: {
+      title: "What You Get",
+      items: [
+        "Cyber Essentials readiness assessment",
+        "Control implementation and hardening",
+        "Pre-assessment testing and validation",
+        "Certification application support",
+        "Evidence documentation package",
+        "Staff training and awareness materials",
+        "Annual renewal preparation",
+        "Continuous monitoring procedures"
+      ]
+    },
+    benefits: {
+      title: "Key Benefits",
+      items: [
+        "Meet UK government contract requirements",
+        "Demonstrate basic cybersecurity competence",
+        "Reduce cyber insurance premiums",
+        "Competitive advantage in UK markets",
+        "Fast-track certification in 30-60 days"
+      ]
+    }
+  },
+  fi: {
+    title: "Cyber Essentials",
+    subtitle: "Ison-Britannian hallituksen kyberturvallisuusohjelma",
+    heroDescription: "Nopea Ison-Britannian Cyber Essentials -sertifiointi asiantuntevalla nopealla kovetuksella, testauksella ja sertifiointivalmistelulla. Cyber Essentials ja Cyber Essentials Plus ovat Ison-Britannian hallituksen tukemia kyberturvallisuusohjelmia, jotka osoittavat, että organisaatiollasi on turvalliset puolustusmekanismit yleisimpiä kyberhyökkäyksiä vastaan.",
+    forWho: "Organisaatioille, jotka tavoittelevat Ison-Britannian hallituksen tukemaa kyberturvallisuussertifiointia ja hallituksen sopimuskelpoisuutta.",
+    achieve: "Cyber Essentials tai Cyber Essentials Plus -sertifiointi nopealla toteutuksella 30-60 päivässä.",
+    overview: {
+      title: "Yleiskatsaus",
+      description: "Cyber Essentials on Ison-Britannian hallituksen tukema sertifiointiohjelma, joka auttaa organisaatioita osoittamaan toteuttaneensa perustason kyberturvallisuuskontrollit. Ohjelma kattaa viisi keskeistä teknistä kontrollia, jotka suojaavat yleisimmiltä kyberhyökkäyksiltä.",
+      highlight: "Nopea toteutusmetodologiamme vie organisaatiot arvioinnista sertifiointiin vain 30-60 päivässä minimaalisilla liiketoimintahäiriöillä ja maksimaalisella tehokkuudella."
+    },
+    certificationTypes: {
+      title: "Sertifiointivaihtoehdot",
+      subtitle: "Valitse tarpeitasi vastaava sertifiointitaso",
+      items: [
+        { type: "Cyber Essentials", description: "Peruskontrollit osoittava oma-arviointikysely", timeframe: "30-45 päivää", testing: "Oma-arviointi" },
+        { type: "Cyber Essentials Plus", description: "Toteutettujen kontrollien riippumaton tekninen varmentaminen", timeframe: "45-60 päivää", testing: "Ulkoinen testaus" }
+      ]
+    },
+    controls: {
+      title: "Viisi olennaista kontrollia",
+      subtitle: "Cyber Essentials -sertifioinnin kattamat keskeiset turvallisuuskontrollit",
+      items: [
+        "Palomuurit ja yhdyskäytävän suojaus",
+        "Turvallinen konfigurointi",
+        "Käyttäjien käyttöoikeuksien hallinta",
+        "Haittaohjelmasuojaus",
+        "Ohjelmistojen tietoturvapäivitykset"
+      ]
+    },
+    features: {
+      title: "Cyber Essentials -palvelumme",
+      subtitle: "Kattavat sertifiointipalvelut nopeaan Cyber Essentials -vaatimustenmukaisuuteen",
+      items: [
+        { title: "Nopea kovetus ja toteutus", description: "Cyber Essentials -kontrollien nopea toteutus minimaalisilla liiketoimintahäiriöillä", icon: "shield" },
+        { title: "Esisertifiointitestaus", description: "Kontrollien kattava testaus ja validointi ennen muodollista sertifiointiarviointia", icon: "clipboard" },
+        { title: "Sertifiointivalmistelu", description: "Täydellinen valmistautuminen sekä Cyber Essentials- että Cyber Essentials Plus -arviointeihin", icon: "award" },
+        { title: "Aukkoanalyysi ja korjaus", description: "Yksityiskohtainen aukkoanalyysi priorisoiduilla korjaussuunnitelmilla nopeaa vaatimustenmukaisuutta varten", icon: "wrench" },
+        { title: "Dokumentointi ja todisteet", description: "Kattava dokumentointi ja todisteiden keruu sertifiointivaatimuksia varten", icon: "document" },
+        { title: "Jatkuva vaatimustenmukaisuus", description: "Vuotuinen uusimistuki ja jatkuva vaatimustenmukaisuuden seuranta", icon: "monitor" }
+      ]
+    },
+    deliverables: {
+      title: "Mitä saat",
+      items: [
+        "Cyber Essentials -valmiusarviointi",
+        "Kontrollien toteutus ja kovetus",
+        "Esisertifiointitestaus ja validointi",
+        "Sertifiointihakemuksen tuki",
+        "Todisteiden dokumentointipaketti",
+        "Henkilöstön koulutus- ja tietoisuusmateriaalit",
+        "Vuotuinen uusimisvalmistelu",
+        "Jatkuvan seurannan menettelyt"
+      ]
+    },
+    benefits: {
+      title: "Keskeiset edut",
+      items: [
+        "Täytä Ison-Britannian hallituksen sopimusvaatimukset",
+        "Osoita perustason kyberturvallisuusosaaminen",
+        "Vähennä kybervakuutusmaksuja",
+        "Kilpailuetu Ison-Britannian markkinoilla",
+        "Nopea sertifiointi 30-60 päivässä"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6">
+        <p class="text-sm text-slate-600 leading-relaxed">{currentContent.overview.description}</p>
+        <p class="text-sm text-blue-600 font-semibold mt-3">{currentContent.overview.highlight}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certification Types Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.certificationTypes.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.certificationTypes.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        {currentContent.certificationTypes.items.map((cert) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+              {cert.type}
+            </h3>
+            <p class="text-xs text-slate-500 mb-3 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {cert.description}
+            </p>
+            <div class="mt-auto pt-2 border-t border-slate-100 relative z-10">
+              <div class="flex justify-between text-xs">
+                <span class="text-slate-500">Timeframe:</span>
+                <span class="font-medium text-slate-700">{cert.timeframe}</span>
+              </div>
+              <div class="flex justify-between text-xs mt-1">
+                <span class="text-slate-500">Testing:</span>
+                <span class="font-medium text-slate-700">{cert.testing}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Controls Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.controls.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.controls.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {currentContent.controls.items.map((control) => (
+          <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3bb1f6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-3 group">
+            <div class="w-6 h-6 bg-[#3B82F6] rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-[#3B82F6] transition-colors duration-300">{control}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.features.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.features.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.features.items.map((feature) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={feature.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {feature.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables & Benefits Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-3xl mx-auto">
+        
+        <!-- Deliverables -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.deliverables.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.deliverables.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.benefits.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.benefits.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</Layout>

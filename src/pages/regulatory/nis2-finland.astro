@@ -1,0 +1,429 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "NIS2 Directive";
+
+const content = {
+  en: {
+    title: "NIS2",
+    subtitle: "Network and Information Security Directive",
+    heroDescription: "Navigate NIS2 compliance requirements with expert guidance and proven implementation strategies. Full compliance with regulatory requirements and enhanced cybersecurity posture.",
+    forWho: "For essential and important entities across 18 sectors, including energy, transport, banking, health, and digital infrastructure.",
+    achieve: "Full NIS2 compliance with enhanced cybersecurity posture, incident response capabilities, and regulatory readiness.",
+    nis2: {
+      title: "What is NIS2?",
+      description: "The Network and Information Security Directive (NIS2) is a European Union cybersecurity regulation that strengthens security requirements for critical infrastructure and digital service providers across the EU."
+    },
+    keyRequirements: {
+      title: "Key Requirements",
+      subtitle: "Four pillars of NIS2 compliance",
+      items: [
+        { title: "Risk Management", description: "Implement comprehensive risk assessment and management processes with documented controls", icon: "shield-check" },
+        { title: "Incident Reporting", description: "Establish incident detection, reporting, and response procedures with defined timelines", icon: "bolt" },
+        { title: "Business Continuity", description: "Develop resilience and business continuity planning for critical operations", icon: "building-library" },
+        { title: "Supply Chain Security", description: "Manage security risks in supply chain relationships and third-party dependencies", icon: "cog" }
+      ]
+    },
+    finland: {
+      title: "Finland-Specific Requirements",
+      subtitle: "Understanding local implementation and regulatory expectations",
+      items: [
+        { title: "Finnish NIS2 Act", description: "Implementation through the Finnish Information Security Act with local adaptations", icon: "document-check" },
+        { title: "Traficom Oversight", description: "Finnish Transport and Communications Agency as the national NIS2 authority", icon: "building-library" },
+        { title: "Sector Classification", description: "Finnish-specific categorization of essential and important entities across 18 sectors", icon: "chart-line" },
+        { title: "Reporting Obligations", description: "Local incident reporting requirements and communication channels with Traficom", icon: "globe-alt" }
+      ]
+    },
+    compliance: {
+      title: "NIS2 Compliance Framework",
+      subtitle: "Key control areas that must be addressed for compliance",
+      items: [
+        { title: "Risk Management", description: "Implement comprehensive risk assessment and management processes", icon: "shield-check" },
+        { title: "Incident Response", description: "Establish incident detection, reporting, and response procedures", icon: "bolt" },
+        { title: "Business Continuity", description: "Develop resilience and business continuity planning", icon: "building-library" },
+        { title: "Supply Chain Security", description: "Manage security risks in supply chain relationships", icon: "cog" },
+        { title: "Access Control", description: "Implement robust access control and identity management", icon: "lock-closed" },
+        { title: "Cryptography", description: "Use appropriate encryption and cryptographic controls", icon: "star" }
+      ]
+    },
+    steps: {
+      title: "NIS2 Implementation Roadmap",
+      subtitle: "Systematic approach to achieving full compliance",
+      items: [
+        { number: "01", title: "Scope & Readiness Assessment", description: "Determine if your organization falls under NIS2 requirements and assess current security posture" },
+        { number: "02", title: "Gap Analysis", description: "Detailed analysis of gaps between current security posture and NIS2 requirements" },
+        { number: "03", title: "Implementation Planning", description: "Develop detailed implementation roadmap, timeline, and resource allocation" },
+        { number: "04", title: "Control Implementation", description: "Implement required security controls, policies, and processes" },
+        { number: "05", title: "Testing & Validation", description: "Test controls, validate compliance readiness, and prepare for regulatory reporting" }
+      ]
+    },
+    benefits: {
+      title: "Benefits of NIS2 Compliance",
+      subtitle: "Strategic advantages of achieving compliance",
+      items: [
+        "Enhanced cybersecurity posture and operational resilience",
+        "Improved customer and partner trust in your security capabilities",
+        "Competitive advantage in the EU market",
+        "Reduced regulatory and legal risks with demonstrated compliance",
+        "Better incident response capabilities and business continuity"
+      ]
+    }
+  },
+  fi: {
+    title: "NIS2",
+    subtitle: "Verkko- ja tietoturvadirektiivi",
+    heroDescription: "Navigoi NIS2-vaatimustenmukaisuusvaatimukset asiantuntevan ohjauksen ja todistettujen toteutusstrategioiden avulla. Täysi vaatimustenmukaisuus ja parannettu kyberturvallisuus.",
+    forWho: "Olennaisille ja tärkeille yhteisöille 18 sektorilla, mukaan lukien energia, liikenne, pankki, terveys ja digitaalinen infrastruktuuri.",
+    achieve: "Täysi NIS2 vaatimustenmukaisuus parannetulla kyberturvallisuudella, tapahtumien hallintakyvyillä ja sääntelyvalmiudella.",
+    nis2: {
+      title: "Mikä on NIS2?",
+      description: "Verkko- ja tietoturvadirektiivi (NIS2) on Euroopan unionin kyberturvallisuusasetus, joka vahvistaa kriittisen infrastruktuurin ja digitaalisten palveluntarjoajien turvallisuusvaatimuksia koko EU:ssa."
+    },
+    keyRequirements: {
+      title: "Keskeiset vaatimukset",
+      subtitle: "NIS2-vaatimustenmukaisuuden neljä pilaria",
+      items: [
+        { title: "Riskienhallinta", description: "Toteuta kattavat riskinarviointi- ja hallintaprosessit dokumentoiduin kontrollein", icon: "shield-check" },
+        { title: "Tapahtumaraportointi", description: "Perusta tapahtumien tunnistus-, raportointi- ja vastausproseduurit", icon: "bolt" },
+        { title: "Liiketoiminnan jatkuvuus", description: "Kehitä kestävyys- ja liiketoiminnan jatkuvuussuunnittelu", icon: "building-library" },
+        { title: "Toimitusketjun turvallisuus", description: "Hallitse turvallisuusriskejä toimitusketjusuhteissa", icon: "cog" }
+      ]
+    },
+    finland: {
+      title: "Suomen erityisvaatimukset",
+      subtitle: "Paikallisen toteutuksen ja sääntelyodotusten ymmärtäminen",
+      items: [
+        { title: "Suomen NIS2-laki", description: "Toteutus suomalaisen tietoturvalain kautta paikallisin sovelluksin", icon: "document-check" },
+        { title: "Traficomin valvonta", description: "Liikenne- ja viestintävirasto kansallisena NIS2-viranomaisena", icon: "building-library" },
+        { title: "Sektoriluokittelu", description: "Suomenkielinen olennaisten ja tärkeiden yhteisöjen kategorisointi 18 sektorilla", icon: "chart-line" },
+        { title: "Raportointivelvollisuudet", description: "Paikalliset tapahtumaraportointivaatimukset ja viestintäkanavat Traficomille", icon: "globe-alt" }
+      ]
+    },
+    compliance: {
+      title: "NIS2-vaatimustenmukaisuuden viitekehys",
+      subtitle: "Keskeiset valvonta-alueet, jotka on käsiteltävä vaatimustenmukaisuuden saavuttamiseksi",
+      items: [
+        { title: "Riskienhallinta", description: "Toteuta kattavat riskinarviointi- ja hallintaprosessit", icon: "shield-check" },
+        { title: "Tapahtumien hallinta", description: "Perusta tapahtumien tunnistus-, raportointi- ja vastausproseduurit", icon: "bolt" },
+        { title: "Liiketoiminnan jatkuvuus", description: "Kehitä kestävyys- ja liiketoiminnan jatkuvuussuunnittelu", icon: "building-library" },
+        { title: "Toimitusketjun turvallisuus", description: "Hallitse turvallisuusriskejä toimitusketjusuhteissa", icon: "cog" },
+        { title: "Käyttöoikeuksien hallinta", description: "Toteuta vahva käyttöoikeuksien hallinta ja identiteetinhallinta", icon: "lock-closed" },
+        { title: "Kryptografia", description: "Käytä asianmukaista salausta ja kryptografisia kontrolleja", icon: "star" }
+      ]
+    },
+    steps: {
+      title: "NIS2-toteutuksen etenemissuunnitelma",
+      subtitle: "Systemaattinen lähestymistapa täyden vaatimustenmukaisuuden saavuttamiseksi",
+      items: [
+        { number: "01", title: "Laajuuden ja valmiuden arviointi", description: "Määritä, kuuluuko organisaatiosi NIS2-vaatimusten piiriin" },
+        { number: "02", title: "Aukkoanalyysi", description: "Yksityiskohtainen analyysi nykyisen turvallisuustason ja NIS2-vaatimusten välisistä puutteista" },
+        { number: "03", title: "Toteutussuunnittelu", description: "Kehitä yksityiskohtainen toteutussuunnitelma ja aikataulu" },
+        { number: "04", title: "Kontrollien toteutus", description: "Toteuta vaaditut turvallisuuskontrollit, käytännöt ja prosessit" },
+        { number: "05", title: "Testaus ja validointi", description: "Testaa kontrollit, validoi vaatimustenmukaisuusvalmius" }
+      ]
+    },
+    benefits: {
+      title: "NIS2-vaatimustenmukaisuuden edut",
+      subtitle: "Vaatimustenmukaisuuden saavuttamisen strategiset edut",
+      items: [
+        "Parannettu kyberturvallisuustaso ja toiminnallinen kestävyys",
+        "Parantunut asiakkaiden ja kumppaneiden luottamus",
+        "Kilpailuetu EU-markkinoilla",
+        "Alennettu sääntely- ja oikeudellinen riski",
+        "Paremmat tapahtumien hallintakyvyt ja liiketoiminnan jatkuvuus"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-12 md:pt-16 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout (Centered) -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <!-- Who is this for? -->
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- What will you achieve? -->
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is NIS2 Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-4">
+          {currentContent.nis2.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.nis2.description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Requirements Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.keyRequirements.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.keyRequirements.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.keyRequirements.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-3 relative z-10">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base md:text-lg font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Finland-Specific Requirements Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.finland.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.finland.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.finland.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-3 relative z-10">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base md:text-lg font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Framework Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.compliance.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.compliance.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.compliance.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-start mb-3 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base md:text-lg font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Implementation Steps Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.steps.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.steps.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto space-y-4">
+        {currentContent.steps.items.map((step) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col md:flex-row md:items-center gap-4 p-5 md:p-6 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex-shrink-0 relative z-10">
+              <div class="w-12 h-12 bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] text-white rounded-xl flex items-center justify-center text-lg font-bold">
+                {step.number}
+              </div>
+            </div>
+            <div class="flex-1 relative z-10">
+              <h3 class="text-base md:text-lg font-bold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                {step.title}
+              </h3>
+              <p class="text-sm text-slate-500 group-hover:text-slate-600 transition-colors duration-300">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.benefits.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.benefits.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {currentContent.benefits.items.map((benefit) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[4px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex-shrink-0 relative z-10">
+              <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <svg class="w-4 h-4 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            </div>
+            <span class="text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300 relative z-10">
+              {benefit}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,344 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = lang === 'fi' ? "SaaS & Teknologia" : "SaaS & Technology";
+
+const content = {
+  en: {
+    title: "SaaS & Technology",
+    subtitle: "SaaS & Technology Cybersecurity",
+    heroDescription: "Comprehensive cybersecurity and compliance services for software companies and technology organizations. We help protect product development, customer data, and cloud services.",
+    forWho: "Software companies, SaaS providers, technology startups, IT service companies, and other technology organizations looking to strengthen their cybersecurity.",
+    achieve: "Product development security, cloud service protection, GDPR compliance, and resilient cybersecurity.",
+    challenges: {
+      title: "Key Challenges",
+      subtitle: "Technology companies face unique cybersecurity challenges that require specialized expertise.",
+      items: [
+        {
+          title: "Product Security",
+          description: "Ensuring security of software and APIs throughout the development process",
+          icon: "code"
+        },
+        {
+          title: "Cloud Security",
+          description: "Strengthening cybersecurity for cloud services and multi-cloud architectures",
+          icon: "cloud"
+        },
+        {
+          title: "Customer Data Protection",
+          description: "Meeting GDPR and other data protection regulation requirements",
+          icon: "user"
+        },
+        {
+          title: "DevSecOps Integration",
+          description: "Integrating security into development and deployment processes",
+          icon: "gear"
+        }
+      ]
+    },
+    solutions: {
+      title: "Our Solutions",
+      subtitle: "Comprehensive services that help technology companies strengthen their cybersecurity and meet regulatory requirements.",
+      items: [
+        {
+          title: "Product Security",
+          description: "Software security auditing and testing",
+          icon: "shield"
+        },
+        {
+          title: "Cloud Security Audit",
+          description: "Comprehensive cybersecurity audit of cloud services",
+          icon: "cloud"
+        },
+        {
+          title: "GDPR Compliance",
+          description: "Meeting data protection regulation requirements",
+          icon: "document"
+        },
+        {
+          title: "DevSecOps Program",
+          description: "Integrating security into DevOps processes",
+          icon: "arrowPath"
+        }
+      ]
+    },
+    benefits: {
+      title: "Benefits",
+      subtitle: "Why technology companies choose us for their cybersecurity services.",
+      items: [
+        "Protect product development process",
+        "Strengthen cloud service security",
+        "Meet GDPR requirements",
+        "Enhance customer trust",
+        "Strengthen competitive advantage"
+      ]
+    }
+  },
+  fi: {
+    title: "SaaS & Teknologia",
+    subtitle: "SaaS & Teknologian kyberturva",
+    heroDescription: "Kattavat kyberturva- ja yhteensopivuuspalvelut ohjelmistoyrityksille ja teknologiayrityksille. Autamme suojaamaan tuotekehityksen, asiakastiedot ja pilvipalvelut.",
+    forWho: "Ohjelmistoyritykset, SaaS-palveluntarjoajat, teknologiastartupit, IT-palveluyritykset ja muut teknologiayritykset, jotka haluavat vahvistaa kyberturvaansa.",
+    achieve: "Tuotekehityksen turvallisuus, pilvipalvelujen suoja, GDPR yhteensopivuus ja kestävä kyberturva.",
+    challenges: {
+      title: "Suurimmat haasteet",
+      subtitle: "Teknologiayritykset kohtaavat ainutlaatuisia kyberturvahaasteita, jotka vaativat erikoistunutta osaamista.",
+      items: [
+        {
+          title: "Tuotekehityksen suojaus",
+          description: "Ohjelmistojen ja API:en turvallisuuden varmistaminen kehitysprosessissa",
+          icon: "code"
+        },
+        {
+          title: "Pilvipalvelujen turvallisuus",
+          description: "Pilvipalvelujen ja monipilviarkkitehtuurien kyberturvan vahvistaminen",
+          icon: "cloud"
+        },
+        {
+          title: "Asiakastietojen suoja",
+          description: "GDPR ja muiden tietosuoja-asetusten vaatimusten täyttäminen",
+          icon: "user"
+        },
+        {
+          title: "DevSecOps integraatio",
+          description: "Tietoturvan integroiminen kehitys- ja käyttöönotto-prosesseihin",
+          icon: "gear"
+        }
+      ]
+    },
+    solutions: {
+      title: "Ratkaisumme",
+      subtitle: "Kattavat palvelut, jotka auttavat teknologiayrityksiä vahvistamaan kyberturvaansa ja täyttämään sääntelyvaatimukset.",
+      items: [
+        {
+          title: "Tuotekehityksen turvallisuus",
+          description: "Ohjelmistojen turvallisuuden auditointi ja testaus",
+          icon: "shield"
+        },
+        {
+          title: "Pilvipalvelujen auditointi",
+          description: "Pilvipalvelujen kyberturvan kattava auditointi",
+          icon: "cloud"
+        },
+        {
+          title: "GDPR Yhteensopivuus",
+          description: "Tietosuoja-asetusten vaatimusten täyttäminen",
+          icon: "document"
+        },
+        {
+          title: "DevSecOps Ohjelma",
+          description: "Tietoturvan integroiminen DevOps-prosesseihin",
+          icon: "arrowPath"
+        }
+      ]
+    },
+    benefits: {
+      title: "Edut",
+      subtitle: "Miksi teknologiayritykset valitsevat meidät kyberturvapalveluihinsa.",
+      items: [
+        "Suojaa tuotekehitysprosessi",
+        "Vahvista pilvipalvelujen turvallisuutta",
+        "Täytä GDPR vaatimukset",
+        "Paranna asiakkaiden luottamusta",
+        "Vahvista kilpailuetua"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-12 md:pt-16 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout (Centered) -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <!-- Who is this for? -->
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- What will you achieve? -->
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-sm font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.challenges.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.challenges.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.challenges.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-start mb-3 relative z-10">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base md:text-lg font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.solutions.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.solutions.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.solutions.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-start mb-3 relative z-10">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base md:text-lg font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.benefits.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.benefits.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {currentContent.benefits.items.map((benefit) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[4px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex-shrink-0 relative z-10">
+              <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <svg class="w-4 h-4 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            </div>
+            <span class="text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300 relative z-10">
+              {benefit}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>

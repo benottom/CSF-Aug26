@@ -1,0 +1,491 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "Fraud Risk Assessment";
+
+const content = {
+  en: {
+    title: "Fraud Risk Assessment",
+    subtitle: "BEC & Payment Fraud Protection",
+    heroDescription: "Comprehensive fraud risk assessment across TPRM, payment and user processes – BEC, invoice fraud, account takeover. Identify and mitigate fraud risks effectively.",
+    forWho: "For organizations seeking to identify and mitigate fraud risks across payment processes, user accounts, and third-party relationships.",
+    achieve: "Comprehensive fraud risk protection with identified vulnerabilities and implemented controls.",
+    overview: {
+      title: "Overview",
+      description: "Fraud risks are constantly evolving and organizations face threats from Business Email Compromise (BEC), invoice fraud, account takeover, and payment fraud. A comprehensive fraud risk assessment identifies vulnerabilities across processes, people, and technology.",
+      highlight: "Our expert team provides comprehensive fraud risk assessment services, identifying critical vulnerabilities and implementing multi-layered controls to protect your organization from financial fraud."
+    },
+    lenses: {
+      title: "Fraud Risk Mapping",
+      subtitle: "We identify and assess the most critical fraud risks in your organization.",
+      items: [
+        { title: "Social Engineering", description: "Phishing, vishing, pretexting and other manipulation techniques", icon: "user" },
+        { title: "BEC and Invoice Fraud", description: "CEO fraud, vendor impersonation and payment fraud", icon: "mail" },
+        { title: "Process & Payment Controls", description: "Payment process validation and four-eyes principle", icon: "document" },
+        { title: "Third‑Party Risks", description: "Supply chain fraud risks and partner validation", icon: "network" }
+      ]
+    },
+    threats: {
+      title: "Common Fraud Threats",
+      subtitle: "Fraud threats against organizations continuously evolve – know the risks and build protection.",
+      items: [
+        { title: "BEC (Business Email Compromise)", description: "CEO fraud, invoice fraud and banking detail changes", icon: "alert-triangle" },
+        { title: "Vishing and Smishing", description: "Phone-based and SMS-based fraud attacks", icon: "phone" },
+        { title: "Account Takeover", description: "User account compromise and abuse", icon: "user-x" },
+        { title: "Payment Fraud", description: "Card fraud and bank transfer manipulation", icon: "credit-card" }
+      ]
+    },
+    controls: {
+      title: "Fraud Risk Controls",
+      subtitle: "Multi-layered approach through technical, process, and human controls.",
+      items: [
+        {
+          title: "Technical Controls",
+          icon: "shield",
+          features: ["SPF/DKIM/DMARC configuration", "Anti-spoofing protection", "MFA for all accounts", "Anomaly detection"]
+        },
+        {
+          title: "Process Controls",
+          icon: "clipboard",
+          features: ["Four-eyes principle for payments", "Vendor information validation", "Change process verification", "Escalation procedures"]
+        },
+        {
+          title: "Staff Training",
+          icon: "users",
+          features: ["Fraud risk recognition", "Verification procedures", "Reporting channels", "Simulations and testing"]
+        }
+      ]
+    },
+    process: {
+      title: "Assessment Process",
+      subtitle: "Systematic approach to identify fraud risks and design controls.",
+      items: [
+        { number: "01", title: "Threat Analysis", description: "Industry-specific fraud risks" },
+        { number: "02", title: "Process Review", description: "Critical process assessment" },
+        { number: "03", title: "Technical Testing", description: "Phishing simulations and tests" },
+        { number: "04", title: "Recommendations", description: "Control matrix and actions" },
+        { number: "05", title: "Implementation", description: "Controls and training program" }
+      ]
+    },
+    deliverables: {
+      title: "What You Get",
+      items: [
+        "Fraud risk assessment report",
+        "Vulnerability identification and mapping",
+        "Control gap analysis",
+        "Technical controls recommendations",
+        "Process controls framework",
+        "Staff training program",
+        "Phishing simulation results",
+        "Implementation roadmap"
+      ]
+    },
+    benefitsList: {
+      title: "Key Benefits",
+      items: [
+        "Comprehensive fraud risk protection",
+        "Reduced financial fraud losses",
+        "Enhanced payment process security",
+        "Improved employee awareness",
+        "Regulatory compliance assurance"
+      ]
+    }
+  },
+  fi: {
+    title: "Petosriskien arviointi",
+    subtitle: "BEC- ja maksupetossuoja",
+    heroDescription: "TPRM, maksuprosessit ja käyttäjäprosessit läpikäyvää petosriskiarviointia – BEC, laskupetos, tilin kaappaus. Tunnista ja vähennä petosriskejä tehokkaasti.",
+    forWho: "Organisaatioille, jotka haluavat tunnistaa ja vähentää petosriskejä maksuprosesseissa, käyttäjätileillä ja kolmannen osapuolen suhteissa.",
+    achieve: "Kattava petosriskisuoja tunnistetuilla haavoittuvuuksilla ja toteutetuilla kontrolleilla.",
+    overview: {
+      title: "Yleiskatsaus",
+      description: "Petosriskit kehittyvät jatkuvasti ja organisaatiot kohtaavat uhkia Business Email Compromise (BEC), laskupetoksista, tilien kaappauksista ja maksupetoksista. Kattava petosriskien arviointi tunnistaa haavoittuvuudet prosesseissa, ihmisissä ja teknologioissa.",
+      highlight: "Asiantuntijatiimimme tarjoaa kattavia petosriskien arviointipalveluita tunnistaen kriittiset haavoittuvuudet ja toteuttaen monikerroksiset kontrollit suojaamaan organisaatiosi taloudellisilta petoksilta."
+    },
+    lenses: {
+      title: "Petosuhkien kartoitus",
+      subtitle: "Tunnistamme ja arvioimme keskeisimmät petosriskit organisaatiossanne.",
+      items: [
+        { title: "Sosiaalinen manipulointi", description: "Phishing, vishing, pretexting ja muut manipulointitekniikat", icon: "user" },
+        { title: "BEC ja laskupetos", description: "CEO-fraud, toimittajien tietojen vaihto ja maksupetokset", icon: "mail" },
+        { title: "Prosessi- ja maksukontrollit", description: "Maksuprosessien validointi ja nelisilmäperiaate", icon: "document" },
+        { title: "Kolmannen osapuolen riskit", description: "Toimittajaketjun petosriskit ja kumppanivalidointi", icon: "network" }
+      ]
+    },
+    threats: {
+      title: "Yleisimmät petosuhkat",
+      subtitle: "Organisaatioita kohtaavat petosuhkat kehittyvät jatkuvasti – tunnetaan riskit ja rakenteet suojaus.",
+      items: [
+        { title: "BEC (Business Email Compromise)", description: "CEO-fraud, laskupetokset ja pankkitietojen vaihto", icon: "alert-triangle" },
+        { title: "Vishing ja Smishing", description: "Puhelinpetokset ja tekstiviestipetokset", icon: "phone" },
+        { title: "Tilin kaappaus", description: "Käyttäjätilien haltuunotto ja väärinkäyttö", icon: "user-x" },
+        { title: "Maksupetokset", description: "Korttipetokset ja pankkisiirtojen manipulointi", icon: "credit-card" }
+      ]
+    },
+    controls: {
+      title: "Petosriskien kontrollit",
+      subtitle: "Monikerroksinen lähestymistapa teknisten, prosessuaalisten ja henkilöstöön liittyvien kontrollien avulla.",
+      items: [
+        {
+          title: "Tekninen suojaus",
+          icon: "shield",
+          features: ["SPF/DKIM/DMARC konfigurointi", "Väärennyssuojaus", "MFA kaikille tileille", "Anomalianseuranta"]
+        },
+        {
+          title: "Prosessikontrollit",
+          icon: "clipboard",
+          features: ["Nelisilmäperiaate maksuille", "Toimittajatietojen validointi", "Muutosprosessien vahvistus", "Eskalointiprosessit"]
+        },
+        {
+          title: "Henkilöstön koulutus",
+          icon: "users",
+          features: ["Petosriskien tunnistaminen", "Varmistusprosessit", "Raportointikanavat", "Simulaatiot ja testit"]
+        }
+      ]
+    },
+    process: {
+      title: "Arviointiprosessi",
+      subtitle: "Systemaattinen lähestymistapa petosriskien tunnistamiseen ja kontrollien suunnitteluun.",
+      items: [
+        { number: "01", title: "Uhka-analyysi", description: "Toimialakohtaiset petosriskit" },
+        { number: "02", title: "Prosessikatsaus", description: "Kriittisten prosessien arviointi" },
+        { number: "03", title: "Tekninen testaus", description: "Phishing-simulaatiot ja testit" },
+        { number: "04", title: "Suositukset", description: "Kontrollimatriisi ja toimenpiteet" },
+        { number: "05", title: "Toteutus", description: "Kontrollit ja koulutusohjelma" }
+      ]
+    },
+    deliverables: {
+      title: "Mitä saat",
+      items: [
+        "Petosriskien arviointiraportti",
+        "Haavoittuvuuksien tunnistaminen ja kartoitus",
+        "Kontrollien aukkoanalyysi",
+        "Tekniset kontrollisuositukset",
+        "Prosessikontrollien kehys",
+        "Henkilöstön koulutusohjelma",
+        "Phishing-simulaation tulokset",
+        "Toteutuksen tiekartta"
+      ]
+    },
+    benefitsList: {
+      title: "Keskeiset edut",
+      items: [
+        "Kattava petosriskisuoja",
+        "Vähentyneet taloudelliset petostappiot",
+        "Parannettu maksuprosessien turvallisuus",
+        "Parantunut työntekijöiden tietoisuus",
+        "Sääntelyvaatimusten noudattamisen varmistus"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+
+function getLevelColor(color: string) {
+  switch(color) {
+    case 'green': return 'border-l-4 border-green-500';
+    case 'blue': return 'border-l-4 border-blue-500';
+    case 'purple': return 'border-l-4 border-purple-500';
+    default: return 'border-l-4 border-blue-500';
+  }
+}
+
+function getIconColor(color: string) {
+  switch(color) {
+    case 'green': return 'text-green-600';
+    case 'blue': return 'text-blue-600';
+    case 'purple': return 'text-purple-600';
+    default: return 'text-blue-600';
+  }
+}
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6">
+        <p class="text-sm text-slate-600 leading-relaxed">{currentContent.overview.description}</p>
+        <p class="text-sm text-blue-600 font-semibold mt-3">{currentContent.overview.highlight}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fraud Risk Mapping Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.lenses.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.lenses.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.lenses.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Fraud Threats Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.threats.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.threats.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.threats.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Fraud Risk Controls Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.controls.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.controls.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        {currentContent.controls.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden text-center">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-center mb-3 relative z-10">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-base font-bold text-[#1E40AF] mb-3 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10 text-center">
+              {item.title}
+            </h3>
+            
+            <div class="mt-auto pt-3 border-t-2 border-slate-200 group-hover:border-[#3B82F6] transition-colors duration-300 relative z-10">
+              <ul class="space-y-1.5 relative z-10 text-left mx-auto w-full max-w-xs">
+                {item.features.map((feature) => (
+                  <li class="flex items-start text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300">
+                    <svg class="w-3 h-3 text-[#3B82F6] mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Process Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.process.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.process.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        {currentContent.process.items.map((step) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden text-center">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-center mb-2 relative z-10">
+              <div class="w-10 h-10 bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                {step.number}
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+              {step.title}
+            </h3>
+            <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables & Benefits Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-3xl mx-auto">
+        
+        <!-- Deliverables -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.deliverables.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.deliverables.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.benefitsList.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.benefitsList.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,10 @@
+---
+// Disable prerendering for this dynamic route
+export const prerender = false;
+
+const { id } = Astro.params;
+const lang = 'en';
+---
+
+<h1>Reference not found</h1>
+<p>Reference ID: {id} not found.</p>

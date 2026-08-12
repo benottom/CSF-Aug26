@@ -1,0 +1,371 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "GRC Platform Managed Service";
+
+const content = {
+  en: {
+    title: "GRC Platform Managed Service",
+    subtitle: "Platform Administration & Optimization",
+    heroDescription: "Expert GRC Platform Administration services to maximize your platform investment with professional workflow design, integrations, and user support. Our GRC Platform Managed Service provides comprehensive administration of your Governance, Risk, and Compliance platforms, ensuring optimal configuration, user adoption, and business value delivery.",
+    forWho: "For organizations using GRC platforms who need expert administration, optimization, and user support.",
+    achieve: "Maximum ROI from your GRC platform with expert configuration, user adoption, and compliance effectiveness.",
+    overview: {
+      title: "Overview",
+      description: "GRC platforms are powerful tools for managing governance, risk, and compliance, but they require expert configuration and ongoing administration to deliver value. Many organizations struggle with platform complexity, low user adoption, and suboptimal configurations.",
+      highlight: "Our GRC Platform Managed Service provides dedicated platform expertise to handle administration, optimization, and user support, ensuring your investment delivers maximum business value and compliance effectiveness."
+    },
+    serviceAreas: {
+      title: "GRC Service Areas",
+      subtitle: "Comprehensive platform administration across all GRC domains",
+      items: [
+        { area: "Risk Management", description: "Risk register, assessments, treatment plans, monitoring" },
+        { area: "Compliance Management", description: "Compliance frameworks, assessments, evidence collection" },
+        { area: "Audit Management", description: "Audit planning, execution, findings tracking, remediation" },
+        { area: "Policy Management", description: "Policy lifecycle, approval workflows, attestation tracking" }
+      ]
+    },
+    platforms: {
+      title: "Supported Platforms",
+      subtitle: "Expert administration across leading GRC platforms and custom solutions",
+      items: [
+        "ServiceNow GRC",
+        "RSA Archer",
+        "MetricStream",
+        "LogicGate",
+        "Resolver",
+        "SAP GRC",
+        "Thomson Reuters",
+        "Custom Solutions"
+      ]
+    },
+    features: {
+      title: "Our Platform Services",
+      subtitle: "Comprehensive GRC platform management covering all aspects of administration and optimization",
+      items: [
+        { title: "Workflow Design & Management", description: "Custom workflow creation and optimization for risk assessments, audits, and compliance processes", icon: "flow" },
+        { title: "System Integrations", description: "Integration with business systems, security tools, and third-party applications", icon: "network" },
+        { title: "Reporting & Dashboards", description: "Executive dashboards, compliance reports, and risk analytics configuration", icon: "chart" },
+        { title: "User Support & Training", description: "Comprehensive user support, training programs, and adoption facilitation", icon: "users" },
+        { title: "Platform Optimization", description: "Continuous platform optimization and performance improvement initiatives", icon: "cog" },
+        { title: "Data Management", description: "Data quality management, migration support, and backup strategies", icon: "database" }
+      ]
+    },
+    deliverables: {
+      title: "What You Get",
+      items: [
+        "Platform configuration and setup",
+        "Custom workflow development",
+        "Integration architecture and implementation",
+        "Executive dashboard and reporting suite",
+        "User training and documentation",
+        "Ongoing platform administration",
+        "Performance monitoring and optimization",
+        "Regular platform updates and maintenance"
+      ]
+    },
+    benefits: {
+      title: "Key Benefits",
+      items: [
+        "Maximum ROI from GRC platform investment",
+        "Expert configuration and optimization",
+        "Reduced internal administration overhead",
+        "Improved user adoption and satisfaction",
+        "Enhanced compliance and reporting capabilities"
+      ]
+    }
+  },
+  fi: {
+    title: "GRC-alustan hallintapalvelu",
+    subtitle: "Alustan hallinta ja optimointi",
+    heroDescription: "Asiantuntevat GRC-alustan hallintapalvelut maksimoidaksesi alustainvestoinnin ammattimaisella työnkulkusuunnittelulla, integraatioilla ja käyttäjä-tuella. GRC-alustan hallintapalvelumme tarjoaa kattavaa Governance-, Risk- ja Compliance-alustojesi hallintaa varmistaen optimaalisen konfiguroinnin, käyttäjien omaksumisen ja liiketoiminta-arvon toimituksen.",
+    forWho: "Organisaatioille, jotka käyttävät GRC-alustoja ja tarvitsevat asiantuntevaa hallintaa, optimointia ja käyttäjätukea.",
+    achieve: "Maksimaalinen sijoitetun pääoman tuotto GRC-alustasta asiantuntevalla konfiguroinnilla, käyttäjien omaksumisella ja vaatimustenmukaisuuden tehokkuudella.",
+    overview: {
+      title: "Yleiskatsaus",
+      description: "GRC-alustat ovat tehokkaita työkaluja hallinnan, riskien ja vaatimustenmukaisuuden hallintaan, mutta ne vaativat asiantuntevaa konfigurointia ja jatkuvaa hallintaa tuottaakseen arvoa. Monet organisaatiot kamppailevat alustan monimutkaisuuden, alhaisen käyttäjien omaksumisen ja epäoptimaalisten konfigurointien kanssa.",
+      highlight: "GRC-alustan hallintapalvelumme tarjoaa omistautunutta alustaosaamista hallintaan, optimointiin ja käyttäjätukeen varmistaen, että investointisi tuottaa maksimaalista liiketoiminta-arvoa ja vaatimustenmukaisuuden tehokkuutta."
+    },
+    serviceAreas: {
+      title: "GRC-palvelualueet",
+      subtitle: "Kattava alustahallinta kaikilla GRC-alueilla",
+      items: [
+        { area: "Riskienhallinta", description: "Riskirekisteri, arvioinnit, käsittelysuunnitelmat, seuranta" },
+        { area: "Vaatimustenmukaisuuden hallinta", description: "Vaatimustenmukaisuuskehykset, arvioinnit, todisteiden keruu" },
+        { area: "Auditointihallinta", description: "Auditoinnin suunnittelu, toteutus, havaintojen seuranta, korjaaminen" },
+        { area: "Politiikkahallinta", description: "Politiikan elinkaari, hyväksyntätyönkulut, sitoutumisen seuranta" }
+      ]
+    },
+    platforms: {
+      title: "Tuetut alustat",
+      subtitle: "Asiantunteva hallinta johtavien GRC-alustojen ja mukautettujen ratkaisujen parissa",
+      items: [
+        "ServiceNow GRC",
+        "RSA Archer",
+        "MetricStream",
+        "LogicGate",
+        "Resolver",
+        "SAP GRC",
+        "Thomson Reuters",
+        "Mukautetut ratkaisut"
+      ]
+    },
+    features: {
+      title: "Alustapalvelumme",
+      subtitle: "Kattava GRC-alustan hallinta, joka kattaa kaikki hallinnon ja optimoinnin näkökohdat",
+      items: [
+        { title: "Työnkulkujen suunnittelu ja hallinta", description: "Mukautettu työnkulkujen luominen ja optimointi riskiarviointeja, auditointeja ja vaatimustenmukaisuusprosesseja varten", icon: "flow" },
+        { title: "Järjestelmäintegraatiot", description: "Integrointi liiketoimintajärjestelmiin, tietoturvatyökaluihin ja kolmannen osapuolen sovelluksiin", icon: "network" },
+        { title: "Raportointi ja hallintapaneelit", description: "Johdon hallintapaneelit, vaatimustenmukaisuusraportit ja riskianalytiikan konfigurointi", icon: "chart" },
+        { title: "Käyttäjätuki ja koulutus", description: "Kattava käyttäjätuki, koulutusohjelmat ja käyttöönoton helpottaminen", icon: "users" },
+        { title: "Alustan optimointi", description: "Jatkuva alustan optimointi ja suorituskyvyn parantamishankkeet", icon: "cog" },
+        { title: "Tietojen hallinta", description: "Tietojen laadun hallinta, siirtotuki ja varmuuskopiointistrategiat", icon: "database" }
+      ]
+    },
+    deliverables: {
+      title: "Mitä saat",
+      items: [
+        "Alustan konfigurointi ja asennus",
+        "Mukautettu työnkulkukehitys",
+        "Integraatioarkkitehtuuri ja toteutus",
+        "Johdon hallintapaneeli ja raportointikokonaisuus",
+        "Käyttäjäkoulutus ja dokumentaatio",
+        "Jatkuva alustan hallinta",
+        "Suorituskyvyn seuranta ja optimointi",
+        "Säännölliset alustan päivitykset ja ylläpito"
+      ]
+    },
+    benefits: {
+      title: "Keskeiset edut",
+      items: [
+        "Maksimaalinen sijoitetun pääoman tuotto GRC-alustasta",
+        "Asiantunteva konfigurointi ja optimointi",
+        "Vähentynyt sisäinen hallintotyö",
+        "Parantunut käyttäjien omaksuminen ja tyytyväisyys",
+        "Tehostetut vaatimustenmukaisuus- ja raportointikyvykkyydet"
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+        
+        <!-- Info Section - Two Column Layout -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.forWho}
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 group hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 relative overflow-hidden text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300"></div>
+            <div class="flex items-start gap-3 mb-2">
+              <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0 border-2 border-[#3B82F6] group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:border-transparent transition-all duration-300">
+                <svg class="w-4.5 h-4.5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <h2 class="text-xs font-semibold text-[#1E40AF] group-hover:text-[#3bb1f6] transition-colors duration-300">
+                  {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+                </h2>
+                <p class="text-xs md:text-sm text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                  {currentContent.achieve}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6">
+        <p class="text-sm text-slate-600 leading-relaxed">{currentContent.overview.description}</p>
+        <p class="text-sm text-blue-600 font-semibold mt-3">{currentContent.overview.highlight}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.serviceAreas.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.serviceAreas.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        {currentContent.serviceAreas.items.map((area) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+              {area.area}
+            </h3>
+            <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {area.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.platforms.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.platforms.subtitle}
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {currentContent.platforms.items.map((platform) => (
+          <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3bb1f6]
+                      transition-all duration-300
+                      flex items-center gap-3 p-3 group">
+            <div class="w-6 h-6 bg-[#3B82F6] rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-[#3B82F6] transition-colors duration-300">{platform}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+          {currentContent.features.title}
+        </h2>
+        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.features.subtitle}
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {currentContent.features.items.map((feature) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            
+            <div class="flex justify-end mb-2 relative z-10">
+              <div class="w-10 h-10 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#3B82F6]
+                          transition-all duration-300
+                          group-hover:bg-gradient-to-r group-hover:from-[#3B82F6] group-hover:to-[#3bb1f6] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={feature.icon} class="w-5 h-5 text-[#3B82F6] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            
+            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 text-left relative z-10">
+              {feature.title}
+            </h3>
+            <p class="text-xs md:text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliverables & Benefits Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-3xl mx-auto">
+        
+        <!-- Deliverables -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.deliverables.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.deliverables.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <!-- Benefits -->
+        <div class="bg-white rounded-xl border-2 border-[#3B82F6] shadow-sm p-5 md:p-6">
+          <h2 class="text-base font-bold text-[#3B82F6] mb-4 text-center">{currentContent.benefits.title}</h2>
+          <ul class="space-y-2">
+            {currentContent.benefits.items.map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-3.5 h-3.5 text-[#3B82F6] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="text-xs md:text-sm text-slate-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,288 @@
+---
+import { getMenu } from '@data/menu.js';
+import Icon from '@ui/icons/Icon.astro';
+import ScamWarningBanner from './common/ScamWarningBanner.astro';
+import LanguageSelector from '@/components/ui/LanguageSelector.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const menu = getMenu(lang);
+---
+
+<style>
+  /* CSS-only mobile menu - no JavaScript required */
+  #mobile-menu-toggle {
+    display: none;
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .mobile-menu-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    max-width: 85vw;
+    height: 100vh;
+    background: white;
+    z-index: 999;
+    overflow-y: auto;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  #mobile-menu-toggle:checked ~ .mobile-menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #mobile-menu-toggle:checked ~ .mobile-menu-panel {
+    transform: translateX(0);
+  }
+
+  .menu-trigger-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: #64748b;
+    transition: color 0.2s;
+  }
+
+  .menu-trigger-label:hover {
+    color: #1E40AF;
+  }
+
+  .close-menu-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: #64748b;
+    transition: color 0.2s;
+  }
+
+  .close-menu-label:hover {
+    color: #1E40AF;
+  }
+
+  /* Better mobile menu scrolling */
+  .mobile-menu-panel {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile-menu-content {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+  }
+</style>
+
+<div data-scam-banner>
+  <ScamWarningBanner />
+</div>
+
+<header class="sticky top-0 z-50">
+  
+  <!-- Blue Top Bar - Better responsive stacking -->
+  <div class="bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] text-white text-sm py-2 font-bold" style="font-family: 'Montserrat', sans-serif;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Stack on mobile, row on tablet+ -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-1 md:gap-0">
+        
+        <!-- Left side - wraps on mobile -->
+        <div class="flex flex-wrap items-center justify-center gap-3 md:gap-6">
+          <span class="inline-flex items-center gap-1 text-xs sm:text-sm">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            info@cybersecurity.fi
+          </span>
+        </div>
+        
+        <!-- Right side -->
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center gap-1 text-xs sm:text-sm">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            +358 44 5040308
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Main Navigation -->
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="h-20 md:h-24 flex items-center justify-between">
+        
+        <!-- Logo - responsive sizing -->
+        <a
+          href={lang === 'fi' ? '/fi' : '/'}
+          class="flex-shrink-0 transition-opacity duration-300 hover:opacity-80"
+        >
+          <img
+            src="/CSFlogoT.png"
+            alt="Cyber Security Finland"
+            loading="eager"
+            class="h-24 md:h-32 lg:h-40 w-auto object-contain"
+          />
+        </a>
+
+        <!-- Desktop Navigation with dropdown support -->
+        <div class="hidden lg:flex items-center gap-6 xl:gap-8">
+          {menu && menu.map(item => {
+            const href = item.href;
+            const isActive = href !== '/' && (currentPath === href || currentPath.startsWith(href + '/'));
+            const hasChildren = item.children && item.children.length > 0;
+            const label = item.label;
+
+            if (hasChildren) {
+              return (
+                <div class="relative group">
+                  <button class="flex items-center gap-1 text-sm font-semibold transition-colors duration-200 text-slate-600 hover:text-[#3B82F6] group-hover:text-[#3B82F6]">
+                    {label}
+                    <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div class="py-2">
+                      {item.children.map(child => {
+                        const childHref = child.href;
+                        const childLabel = child.label;
+                        const isChildActive = currentPath === childHref || currentPath.startsWith(childHref + '/');
+                        return (
+                          <a 
+                            href={childHref} 
+                            class={`block px-4 py-2 text-sm font-semibold transition-colors duration-200 ${isChildActive ? 'text-[#1E40AF] bg-slate-50' : 'text-slate-600 hover:bg-slate-50 hover:text-[#3B82F6]'}`}
+                          >
+                            {childLabel}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              );
+            } else {
+              return (
+                <a 
+                  href={href} 
+                  class={`text-sm font-semibold transition-colors duration-200 ${isActive ? 'text-[#1E40AF]' : 'text-slate-600 hover:text-[#3B82F6]'}`}
+                >
+                  {label}
+                </a>
+              );
+            }
+          })}
+        </div>
+
+        <!-- Desktop Right Side -->
+        <div class="hidden lg:flex items-center gap-3 xl:gap-4">
+          <LanguageSelector />
+          <a
+            href={lang === 'fi' ? '/fi/contact' : '/contact'}
+            class="px-4 py-1.5 md:px-5 md:py-2 text-xs md:text-sm font-medium text-white bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] rounded-full hover:from-[#3bb1f6] hover:to-[#3B82F6] transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30"
+          >
+            {lang === 'fi' ? 'Ota yhteyttä' : 'Contact'}
+          </a>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div class="lg:hidden flex items-center gap-2">
+          <LanguageSelector />
+          <label for="mobile-menu-toggle" class="menu-trigger-label" aria-label="Open navigation menu">
+            <Icon name="bars" class="w-5 h-5" />
+          </label>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- Blue gradient line at bottom of header -->
+    <div class="h-0.5 bg-gradient-to-r from-[#3bb1f6] to-[#3B82F6]"></div>
+    
+  </div>
+</header>
+
+<!-- CSS-only Mobile Menu System -->
+<input type="checkbox" id="mobile-menu-toggle" aria-hidden="true" />
+
+<label for="mobile-menu-toggle" class="mobile-menu-overlay lg:hidden" aria-hidden="true"></label>
+
+<nav class="mobile-menu-panel lg:hidden" aria-label="Mobile navigation">
+  <div class="sticky top-0 bg-white z-10 flex items-center justify-between p-4 border-b border-slate-100">
+    <span class="text-lg font-semibold text-slate-900">Menu</span>
+    <label for="mobile-menu-toggle" class="close-menu-label" aria-label="Close navigation menu">
+      <Icon name="x" class="w-5 h-5" />
+    </label>
+  </div>
+
+  <!-- Mobile Menu with dropdown support - Scrollable content -->
+  <div class="flex-1 overflow-y-auto p-4">
+    {menu && menu.map((item) => {
+      const href = item.href;
+      const isActive = href !== '/' && (currentPath === href || currentPath.startsWith(href + '/'));
+      const hasChildren = item.children && item.children.length > 0;
+      const label = item.label;
+
+      if (hasChildren) {
+        return (
+          <details class="mb-2" open={isActive}>
+            <summary class={`block p-3 rounded-lg cursor-pointer ${isActive ? 'bg-slate-50 text-[#1E40AF]' : 'text-slate-700 hover:bg-slate-50'}`}>
+              <span class="font-semibold text-sm">{label}</span>
+            </summary>
+            <div class="ml-4 mt-1 space-y-1">
+              {item.children.map(child => {
+                const childHref = child.href;
+                const childLabel = child.label;
+                const isChildActive = currentPath === childHref || currentPath.startsWith(childHref + '/');
+                return (
+                  <a 
+                    href={childHref} 
+                    class={`block px-4 py-2 text-sm font-bold transition-colors duration-200 ${isChildActive ? 'text-[#1E40AF] bg-slate-50' : 'text-slate-600 hover:bg-slate-50 hover:text-[#3B82F6]'}`}
+                  >
+                    {childLabel}
+                  </a>
+                );
+              })}
+            </div>
+          </details>
+        );
+      } else {
+        return (
+          <a
+            href={href}
+            class={`block p-3 mb-2 rounded-lg font-semibold text-sm ${isActive ? 'bg-slate-50 text-[#1E40AF]' : 'text-slate-700 hover:bg-slate-50 hover:text-[#3B82F6]'}`}
+          >
+            {label}
+          </a>
+        );
+      }
+    })}
+
+    <a
+      href={lang === 'fi' ? '/fi/contact' : '/contact'}
+      class="block w-full mt-4 px-4 py-3 text-center text-white bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] rounded-full hover:from-[#3bb1f6] hover:to-[#3B82F6] transition-all duration-300 text-sm font-semibold"
+    >
+      {lang === 'fi' ? 'Ota yhteyttä' : 'Contact Us'}
+    </a>
+  </div>
+</nav>
