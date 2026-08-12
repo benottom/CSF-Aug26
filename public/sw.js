@@ -1,5 +1,5 @@
 // Service Worker for Cyber Security Finland website
-const CACHE_NAME = 'cybersec-v1.10';
+const CACHE_NAME = 'cybersec-v1.11';
 const urlsToCache = [
   '/',
   '/services',
@@ -25,6 +25,12 @@ self.addEventListener('install', (event) => {
 
 // Fetch event - serve cached resources when offline
 self.addEventListener('fetch', (event) => {
+  // Only handle GET requests over http(s) - caching POST bodies or
+  // chrome-extension:// requests is unsupported and throws.
+  if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
