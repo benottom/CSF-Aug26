@@ -274,7 +274,7 @@ const isFi = lang === 'fi';
       form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        btnText.textContent = isFi ? 'Lähetetään...' : 'Sending...';
+        btnText.textContent = 'Lähetetään...';
         btnSpinner.classList.remove('hidden');
         submitBtn.disabled = true;
         successMsg.classList.add('hidden');
@@ -291,14 +291,14 @@ const isFi = lang === 'fi';
           if (response.ok) {
             form.reset();
             successMsg.classList.remove('hidden');
-            btnText.textContent = isFi ? 'Lähetä viesti' : 'Send Message';
+            btnText.textContent = 'Lähetä viesti';
           } else {
             throw new Error('Form submission failed');
           }
         })
         .catch(function(error) {
           errorMsg.classList.remove('hidden');
-          btnText.textContent = isFi ? 'Lähetä viesti' : 'Send Message';
+          btnText.textContent = 'Lähetä viesti';
         })
         .finally(function() {
           btnSpinner.classList.add('hidden');
