@@ -91,36 +91,38 @@ const isFi = lang === 'fi';
       <div class="grid lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
           <h2 class="text-2xl md:text-3xl font-bold text-[#3B82F6] mb-6">{isFi ? 'Lähetä viesti' : 'Send Us a Message'}</h2>
-          <form class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-6 md:p-8">
+          <form id="contact-form" action="https://formspree.io/f/mljrnwnn" method="POST" class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-6 md:p-8">
+            <input type="hidden" name="_language" value="en" />
+
             <div class="grid md:grid-cols-2 gap-6">
               <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">{isFi ? 'Etunimi *' : 'First Name *'}</label>
-                <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder={isFi ? 'Anna etunimesi' : 'Enter your first name'}>
+                <label class="block text-sm font-medium text-slate-700 mb-2">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required aria-required="true" autocomplete="given-name" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder="Enter your first name">
               </div>
               <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">{isFi ? 'Sukunimi *' : 'Last Name *'}</label>
-                <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder={isFi ? 'Anna sukunimesi' : 'Enter your last name'}>
-              </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 mt-6">
-              <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">{isFi ? 'Yritys' : 'Company'}</label>
-                <input type="text" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder={isFi ? 'Anna yrityksesi nimi' : 'Enter your company name'}>
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">{isFi ? 'Sähköposti *' : 'Email *'}</label>
-                <input type="email" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder={isFi ? 'Anna sähköpostiosoitteesi' : 'Enter your email address'}>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required aria-required="true" autocomplete="family-name" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder="Enter your last name">
               </div>
             </div>
             <div class="grid md:grid-cols-2 gap-6 mt-6">
               <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">{isFi ? 'Puhelinnumero' : 'Phone Number'}</label>
-                <input type="tel" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder={isFi ? 'Anna puhelinnumerosi' : 'Enter your phone number'}>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Company</label>
+                <input type="text" id="company" name="company" autocomplete="organization" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder="Enter your company name">
               </div>
               <div>
-                <label class="block text-sm font-medium text-slate-700 mb-2">{isFi ? 'Kiinnostuksen kohde' : 'Service Interest'}</label>
-                <select class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white">
-                  <option value="">{isFi ? 'Valitse palvelu' : 'Select a service'}</option>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Email *</label>
+                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder="Enter your email address">
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder="Enter your phone number">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 mb-2">Service Interest</label>
+                <select id="service" name="service" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white">
+                  <option value="">Select a service</option>
                   <option value="iso-27001">ISO 27001 Certification</option>
                   <option value="nis2">NIS2 Compliance</option>
                   <option value="gdpr">GDPR & Privacy</option>
@@ -129,21 +131,50 @@ const isFi = lang === 'fi';
                   <option value="ciso">CISO as a Service</option>
                   <option value="dpo">DPO as a Service</option>
                   <option value="risk">Risk Assessment</option>
-                  <option value="other">{isFi ? 'Muu / Yleinen tiedustelu' : 'Other/General Inquiry'}</option>
+                  <option value="other">Other/General Inquiry</option>
                 </select>
               </div>
             </div>
             <div class="mt-6">
-              <label class="block text-sm font-medium text-slate-700 mb-2">{isFi ? 'Viesti *' : 'Message *'}</label>
-              <textarea rows="5" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder={isFi ? 'Kuvaile tarpeitasi tai kysymyksiäsi...' : 'Describe your needs or questions...'}></textarea>
+              <label class="block text-sm font-medium text-slate-700 mb-2">Message *</label>
+              <textarea id="message" name="message" required aria-required="true" rows="5" class="w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-[#3B82F6] focus:ring-2 focus:ring-[#3B82F6]/20 transition-all duration-200 bg-white" placeholder="Describe your needs or questions..."></textarea>
             </div>
             <div class="mt-6">
-              <button type="submit" class="w-full md:w-auto inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-[#1E2A7A] to-[#3B82F6] text-white hover:from-[#3B82F6] hover:to-[#1E2A7A] transition-all duration-300 hover:shadow-lg font-medium text-sm">
-                {isFi ? 'Lähetä viesti' : 'Send Message'}
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              <button type="submit" id="submit-btn" class="w-full md:w-auto inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-[#1E2A7A] to-[#3B82F6] text-white hover:from-[#3B82F6] hover:to-[#1E2A7A] transition-all duration-300 hover:shadow-lg font-medium text-sm">
+                <span id="btn-text">Send Message</span>
+                <svg id="btn-spinner" class="hidden w-5 h-5 animate-spin ml-2" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
               </button>
+            </div>
+
+            <!-- Success Message -->
+            <div id="form-success" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-xl">
+              <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <h4 class="text-green-800 font-semibold">Message Received!</h4>
+                  <p class="text-green-700 text-sm">Thank you for contacting us. We have received your request and our team will get back to you within 24 hours.</p>
+                  <p class="text-green-600 text-sm mt-1">If your matter is urgent, please call us at +358 44 5040308.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="form-error" class="hidden mt-6 p-4 bg-red-50 border border-red-200 rounded-xl">
+              <div class="flex items-start gap-3">
+                <svg class="w-6 h-6 text-red-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <h4 class="text-red-800 font-semibold">Submission Failed</h4>
+                  <p class="text-red-700 text-sm">Something went wrong while sending your message. Please try again.</p>
+                  <p class="text-red-600 text-sm mt-1">Or contact us directly at info@cybersecurity.fi or call +358 44 5040308.</p>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -226,3 +257,51 @@ const isFi = lang === 'fi';
   </section>
 
 </Layout>
+
+<script is:inline>
+  (function() {
+    var form = document.getElementById('contact-form');
+    var submitBtn = document.getElementById('submit-btn');
+    var btnText = document.getElementById('btn-text');
+    var btnSpinner = document.getElementById('btn-spinner');
+    var successMsg = document.getElementById('form-success');
+    var errorMsg = document.getElementById('form-error');
+
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        btnText.textContent = 'Sending...';
+        btnSpinner.classList.remove('hidden');
+        submitBtn.disabled = true;
+        successMsg.classList.add('hidden');
+        errorMsg.classList.add('hidden');
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(function(response) {
+          if (response.ok) {
+            form.reset();
+            successMsg.classList.remove('hidden');
+            btnText.textContent = 'Send Message';
+          } else {
+            throw new Error('Form submission failed');
+          }
+        })
+        .catch(function(error) {
+          errorMsg.classList.remove('hidden');
+          btnText.textContent = 'Send Message';
+        })
+        .finally(function() {
+          btnSpinner.classList.add('hidden');
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  })();
+</script>
