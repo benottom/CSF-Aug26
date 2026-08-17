@@ -111,7 +111,7 @@ const checklists = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
-          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+          <span class="bg-gradient-to-r from-[#0F172A] to-[#22D3EE] bg-clip-text text-transparent">
             {lang === 'fi' ? 'Whitepaperit ja tarkistuslistat' : 'Whitepapers & Checklists'}
           </span>
         </h1>
@@ -128,10 +128,10 @@ const checklists = [
   <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0EA5E9] mb-2">
           {lang === 'fi' ? 'Whitepaperit' : 'Whitepapers'}
         </h2>
-        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base text-[#0F172A] max-w-3xl mx-auto leading-relaxed">
           {lang === 'fi' 
             ? 'Syvällisiä tutkimuksia ja analyyseja ajankohtaisista kyberturvallisuuden ja sääntelyn teemoista.' 
             : 'In-depth research and analysis on current cybersecurity and compliance topics.'}
@@ -141,25 +141,25 @@ const checklists = [
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
         {whitepapers.map((paper) => (
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
-                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
                       flex flex-col p-5 md:p-6 group relative overflow-hidden">
             
-            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0EA5E9] to-[#22D3EE] group-hover:h-[6px] transition-all duration-300 z-20"></div>
             
             <div class="flex items-start justify-between mb-3 relative z-10">
               <div class="flex flex-wrap gap-1.5">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#3B82F6]/10 text-[#3B82F6]">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#0EA5E9]/10 text-[#0EA5E9]">
                   {paper.category}
                 </span>
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                   {paper.framework}
                 </span>
               </div>
-              <Icon name="document-text" class="h-5 w-5 text-slate-400 group-hover:text-[#3B82F6] transition-colors duration-300" />
+              <Icon name="document-text" class="h-5 w-5 text-slate-400 group-hover:text-[#0EA5E9] transition-colors duration-300" />
             </div>
             
-            <h3 class="text-base font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+            <h3 class="text-base font-bold text-[#1E293B] mb-1.5 group-hover:text-[#22D3EE] transition-colors duration-300 relative z-10">
               {paper.title}
             </h3>
             
@@ -169,7 +169,7 @@ const checklists = [
             
             <div class="flex flex-wrap gap-1.5 mb-3 relative z-10">
               {paper.tags.map((tag) => (
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 group-hover:bg-[#3B82F6]/10 group-hover:text-[#3B82F6] transition-colors duration-300">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 group-hover:bg-[#0EA5E9]/10 group-hover:text-[#0EA5E9] transition-colors duration-300">
                   {tag}
                 </span>
               ))}
@@ -182,7 +182,7 @@ const checklists = [
             
             <a 
               href={paper.url}
-              class="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-[#3B82F6] text-[#3B82F6] hover:bg-gradient-to-r hover:from-[#3bb1f6] hover:to-[#3B82F6] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm gap-1.5 relative z-10"
+              class="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-[#0EA5E9] text-[#0EA5E9] hover:bg-gradient-to-r hover:from-[#22D3EE] hover:to-[#0EA5E9] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm gap-1.5 relative z-10"
             >
               {lang === 'fi' ? 'Lataa whitepaper' : 'Download Whitepaper'}
               <Icon name="arrowDownTray" class="h-4 w-4" />
@@ -197,10 +197,10 @@ const checklists = [
   <section class="py-12 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0EA5E9] mb-2">
           {lang === 'fi' ? 'Tarkistuslistat' : 'Checklists'}
         </h2>
-        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base text-[#0F172A] max-w-3xl mx-auto leading-relaxed">
           {lang === 'fi' 
             ? 'Käytännönläheisiä tarkistuslistoja, jotka auttavat varmistamaan noudattamisen ja hallinnoida riskejä.' 
             : 'Practical checklists to help ensure compliance and manage risks effectively.'}
@@ -210,25 +210,25 @@ const checklists = [
       <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
         {checklists.map((checklist) => (
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
-                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
                       flex flex-col p-5 md:p-6 group relative overflow-hidden">
             
-            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0EA5E9] to-[#22D3EE] group-hover:h-[6px] transition-all duration-300 z-20"></div>
             
             <div class="flex items-start justify-between mb-3 relative z-10">
               <div class="flex flex-wrap gap-1.5">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#3B82F6]/10 text-[#3B82F6]">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#0EA5E9]/10 text-[#0EA5E9]">
                   {checklist.category}
                 </span>
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                   {checklist.framework}
                 </span>
               </div>
-              <Icon name="clipboard-document-list" class="h-5 w-5 text-slate-400 group-hover:text-[#3B82F6] transition-colors duration-300" />
+              <Icon name="clipboard-document-list" class="h-5 w-5 text-slate-400 group-hover:text-[#0EA5E9] transition-colors duration-300" />
             </div>
             
-            <h3 class="text-base font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300 relative z-10">
+            <h3 class="text-base font-bold text-[#1E293B] mb-1.5 group-hover:text-[#22D3EE] transition-colors duration-300 relative z-10">
               {checklist.title}
             </h3>
             
@@ -238,7 +238,7 @@ const checklists = [
             
             <div class="flex flex-wrap gap-1.5 mb-3 relative z-10">
               {checklist.tags.map((tag) => (
-                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 group-hover:bg-[#3B82F6]/10 group-hover:text-[#3B82F6] transition-colors duration-300">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 group-hover:bg-[#0EA5E9]/10 group-hover:text-[#0EA5E9] transition-colors duration-300">
                   {tag}
                 </span>
               ))}
@@ -251,7 +251,7 @@ const checklists = [
             
             <a 
               href={checklist.url}
-              class="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-[#3B82F6] text-[#3B82F6] hover:bg-gradient-to-r hover:from-[#3bb1f6] hover:to-[#3B82F6] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm gap-1.5 relative z-10"
+              class="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-[#0EA5E9] text-[#0EA5E9] hover:bg-gradient-to-r hover:from-[#22D3EE] hover:to-[#0EA5E9] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm gap-1.5 relative z-10"
             >
               {lang === 'fi' ? 'Lataa tarkistuslista' : 'Download Checklist'}
               <Icon name="arrowDownTray" class="h-4 w-4" />
@@ -265,19 +265,19 @@ const checklists = [
   <!-- CTA Section -->
   <section class="py-12 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 p-8 md:p-12 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6]"></div>
+      <div class="bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-8 md:p-12 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0EA5E9] to-[#22D3EE]"></div>
         
         <div class="flex items-center justify-center gap-4 mb-4">
-          <div class="h-px w-10 bg-gradient-to-r from-transparent to-[#1E2A7A]"></div>
-          <span class="text-[#1E2A7A] text-xl font-bold">✦</span>
-          <div class="h-px w-10 bg-gradient-to-l from-transparent to-[#1E2A7A]"></div>
+          <div class="h-px w-10 bg-gradient-to-r from-transparent to-[#0F172A]"></div>
+          <span class="text-[#0F172A] text-xl font-bold">✦</span>
+          <div class="h-px w-10 bg-gradient-to-l from-transparent to-[#0F172A]"></div>
         </div>
         
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3 text-[#1E2A7A]">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3 text-[#0F172A]">
           {lang === 'fi' ? 'Tarvitsetko apua dokumenttien soveltamisessa?' : 'Need help applying these documents?'}
         </h2>
-        <p class="text-sm md:text-base text-[#1E2A7A] mb-6 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-sm md:text-base text-[#0F172A] mb-6 max-w-2xl mx-auto leading-relaxed">
           {lang === 'fi' 
             ? 'Asiantuntijatietoomme auttaa sinua hyödyntämään näitä resursseja tehokkaasti organisaatiossasi.' 
             : 'Our expertise can help you leverage these resources effectively in your organization.'}
@@ -285,7 +285,7 @@ const checklists = [
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
           <a 
             href="/contact" 
-            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] text-white hover:from-[#3bb1f6] hover:to-[#3B82F6] transition-all duration-300 hover:shadow-lg font-medium text-sm gap-2 group"
+            class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#0F172A] text-white hover:from-[#22D3EE] hover:to-[#0EA5E9] transition-all duration-300 hover:shadow-lg font-medium text-sm gap-2 group"
           >
             {lang === 'fi' ? 'Ota yhteyttä asiantuntijoihimme' : 'Contact Our Experts'}
             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

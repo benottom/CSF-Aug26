@@ -1,0 +1,182 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const isFi = lang === 'fi';
+
+const seo = {
+  en: {
+    title: "Compliance Engineering: NIS2 & CRA",
+    description: "Engineer EU NIS2 and CRA compliance before the deadline hits. Risk assessments, secure code review and VAPT for critical infrastructure. Book a call.",
+    keywords: "compliance engineering, NIS2 compliance, CRA compliance, Cyber Resilience Act, EUCC certification, EU cybersecurity compliance, VAPT, secure code review"
+  },
+  fi: {
+    title: "Compliance Engineering: NIS2 & CRA",
+    description: "Rakennamme NIS2- ja CRA-vaatimustenmukaisuuden ennen määräaikaa. Riskiarvioinnit, koodikatselmoinnit ja VAPT EU:n kriittiselle infralle. Varaa aika.",
+    keywords: "compliance engineering, NIS2 vaatimustenmukaisuus, CRA vaatimustenmukaisuus, kyberkestävyyssäädös, EUCC-sertifiointi, kyberturvallisuus, haavoittuvuusskannaus"
+  }
+};
+
+// ProfessionalService JSON-LD, scoped to this service (site-wide Organization/LocalBusiness
+// schema is already injected globally in Layout.astro — this augments it, it does not replace it)
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Cyber Security Finland",
+  "url": `https://cybersecurity.fi${currentPath}`,
+  "logo": "https://cybersecurity.fi/Logo Blue_F.svg",
+  "image": "https://cybersecurity.fi/Logo Blue_F.svg",
+  "description": isFi ? seo.fi.description : seo.en.description,
+  "serviceType": "Compliance Engineering",
+  "areaServed": {
+    "@type": "Place",
+    "name": "European Union"
+  },
+  "knowsAbout": ["Compliance Engineering", "NIS2 Compliance", "CRA Compliance", "EUCC", "VAPT"],
+  "provider": {
+    "@type": "Organization",
+    "name": "Cyber Security Finland"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+358 44 5040308",
+    "email": "info@cybersecurity.fi",
+    "contactType": "sales",
+    "availableLanguage": ["English", "Finnish"]
+  }
+};
+
+const content = {
+  en: {
+    h1: "Compliance Engineering for EU NIS2 & CRA",
+    h2: "Audit-ready controls, engineered — not just documented",
+    hero: "NIS2 and the Cyber Resilience Act do not reward good intentions, they reward evidence. Cyber Security Finland engineers the technical controls, risk management processes, and audit trails your organization needs to satisfy NIS2 Article 21 security measures, CRA essential requirements, and EUCC certification criteria, before regulators or customers come asking. Our engineers work inside your stack: threat modeling, secure code review, vulnerability assessment and penetration testing, and incident response engineering that produces defensible documentation, not shelfware. We translate directive text into implemented controls, mapped to your architecture and your deadlines. Every control we build ships with the evidence trail your auditors and supervisory authority will actually ask for. For critical infrastructure operators, manufacturers, and software vendors placing products on the EU market, that means measurable readiness: fewer findings in your next audit, a shorter path to certification, and a security posture built to withstand scrutiny from supervisory authorities and from attackers alike.",
+    ctaPrimary: "Book a Compliance Assessment",
+    ctaSecondary: "Talk to an Engineer",
+    trustTitle: "Trusted by EU Enterprises for Regulatory Compliance",
+    trustSubtitle: "Engineering-led compliance for organizations that can't afford to get NIS2, CRA, or EUCC wrong.",
+    cards: [
+      {
+        title: "NIS2 Readiness",
+        body: "We map your risk management, incident reporting, and supply-chain controls directly to NIS2 Article 21. Gap analysis and remediation are engineered together, not handed off in a slide deck."
+      },
+      {
+        title: "CRA Alignment",
+        body: "From secure-by-design architecture reviews to vulnerability handling processes, we build the technical file the Cyber Resilience Act requires before your product reaches the EU market."
+      },
+      {
+        title: "EUCC Preparation",
+        body: "Our engineers prepare products and processes against the European Cybersecurity Certification Scheme, closing evidentiary gaps before formal evaluation begins."
+      }
+    ]
+  },
+  fi: {
+    h1: "Compliance Engineering EU:n NIS2- ja CRA-vaatimuksiin",
+    h2: "Auditointivalmiit kontrollit — ei vain dokumentteja",
+    hero: "NIS2 ja kyberkestävyyssäädös (CRA) eivät palkitse hyviä aikeita – ne palkitsevat näyttöä. Cyber Security Finland suunnittelee ja toteuttaa tekniset kontrollit, riskienhallintaprosessit ja auditointijäljet, joita organisaatiosi tarvitsee täyttääkseen NIS2:n 21 artiklan turvallisuustoimenpiteet, CRA:n olennaiset vaatimukset ja EUCC-sertifioinnin kriteerit – ennen kuin viranomainen tai asiakas kysyy. Insinöörimme työskentelevät suoraan järjestelmässäsi: uhkamallinnus, tietoturvakoodikatselmoinnit, haavoittuvuusskannaus ja tunkeutumistestaus (VAPT) sekä poikkeamanhallinnan rakentaminen, joka tuottaa puolustettavaa dokumentaatiota – ei hyllytavaraa. Muutamme direktiivitekstin toteutetuiksi kontrolleiksi, jotka on kytketty arkkitehtuuriisi ja aikatauluusi. Jokainen rakentamamme kontrolli toimitetaan yhdessä näyttö- ja auditointiketjun kanssa, jota valvontaviranomaisesi todella tulee kysymään. Kriittisen infrastruktuurin toimijoille, valmistajille ja EU:n markkinoille tuotteita tuoville ohjelmistotoimittajille tämä tarkoittaa mitattavaa valmiutta: vähemmän huomautuksia seuraavassa auditoinnissa, lyhyempi polku sertifiointiin ja tietoturva-asento, joka kestää sekä valvontaviranomaisten että hyökkääjien tarkastelun.",
+    ctaPrimary: "Varaa vaatimustenmukaisuusarviointi",
+    ctaSecondary: "Keskustele insinöörin kanssa",
+    trustTitle: "EU-yritysten luottama kumppani vaatimustenmukaisuudessa",
+    trustSubtitle: "Insinöörivetoista vaatimustenmukaisuutta organisaatioille, joilla ei ole varaa epäonnistua NIS2:ssa, CRA:ssa tai EUCC:ssä.",
+    cards: [
+      {
+        title: "NIS2-valmius",
+        body: "Kartoitamme riskienhallintasi, häiriöilmoitusprosessisi ja toimitusketjun kontrollit suoraan NIS2:n 21 artiklaan. Aukkoanalyysi ja korjaustoimet suunnitellaan yhdessä – ei erillisenä diaesityksenä."
+      },
+      {
+        title: "CRA-yhdenmukaisuus",
+        body: "Suunnittelemme turvallisuuden alusta asti ja rakennamme haavoittuvuuksien hallintaprosessit sekä teknisen tiedoston, jota kyberkestävyyssäädös (CRA) edellyttää ennen tuotteesi tuloa EU:n markkinoille."
+      },
+      {
+        title: "EUCC-valmistelu",
+        body: "Insinöörimme valmistelevat tuotteet ja prosessit eurooppalaisen kyberturvallisuuden sertifiointijärjestelmän (EUCC) mukaisiksi ja sulkevat näyttöön liittyvät aukot ennen virallista arviointia."
+      }
+    ]
+  }
+};
+
+const c = content[lang];
+---
+
+<Layout
+  title={seo[lang].title}
+  description={seo[lang].description}
+  keywords={seo[lang].keywords}
+  schema={schema}
+  type="service"
+>
+  <style>
+    /* Lexend is now loaded sitewide in Layout.astro; only the grid background is page-specific. */
+    .ce-grid {
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+  </style>
+
+  <!-- ============ HERO ============ -->
+  <section class="ce-lexend ce-grid relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24 border-b border-slate-200">
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
+        {isFi ? 'NIS2 · CRA · EUCC' : 'NIS2 · CRA · EUCC'}
+      </span>
+
+      <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.05]">
+        {c.h1}
+      </h1>
+
+      <h2 class="mt-5 text-lg md:text-xl font-medium text-[#1E293B] max-w-3xl mx-auto">
+        {c.h2}
+      </h2>
+
+      <p class="mt-6 text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto text-left md:text-center">
+        {c.hero}
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+          {c.ctaPrimary}
+        </Button>
+        <Button href={isFi ? '/fi/assessment' : '/assessment'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+          {c.ctaSecondary}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ E-E-A-T TRUST BANNER ============ -->
+  <section class="ce-lexend py-16 md:py-20 bg-[#F1F5F9] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#0F172A]">
+          {c.trustTitle}
+        </h3>
+        <p class="mt-3 text-base text-slate-600 leading-relaxed">
+          {c.trustSubtitle}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {c.cards.map((card) => (
+          <div class="bg-white rounded-lg border border-slate-200 shadow-[0_1px_2px_rgba(15,23,42,0.06)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-shadow duration-200 p-6 md:p-7">
+            <div class="w-10 h-10 rounded-md bg-[#0F172A] flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h4 class="text-base font-bold tracking-tight text-[#0F172A] mb-2">
+              {card.title}
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              {card.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

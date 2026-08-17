@@ -23,11 +23,11 @@ const homeLabel = isFi ? 'Etusivu' : 'Home';
 <nav aria-label="Breadcrumb" class="mb-4 text-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <ol class="flex flex-wrap items-center gap-1 text-slate-500">
-      <li><a href={homeHref} class="hover:text-teal-700 transition-colors duration-200">{homeLabel}</a></li>
+      <li><a href={homeHref} class="hover:text-sky-700 transition-colors duration-200">{homeLabel}</a></li>
       {parts.map(p => (
         <li class="flex items-center">
           <span class="mx-1 text-slate-400">/</span>
-          <a href={p.href} class="capitalize hover:text-teal-700 transition-colors duration-200 aria-[current=page]:text-slate-700" aria-current={p.href === path ? 'page' : undefined}>{p.label}</a>
+          <a href={p.href} class="capitalize hover:text-sky-700 transition-colors duration-200 aria-[current=page]:text-slate-700" aria-current={p.href === path ? 'page' : undefined}>{p.label}</a>
         </li>
       ))}
     </ol>

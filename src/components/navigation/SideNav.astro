@@ -15,13 +15,13 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
       const active = currentPath === item.href || currentPath.startsWith(item.href + '/');
       return (
         <div>
-          <a href={item.href} class={`block rounded px-3 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 ${active ? 'bg-teal-50 text-teal-700' : 'text-slate-700 hover:text-teal-700 hover:bg-slate-50'}`}>{item.label}</a>
+          <a href={item.href} class={`block rounded px-3 py-2 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${active ? 'bg-sky-50 text-sky-700' : 'text-slate-700 hover:text-sky-700 hover:bg-slate-50'}`}>{item.label}</a>
           {item.children && item.children.length > 0 && (
             <div class="mt-1 ml-3 border-l border-slate-200 pl-3 space-y-1">
               {item.children.map(child => {
                 const childActive = currentPath === child.href;
                 return (
-                  <a href={child.href} class={`block rounded px-3 py-1.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 ${childActive ? 'bg-teal-100 text-teal-700' : 'text-slate-600 hover:text-teal-700 hover:bg-slate-50'}`}>{child.label}</a>
+                  <a href={child.href} class={`block rounded px-3 py-1.5 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 ${childActive ? 'bg-sky-100 text-sky-700' : 'text-slate-600 hover:text-sky-700 hover:bg-slate-50'}`}>{child.label}</a>
                 );
               })}
             </div>

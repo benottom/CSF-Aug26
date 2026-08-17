@@ -174,9 +174,9 @@ const isFi = lang === 'fi';
 // Get color classes for the package cards
 const getColorClasses = (color: string) => {
   const colorMap: Record<string, { bg: string, light: string, border: string, hover: string, text: string }> = {
-    blue: { bg: 'bg-[#3B82F6]', light: 'bg-blue-50', border: 'border-[#3B82F6]', hover: 'hover:border-[#3B82F6]', text: 'text-[#3B82F6]' },
+    blue: { bg: 'bg-[#0EA5E9]', light: 'bg-blue-50', border: 'border-[#0EA5E9]', hover: 'hover:shadow-md', text: 'text-[#0EA5E9]' },
     cyan: { bg: 'bg-cyan-500', light: 'bg-cyan-50', border: 'border-cyan-500', hover: 'hover:border-cyan-500', text: 'text-cyan-500' },
-    teal: { bg: 'bg-teal-500', light: 'bg-teal-50', border: 'border-teal-500', hover: 'hover:border-teal-500', text: 'text-teal-500' },
+    teal: { bg: 'bg-sky-500', light: 'bg-sky-50', border: 'border-sky-500', hover: 'hover:border-sky-500', text: 'text-sky-500' },
     indigo: { bg: 'bg-indigo-500', light: 'bg-indigo-50', border: 'border-indigo-500', hover: 'hover:border-indigo-500', text: 'text-indigo-500' }
   };
   return colorMap[color] || colorMap.blue;
@@ -190,7 +190,7 @@ const getColorClasses = (color: string) => {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
-          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+          <span class="bg-gradient-to-r from-[#0F172A] to-[#22D3EE] bg-clip-text text-transparent">
             {currentContent.hero.subtitle}
           </span>
         </h1>
@@ -199,7 +199,7 @@ const getColorClasses = (color: string) => {
         </p>
         
         <div class="mt-8">
-          <a href={currentContent.hero.primaryCTA.href} class="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-[#1E40AF] text-[#1E40AF] hover:bg-gradient-to-r hover:from-[#1E2A7A] hover:to-[#3B82F6] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm sm:text-base">
+          <a href={currentContent.hero.primaryCTA.href} class="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-[#1E293B] text-[#1E293B] hover:bg-gradient-to-r hover:from-[#0F172A] hover:to-[#0EA5E9] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm sm:text-base">
             {currentContent.hero.primaryCTA.text}
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -218,14 +218,14 @@ const getColorClasses = (color: string) => {
           const colors = getColorClasses(pkg.color);
           return (
             <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
-                        hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                        hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                         transition-all duration-300
                         flex flex-col h-full group relative overflow-hidden" key={pkg.title}>
               
-              <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+              <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0EA5E9] to-[#22D3EE] group-hover:h-[6px] transition-all duration-300 z-20"></div>
               
               <div class="p-5 md:p-6 flex-1 flex flex-col">
-                <h3 class="text-lg font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300">
+                <h3 class="text-lg font-bold text-[#1E293B] mb-1.5 group-hover:text-[#22D3EE] transition-colors duration-300">
                   {pkg.title}
                 </h3>
                 <p class="text-sm text-slate-500 leading-relaxed mb-4 group-hover:text-slate-600 transition-colors duration-300">
@@ -246,7 +246,7 @@ const getColorClasses = (color: string) => {
                 <ul class="space-y-2 mb-6 flex-1">
                   {pkg.features.map((feature) => (
                     <li class="flex items-start" key={feature}>
-                      <svg class="w-4 h-4 text-[#3B82F6] mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-4 h-4 text-[#0EA5E9] mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                       </svg>
                       <span class="text-sm text-slate-600 group-hover:text-slate-700 transition-colors duration-300">{feature}</span>
@@ -254,7 +254,7 @@ const getColorClasses = (color: string) => {
                   ))}
                 </ul>
                 
-                <a href={pkg.href} class="inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-[#1E40AF] text-[#1E40AF] hover:bg-gradient-to-r hover:from-[#1E2A7A] hover:to-[#3B82F6] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm w-full">
+                <a href={pkg.href} class="inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-[#1E293B] text-[#1E293B] hover:bg-gradient-to-r hover:from-[#0F172A] hover:to-[#0EA5E9] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm w-full">
                   {isFi ? 'Lue lisää' : 'Learn More'}
                   <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -271,29 +271,29 @@ const getColorClasses = (color: string) => {
   <!-- CTA Section -->
   <section class="py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6] transition-all duration-300 p-8 md:p-12 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#3B82F6] to-[#3bb1f6]"></div>
+      <div class="bg-white rounded-2xl border-2 border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:shadow-md transition-all duration-300 p-8 md:p-12 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#0EA5E9] to-[#22D3EE]"></div>
         
         <div class="flex items-center justify-center gap-4 mb-4">
-          <div class="h-px w-10 bg-gradient-to-r from-transparent to-[#1E2A7A]"></div>
-          <span class="text-[#1E2A7A] text-xl font-bold">✦</span>
-          <div class="h-px w-10 bg-gradient-to-l from-transparent to-[#1E2A7A]"></div>
+          <div class="h-px w-10 bg-gradient-to-r from-transparent to-[#0F172A]"></div>
+          <span class="text-[#0F172A] text-xl font-bold">✦</span>
+          <div class="h-px w-10 bg-gradient-to-l from-transparent to-[#0F172A]"></div>
         </div>
         
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3 text-[#1E2A7A]">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3 text-[#0F172A]">
           {currentContent.cta.title}
         </h2>
-        <p class="text-sm md:text-base text-[#1E2A7A] mb-6 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-sm md:text-base text-[#0F172A] mb-6 max-w-2xl mx-auto leading-relaxed">
           {currentContent.cta.subtitle}
         </p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={currentContent.cta.primaryCTA.href} class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] text-white hover:from-[#3bb1f6] hover:to-[#3B82F6] transition-all duration-300 hover:shadow-lg font-medium text-sm gap-2 group">
+          <a href={currentContent.cta.primaryCTA.href} class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#0F172A] text-white hover:from-[#22D3EE] hover:to-[#0EA5E9] transition-all duration-300 hover:shadow-lg font-medium text-sm gap-2 group">
             {currentContent.cta.primaryCTA.text}
             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           </a>
-          <a href={currentContent.cta.secondaryCTA.href} class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border-2 border-[#3B82F6] text-[#3B82F6] bg-white hover:bg-gradient-to-r hover:from-[#3bb1f6] hover:to-[#3B82F6] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm gap-2 group">
+          <a href={currentContent.cta.secondaryCTA.href} class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border-2 border-[#0EA5E9] text-[#0EA5E9] bg-white hover:bg-gradient-to-r hover:from-[#22D3EE] hover:to-[#0EA5E9] hover:text-white hover:border-transparent transition-all duration-300 font-medium text-sm gap-2 group">
             {currentContent.cta.secondaryCTA.text}
             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

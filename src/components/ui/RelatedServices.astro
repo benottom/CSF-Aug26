@@ -159,19 +159,19 @@ const difficultyColors = {
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {recommendedServices.map((service, index) => (
           <div 
-            class="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg border border-slate-200 hover:border-teal-200 transition-all duration-300 transform hover:-translate-y-1"
+            class="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg border border-slate-200 hover:border-sky-200 transition-all duration-300 transform hover:-translate-y-1"
             style={`animation-delay: ${index * 150}ms`}
           >
             <!-- Service Header -->
             <div class="flex items-start justify-between mb-4">
               <div class="flex items-center gap-3">
                 {service.icon && (
-                  <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center group-hover:bg-teal-200 transition-colors duration-300">
-                    <Icon name={service.icon} class="w-5 h-5 text-teal-600" />
+                  <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center group-hover:bg-sky-200 transition-colors duration-300">
+                    <Icon name={service.icon} class="w-5 h-5 text-sky-600" />
                   </div>
                 )}
                 <div>
-                  <h3 class="font-semibold text-slate-900 group-hover:text-teal-700 transition-colors duration-300">
+                  <h3 class="font-semibold text-slate-900 group-hover:text-sky-700 transition-colors duration-300">
                     {service.title}
                   </h3>
                   <div class="flex items-center gap-2 mt-1">
@@ -206,7 +206,7 @@ const difficultyColors = {
               
               <a 
                 href={service.href}
-                class="inline-flex items-center gap-1 text-sm font-medium text-teal-600 hover:text-teal-700 group/link"
+                class="inline-flex items-center gap-1 text-sm font-medium text-sky-600 hover:text-sky-700 group/link"
               >
                 <span>Learn more</span>
                 <Icon name="arrow-right" class="w-3 h-3 transform group-hover/link:translate-x-0.5 transition-transform duration-200" />
@@ -214,7 +214,7 @@ const difficultyColors = {
             </div>
 
             <!-- Hover effect overlay -->
-            <div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-sky-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none"></div>
           </div>
         ))}
       </div>

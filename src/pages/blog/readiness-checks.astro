@@ -439,7 +439,7 @@ const isFi = lang === 'fi';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
-          <span class="bg-gradient-to-r from-[#1E2A7A] to-[#3bb1f6] bg-clip-text text-transparent">
+          <span class="bg-gradient-to-r from-[#0F172A] to-[#22D3EE] bg-clip-text text-transparent">
             {currentContent.title}
           </span>
         </h1>
@@ -457,10 +457,10 @@ const isFi = lang === 'fi';
   <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0EA5E9] mb-2">
           {currentContent.assessments.title}
         </h2>
-        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base text-[#0F172A] max-w-3xl mx-auto leading-relaxed">
           {currentContent.assessments.description}
         </p>
       </div>
@@ -468,23 +468,23 @@ const isFi = lang === 'fi';
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentContent.assessments.types.map((assessment) => (
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
-                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
                       flex flex-col p-5 md:p-6 group">
             <div class="flex justify-end mb-3">
               <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center
                           transition-all duration-300
-                          group-hover:bg-gradient-to-r group-hover:from-[#1E2A7A] group-hover:to-[#3B82F6] group-hover:shadow-lg">
+                          group-hover:bg-gradient-to-r group-hover:from-[#0F172A] group-hover:to-[#0EA5E9] group-hover:shadow-lg">
                 <Icon name={assessment.icon} class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
               </div>
             </div>
-            <h3 class="text-base font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300">
+            <h3 class="text-base font-bold text-[#1E293B] mb-1.5 group-hover:text-[#22D3EE] transition-colors duration-300">
               {assessment.title}
             </h3>
             <p class="text-xs text-slate-500 mb-3 group-hover:text-slate-600 transition-colors duration-300 flex-1">
               {assessment.description}
             </p>
-            <div class="space-y-1.5 pt-3 border-t-2 border-slate-200 group-hover:border-[#3B82F6] transition-colors duration-300">
+            <div class="space-y-1.5 pt-3 border-t-2 border-slate-200 group-hover:shadow-md transition-colors duration-300">
               <div class="flex justify-between text-xs">
                 <span class="text-slate-500">Duration:</span>
                 <span class="text-slate-700 font-medium">{assessment.duration}</span>
@@ -499,7 +499,7 @@ const isFi = lang === 'fi';
               </div>
               <div class="flex justify-between text-xs">
                 <span class="text-slate-500">Difficulty:</span>
-                <span class="text-[#3B82F6] font-medium">{assessment.difficulty}</span>
+                <span class="text-[#0EA5E9] font-medium">{assessment.difficulty}</span>
               </div>
             </div>
           </div>
@@ -512,10 +512,10 @@ const isFi = lang === 'fi';
   <section class="py-12 md:py-16 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0EA5E9] mb-2">
           {currentContent.process.title}
         </h2>
-        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base text-[#0F172A] max-w-3xl mx-auto leading-relaxed">
           {currentContent.process.description}
         </p>
       </div>
@@ -523,21 +523,21 @@ const isFi = lang === 'fi';
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {currentContent.process.steps.map((step) => (
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
-                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
                       flex flex-col p-4 md:p-5 group text-center">
             <div class="flex justify-center mb-3">
-              <div class="w-12 h-12 bg-gradient-to-r from-[#3B82F6] to-[#1E2A7A] rounded-full flex items-center justify-center text-white font-bold text-lg">
+              <div class="w-12 h-12 bg-gradient-to-r from-[#0EA5E9] to-[#0F172A] rounded-full flex items-center justify-center text-white font-bold text-lg">
                 {step.step}
               </div>
             </div>
-            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300">
+            <h3 class="text-sm font-bold text-[#1E293B] mb-1.5 group-hover:text-[#22D3EE] transition-colors duration-300">
               {step.title}
             </h3>
             <p class="text-xs text-slate-500 mb-3 group-hover:text-slate-600 transition-colors duration-300">
               {step.description}
             </p>
-            <div class="mt-auto pt-3 border-t-2 border-slate-200 group-hover:border-[#3B82F6] transition-colors duration-300 text-xs text-[#3B82F6] font-medium">
+            <div class="mt-auto pt-3 border-t-2 border-slate-200 group-hover:shadow-md transition-colors duration-300 text-xs text-[#0EA5E9] font-medium">
               {step.duration}
             </div>
           </div>
@@ -550,10 +550,10 @@ const isFi = lang === 'fi';
   <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0EA5E9] mb-2">
           {currentContent.benefits.title}
         </h2>
-        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base text-[#0F172A] max-w-3xl mx-auto leading-relaxed">
           {currentContent.benefits.description}
         </p>
       </div>
@@ -561,17 +561,17 @@ const isFi = lang === 'fi';
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentContent.benefits.advantages.map((benefit) => (
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
-                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
                       flex flex-col p-4 md:p-5 group">
             <div class="flex justify-end mb-2">
               <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center
                           transition-all duration-300
-                          group-hover:bg-gradient-to-r group-hover:from-[#1E2A7A] group-hover:to-[#3B82F6] group-hover:shadow-lg">
+                          group-hover:bg-gradient-to-r group-hover:from-[#0F172A] group-hover:to-[#0EA5E9] group-hover:shadow-lg">
                 <Icon name={benefit.icon} class="w-5 h-5 text-blue-600 group-hover:text-white transition-colors duration-300" />
               </div>
             </div>
-            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300">
+            <h3 class="text-sm font-bold text-[#1E293B] mb-1.5 group-hover:text-[#22D3EE] transition-colors duration-300">
               {benefit.title}
             </h3>
             <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300">
@@ -587,10 +587,10 @@ const isFi = lang === 'fi';
   <section class="py-12 md:py-16 bg-slate-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0EA5E9] mb-2">
           {currentContent.sample.title}
         </h2>
-        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base text-[#0F172A] max-w-3xl mx-auto leading-relaxed">
           {currentContent.sample.description}
         </p>
       </div>
@@ -601,7 +601,7 @@ const isFi = lang === 'fi';
                       hover:shadow-md transition-all duration-300
                       p-4 md:p-5 group">
             <div class="mb-3">
-              <span class="px-3 py-1 bg-[#3B82F6] text-white rounded-full text-xs font-medium">
+              <span class="px-3 py-1 bg-[#0EA5E9] text-white rounded-full text-xs font-medium">
                 {question.category}
               </span>
             </div>
@@ -609,7 +609,7 @@ const isFi = lang === 'fi';
             <div class="grid grid-cols-1 md:grid-cols-2 gap-1.5">
               {question.options.map((option) => (
                 <div class="flex items-center">
-                  <input type="radio" name={`question-${question.category}`} class="mr-2 accent-[#3B82F6] w-3.5 h-3.5">
+                  <input type="radio" name={`question-${question.category}`} class="mr-2 accent-[#0EA5E9] w-3.5 h-3.5">
                   <label class="text-xs text-slate-600">{option}</label>
                 </div>
               ))}
@@ -624,10 +624,10 @@ const isFi = lang === 'fi';
   <section class="py-12 md:py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 md:mb-12">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#3B82F6] mb-2">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0EA5E9] mb-2">
           {currentContent.results.title}
         </h2>
-        <p class="text-base text-[#1E2A7A] max-w-3xl mx-auto leading-relaxed">
+        <p class="text-base text-[#0F172A] max-w-3xl mx-auto leading-relaxed">
           {currentContent.results.description}
         </p>
       </div>
@@ -635,23 +635,23 @@ const isFi = lang === 'fi';
       <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {currentContent.results.deliverables.map((deliverable) => (
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
-                      hover:shadow-xl hover:-translate-y-1 hover:border-[#3B82F6]
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
                       flex flex-col p-4 md:p-5 group text-center">
             <div class="flex justify-center mb-3">
               <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center
                           transition-all duration-300
-                          group-hover:bg-gradient-to-r group-hover:from-[#1E2A7A] group-hover:to-[#3B82F6] group-hover:shadow-lg">
+                          group-hover:bg-gradient-to-r group-hover:from-[#0F172A] group-hover:to-[#0EA5E9] group-hover:shadow-lg">
                 <Icon name={deliverable.icon} class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
               </div>
             </div>
-            <h3 class="text-sm font-bold text-[#1E40AF] mb-1.5 group-hover:text-[#3bb1f6] transition-colors duration-300">
+            <h3 class="text-sm font-bold text-[#1E293B] mb-1.5 group-hover:text-[#22D3EE] transition-colors duration-300">
               {deliverable.title}
             </h3>
             <p class="text-xs text-slate-500 mb-2 group-hover:text-slate-600 transition-colors duration-300 flex-1">
               {deliverable.description}
             </p>
-            <div class="mt-auto pt-2 border-t border-slate-100 text-xs text-[#3B82F6] font-medium">
+            <div class="mt-auto pt-2 border-t border-slate-100 text-xs text-[#0EA5E9] font-medium">
               {deliverable.format}
             </div>
           </div>

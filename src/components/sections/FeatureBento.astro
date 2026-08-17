@@ -7,7 +7,7 @@ import image_3 from "@images/dashboard.webp";
 import PlatformOrbit from "@common/PlatformOrbit.astro";
 
 // Content for the section title and subtitle
-const title = `<span class="text-teal-700">CyberSecurity</span><span class="font-normal text-slate-400">Finland</span>'s Advanced Security Suite`;
+const title = `<span class="text-sky-700">CyberSecurity</span><span class="font-normal text-slate-400">Finland</span>'s Advanced Security Suite`;
 const subTitle = `Discover how CyberSecurity Finland transforms your organization's security posture with comprehensive compliance solutions and risk management tools.`;
 
 const features = [
@@ -102,7 +102,7 @@ const features = [
 
                 <!-- Render list items if available -->
                 {feature.listItems && (
-                  <ul class="mt-2 max-w-lg list-inside list-disc space-y-1 text-sm/6 text-slate-600 marker:text-teal-600 max-lg:text-center">
+                  <ul class="mt-2 max-w-lg list-inside list-disc space-y-1 text-sm/6 text-slate-600 marker:text-sky-600 max-lg:text-center">
                     {feature.listItems.map((item) => (
                       <li set:html={item} />
                     ))}
