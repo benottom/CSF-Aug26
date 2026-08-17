@@ -11,6 +11,12 @@ export const menu = [
     href: "/services",
     children: [
       {
+        label_fi: "Compliance Engineering",
+        label_en: "Compliance Engineering",
+        href: "/services/compliance-engineering",
+        children: []
+      },
+      {
         label_fi: "Sääntelyn noudattaminen",
         label_en: "Regulatory Compliance",
         href: "/services/regulatory-compliance",

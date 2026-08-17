@@ -6,21 +6,21 @@ import Icon from '@/components/ui/icons/Icon.astro';
 // SEO Configuration
 const seoConfig = {
   title: "Cyber Security Finland | Kyberturvallisuus- ja vaatimustenmukaisuusneuvonta",
-  description: "Kyberturvallisuus- ja vaatimustenmukaisuusneuvonta. ISO 27001, NIS2, GDPR ja DORA -toteutus todistetuin menetelmin maailmanlaajuisille organisaatioille.",
-  keywords: "kyberturvallisuus suomi, ISO 27001 yhteensopivuus, NIS2 direktiivi, GDPR asiantuntija, DORA toteutus, tietoturva konsultointi, kyberturvallisuus palvelut suomi, sääntely konsultointi, riskienhallinta palvelut",
+  description: "Kyberturvallisuus- ja vaatimustenmukaisuusneuvonta. ISO 27001, NIS2, CRA ja EUCC -toteutus todistetuin menetelmin maailmanlaajuisille organisaatioille.",
+  keywords: "kyberturvallisuus suomi, ISO 27001 yhteensopivuus, NIS2 direktiivi, GDPR asiantuntija, CRA vaatimustenmukaisuus, EUCC-sertifiointi, tietoturva konsultointi, kyberturvallisuus palvelut suomi, sääntely konsultointi, riskienhallinta palvelut",
   type: "website" as const,
   schema: {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Cyber Security Finland",
     "url": "https://cybersecurity.fi",
-    "description": "Kyberturvallisuus- ja vaatimustenmukaisuusneuvontapalvelut. ISO 27001, NIS2, GDPR ja DORA -toteutus todistetuin menetelmin maailmanlaajuisille organisaatioille.",
+    "description": "Kyberturvallisuus- ja vaatimustenmukaisuusneuvontapalvelut. ISO 27001, NIS2, CRA ja EUCC -toteutus todistetuin menetelmin maailmanlaajuisille organisaatioille.",
     "publisher": {
       "@type": "Organization",
       "name": "Cyber Security Finland",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://cybersecurity.fi/CSFlogoT.png",
+        "url": "https://cybersecurity.fi/csf-logo-2026.png",
         "width": 300,
         "height": 300
       }
@@ -39,8 +39,9 @@ const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
 const content = {
   en: {
     hero: {
-      title: "Enterprise Cybersecurity & Compliance Advisory",
-      subtitle: "Strategic guidance for complex regulatory environments. ISO 27001, NIS2, GDPR, and DORA implementation with proven methodologies trusted by global organizations.",
+      eyebrow: "NIS2 · CRA · EUCC",
+      title: "Enterprise Cybersecurity & Compliance Advisory for Regulated Europe",
+      subtitle: "NIS2, CRA, and EUCC deadlines are closing in. We help regulated European enterprises engineer audit-ready ISO 27001 and GDPR controls — turning compliance from a cost center into a competitive advantage.",
       primaryCTA: { text: "Request Consultation", href: "/contact" },
       secondaryCTA: { text: "Explore Capabilities", href: "/services" }
     },
@@ -67,10 +68,10 @@ const content = {
           href: "/services/gdpr-privacy-services"
         },
         {
-          title: "Digital Operational Resilience",
-          description: "DORA compliance for financial institutions and critical infrastructure",
-          icon: "building-library",
-          href: "/services/dora-compliance"
+          title: "Cyber Resilience Act (CRA)",
+          description: "CRA and EUCC compliance engineering for connected products and software placed on the EU market",
+          icon: "cog",
+          href: "/services/compliance-engineering"
         }
       ]
     },
@@ -83,8 +84,9 @@ const content = {
   },
   fi: {
     hero: {
-      title: "Kyberturvallisuus- ja vaatimustenmukaisuusneuvonta",
-      subtitle: "Strateginen ohjaus monimutkaisissa sääntelyympäristöissä. ISO 27001, NIS2, GDPR ja DORA toteutus todistetuin menetelmin, joihin maailmanlaajuiset organisaatiot luottavat.",
+      eyebrow: "NIS2 · CRA · EUCC",
+      title: "Kyberturvallisuus- ja vaatimustenmukaisuusneuvonta säännellylle Euroopalle",
+      subtitle: "NIS2-, CRA- ja EUCC-määräajat lähestyvät nopeasti. Autamme säänneltyjä eurooppalaisia yrityksiä rakentamaan auditointivalmiit ISO 27001- ja GDPR-kontrollit – ja muuttamaan vaatimustenmukaisuuden kilpailueduksi.",
       primaryCTA: { text: "Pyydä konsultaatio", href: "/fi/contact" },
       secondaryCTA: { text: "Tutustu palveluihin", href: "/fi/services" }
     },
@@ -111,10 +113,10 @@ const content = {
           href: "/fi/services/gdpr-privacy-services"
         },
         {
-          title: "Digitaalinen toimintakyky",
-          description: "DORA-vaatimustenmukaisuus rahoituslaitoksille ja kriittiselle infrastruktuurille",
-          icon: "building-library",
-          href: "/fi/services/dora-compliance"
+          title: "Kyberkestävyyssäädös (CRA)",
+          description: "CRA- ja EUCC-vaatimustenmukaisuus EU:n markkinoille tuotaville yhdistetyille tuotteille ja ohjelmistoille",
+          icon: "cog",
+          href: "/fi/services/compliance-engineering"
         }
       ]
     },
@@ -133,9 +135,9 @@ const isFi = lang === 'fi';
 const keyServices = [
   {
     title: isFi ? "Yhteensopivuuskehykset" : "Compliance Frameworks",
-    description: isFi 
-      ? "Muunna sääntelyvaatimukset kilpailueduksi. Asiantunteva ISO 27001, SOC 2, GDPR, NIS2 ja DORA -kehyksien toteutus todistettujen nopean toteutuksen metodologioiden avulla."
-      : "Transform regulatory requirements into competitive advantages. Expert implementation of ISO 27001, SOC 2, GDPR, NIS2, and DORA frameworks with proven fast-track methodologies.",
+    description: isFi
+      ? "Muunna sääntelyvaatimukset kilpailueduksi. Asiantunteva ISO 27001, SOC 2, GDPR, NIS2, CRA ja EUCC -kehyksien toteutus todistettujen nopean toteutuksen metodologioiden avulla."
+      : "Transform regulatory requirements into competitive advantages. Expert implementation of ISO 27001, SOC 2, GDPR, NIS2, CRA, and EUCC frameworks with proven fast-track methodologies.",
     icon: "shield-check",
     href: isFi ? "/fi/services" : "/services"
   },
@@ -191,12 +193,12 @@ const complianceFrameworks = [
     href: isFi ? "/fi/regulatory/gdpr" : "/regulatory/gdpr"
   },
   {
-    title: "DORA",
+    title: "EUCC",
     description: isFi
-      ? "Digitaalisen toiminnan resilierenssilaki - EU:n laki digitaalisen toiminnan resilierenssistä rahoituspalveluissa."
-      : "Digital Operational Resilience Act - EU regulation for digital operational resilience in financial services.",
-    icon: "building-library",
-    href: isFi ? "/fi/regulatory/dora" : "/regulatory/dora"
+      ? "Euroopan yhteisiin kriteereihin perustuva kyberturvallisuuden sertifiointijärjestelmä - EU:n yhdenmukaistettu järjestelmä ICT-tuotteiden kyberturvallisuuden sertifiointiin."
+      : "European Common Criteria-based Cybersecurity Certification Scheme - the EU's harmonized scheme for certifying ICT product cybersecurity.",
+    icon: "badge",
+    href: isFi ? "/fi/services/compliance-engineering" : "/services/compliance-engineering"
   },
   {
     title: "SOC 2",
@@ -310,8 +312,14 @@ const latestResources = [
     
     <!-- TITLE AT THE VERY TOP - CENTERED -->
     <div class="text-center mb-6 md:mb-12 lg:mb-20">
+      <div class="flex justify-center mb-4">
+        <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
+          {currentContent.hero.eyebrow}
+        </span>
+      </div>
       <h1 class="font-bold tracking-tight leading-tight"
-          style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 5vw, 45px);">
+          style="font-size: clamp(24px, 5vw, 45px);">
         <span class="bg-gradient-to-r from-[#0F172A] to-[#22D3EE] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
           {currentContent.hero.title}
         </span>
@@ -342,7 +350,7 @@ const latestResources = [
             </div>
             
             <p class="text-slate-600 leading-relaxed mx-auto text-center"
-               style="font-family: 'Montserrat', sans-serif; font-size: clamp(16px, 2.5vw, 25px); max-width: 600px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);">
+               style="font-size: clamp(16px, 2.5vw, 25px); max-width: 600px; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);">
               {currentContent.hero.subtitle}
             </p>
           </div>
@@ -362,8 +370,7 @@ const latestResources = [
       </div>
       
       <!-- Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center mt-8 md:mt-14"
-           style="font-family: 'Montserrat', sans-serif;">
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center mt-8 md:mt-14">
         
         <a href={isFi ? "/fi/contact" : "/contact"} 
            class="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 sm:px-7 sm:py-3.5 bg-gradient-to-r from-[#0EA5E9] to-[#0F172A] text-white rounded-full hover:from-[#22D3EE] hover:to-[#0EA5E9] transition-all duration-300 hover:shadow-xl font-medium text-sm sm:text-base">
@@ -434,13 +441,11 @@ const latestResources = [
             
             {[
               { src: '/images/nis2.webp', alt: 'NIS2' },
-              { src: '/images/dora.webp', alt: 'DORA' },
               { src: '/images/logo-client-1.webp', alt: 'Client 3' },
               { src: '/images/CRA.jpg', alt: 'CRA' },
               { src: '/images/SOC-2-logo.jpg', alt: 'SOC2' },
               { src: '/images/gdpr.webp', alt: 'GDPR' },
               { src: '/images/nis2.webp', alt: 'NIS2' },
-              { src: '/images/dora.webp', alt: 'DORA' },
               { src: '/images/logo-client-1.webp', alt: 'Client 3' },
               { src: '/images/CRA.jpg', alt: 'CRA' },
               { src: '/images/SOC-2-logo.jpg', alt: 'SOC2' },
@@ -1223,17 +1228,17 @@ const latestResources = [
           <svg class="w-3.5 h-3.5 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
-          <span class="text-xs font-medium">{isFi ? 'Syyskuu 22, 2025' : 'Sep 22, 2025'}</span>
+          <span class="text-xs font-medium">{isFi ? 'Syyskuu 21, 2026' : 'Sep 21, 2026'}</span>
         </div>
-        
+
         <h3 class="text-lg font-bold text-[#1E293B] mb-3 group-hover:text-[#22D3EE] transition-colors duration-300 relative z-10">
-          {isFi ? 'DORA Yhteensopivuus rahoituspalveluille' : 'DORA Compliance for Financial Services'}
+          {isFi ? 'CRA-vaatimustenmukaisuus ohjelmistotoimittajille' : 'CRA Compliance for Software Vendors'}
         </h3>
-        
+
         <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-1 group-hover:text-slate-700 transition-colors duration-300 relative z-10">
-          {isFi 
-            ? 'Rahoituslaitosten valmistautuminen digitaalisen toiminnan resilierenssin vaatimuksiin.'
-            : 'Preparing financial institutions for digital operational resilience requirements.'}
+          {isFi
+            ? 'Ohjelmisto- ja tuotetoimittajien valmistautuminen kyberkestävyyssäädöksen (CRA) olennaisiin vaatimuksiin.'
+            : 'Preparing product and software vendors for Cyber Resilience Act essential requirements.'}
         </p>
         
         <div class="relative z-10">

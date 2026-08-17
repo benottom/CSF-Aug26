@@ -159,7 +159,7 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
         "@type": "Organization",
         "name": "Cyber Security Finland",
         "url": "https://cybersecurity.fi",
-        "logo": "https://cybersecurity.fi/Logo Blue_F.svg",
+        "logo": "https://cybersecurity.fi/csf-logo-2026.png",
         "sameAs": [
           "https://www.linkedin.com/company/cyber-security-finland"
         ],
@@ -251,7 +251,7 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Cyber Security Finland",
-        "image": "https://cybersecurity.fi/Logo Blue_F.svg",
+        "image": "https://cybersecurity.fi/csf-logo-2026.png",
         "telephone": "+358 44 5040308",
         "email": "info@cybersecurity.fi",
         "address": {
@@ -338,8 +338,11 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
           // Silently fail for non-critical enhancement
         });
 
-        // Register Service Worker for performance optimization
-        if ('serviceWorker' in navigator) {
+        // Register Service Worker for performance optimization (skip on local dev, and
+        // proactively clean up any worker/cache left over from before this fix existed,
+        // so cached pages never mask changes while iterating)
+        const isLocalDev = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+        if ('serviceWorker' in navigator && !isLocalDev) {
           window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
               .then(() => {
@@ -349,6 +352,13 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
                 // Service worker registration failed - non-critical
               });
           });
+        } else if ('serviceWorker' in navigator && isLocalDev) {
+          navigator.serviceWorker.getRegistrations().then(regs => {
+            regs.forEach(reg => reg.unregister());
+          });
+          if (window.caches) {
+            caches.keys().then(keys => keys.forEach(key => caches.delete(key)));
+          }
         }
 
         // Performance monitoring

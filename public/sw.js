@@ -1,85 +1,62 @@
 // Service Worker for Cyber Security Finland website
-const CACHE_NAME = 'cybersec-v1.11';
+const CACHE_NAME = 'cybersec-v2.0';
 const urlsToCache = [
-  '/',
-  '/services',
-  '/about',
-  '/contact',
-  '/resources',
-    // Note: styles are bundled by the build step; avoid caching non-existent paths
-    '/Cyber Security Finland.jpg'
+  '/Cyber Security Finland.jpg'
 ];
 
-// Install event - cache essential resources
+// Install event - cache essential static resources, then take over immediately
+// (skipWaiting means an updated worker doesn't wait for old tabs to close)
 self.addEventListener('install', (event) => {
-  console.log('Service Worker installing.');
-  
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
+      .then((cache) => cache.addAll(urlsToCache))
   );
 });
 
-// Fetch event - serve cached resources when offline
+// Fetch event - network-first for page navigations (so deploys are never masked
+// by a stale cache), cache-first for static assets (images/fonts/etc.)
 self.addEventListener('fetch', (event) => {
-  // Only handle GET requests over http(s) - caching POST bodies or
-  // chrome-extension:// requests is unsupported and throws.
   if (event.request.method !== 'GET' || !event.request.url.startsWith('http')) {
     return;
   }
 
+  // Navigations (actual page loads) must always prefer fresh network content.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Static assets: cache-first, but refresh the cache entry in the background.
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Return cached version if available
-        if (response) {
-          return response;
+    caches.match(event.request).then((cached) => {
+      const networkFetch = fetch(event.request).then((response) => {
+        if (response && response.status === 200 && response.type === 'basic') {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
         }
-        
-        // Otherwise, fetch from network
-        return fetch(event.request).then(
-          (response) => {
-            // Check if we received a valid response
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
+        return response;
+      }).catch(() => cached);
 
-            // IMPORTANT: Clone the response. A response is a stream
-            // and because we want the browser to consume the response
-            // as well as the cache consuming the response, we need
-            // to clone it so we have two streams.
-            var responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return response;
-          }
-        );
-      })
+      return cached || networkFetch;
+    })
   );
 });
 
-// Activate event - clean up old caches
+// Activate event - clean up old caches and take control of open tabs immediately
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker activating.');
-  
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 
