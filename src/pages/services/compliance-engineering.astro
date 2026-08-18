@@ -52,7 +52,7 @@ const content = {
   en: {
     h1: "Compliance Engineering for EU NIS2 & CRA",
     h2: "Audit-ready controls, engineered — not just documented",
-    hero: "NIS2 and the Cyber Resilience Act do not reward good intentions, they reward evidence. Cyber Security Finland engineers the technical controls, risk management processes, and audit trails your organization needs to satisfy NIS2 Article 21 security measures, CRA essential requirements, and EUCC certification criteria, before regulators or customers come asking. Our engineers work inside your stack: threat modeling, secure code review, vulnerability assessment and penetration testing, and incident response engineering that produces defensible documentation, not shelfware. We translate directive text into implemented controls, mapped to your architecture and your deadlines. Every control we build ships with the evidence trail your auditors and supervisory authority will actually ask for. For critical infrastructure operators, manufacturers, and software vendors placing products on the EU market, that means measurable readiness: fewer findings in your next audit, a shorter path to certification, and a security posture built to withstand scrutiny from supervisory authorities and from attackers alike.",
+    hero: "NIS2 and the Cyber Resilience Act reward evidence, not good intentions. We engineer the technical controls, risk management processes, and audit trails you need to satisfy NIS2 Article 21, CRA essential requirements, and EUCC criteria, before regulators come asking. Our engineers work inside your stack: threat modeling, secure code review, VAPT, and incident response that produces defensible documentation, not shelfware. For critical infrastructure operators and software vendors, that means fewer audit findings and a security posture built to withstand scrutiny.",
     ctaPrimary: "Book a Compliance Assessment",
     ctaSecondary: "Talk to an Engineer",
     trustTitle: "Trusted by EU Enterprises for Regulatory Compliance",
@@ -75,7 +75,7 @@ const content = {
   fi: {
     h1: "Compliance Engineering EU:n NIS2- ja CRA-vaatimuksiin",
     h2: "Auditointivalmiit kontrollit — ei vain dokumentteja",
-    hero: "NIS2 ja kyberkestävyyssäädös (CRA) eivät palkitse hyviä aikeita – ne palkitsevat näyttöä. Cyber Security Finland suunnittelee ja toteuttaa tekniset kontrollit, riskienhallintaprosessit ja auditointijäljet, joita organisaatiosi tarvitsee täyttääkseen NIS2:n 21 artiklan turvallisuustoimenpiteet, CRA:n olennaiset vaatimukset ja EUCC-sertifioinnin kriteerit – ennen kuin viranomainen tai asiakas kysyy. Insinöörimme työskentelevät suoraan järjestelmässäsi: uhkamallinnus, tietoturvakoodikatselmoinnit, haavoittuvuusskannaus ja tunkeutumistestaus (VAPT) sekä poikkeamanhallinnan rakentaminen, joka tuottaa puolustettavaa dokumentaatiota – ei hyllytavaraa. Muutamme direktiivitekstin toteutetuiksi kontrolleiksi, jotka on kytketty arkkitehtuuriisi ja aikatauluusi. Jokainen rakentamamme kontrolli toimitetaan yhdessä näyttö- ja auditointiketjun kanssa, jota valvontaviranomaisesi todella tulee kysymään. Kriittisen infrastruktuurin toimijoille, valmistajille ja EU:n markkinoille tuotteita tuoville ohjelmistotoimittajille tämä tarkoittaa mitattavaa valmiutta: vähemmän huomautuksia seuraavassa auditoinnissa, lyhyempi polku sertifiointiin ja tietoturva-asento, joka kestää sekä valvontaviranomaisten että hyökkääjien tarkastelun.",
+    hero: "NIS2 ja kyberkestävyyssäädös (CRA) palkitsevat näyttöä, eivät hyviä aikeita. Suunnittelemme tekniset kontrollit, riskienhallintaprosessit ja auditointijäljet, joita tarvitset täyttääksesi NIS2:n 21 artiklan, CRA:n olennaiset vaatimukset ja EUCC-kriteerit – ennen kuin viranomainen kysyy. Insinöörimme työskentelevät järjestelmässäsi: uhkamallinnus, koodikatselmoinnit, VAPT ja poikkeamanhallinta, joka tuottaa puolustettavaa dokumentaatiota. Kriittisen infrastruktuurin toimijoille ja ohjelmistotoimittajille tämä tarkoittaa vähemmän auditointihuomautuksia ja tarkastelua kestävää tietoturva-asentoa.",
     ctaPrimary: "Varaa vaatimustenmukaisuusarviointi",
     ctaSecondary: "Keskustele insinöörin kanssa",
     trustTitle: "EU-yritysten luottama kumppani vaatimustenmukaisuudessa",
@@ -119,31 +119,45 @@ const c = content[lang];
 
   <!-- ============ HERO ============ -->
   <section class="ce-lexend ce-grid relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24 border-b border-slate-200">
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
-        <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
-        {isFi ? 'NIS2 · CRA · EUCC' : 'NIS2 · CRA · EUCC'}
-      </span>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
+            {isFi ? 'NIS2 · CRA · EUCC' : 'NIS2 · CRA · EUCC'}
+          </span>
 
-      <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.05]">
-        {c.h1}
-      </h1>
+          <h1 class="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-[1.05]">
+            {c.h1}
+          </h1>
 
-      <h2 class="mt-5 text-lg md:text-xl font-medium text-[#1E293B] max-w-3xl mx-auto">
-        {c.h2}
-      </h2>
+          <h2 class="mt-5 text-lg md:text-xl font-medium text-[#1E293B]">
+            {c.h2}
+          </h2>
 
-      <p class="mt-6 text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto text-left md:text-center">
-        {c.hero}
-      </p>
+          <p class="mt-6 text-base md:text-lg text-slate-600 leading-relaxed">
+            {c.hero}
+          </p>
 
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
-          {c.ctaPrimary}
-        </Button>
-        <Button href={isFi ? '/fi/assessment' : '/assessment'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
-          {c.ctaSecondary}
-        </Button>
+          <div class="mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+              {c.ctaPrimary}
+            </Button>
+            <Button href={isFi ? '/fi/assessment' : '/assessment'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+              {c.ctaSecondary}
+            </Button>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-2 border border-slate-300 rounded-lg hidden lg:block"></div>
+          <img
+            src="/images/services/eu-compliance-frankfurt.jpg"
+            alt="European Central Bank district, Frankfurt — the seat of EU financial and regulatory institutions"
+            class="relative rounded-lg shadow-[0_8px_30px_rgba(15,23,42,0.12)] w-full h-[320px] md:h-[420px] object-cover"
+            loading="eager"
+          />
+        </div>
       </div>
     </div>
   </section>

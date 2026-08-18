@@ -53,7 +53,7 @@ const content = {
     eyebrow: "AI ACT · GPAI · HIGH-RISK",
     h1: "EU AI Act Compliance for High-Risk & GPAI Systems",
     h2: "From risk classification to CE marking — built to withstand audit",
-    hero: "The EU AI Act does not care how good your model is, it cares whether you can prove it is safe, documented, and governed the way Regulation (EU) 2024/1689 demands. Cyber Security Finland engineers the risk classification, technical documentation, and conformity assessment process your organization needs to place AI systems on the EU market, whether you are deploying a limited-risk chatbot or a high-risk system used in hiring, credit scoring, or critical infrastructure. Our engineers work through your AI inventory system by system: intended-purpose analysis, prohibited-practice screening, high-risk obligations under Annex III, technical file assembly, and post-market monitoring design. For providers of general-purpose AI models, we build the model documentation and systemic-risk evaluation the Act requires. Every deliverable ships with the evidence trail your notified body and market surveillance authority will actually ask for, not a policy binder nobody reads. For AI providers, deployers, and importers with obligations phasing in through August 2026 and 2027, that means a defensible compliance position built before enforcement starts, not after a complaint lands.",
+    hero: "The EU AI Act cares whether you can prove your system is safe, documented, and governed under Regulation (EU) 2024/1689, not how good your model is. We engineer the risk classification, technical documentation, and conformity assessment process you need to place AI systems on the EU market, from limited-risk chatbots to high-risk systems used in hiring or credit scoring. For GPAI model providers, we build the documentation and systemic-risk evaluation the Act requires. Every deliverable ships with the evidence trail your notified body will actually ask for.",
     ctaPrimary: "Book an AI Act Assessment",
     ctaSecondary: "Talk to an Engineer",
     trustTitle: "Trusted by Organizations Deploying AI Across the EU",
@@ -77,7 +77,7 @@ const content = {
     eyebrow: "AI ACT · GPAI · KORKEA RISKI",
     h1: "EU:n Tekoälysäädöksen Vaatimustenmukaisuus Korkean Riskin ja GPAI-Järjestelmille",
     h2: "Riskiluokittelusta CE-merkintään — rakennettu kestämään auditointi",
-    hero: "EU:n tekoälysäädöksellä ei ole väliä, kuinka hyvä mallisi on – sillä on väliä, pystytkö todistamaan, että se on turvallinen, dokumentoitu ja hallittu asetuksen (EU) 2024/1689 edellyttämällä tavalla. Cyber Security Finland suunnittelee ja toteuttaa riskiluokittelun, teknisen dokumentaation ja vaatimustenmukaisuuden arviointiprosessin, jota organisaatiosi tarvitsee tuodakseen tekoälyjärjestelmiä EU:n markkinoille – olipa kyse matalan riskin chatbotista tai korkean riskin järjestelmästä, jota käytetään rekrytoinnissa, luottopisteytyksessä tai kriittisessä infrastruktuurissa. Insinöörimme käyvät tekoälyjärjestelmäsi läpi järjestelmä kerrallaan: käyttötarkoitusanalyysi, kiellettyjen käytäntöjen seulonta, liitteen III mukaiset korkean riskin velvoitteet, teknisen tiedoston kokoaminen ja markkinoille saattamisen jälkeisen seurannan suunnittelu. Yleiskäyttöisten tekoälymallien tarjoajille rakennamme mallidokumentaation ja järjestelmäriskin arvioinnin, jota säädös edellyttää. Jokainen toimitus sisältää näyttöketjun, jota ilmoitettu laitos ja markkinavalvontaviranomainen todella tulevat kysymään – ei politiikkakansiota, jota kukaan ei lue. Tekoälyn tarjoajille, käyttöönottajille ja maahantuojille, joiden velvoitteet astuvat voimaan vaiheittain elokuuhun 2026 ja 2027 mennessä, tämä tarkoittaa puolustuskelpoista vaatimustenmukaisuusasemaa rakennettuna ennen valvonnan alkua – ei valituksen jälkeen.",
+    hero: "EU:n tekoälysäädöksellä on väliä, pystytkö todistamaan järjestelmäsi turvalliseksi ja hallituksi asetuksen (EU) 2024/1689 mukaisesti – ei kuinka hyvä mallisi on. Suunnittelemme riskiluokittelun, teknisen dokumentaation ja vaatimustenmukaisuuden arvioinnin, jota tarvitset tuodaksesi tekoälyjärjestelmiä EU:n markkinoille, matalan riskin chatboteista korkean riskin järjestelmiin. GPAI-mallien tarjoajille rakennamme dokumentaation ja järjestelmäriskin arvioinnin. Jokainen toimitus sisältää näyttöketjun, jota ilmoitettu laitos todella kysyy.",
     ctaPrimary: "Varaa AI Act -arviointi",
     ctaSecondary: "Keskustele insinöörin kanssa",
     trustTitle: "EU:ssa Tekoälyä Käyttöönottavien Organisaatioiden Luottama Kumppani",
@@ -120,31 +120,45 @@ const c = content[lang];
 
   <!-- ============ HERO ============ -->
   <section class="ai-grid relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24 border-b border-slate-200">
-    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
-        <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
-        {c.eyebrow}
-      </span>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
+            {c.eyebrow}
+          </span>
 
-      <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.05]">
-        {c.h1}
-      </h1>
+          <h1 class="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-[1.05]">
+            {c.h1}
+          </h1>
 
-      <h2 class="mt-5 text-lg md:text-xl font-medium text-[#1E293B] max-w-3xl mx-auto">
-        {c.h2}
-      </h2>
+          <h2 class="mt-5 text-lg md:text-xl font-medium text-[#1E293B]">
+            {c.h2}
+          </h2>
 
-      <p class="mt-6 text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto text-left md:text-center">
-        {c.hero}
-      </p>
+          <p class="mt-6 text-base md:text-lg text-slate-600 leading-relaxed">
+            {c.hero}
+          </p>
 
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
-          {c.ctaPrimary}
-        </Button>
-        <Button href={isFi ? '/fi/assessment' : '/assessment'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
-          {c.ctaSecondary}
-        </Button>
+          <div class="mt-10 flex flex-col sm:flex-row items-center gap-4">
+            <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+              {c.ctaPrimary}
+            </Button>
+            <Button href={isFi ? '/fi/assessment' : '/assessment'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+              {c.ctaSecondary}
+            </Button>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -inset-2 border border-slate-300 rounded-lg hidden lg:block"></div>
+          <img
+            src="/images/services/ai-act-analyst.jpg"
+            alt="Security analyst reviewing system data on screen"
+            class="relative rounded-lg shadow-[0_8px_30px_rgba(15,23,42,0.12)] w-full h-[320px] md:h-[420px] object-cover"
+            loading="eager"
+          />
+        </div>
       </div>
     </div>
   </section>
