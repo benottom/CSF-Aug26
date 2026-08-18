@@ -17,6 +17,12 @@ export const menu = [
         children: []
       },
       {
+        label_fi: "EU AI Act -vaatimustenmukaisuus",
+        label_en: "EU AI Act Compliance",
+        href: "/services/ai-act-compliance",
+        children: []
+      },
+      {
         label_fi: "Sääntelyn noudattaminen",
         label_en: "Regulatory Compliance",
         href: "/services/regulatory-compliance",

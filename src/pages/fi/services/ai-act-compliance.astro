@@ -1,0 +1,183 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const isFi = lang === 'fi';
+
+const seo = {
+  en: {
+    title: "EU AI Act Compliance",
+    description: "Prepare for EU AI Act high-risk and GPAI rules before 2026 deadlines hit. Risk classification, conformity assessment, technical files. Book a call.",
+    keywords: "EU AI Act compliance, AI Act risk classification, high-risk AI systems, GPAI compliance, AI conformity assessment, Regulation 2024/1689, AI governance"
+  },
+  fi: {
+    title: "EU AI Act Compliance",
+    description: "Valmistaudu EU:n tekoälysäädöksen korkean riskin ja GPAI-velvoitteisiin ennen 2026 määräaikoja. Riskiluokittelu, vaatimustenmukaisuusarviointi. Varaa aika.",
+    keywords: "EU AI Act vaatimustenmukaisuus, tekoälysäädös, korkean riskin tekoälyjärjestelmät, GPAI vaatimustenmukaisuus, tekoälyn vaatimustenmukaisuuden arviointi"
+  }
+};
+
+// ProfessionalService JSON-LD, scoped to this service (site-wide Organization/LocalBusiness
+// schema is already injected globally in Layout.astro — this augments it, it does not replace it)
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Cyber Security Finland",
+  "url": `https://cybersecurity.fi${currentPath}`,
+  "logo": "https://cybersecurity.fi/csf-logo-2026.png",
+  "image": "https://cybersecurity.fi/csf-logo-2026.png",
+  "description": isFi ? seo.fi.description : seo.en.description,
+  "serviceType": "EU AI Act Compliance",
+  "areaServed": {
+    "@type": "Place",
+    "name": "European Union"
+  },
+  "knowsAbout": ["EU AI Act", "Regulation (EU) 2024/1689", "High-Risk AI Systems", "GPAI Compliance", "AI Conformity Assessment"],
+  "provider": {
+    "@type": "Organization",
+    "name": "Cyber Security Finland"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+358 44 5040308",
+    "email": "info@cybersecurity.fi",
+    "contactType": "sales",
+    "availableLanguage": ["English", "Finnish"]
+  }
+};
+
+const content = {
+  en: {
+    eyebrow: "AI ACT · GPAI · HIGH-RISK",
+    h1: "EU AI Act Compliance for High-Risk & GPAI Systems",
+    h2: "From risk classification to CE marking — built to withstand audit",
+    hero: "The EU AI Act does not care how good your model is, it cares whether you can prove it is safe, documented, and governed the way Regulation (EU) 2024/1689 demands. Cyber Security Finland engineers the risk classification, technical documentation, and conformity assessment process your organization needs to place AI systems on the EU market, whether you are deploying a limited-risk chatbot or a high-risk system used in hiring, credit scoring, or critical infrastructure. Our engineers work through your AI inventory system by system: intended-purpose analysis, prohibited-practice screening, high-risk obligations under Annex III, technical file assembly, and post-market monitoring design. For providers of general-purpose AI models, we build the model documentation and systemic-risk evaluation the Act requires. Every deliverable ships with the evidence trail your notified body and market surveillance authority will actually ask for, not a policy binder nobody reads. For AI providers, deployers, and importers with obligations phasing in through August 2026 and 2027, that means a defensible compliance position built before enforcement starts, not after a complaint lands.",
+    ctaPrimary: "Book an AI Act Assessment",
+    ctaSecondary: "Talk to an Engineer",
+    trustTitle: "Trusted by Organizations Deploying AI Across the EU",
+    trustSubtitle: "Engineering-led AI Act compliance for providers, deployers, and importers who can't afford a wrong risk classification.",
+    cards: [
+      {
+        title: "Risk Classification",
+        body: "We classify every AI system in your inventory against the Act's four-tier risk model — prohibited, high-risk, limited-risk, minimal-risk — and document the reasoning your regulator will ask for."
+      },
+      {
+        title: "High-Risk System Compliance",
+        body: "From data governance to human oversight design, we build the technical documentation and quality management system Annex III high-risk systems require before market placement."
+      },
+      {
+        title: "GPAI Model Obligations",
+        body: "For general-purpose AI model providers, we prepare the technical documentation, copyright policy, and systemic-risk evaluation the Act requires under Article 53."
+      }
+    ]
+  },
+  fi: {
+    eyebrow: "AI ACT · GPAI · KORKEA RISKI",
+    h1: "EU:n Tekoälysäädöksen Vaatimustenmukaisuus Korkean Riskin ja GPAI-Järjestelmille",
+    h2: "Riskiluokittelusta CE-merkintään — rakennettu kestämään auditointi",
+    hero: "EU:n tekoälysäädöksellä ei ole väliä, kuinka hyvä mallisi on – sillä on väliä, pystytkö todistamaan, että se on turvallinen, dokumentoitu ja hallittu asetuksen (EU) 2024/1689 edellyttämällä tavalla. Cyber Security Finland suunnittelee ja toteuttaa riskiluokittelun, teknisen dokumentaation ja vaatimustenmukaisuuden arviointiprosessin, jota organisaatiosi tarvitsee tuodakseen tekoälyjärjestelmiä EU:n markkinoille – olipa kyse matalan riskin chatbotista tai korkean riskin järjestelmästä, jota käytetään rekrytoinnissa, luottopisteytyksessä tai kriittisessä infrastruktuurissa. Insinöörimme käyvät tekoälyjärjestelmäsi läpi järjestelmä kerrallaan: käyttötarkoitusanalyysi, kiellettyjen käytäntöjen seulonta, liitteen III mukaiset korkean riskin velvoitteet, teknisen tiedoston kokoaminen ja markkinoille saattamisen jälkeisen seurannan suunnittelu. Yleiskäyttöisten tekoälymallien tarjoajille rakennamme mallidokumentaation ja järjestelmäriskin arvioinnin, jota säädös edellyttää. Jokainen toimitus sisältää näyttöketjun, jota ilmoitettu laitos ja markkinavalvontaviranomainen todella tulevat kysymään – ei politiikkakansiota, jota kukaan ei lue. Tekoälyn tarjoajille, käyttöönottajille ja maahantuojille, joiden velvoitteet astuvat voimaan vaiheittain elokuuhun 2026 ja 2027 mennessä, tämä tarkoittaa puolustuskelpoista vaatimustenmukaisuusasemaa rakennettuna ennen valvonnan alkua – ei valituksen jälkeen.",
+    ctaPrimary: "Varaa AI Act -arviointi",
+    ctaSecondary: "Keskustele insinöörin kanssa",
+    trustTitle: "EU:ssa Tekoälyä Käyttöönottavien Organisaatioiden Luottama Kumppani",
+    trustSubtitle: "Insinöörivetoista AI Act -vaatimustenmukaisuutta tarjoajille, käyttöönottajille ja maahantuojille, joilla ei ole varaa väärään riskiluokitteluun.",
+    cards: [
+      {
+        title: "Riskiluokittelu",
+        body: "Luokittelemme jokaisen tekoälyjärjestelmäsi säädöksen nelitasoisen riskimallin mukaan – kielletty, korkea riski, rajallinen riski, minimaalinen riski – ja dokumentoimme perustelut, joita valvontaviranomaisesi kysyy."
+      },
+      {
+        title: "Korkean riskin järjestelmien vaatimustenmukaisuus",
+        body: "Tietohallinnosta ihmisen valvonnan suunnitteluun rakennamme teknisen dokumentaation ja laadunhallintajärjestelmän, jota liitteen III korkean riskin järjestelmät edellyttävät ennen markkinoille saattamista."
+      },
+      {
+        title: "GPAI-mallien velvoitteet",
+        body: "Yleiskäyttöisten tekoälymallien tarjoajille valmistelemme teknisen dokumentaation, tekijänoikeuspolitiikan ja järjestelmäriskin arvioinnin, jota säädöksen 53 artikla edellyttää."
+      }
+    ]
+  }
+};
+
+const c = content[lang];
+---
+
+<Layout
+  title={seo[lang].title}
+  description={seo[lang].description}
+  keywords={seo[lang].keywords}
+  schema={schema}
+  type="service"
+>
+  <style>
+    .ai-grid {
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+  </style>
+
+  <!-- ============ HERO ============ -->
+  <section class="ai-grid relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24 border-b border-slate-200">
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
+        {c.eyebrow}
+      </span>
+
+      <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#0F172A] leading-[1.05]">
+        {c.h1}
+      </h1>
+
+      <h2 class="mt-5 text-lg md:text-xl font-medium text-[#1E293B] max-w-3xl mx-auto">
+        {c.h2}
+      </h2>
+
+      <p class="mt-6 text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto text-left md:text-center">
+        {c.hero}
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+          {c.ctaPrimary}
+        </Button>
+        <Button href={isFi ? '/fi/assessment' : '/assessment'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+          {c.ctaSecondary}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ E-E-A-T TRUST BANNER ============ -->
+  <section class="py-16 md:py-20 bg-[#F1F5F9] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#0F172A]">
+          {c.trustTitle}
+        </h3>
+        <p class="mt-3 text-base text-slate-600 leading-relaxed">
+          {c.trustSubtitle}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {c.cards.map((card) => (
+          <div class="bg-white rounded-lg border border-slate-200 shadow-[0_1px_2px_rgba(15,23,42,0.06)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-shadow duration-200 p-6 md:p-7">
+            <div class="w-10 h-10 rounded-md bg-[#0F172A] flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h4 class="text-base font-bold tracking-tight text-[#0F172A] mb-2">
+              {card.title}
+            </h4>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              {card.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
