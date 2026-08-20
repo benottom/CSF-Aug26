@@ -1,0 +1,18 @@
+<svg width="400" height="224" viewBox="0 0 400 224" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Critical infrastructure icon">
+  <rect width="400" height="224" fill="#f4f1ea"/>
+  <g stroke="#e2dac5" stroke-width="1">
+    <line x1="0" y1="56" x2="400" y2="56"/><line x1="0" y1="112" x2="400" y2="112"/><line x1="0" y1="168" x2="400" y2="168"/>
+    <line x1="80" y1="0" x2="80" y2="224"/><line x1="200" y1="0" x2="200" y2="224"/><line x1="320" y1="0" x2="320" y2="224"/>
+  </g>
+  <g stroke="#9ebbe3" stroke-width="1.6" stroke-linecap="round">
+    <line x1="60" y1="180" x2="60" y2="70"/><line x1="30" y1="100" x2="90" y2="55"/><line x1="30" y1="130" x2="90" y2="90"/>
+    <line x1="340" y1="180" x2="340" y2="70"/><line x1="310" y1="100" x2="370" y2="55"/><line x1="310" y1="130" x2="370" y2="90"/>
+    <line x1="90" y1="72" x2="310" y2="72"/>
+  </g>
+  <circle cx="200" cy="112" r="42" fill="#f4f1ea" stroke="#003580" stroke-width="2"/>
+  <g stroke="#131c2e" stroke-width="1.6" stroke-linejoin="round">
+    <rect x="185" y="96" width="30" height="32" fill="none"/>
+    <line x1="185" y1="106" x2="215" y2="106"/>
+    <line x1="185" y1="116" x2="215" y2="116"/>
+  </g>
+</svg>
