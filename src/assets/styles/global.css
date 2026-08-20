@@ -1,88 +1,111 @@
 /* Use system font stacks to avoid external font dependencies in local dev */
 @import "tailwindcss";
 
-
-/* Import Lexend font */
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap');
-
-@import "tailwindcss";
+/* Siivix "technical paper" theme: warm paper background, ink text, hairline
+   borders instead of shadows, one Finnish flag blue accent. Space Grotesk for
+   display type, IBM Plex Sans for body, IBM Plex Mono for labels/data. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
 :root {
   /* https://tailwindcss.com/docs/colors#customizing-your-colors */
   --color-transparent: transparent;
   --color-current: currentColor;
   --color-black: #000;
-  --color-white: #fff;
-  --color-off-white: #fefefe;
+  --color-white: #f4f1ea;
+  --color-off-white: #ece7db;
 
-  --color-slate-50: oklch(0.984 0.003 247.858);
-  --color-slate-100: oklch(0.968 0.007 247.896);
-  --color-slate-200: oklch(0.929 0.013 255.508);
-  --color-slate-300: oklch(0.869 0.022 252.894);
-  --color-slate-400: oklch(0.704 0.04 256.788);
-  --color-slate-500: oklch(0.554 0.046 257.417);
-  --color-slate-600: oklch(0.446 0.043 257.281);
-  --color-slate-700: oklch(0.372 0.044 257.287);
-  --color-slate-800: oklch(0.279 0.041 260.031);
-  --color-slate-900: oklch(0.208 0.042 265.755);
-  --color-slate-950: oklch(0.129 0.042 264.695);
+  /* Warm neutral ramp (paper -> ink) replacing the old cool blue-slate scale */
+  --color-slate-50: #f6f3ec;
+  --color-slate-100: #efe9db;
+  --color-slate-200: #e2dac5;
+  --color-slate-300: #cbc0a4;
+  --color-slate-400: #a49879;
+  --color-slate-500: #837964;
+  --color-slate-600: #635d52;
+  --color-slate-700: #48443b;
+  --color-slate-800: #2f2c26;
+  --color-slate-900: #1c1a16;
+  --color-slate-950: #121110;
 
-
-  /* Silver/grey tones for Apple-style aesthetics */
-  --color-gray-50: oklch(99.0% 0.001 240);
-  --color-gray-100: oklch(97.0% 0.002 240);
-  --color-gray-200: oklch(94.0% 0.003 240);
-  --color-gray-300: oklch(90.0% 0.005 240);
-  --color-gray-400: oklch(84.0% 0.008 240);
-  --color-gray-500: oklch(76.0% 0.012 240);
-  /* Mid-tone grey */
-  --color-gray-600: oklch(62.0% 0.015 240);
-  --color-gray-700: oklch(48.0% 0.018 240);
-  --color-gray-800: oklch(36.0% 0.020 240);
-  --color-gray-900: oklch(24.0% 0.022 240);
-  --color-gray-950: oklch(14.0% 0.024 240);
+  /* Silver/grey tones — kept close to slate for a consistent warm neutral system */
+  --color-gray-50: #f7f5f0;
+  --color-gray-100: #f0ece1;
+  --color-gray-200: #e3ddca;
+  --color-gray-300: #cdc4ab;
+  --color-gray-400: #a99f89;
+  --color-gray-500: #87806e;
+  --color-gray-600: #666055;
+  --color-gray-700: #4a463d;
+  --color-gray-800: #302d27;
+  --color-gray-900: #1c1a17;
+  --color-gray-950: #131211;
 
   /* Light silver accents */
-  --color-silver-50: oklch(99.2% 0.0015 240);
-  --color-silver-100: oklch(96.8% 0.0025 240);
-  --color-silver-200: oklch(93.2% 0.004 240);
-  --color-silver-300: oklch(88.5% 0.006 240);
-  --color-silver-400: oklch(82.0% 0.009 240);
-  --color-silver-500: oklch(74.0% 0.013 240);
-  /* Primary silver */
-  --color-silver-600: oklch(60.0% 0.016 240);
-  --color-silver-700: oklch(46.0% 0.019 240);
-  --color-silver-800: oklch(34.0% 0.022 240);
-  --color-silver-900: oklch(22.0% 0.025 240);
-  --color-silver-950: oklch(12.0% 0.028 240);
+  --color-silver-50: #f8f6f1;
+  --color-silver-100: #f1ede2;
+  --color-silver-200: #e6e0cd;
+  --color-silver-300: #d2c8ae;
+  --color-silver-400: #b0a58a;
+  --color-silver-500: #8f8571;
+  --color-silver-600: #6d6558;
+  --color-silver-700: #504a41;
+  --color-silver-800: #34312a;
+  --color-silver-900: #1e1c19;
+  --color-silver-950: #141210;
 
-  /* Consistent teal/cyan brand color palette using oklch for better accessibility */
-  --color-teal-50: oklch(97.0% 0.010 180);
-  --color-teal-100: oklch(92.0% 0.015 180);
-  --color-teal-200: oklch(84.0% 0.025 180);
-  --color-teal-300: oklch(74.0% 0.035 180);
-  --color-teal-400: oklch(65.0% 0.040 180);
-  --color-teal-500: oklch(55.0% 0.045 180);
-  --color-teal-600: oklch(45.0% 0.045 180);
-  --color-teal-700: oklch(38.0% 0.040 180);
-  --color-teal-800: oklch(32.0% 0.035 180);
-  --color-teal-900: oklch(26.0% 0.030 180);
-  --color-teal-950: oklch(20.0% 0.025 180);
+  /* Brand accent — Finnish flag blue, replacing the burnt-orange test */
+  --color-teal-50: #e6eef8;
+  --color-teal-100: #c9daf0;
+  --color-teal-200: #9ebbe3;
+  --color-teal-300: #6f97d3;
+  --color-teal-400: #3f72c0;
+  --color-teal-500: #003580;
+  --color-teal-600: #002d6c;
+  --color-teal-700: #002458;
+  --color-teal-800: #001c44;
+  --color-teal-900: #001330;
+  --color-teal-950: #000b1c;
 
-  /* Consistent blue brand color palette using oklch for better accessibility */
-  --color-blue-50: oklch(96.0% 0.015 240);
-  --color-blue-100: oklch(90.0% 0.025 240);
-  --color-blue-200: oklch(80.0% 0.035 240);
-  --color-blue-300: oklch(70.0% 0.045 240);
-  --color-blue-400: oklch(65.0% 0.050 240);
-  --color-blue-500: oklch(55.0% 0.055 240);
-  --color-blue-600: oklch(48.0% 0.055 240);
-  --color-blue-700: oklch(42.0% 0.050 240);
-  --color-blue-800: oklch(36.0% 0.045 240);
-  --color-blue-900: oklch(30.0% 0.040 240);
-  --color-blue-950: oklch(24.0% 0.035 240);
+  /* Brand accent scale — this is the one used for "primary" CTAs/links */
+  --color-blue-50: #e6eef8;
+  --color-blue-100: #c9daf0;
+  --color-blue-200: #9ebbe3;
+  --color-blue-300: #6f97d3;
+  --color-blue-400: #3f72c0;
+  --color-blue-500: #003580;
+  --color-blue-600: #002d6c;
+  --color-blue-700: #002458;
+  --color-blue-800: #001c44;
+  --color-blue-900: #001330;
+  --color-blue-950: #000b1c;
 
-  /* Consistent red danger/warning color palette using oklch for better accessibility */
+  /* sky/cyan also point at the accent ramp — several components (buttons,
+     badges) use these Tailwind defaults directly */
+  --color-sky-50: #e6eef8;
+  --color-sky-100: #c9daf0;
+  --color-sky-200: #9ebbe3;
+  --color-sky-300: #6f97d3;
+  --color-sky-400: #3f72c0;
+  --color-sky-500: #003580;
+  --color-sky-600: #002d6c;
+  --color-sky-700: #002458;
+  --color-sky-800: #001c44;
+  --color-sky-900: #001330;
+  --color-sky-950: #000b1c;
+
+  --color-cyan-50: #eaf1fa;
+  --color-cyan-100: #d3e3f5;
+  --color-cyan-200: #a9c8ea;
+  --color-cyan-300: #7dacdf;
+  --color-cyan-400: #4f8ed0;
+  --color-cyan-500: #2e6fba;
+  --color-cyan-600: #245a99;
+  --color-cyan-700: #1b4577;
+  --color-cyan-800: #123056;
+  --color-cyan-900: #0a1c34;
+  --color-cyan-950: #050e1a;
+
+  /* Danger/warning stay semantic — untouched */
   --color-red-50: oklch(97.0% 0.010 20);
   --color-red-100: oklch(94.0% 0.015 20);
   --color-red-200: oklch(88.0% 0.025 20);
@@ -95,7 +118,6 @@
   --color-red-900: oklch(30.0% 0.050 20);
   --color-red-950: oklch(24.0% 0.045 20);
 
-  /* Consistent amber warning color palette using oklch for better accessibility */
   --color-amber-50: oklch(97.0% 0.020 80);
   --color-amber-100: oklch(94.0% 0.030 80);
   --color-amber-200: oklch(88.0% 0.045 80);
@@ -108,31 +130,37 @@
   --color-amber-900: oklch(32.0% 0.045 80);
   --color-amber-950: oklch(22.0% 0.035 80);
 
-  /* Professional brand colors - inspired by corporate law firm aesthetics */
-  --brand-primary: #1a1a1a;
-  --brand-primary-dark: #000000;
-  --brand-primary-light: #333333;
+  /* Deep navy panel — used for dark sections (was pure-black brand) */
+  --color-navy: #131c2e;
+  --color-navy-soft: #1d2a42;
+  --color-navy-line: #33415c;
+  --color-navy-paper: #eef1f5;
+
+  /* Brand colors — ink + Finnish flag blue technical-paper identity */
+  --brand-primary: #14171a;
+  --brand-primary-dark: #0a0c0e;
+  --brand-primary-light: #2b2f33;
   --brand-secondary: var(--color-slate-600);
   --brand-secondary-dark: var(--color-slate-700);
   --brand-accent: var(--color-blue-600);
   --brand-neutral: var(--color-slate-600);
   --brand-light: var(--color-gray-100);
-  --brand-dark: #1a1a1a;
+  --brand-dark: #14171a;
 
-  /* Background colors - clean and minimal */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f8f8;
+  /* Background colors - warm paper, not clinical white */
+  --bg-primary: #f4f1ea;
+  --bg-secondary: #ece7db;
   --bg-tertiary: var(--color-gray-100);
-  --bg-brand: #1a1a1a;
-  --bg-brand-gradient: linear-gradient(to right, #1a1a1a, #333333);
+  --bg-brand: #14171a;
+  --bg-brand-gradient: linear-gradient(to right, #14171a, #2b2f33);
 
-  /* Text colors - professional hierarchy */
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-tertiary: #6a6a6a;
-  --text-brand: #1a1a1a;
+  /* Text colors - ink hierarchy */
+  --text-primary: #14171a;
+  --text-secondary: #5b6169;
+  --text-tertiary: #767068;
+  --text-brand: #14171a;
   --text-brand-secondary: var(--color-blue-600);
-  --text-inverse: #ffffff;
+  --text-inverse: #eef1f5;
   --text-danger: var(--color-red-600);
 
   /* Border colors */
@@ -141,18 +169,41 @@
   --border-brand: var(--color-sky-300);
   --border-danger: var(--color-red-300);
 
-  /* Shadow colors */
-  --shadow-light: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-heavy: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-brand: 0 4px 12px rgba(13, 148, 136, 0.15); /* Using teal-600 equivalent in rgba */
+  /* Shadow colors — hairline-style, not heavy elevation */
+  --shadow-light: 0 1px 2px 0 rgba(20, 23, 26, 0.05);
+  --shadow-medium: 0 1px 3px 0 rgba(20, 23, 26, 0.07);
+  --shadow-heavy: 0 2px 8px -2px rgba(20, 23, 26, 0.10);
+  --shadow-brand: 0 1px 3px rgba(0, 53, 128, 0.18);
 
-/* Professional font stacks inspired by corporate law firm aesthetics */
-  --font-publico: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-montserrat: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-open-sans: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-system: 'Montserrat', 'Neue Helvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Professional font stacks — Space Grotesk display, IBM Plex Sans body */
+  --font-display: 'Space Grotesk', 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-publico: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-montserrat: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-open-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-system: 'IBM Plex Sans', 'Neue Helvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "Helvetica Neue", Arial, sans-serif;
   --animate-scroll: scroll var(--duration, 40s) var(--direction, forwards) linear infinite;
+}
+
+/* Flatten the default Tailwind radius + shadow scales sitewide so
+   `rounded-*`/`shadow-*` utilities read as technical-paper flat instead of
+   the template's original bubbly SaaS look. `rounded-full` is untouched so
+   circular avatars/dots/pills keep working. */
+@theme {
+  --radius-xs: 1px;
+  --radius-sm: 1px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 3px;
+  --radius-2xl: 3px;
+  --radius-3xl: 4px;
+
+  --shadow-xs: 0 1px 1px 0 rgba(20, 23, 26, 0.04);
+  --shadow-sm: 0 1px 2px 0 rgba(20, 23, 26, 0.05);
+  --shadow-md: 0 1px 3px 0 rgba(20, 23, 26, 0.07);
+  --shadow-lg: 0 2px 6px -1px rgba(20, 23, 26, 0.09);
+  --shadow-xl: 0 4px 10px -2px rgba(20, 23, 26, 0.10);
+  --shadow-2xl: 0 6px 16px -4px rgba(20, 23, 26, 0.12);
 }
 
 /* Professional CSS utility classes for consistent styling */
@@ -178,47 +229,47 @@
 
 .btn-brand {
   background-color: var(--brand-primary);
-  color: white;
-  border: none;
+  color: var(--color-white);
+  border: 1px solid var(--brand-primary);
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .btn-brand:hover {
-  background-color: var(--brand-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  background-color: var(--brand-accent);
+  border-color: var(--brand-accent);
 }
 
 .btn-secondary {
-  background-color: white;
+  background-color: transparent;
   color: var(--brand-primary);
-  border: 2px solid var(--brand-primary);
+  border: 1.5px solid var(--brand-primary);
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
   background-color: var(--color-blue-50);
-  transform: translateY(-2px);
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
 }
 
-/* Professional card styling */
+/* Professional card styling — flat, hairline border, no elevation */
 .card-professional {
-  background-color: white;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
   border: 1px solid var(--color-gray-200);
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease;
 }
 
 .card-professional:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
-  transform: translateY(-4px);
+  border-color: var(--color-slate-400);
+  box-shadow: var(--shadow-light);
 }
 
 /* Professional section styling */
@@ -232,6 +283,7 @@
 
 /* Professional typography classes */
 .heading-primary {
+  font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
@@ -240,6 +292,7 @@
 }
 
 .heading-secondary {
+  font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.3;
@@ -297,6 +350,70 @@
   }
 }
 
+/* Siivix technical-paper motifs, for hand-styled sections (header, footer, hero) */
+@layer components {
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .kicker {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-teal-500);
+  }
+
+  .kicker::before {
+    content: "";
+    width: 0.85rem;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .frame {
+    position: relative;
+  }
+
+  .frame::before,
+  .frame::after {
+    content: "";
+    position: absolute;
+    width: 0.85rem;
+    height: 0.85rem;
+    border: 1.5px solid var(--color-slate-900);
+    opacity: 0.5;
+  }
+
+  .frame::before {
+    top: -1px;
+    left: -1px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .frame::after {
+    bottom: -1px;
+    right: -1px;
+    border-left: none;
+    border-top: none;
+  }
+
+  .frame-invert::before,
+  .frame-invert::after {
+    border-color: var(--color-navy-paper);
+    opacity: 0.4;
+  }
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -321,24 +438,24 @@
 
 body {
     font-family: var(--font-montserrat);
-    color: #1a1a1a;
+    color: #14171a;
     line-height: 1.65;
     font-size: 1rem;
-    background-color: #ffffff;
+    background-color: #f4f1ea;
     transition: background-color 0.3s ease, color 0.3s ease;
     letter-spacing: 0.01em;
-  }  
+  }
 
 
   /* Mobile-first typography scaling */
   /* Professional Typography Scale */
   h1 {
-    font-family: var(--font-montserrat);
+    font-family: var(--font-display);
     font-size: 2.25rem;
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.15;
-    letter-spacing: -0.035em;
-    color: #0f172a;
+    letter-spacing: -0.02em;
+    color: #14171a;
   }
 
   @media (min-width: 640px) {
@@ -360,12 +477,12 @@ body {
   }
 
   h2 {
-    font-family: var(--font-montserrat);
+    font-family: var(--font-display);
     font-size: 1.875rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.25;
-    letter-spacing: -0.03em;
-    color: #0f172a;
+    letter-spacing: -0.02em;
+    color: #14171a;
   }
 
   @media (min-width: 640px) {
@@ -381,12 +498,12 @@ body {
   }
 
   h3 {
-    font-family: var(--font-montserrat);
+    font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.35;
-    letter-spacing: -0.02em;
-    color: #1e293b;
+    letter-spacing: -0.01em;
+    color: #1c1a16;
   }
 
   @media (min-width: 640px) {
@@ -402,11 +519,11 @@ body {
   }
 
   h4 {
-    font-family: var(--font-montserrat);
+    font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.4;
-    color: #334155;
+    color: #2f2c26;
   }
 
   @media (min-width: 640px) {
@@ -422,11 +539,11 @@ body {
   }
 
   h5 {
-    font-family: var(--font-montserrat);
+    font-family: var(--font-display);
     font-size: 1.125rem;
     font-weight: 600;
     line-height: 1.5;
-    color: #475569;
+    color: #48443b;
   }
 
   @media (min-width: 640px) {
@@ -436,11 +553,11 @@ body {
   }
 
   h6 {
-    font-family: var(--font-montserrat);
+    font-family: var(--font-display);
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
-    color: #64748b;
+    color: #635d52;
   }
 
   @media (min-width: 640px) {
@@ -452,7 +569,7 @@ body {
   p {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: #475569;
+    color: #48443b;
   }
 
   .text-lg {
@@ -474,7 +591,7 @@ body {
   body {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: #334155;
+    color: #2f2c26;
   }
 
   /* Enhanced readability */
@@ -557,8 +674,8 @@ body {
 
     /* Better contrast for small screens */
     body {
-      color: #1e293b;
-      background-color: #ffffff;
+      color: #1c1a16;
+      background-color: #f4f1ea;
     }
 
     /* Improved link visibility on mobile */
@@ -617,7 +734,7 @@ body {
 
     /* Better mobile focus states */
     *:focus-visible {
-      outline: 3px solid #0d9488;
+      outline: 3px solid #003580;
       outline-offset: 2px;
     }
 
@@ -694,7 +811,7 @@ body {
     input,
     select,
     textarea {
-      -webkit-tap-highlight-color: rgba(13, 148, 136, 0.2);
+      -webkit-tap-highlight-color: rgba(0, 53, 128, 0.2);
     }
 
     /* Improve touch interactions */
@@ -741,8 +858,8 @@ body {
     select {
       font-size: 16px;
       padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      border: 1px solid #cbc0a4;
       transition: all 0.2s ease;
     }
 
@@ -753,8 +870,8 @@ body {
     input[type="search"]:focus,
     textarea:focus,
     select:focus {
-      border-color: #0d9488;
-      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+      border-color: #003580;
+      box-shadow: 0 0 0 3px rgba(0, 53, 128, 0.1);
       outline: none;
     }
 
@@ -783,9 +900,9 @@ body {
     .card,
     [class*="card"] {
       margin-bottom: 1rem;
-      border-radius: 0.75rem;
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-light);
     }
 
     /* Improved list spacing */
@@ -816,7 +933,7 @@ body {
     strong,
     b {
       font-weight: 700;
-      color: #0f172a;
+      color: #14171a;
     }
 
     /* Improved em elements */
@@ -828,19 +945,19 @@ body {
 
     /* Better code display on mobile */
     code {
-      font-family: "Monaco", "Courier New", monospace;
+      font-family: var(--font-mono);
       font-size: 0.875rem;
-      background-color: #f1f5f9;
+      background-color: #ece7db;
       padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
+      border-radius: var(--radius-sm);
       overflow-x: auto;
     }
 
     pre {
-      background-color: #1e293b;
-      color: #e2e8f0;
+      background-color: #14171a;
+      color: #eef1f5;
       padding: 1rem;
-      border-radius: 0.5rem;
+      border-radius: var(--radius-md);
       overflow-x: auto;
       font-size: 0.875rem;
       line-height: 1.5;
@@ -848,7 +965,7 @@ body {
 
     /* Enhanced mobile accessibility */
     :focus-visible {
-      outline: 3px solid #0d9488;
+      outline: 3px solid #003580;
       outline-offset: 2px;
     }
 

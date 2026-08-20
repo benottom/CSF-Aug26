@@ -76,7 +76,7 @@ const educationalTopics = [
     : 'Learn cybersecurity and compliance fundamentals explained in simple terms.'}
 >
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-slate-50 via-white to-blue-50 py-16">
+  <section class="bg-slate-50 py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
         <h1 class="text-4xl font-bold text-slate-900 mb-6">
@@ -96,13 +96,13 @@ const educationalTopics = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {educationalTopics.map(topic => (
-          <div class="bg-gradient-to-br from-white to-slate-50 rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+          <div class="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition-shadow duration-300">
             <div class="p-6">
               <div class="flex justify-between items-start mb-4">
                 <div class="p-3 bg-sky-100 rounded-lg">
                   <Icon name={topic.icon} class="h-6 w-6 text-sky-600" />
                 </div>
-                <span class={`px-2 py-1 text-xs font-medium rounded-full ${
+                <span class={`px-2 py-1 text-xs font-medium rounded-[2px] ${
                   topic.level === 'Beginner' ? 'bg-green-100 text-green-800' :
                   topic.level === 'Intermediate' ? 'bg-yellow-100 text-yellow-800' :
                   'bg-red-100 text-red-800'
@@ -124,7 +124,7 @@ const educationalTopics = [
               
               <a 
                 href={topic.url}
-                class="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-sky-600 to-cyan-600 hover:from-sky-700 hover:to-cyan-700"
+                class="w-full inline-flex justify-center items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700"
               >
                 {lang === 'fi' ? 'Lue lisää' : 'Read More'}
                 <Icon name="arrowRight" class="ml-2 -mr-1 h-4 w-4" />

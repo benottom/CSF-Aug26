@@ -111,27 +111,27 @@ const c = content[lang];
     /* Lexend is now loaded sitewide in Layout.astro; only the grid background is page-specific. */
     .ce-grid {
       background-image:
-        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+        linear-gradient(to right, rgba(20, 23, 26, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(20, 23, 26, 0.06) 1px, transparent 1px);
       background-size: 40px 40px;
     }
   </style>
 
   <!-- ============ HERO ============ -->
-  <section class="ce-lexend ce-grid relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24 border-b border-slate-200">
+  <section class="ce-lexend ce-grid relative overflow-hidden bg-[#f4f1ea] py-8 md:py-12 border-b border-slate-200">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
-          <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#0F172A] shadow-sm">
+          <span class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-[#131c2e] shadow-sm">
             <span class="h-1.5 w-1.5 rounded-full bg-[#DC2626]"></span>
             {isFi ? 'NIS2 · CRA · EUCC' : 'NIS2 · CRA · EUCC'}
           </span>
 
-          <h1 class="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-[1.05]">
+          <h1 class="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight text-[#131c2e] leading-[1.05]">
             {c.h1}
           </h1>
 
-          <h2 class="mt-5 text-lg md:text-xl font-medium text-[#1E293B]">
+          <h2 class="mt-5 text-lg md:text-xl font-medium text-[#14171a]">
             {c.h2}
           </h2>
 
@@ -154,7 +154,7 @@ const c = content[lang];
           <img
             src="/images/services/eu-compliance-frankfurt.jpg"
             alt="European Central Bank district, Frankfurt — the seat of EU financial and regulatory institutions"
-            class="relative rounded-lg shadow-[0_8px_30px_rgba(15,23,42,0.12)] w-full h-[320px] md:h-[420px] object-cover"
+            class="relative rounded-lg shadow-[0_8px_30px_rgba(20,23,26,0.12)] w-full h-[320px] md:h-[420px] object-cover"
             loading="eager"
           />
         </div>
@@ -163,10 +163,10 @@ const c = content[lang];
   </section>
 
   <!-- ============ E-E-A-T TRUST BANNER ============ -->
-  <section class="ce-lexend py-16 md:py-20 bg-[#F1F5F9] border-b border-slate-200">
+  <section class="ce-lexend py-16 md:py-20 bg-[#ece7db] border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#0F172A]">
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#131c2e]">
           {c.trustTitle}
         </h3>
         <p class="mt-3 text-base text-slate-600 leading-relaxed">
@@ -176,13 +176,13 @@ const c = content[lang];
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {c.cards.map((card) => (
-          <div class="bg-white rounded-lg border border-slate-200 shadow-[0_1px_2px_rgba(15,23,42,0.06)] hover:shadow-[0_8px_24px_rgba(15,23,42,0.08)] transition-shadow duration-200 p-6 md:p-7">
-            <div class="w-10 h-10 rounded-md bg-[#0F172A] flex items-center justify-center mb-4">
+          <div class="bg-white rounded-lg border border-slate-200 shadow-[0_1px_2px_rgba(20,23,26,0.06)] hover:shadow-[0_8px_24px_rgba(20,23,26,0.08)] transition-shadow duration-200 p-6 md:p-7">
+            <div class="w-10 h-10 rounded-md bg-[#131c2e] flex items-center justify-center mb-4">
               <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h4 class="text-base font-bold tracking-tight text-[#0F172A] mb-2">
+            <h4 class="text-base font-bold tracking-tight text-[#131c2e] mb-2">
               {card.title}
             </h4>
             <p class="text-sm text-slate-600 leading-relaxed">

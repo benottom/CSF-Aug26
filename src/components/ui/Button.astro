@@ -32,24 +32,24 @@ export interface Props {
 
 const variants = {
   primary:
-    "bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-600 hover:to-cyan-600 text-white border border-transparent font-semibold shadow-sm hover:shadow-md active:shadow-inner transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500",
+    "bg-[#14171a] hover:bg-[#003580] text-[#f4f1ea] border border-[#14171a] hover:border-[#003580] font-semibold transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003580]",
   secondary:
-    "bg-white text-sky-600 border-2 border-sky-600 hover:bg-gradient-to-r hover:from-sky-50 hover:to-cyan-50 font-semibold transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300",
-  tertiary: "bg-sky-50 text-sky-700 hover:bg-sky-100 border border-transparent font-medium transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300",
-  white: "bg-white text-slate-900 hover:bg-gray-100 border border-gray-300 font-medium transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300",
-  "outline-white": "bg-transparent text-white border-2 border-white hover:bg-white/10 font-medium transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white",
-  brand: "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[var(--brand-primary-dark)] hover:to-[var(--brand-secondary-dark)] text-white font-semibold border border-transparent shadow-sm hover:shadow-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--brand-primary)]",
-  danger: "bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold border border-transparent shadow-sm hover:shadow-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500",
-  success: "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold border border-transparent shadow-sm hover:shadow-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500",
-  warning: "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold border border-transparent shadow-sm hover:shadow-md transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500",
-  ghost: "bg-transparent text-slate-700 hover:bg-slate-100 border border-transparent font-medium transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300",
-  link: "bg-transparent text-sky-600 hover:text-sky-800 underline decoration-transparent hover:decoration-current underline-offset-4 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300"
+    "bg-transparent text-[#14171a] border border-[#14171a] hover:border-[#003580] hover:text-[#003580] font-semibold transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#003580]",
+  tertiary: "bg-sky-50 text-sky-700 hover:bg-sky-100 border border-transparent font-medium transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300",
+  white: "bg-[#f4f1ea] text-[#14171a] hover:bg-[#ece7db] border border-[#cbc0a4] font-medium transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300",
+  "outline-white": "bg-transparent text-[#eef1f5] border border-[#eef1f5] hover:bg-white/10 font-medium transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white",
+  brand: "bg-[var(--brand-primary)] hover:bg-[var(--brand-accent)] text-[#f4f1ea] font-semibold border border-[var(--brand-primary)] hover:border-[var(--brand-accent)] transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[var(--brand-primary)]",
+  danger: "bg-red-600 hover:bg-red-700 text-white font-semibold border border-red-600 hover:border-red-700 transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500",
+  success: "bg-green-600 hover:bg-green-700 text-white font-semibold border border-green-600 hover:border-green-700 transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500",
+  warning: "bg-amber-500 hover:bg-amber-600 text-white font-semibold border border-amber-500 hover:border-amber-600 transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500",
+  ghost: "bg-transparent text-slate-700 hover:bg-slate-100 border border-transparent font-medium transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-300",
+  link: "bg-transparent text-[#002D6C] hover:text-[#003580] underline decoration-transparent hover:decoration-current underline-offset-4 transition-colors duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-300"
 };
 
 const sizes = {
-  sm: "text-sm px-4 py-2 rounded-lg min-h-[36px] inline-flex items-center justify-center gap-2 self-center sm:self-auto",
-  md: "text-base px-6 py-3 rounded-xl min-h-[44px] inline-flex items-center justify-center gap-2 self-center sm:self-auto",
-  lg: "text-lg px-8 py-4 rounded-2xl min-h-[52px] inline-flex items-center justify-center gap-2 self-center sm:self-auto"
+  sm: "text-sm px-4 py-2 rounded-[2px] min-h-[36px] inline-flex items-center justify-center gap-2 self-center sm:self-auto",
+  md: "text-base px-6 py-3 rounded-[2px] min-h-[44px] inline-flex items-center justify-center gap-2 self-center sm:self-auto",
+  lg: "text-lg px-8 py-4 rounded-[2px] min-h-[52px] inline-flex items-center justify-center gap-2 self-center sm:self-auto"
 };
 ---
 

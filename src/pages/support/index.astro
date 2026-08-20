@@ -174,10 +174,10 @@ const stats = [
 
 <Layout title={title} description={description}>
   <!-- Hero Section -->
-  <section class="bg-gradient-to-br from-green-50 to-sky-100 py-20">
+  <section class="bg-[#f4f1ea] py-10">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center">
-        <div class="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-6">
+        <div class="inline-flex items-center px-4 py-2 bg-[#E6EEF8] text-[#002D6C] rounded-[2px] text-sm font-medium mb-6">
           <Icon name="headphones" class="w-4 h-4 mr-2" />
           {lang === 'fi' ? 'Tuki ja työkalut' : 'Support & Tools'}
         </div>
@@ -208,7 +208,7 @@ const stats = [
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat) => (
           <div class="text-center">
-            <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2">
+            <div class="text-3xl md:text-4xl font-bold text-[#003580] mb-2">
               {lang === 'fi' ? stat.valueFi : stat.valueEn}
             </div>
             <div class="text-gray-600">
@@ -238,9 +238,9 @@ const stats = [
 
       <div class="grid md:grid-cols-2 gap-8">
         {supportCategories.map((category) => (
-          <div class="bg-gradient-to-br from-gray-50 to-green-50 rounded-lg p-8">
-            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-              <Icon name={category.icon} class="w-6 h-6 text-green-600" />
+          <div class="bg-gray-50 rounded-lg p-8">
+            <div class="w-12 h-12 bg-[#E6EEF8] rounded-lg flex items-center justify-center mb-6">
+              <Icon name={category.icon} class="w-6 h-6 text-[#003580]" />
             </div>
             <h3 class="text-xl font-semibold text-gray-900 mb-3">
               {lang === 'fi' ? category.titleFi : category.titleEn}
@@ -285,7 +285,7 @@ const stats = [
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {supportChannels.map((channel) => (
           <div class="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-shadow">
-            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-sky-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <div class="w-16 h-16 bg-[#14171a] rounded-lg flex items-center justify-center mx-auto mb-4">
               <Icon name={channel.icon} class="w-8 h-8 text-white" />
             </div>
             <h3 class="text-lg font-semibold text-gray-900 mb-2">
@@ -301,7 +301,7 @@ const stats = [
               </div>
               <div class="flex justify-between">
                 <span class="text-gray-500">{lang === 'fi' ? 'Vastausaika:' : 'Response:'}</span>
-                <span class="font-medium text-green-600">{channel.response}</span>
+                <span class="font-medium text-[#003580]">{channel.response}</span>
               </div>
             </div>
           </div>
@@ -311,22 +311,22 @@ const stats = [
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-r from-green-600 to-sky-700">
+  <section class="py-20 bg-[#131c2e]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-bold text-white mb-4">
         {lang === 'fi' ? 'Tarvitsetko henkilökohtaista apua?' : 'Need Personal Help?'}
       </h2>
-      <p class="text-xl text-green-100 mb-8">
+      <p class="text-xl text-[#eef1f5] mb-8">
         {lang === 'fi' 
           ? 'Ota yhteyttä asiantuntijoihimme saadaksesi räätälöityä tukea ja neuvontaa.'
           : 'Contact our experts to get tailored support and consultation.'
         }
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button href="/contact" variant="secondary">
+        <Button href="/contact" variant="white">
           {lang === 'fi' ? 'Ota yhteyttä' : 'Contact Us'}
         </Button>
-        <Button href="/demo" variant="tertiary">
+        <Button href="/demo" variant="outline-white">
           {lang === 'fi' ? 'Varaa demo' : 'Book Demo'}
         </Button>
       </div>

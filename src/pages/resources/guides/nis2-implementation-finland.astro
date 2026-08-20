@@ -39,7 +39,7 @@ const steps = [
 ---
 
 <Layout title={title} description={description}>
-  <section class="bg-gradient-to-br from-sky-50 via-white to-blue-50 py-20">
+  <section class="bg-sky-50 py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl">
         <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">{title}</h1>
@@ -52,7 +52,7 @@ const steps = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {steps.map(s => (
-          <div class="bg-gradient-to-br from-slate-50 to-white p-8 rounded-xl border border-slate-200 hover:shadow-xl transition-all duration-300">
+          <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 hover:shadow-xl transition-all duration-300">
             <div class="w-12 h-12 bg-sky-600 text-white rounded-full flex items-center justify-center font-bold mb-4">{s.n}</div>
             <h3 class="text-lg font-bold text-slate-900 mb-2">{lang==='fi'?s.fi:s.en}</h3>
             <p class="text-slate-600 text-sm">{lang==='fi'?s.fiD:s.enD}</p>
@@ -72,8 +72,8 @@ const steps = [
       <h2 class="text-3xl font-bold mb-6">{lang==='fi'?'Valmis aloittamaan NIS2‑toteutuksen?':'Ready to start your NIS2 implementation?'}</h2>
       <p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">{lang==='fi'?'Varaa keskustelu – saat nopean valmiuskartoituksen ja tiekartan.':'Book a call – get a quick readiness check and roadmap.'}</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button href="/contact" variant="primary" className="text-lg px-8 py-3">{lang==='fi'?'Ota yhteyttä':'Get in Touch'}</Button>
-        <Button href="/contact?assessment=true" variant="secondary" className="text-lg px-8 py-3">{lang==='fi'?'NIS2‑valmiuskartoitus':'NIS2 Readiness Check'}</Button>
+        <Button href="/contact" variant="white" className="text-lg px-8 py-3">{lang==='fi'?'Ota yhteyttä':'Get in Touch'}</Button>
+        <Button href="/contact?assessment=true" variant="outline-white" className="text-lg px-8 py-3">{lang==='fi'?'NIS2‑valmiuskartoitus':'NIS2 Readiness Check'}</Button>
       </div>
     </div>
   </section>

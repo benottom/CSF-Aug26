@@ -175,16 +175,16 @@ function getStatusText(status: string, lang: string) {
 <Layout {...seoConfig}>
 
 <!-- Hero Section - Centered, NO image -->
-<section class="bg-gradient-to-br from-blue-50 to-white text-slate-900 py-20 md:py-28">
+<section class="bg-blue-50 text-slate-900 py-10 md:py-14">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     
     <div class="flex justify-center mb-4">
       <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center">
-        <Icon name="shield" class="w-8 h-8 text-[#0F172A]" />
+        <Icon name="shield" class="w-8 h-8 text-[#131c2e]" />
       </div>
     </div>
     
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-[#0F172A]">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-[#131c2e]">
       {currentContent.hero.title}
     </h1>
     
@@ -203,7 +203,7 @@ function getStatusText(status: string, lang: string) {
 <section class="py-16 bg-white">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="bg-slate-50/50 rounded-2xl p-8 border border-slate-100">
-      <h2 class="text-2xl md:text-3xl font-bold text-[#0F172A] mb-4">{currentContent.sections.whatIs.title}</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-[#131c2e] mb-4">{currentContent.sections.whatIs.title}</h2>
       <p class="text-slate-600 leading-relaxed">{currentContent.sections.whatIs.description}</p>
     </div>
   </div>
@@ -213,7 +213,7 @@ function getStatusText(status: string, lang: string) {
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#131c2e] mb-4">
         {currentContent.sections.objectives.title}
       </h2>
     </div>
@@ -238,7 +238,7 @@ function getStatusText(status: string, lang: string) {
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#131c2e] mb-4">
         {currentContent.sections.whoMustComply.title}
       </h2>
     </div>
@@ -261,7 +261,7 @@ function getStatusText(status: string, lang: string) {
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#131c2e] mb-4">
         {currentContent.sections.requirements.title}
       </h2>
     </div>
@@ -277,7 +277,7 @@ function getStatusText(status: string, lang: string) {
           <div class="flex justify-end mb-4">
             <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center
                         transition-all duration-300
-                        group-hover:bg-gradient-to-r group-hover:from-[#0F172A] group-hover:to-[#0EA5E9] group-hover:shadow-lg">
+                        group-hover:bg-[#131c2e] group-hover:shadow-lg">
               <Icon name={item.icon} class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
             </div>
           </div>
@@ -335,7 +335,7 @@ function getStatusText(status: string, lang: string) {
 <section class="py-16 bg-white">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#0F172A] mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#131c2e] mb-4">
         📅 {currentContent.sections.timeline.title}
       </h2>
     </div>
@@ -347,14 +347,14 @@ function getStatusText(status: string, lang: string) {
                     hover:shadow-lg transition-all duration-300">
           <div class="flex flex-col md:flex-row gap-4 items-start">
             <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-gradient-to-r from-[#0F172A] to-[#0EA5E9] rounded-full flex items-center justify-center text-white font-bold">
+              <div class="w-12 h-12 bg-[#131c2e] rounded-full flex items-center justify-center text-white font-bold">
                 ✓
               </div>
             </div>
             <div class="flex-1">
               <div class="flex flex-wrap items-center gap-3 mb-2">
                 <h3 class="text-lg font-bold text-slate-900">{item.date}</h3>
-                <span class={`inline-flex items-center px-2 py-1 text-xs rounded-full font-medium ${getStatusStyles(item.status)}`}>
+                <span class={`inline-flex items-center px-2 py-1 text-xs rounded-[2px] font-medium ${getStatusStyles(item.status)}`}>
                   {getStatusText(item.status, lang)}
                 </span>
               </div>
@@ -382,7 +382,7 @@ function getStatusText(status: string, lang: string) {
       </p>
 
       <p class="text-lg mb-8">
-        <a href="mailto:{currentContent.sections.cta.email}" class="text-[#0F172A] hover:text-[#0EA5E9] font-semibold underline">
+        <a href="mailto:{currentContent.sections.cta.email}" class="text-[#131c2e] hover:text-[#003580] font-semibold underline">
           📧 {currentContent.sections.cta.email}
         </a>
       </p>
@@ -390,7 +390,7 @@ function getStatusText(status: string, lang: string) {
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         
         <a href="/contact" 
-           class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-[#0F172A] to-[#0EA5E9] text-white hover:from-[#0EA5E9] hover:to-[#0F172A] transition-all duration-300 hover:shadow-lg font-medium gap-2">
+           class="inline-flex items-center justify-center px-6 py-3 rounded-[2px] bg-[#131c2e] text-white hover:bg-[#003580] transition-all duration-300 hover:shadow-lg font-medium gap-2">
           Contact Us
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -398,7 +398,7 @@ function getStatusText(status: string, lang: string) {
         </a>
         
         <a href="/" 
-           class="inline-flex items-center justify-center px-6 py-3 rounded-full border-2 border-[#1E293B] text-[#1E293B] hover:bg-gradient-to-r hover:from-[#0F172A] hover:to-[#0EA5E9] hover:text-white hover:border-transparent transition-all duration-300 font-medium">
+           class="inline-flex items-center justify-center px-6 py-3 rounded-[2px] border-2 border-[#14171a] text-[#14171a] hover:bg-[#131c2e] hover:text-white hover:border-transparent transition-all duration-300 font-medium">
           Back to Home
           <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
