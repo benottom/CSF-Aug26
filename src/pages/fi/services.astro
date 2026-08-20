@@ -343,7 +343,7 @@ const isFi = lang === 'fi';
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
                       hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
-                      flex flex-col h-full group relative overflow-hidden" key={category.title}>
+                      flex flex-col h-full group relative overflow-hidden" >
             
             <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
             
@@ -367,7 +367,7 @@ const isFi = lang === 'fi';
               
               <div class="space-y-3 flex-1 relative z-10">
                 {category.services.map((service) => (
-                  <div class="border border-slate-200 rounded-lg p-3 hover:shadow-md hover:bg-slate-50 transition-all duration-200" key={service.title}>
+                  <div class="border border-slate-200 rounded-lg p-3 hover:shadow-md hover:bg-slate-50 transition-all duration-200" >
                     <div class="flex justify-between items-start mb-1">
                       <h4 class="font-semibold text-slate-900 text-sm">{service.title}</h4>
                       <span class="inline-flex items-center px-2 py-0.5 rounded-[2px] text-xs font-medium bg-[#003580]/10 text-[#003580]">

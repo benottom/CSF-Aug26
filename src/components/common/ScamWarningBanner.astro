@@ -20,7 +20,7 @@ const linkHref = "/resources/scam-awareness"; // You can update this to your act
           aria-hidden="true"
         />
         <p class="text-[11px] leading-tight text-slate-500 truncate sm:whitespace-normal">
-          <span class="font-semibold text-[#DC2626]">{warningLabel}:</span>
+          <span class="font-semibold text-[#B91C1C]">{warningLabel}:</span>
           <span class="hidden sm:inline"> {warningMessage}</span>
         </p>
       </div>
@@ -29,7 +29,7 @@ const linkHref = "/resources/scam-awareness"; // You can update this to your act
       <div class="flex items-center gap-2 flex-shrink-0 pl-2">
         <a
           href={linkHref}
-          class="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[#DC2626] hover:underline whitespace-nowrap"
+          class="inline-flex items-center gap-0.5 text-[11px] font-semibold text-[#B91C1C] hover:underline whitespace-nowrap"
           aria-label={linkText}
         >
           <span>Learn more</span>
@@ -54,8 +54,8 @@ const linkHref = "/resources/scam-awareness"; // You can update this to your act
     // Hide banner on page load if dismissed by user
     const isDismissed = localStorage.getItem('scamBannerDismissed') === 'true';
     if (isDismissed) {
-      const banner = document.currentScript.closest('div'); // Get the parent div
-      if (banner) {
+      const banner = document.currentScript?.closest('div'); // Get the parent div
+      if (banner instanceof HTMLElement) {
         banner.style.display = 'none';
       }
     }

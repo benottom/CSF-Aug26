@@ -336,7 +336,7 @@ function getIconColor(color: string) {
           <div class={`bg-white rounded-xl border-2 border-slate-100 shadow-sm
                       hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
-                      flex flex-col p-4 md:p-5 group relative overflow-hidden ${getLevelColor(level.color)}`}>
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden ${getLevelColor(level.level)}`}>
             <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
             
             <div class="flex justify-end mb-2 relative z-10">
@@ -345,7 +345,7 @@ function getIconColor(color: string) {
                           transition-all duration-300
                           group-hover:bg-[#003580] group-hover:shadow-lg
                           group-hover:border-transparent">
-                <span className={`text-lg font-bold ${getIconColor(level.color)} group-hover:text-white transition-colors duration-300`}>
+                <span class={`text-lg font-bold ${getIconColor(level.level)} group-hover:text-white transition-colors duration-300`}>
                   {level.level}
                 </span>
               </div>
@@ -354,7 +354,7 @@ function getIconColor(color: string) {
             <h3 class="text-sm font-bold text-[#14171a] mb-0.5 group-hover:text-[#2E6FBA] transition-colors duration-300 text-left relative z-10">
               {level.title}
             </h3>
-            <p className={`text-xs font-semibold ${getIconColor(level.color)} mb-2 text-left relative z-10`}>{level.subtitle}</p>
+            <p class={`text-xs font-semibold ${getIconColor(level.level)} mb-2 text-left relative z-10`}>{level.subtitle}</p>
             <p class="text-xs text-slate-500 mb-2 group-hover:text-slate-600 transition-colors duration-300 relative z-10">{level.description}</p>
             
             <div class="mt-auto pt-2 border-t border-slate-100 relative z-10">

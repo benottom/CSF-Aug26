@@ -220,7 +220,7 @@ const getColorClasses = (color: string) => {
             <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
                         hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                         transition-all duration-300
-                        flex flex-col h-full group relative overflow-hidden" key={pkg.title}>
+                        flex flex-col h-full group relative overflow-hidden" >
               
               <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
               
@@ -245,7 +245,7 @@ const getColorClasses = (color: string) => {
                 
                 <ul class="space-y-2 mb-6 flex-1">
                   {pkg.features.map((feature) => (
-                    <li class="flex items-start" key={feature}>
+                    <li class="flex items-start" >
                       <svg class="w-4 h-4 text-[#003580] mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                       </svg>

@@ -15,11 +15,19 @@ export interface Props {
   image?: string;
   canonical?: string;
   noindex?: boolean;
-  type?: 'website' | 'article' | 'service' | 'organization';
+  // Pages pass their own free-form SEO type label (e.g. "service",
+  // "organization", "article") rather than picking from a fixed set, so
+  // this stays a plain string instead of a narrow union.
+  type?: string;
   publishedTime?: string;
   modifiedTime?: string;
   author?: string;
   schema?: object;
+  // Some pages pass a single `seoConfig` object instead of spreading
+  // individual props (see the fallback below). Its shape varies per page,
+  // so it's intentionally untyped rather than forcing a union that would
+  // break inference on every destructured field below.
+  seoConfig?: any;
 }
 
 // Use SEO config from page if available, otherwise use individual props

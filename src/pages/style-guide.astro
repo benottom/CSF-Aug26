@@ -100,7 +100,7 @@ const components = [
           {components.map(component => (
             <div class="card-professional p-6">
               <h3 class="font-semibold text-slate-900 mb-2">{component.name}</h3>
-              <div class="mb-4" dangerouslySetInnerHTML={{ __html: component.html }}></div>
+              <div class="mb-4" set:html={component.html}></div>
               <p class="text-sm text-slate-600">{component.description}</p>
             </div>
           ))}

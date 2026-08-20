@@ -16,7 +16,7 @@ export const languages = {
 };
 
 // Get language from path
-export function getLanguageFromPath(pathname) {
+export function getLanguageFromPath(pathname: string): 'en' | 'fi' {
   if (pathname.startsWith('/fi')) {
     return 'fi';
   }
@@ -24,17 +24,17 @@ export function getLanguageFromPath(pathname) {
 }
 
 // Get opposite language
-export function getOppositeLanguage(lang) {
+export function getOppositeLanguage(lang: string): 'en' | 'fi' {
   return lang === 'fi' ? 'en' : 'fi';
 }
 
 // Get language prefix for URL
-export function getLanguagePrefix(lang) {
+export function getLanguagePrefix(lang: string): string {
   return lang === 'fi' ? '/fi' : '';
 }
 
 // Get localized URL
-export function getLocalizedUrl(pathname, targetLang) {
+export function getLocalizedUrl(pathname: string, targetLang: string): string {
   // Remove existing language prefix if present
   let cleanPath = pathname;
   if (cleanPath.startsWith('/fi')) {
@@ -169,7 +169,7 @@ export const translations = {
 };
 
 // Get translation for current language
-export function t(key, lang = 'en') {
-  const langTranslations = translations[lang];
-  return langTranslations?.[key] || translations.en[key] || key;
+export function t(key: string, lang: string = 'en'): string {
+  const langTranslations = translations[lang as keyof typeof translations] as Record<string, string> | undefined;
+  return langTranslations?.[key] || (translations.en as Record<string, string>)[key] || key;
 }

@@ -112,7 +112,7 @@ const getLocalizedUrl = (path: string, targetLang: string) => {
     const wrappers = document.querySelectorAll('.language-selector-wrapper');
 
     wrappers.forEach(wrapper => {
-      const button = wrapper.querySelector('.language-selector-button');
+      const button = wrapper.querySelector<HTMLElement>('.language-selector-button');
       const dropdown = wrapper.querySelector('.language-dropdown');
       const chevron = wrapper.querySelector('.language-chevron');
 
@@ -142,7 +142,7 @@ const getLocalizedUrl = (path: string, targetLang: string) => {
 
       // Close dropdown when clicking outside
       document.addEventListener('click', (e) => {
-        if (!wrapper.contains(e.target)) {
+        if (!wrapper.contains(e.target as Node)) {
           button.setAttribute('aria-expanded', 'false');
           dropdown.classList.add('opacity-0', 'invisible', 'scale-95', 'translate-y-1');
           dropdown.classList.remove('opacity-100', 'visible', 'scale-100', 'translate-y-0');
@@ -151,7 +151,7 @@ const getLocalizedUrl = (path: string, targetLang: string) => {
       });
 
       // Handle keyboard navigation
-      button.addEventListener('keydown', (e) => {
+      button.addEventListener('keydown', (e: KeyboardEvent) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           button.click();

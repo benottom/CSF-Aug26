@@ -279,7 +279,7 @@ const isFi = lang === 'fi';
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
                       hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
-                      flex flex-col p-5 md:p-6 group relative overflow-hidden" key={resource.title}>
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden" >
             <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
             
             <div class="flex justify-end mb-3 relative z-10">
@@ -320,7 +320,7 @@ const isFi = lang === 'fi';
           <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
                       hover:shadow-xl hover:-translate-y-1 hover:shadow-md
                       transition-all duration-300
-                      flex flex-col p-5 md:p-6 group relative overflow-hidden" key={category.title}>
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden" >
             <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
             
             <div class="flex items-center gap-3 mb-4 relative z-10">
@@ -343,12 +343,12 @@ const isFi = lang === 'fi';
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
               {category.items.map((item) => (
-                <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md hover:bg-slate-50 transition-all duration-200" key={item.title}>
+                <div class="border border-slate-200 rounded-lg p-4 hover:shadow-md hover:bg-slate-50 transition-all duration-200" >
                   <div class="flex justify-between items-start mb-2">
                     <span class="inline-flex items-center px-2 py-0.5 rounded-[2px] text-xs font-medium bg-[#003580]/10 text-[#003580]">
                       {item.type}
                     </span>
-                    <span class="text-xs text-slate-400">{item.date}</span>
+                    <span class="text-xs text-slate-500">{item.date}</span>
                   </div>
                   <h3 class="font-semibold text-slate-900 text-sm mb-1">{item.title}</h3>
                   <p class="text-slate-600 text-xs mb-3">{item.description}</p>

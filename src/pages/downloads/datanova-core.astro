@@ -117,7 +117,7 @@ const pageTitle = title; // Use hero title for layout
   <section class="mx-auto max-w-[85rem] px-4 pb-12 pt-40 sm:px-6 lg:px-8">
     <div class="max-w-7xl">
       <div class="mx-auto max-w-2xl lg:mx-0">
-        <p class="text-base/7 font-medium text-slate-400">{preTitle}</p>
+        <p class="text-base/7 font-medium text-slate-500">{preTitle}</p>
         <h1
           class="mt-1 text-balance text-4xl text-slate-800 sm:text-5xl md:text-6xl lg:text-7xl"
         >
@@ -230,11 +230,11 @@ const pageTitle = title; // Use hero title for layout
           {largeInfoSection.olderReleases.title}
         </h3>
 
-        <p class="mt-6 text-pretty text-lg/8 text-slate-700">
+        <p class="mt-6 text-pretty text-lg/8 text-[#131c2e]">
           {largeInfoSection.olderReleases.content}
         </p>
 
-        <ul class="mt-6 list-inside list-none px-5 text-slate-700">
+        <ul class="mt-6 list-inside list-none px-5 text-[#131c2e]">
           {
             largeInfoSection.olderReleases.versions.map((release, index) => (
               <li class={`${index % 2 === 1 ? "mb-6" : ""}`}>
@@ -258,7 +258,7 @@ const pageTitle = title; // Use hero title for layout
         >
           {largeInfoSection.systemRequirements.title}
         </h3>
-        <p class="mt-6 text-pretty text-lg/8 text-slate-700">
+        <p class="mt-6 text-pretty text-lg/8 text-[#131c2e]">
           {largeInfoSection.systemRequirements.content}
         </p>
       </div>
@@ -271,11 +271,11 @@ const pageTitle = title; // Use hero title for layout
           {largeInfoSection.excel2003.title}
         </h3>
 
-        <p class="mt-6 text-pretty text-lg/8 text-slate-700">
+        <p class="mt-6 text-pretty text-lg/8 text-[#131c2e]">
           {largeInfoSection.excel2003.content}
         </p>
 
-        <ul class="mt-6 list-inside list-none px-5 text-slate-700">
+        <ul class="mt-6 list-inside list-none px-5 text-[#131c2e]">
           {
             largeInfoSection.excel2003.versions.map((version) => (
               <li>

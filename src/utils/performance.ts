@@ -8,8 +8,8 @@ export const initLazyLoading = () => {
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
+        const img = entry.target as HTMLImageElement;
+        if (img.dataset.src) img.src = img.dataset.src;
         img.classList.remove('lazy');
         img.classList.add('loaded');
         observer.unobserve(img);
@@ -22,15 +22,6 @@ export const initLazyLoading = () => {
 
 // Optimize resource loading
 export const optimizeResources = () => {
-  // Preload critical resources
-  const preloadLink = (href, as) => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = href;
-    link.as = as;
-    document.head.appendChild(link);
-  };
-
   // Preload critical images only; fonts are managed by system/font stacks now.
   // If you want to preload a specific font file, ensure it exists under /public/fonts
 };

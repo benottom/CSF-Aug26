@@ -6,7 +6,7 @@
 // Keyboard navigation enhancements
 export const initKeyboardNavigation = () => {
   // Add focus indicators for keyboard users
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Tab') {
       document.body.classList.add('keyboard-navigation');
     }
@@ -22,7 +22,7 @@ export const initKeyboardNavigation = () => {
 
 // Skip link functionality
 export const initSkipLinks = () => {
-  const skipLink = document.querySelector('a[href="#main"]');
+  const skipLink = document.querySelector<HTMLAnchorElement>('a[href="#main"]');
   if (skipLink) {
     skipLink.addEventListener('focus', () => {
       skipLink.style.position = 'static';
@@ -62,7 +62,7 @@ export const initAriaEnhancements = () => {
 // Color contrast enhancements
 export const initColorContrast = () => {
   // Check and enhance color contrast for accessibility
-  const checkContrast = (element) => {
+  const checkContrast = (element: Element) => {
     // This would normally check actual contrast ratios
     // For now, we'll ensure proper semantic HTML usage
     const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
@@ -79,7 +79,7 @@ export const initColorContrast = () => {
 // Screen reader enhancements
 export const initScreenReaderEnhancements = () => {
   // Add hidden headings for screen readers
-  const addHiddenHeading = (text, level = 'h3') => {
+  const addHiddenHeading = (text: string, level: keyof HTMLElementTagNameMap = 'h3') => {
     const hiddenHeading = document.createElement(level);
     hiddenHeading.textContent = text;
     hiddenHeading.className = 'sr-only';

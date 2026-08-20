@@ -343,7 +343,7 @@ const latestResources = [
         <div class="flex items-center gap-3 mt-3 md:justify-start justify-center">
           <div class="flex items-center gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <svg key={i} class="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+              <svg class="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20">
                 <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
               </svg>
             ))}
@@ -357,7 +357,7 @@ const latestResources = [
         
         <!-- Label above logos -->
         <div class="text-center mb-3">
-          <span class="text-xs text-slate-400 uppercase tracking-wider">Trusted by industry leaders</span>
+          <span class="text-xs text-slate-500 uppercase tracking-wider">Trusted by industry leaders</span>
         </div>
         
         <!-- Marquee / Auto-scrolling container -->
@@ -377,7 +377,7 @@ const latestResources = [
               { src: '/images/SOC-2-logo.jpg', alt: 'SOC2' },
               { src: '/images/gdpr.webp', alt: 'GDPR' },
             ].map((logo, idx) => (
-              <div key={idx} class="flex-shrink-0 flex items-center justify-center h-16 md:h-20 w-24 md:w-32 rounded-xl p-2 md:p-3 hover:scale-105 transition-all duration-300">
+              <div class="flex-shrink-0 flex items-center justify-center h-16 md:h-20 w-24 md:w-32 rounded-xl p-2 md:p-3 hover:scale-105 transition-all duration-300">
                 <img
   src={logo.src}
   alt={logo.alt}
@@ -766,7 +766,7 @@ const latestResources = [
           </div>
           
           <!-- Scroll hint -->
-          <div class="text-right text-xs text-slate-400 mt-2 select-none">
+          <div class="text-right text-xs text-slate-500 mt-2 select-none">
             ← Scroll to explore →
           </div>
         </div>
@@ -1004,7 +1004,7 @@ const latestResources = [
         <!-- Star rating -->
         <div class="flex justify-center gap-1 mb-4">
           {[...Array(5)].map((_, i) => (
-            <svg key={i} class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+            <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
               <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
             </svg>
           ))}

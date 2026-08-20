@@ -199,17 +199,18 @@ const assessmentQuestions = [
 </div>
 
 <script>
-  document.getElementById('interactive-assessment-form')?.addEventListener('submit', function(e) {
+  const assessmentForm = document.getElementById('interactive-assessment-form') as HTMLFormElement | null;
+  assessmentForm?.addEventListener('submit', function(this: HTMLFormElement, e: SubmitEvent) {
     e.preventDefault();
-    
+
     // Calculate risk level based on selections
     const formData = new FormData(this);
     let totalScore = 0;
     let questionCount = 0;
-    
+
     // Get all radio questions (1-4) and checkbox question (5)
     for (let i = 1; i <= 4; i++) {
-      const selectedRadio = this.querySelector(`input[name="question-${i}"]:checked`);
+      const selectedRadio = this.querySelector<HTMLInputElement>(`input[name="question-${i}"]:checked`);
       if (selectedRadio) {
         // Find the option in our data to get the weight
         const question = {
@@ -230,7 +231,7 @@ const assessmentQuestions = [
     }
     
     // Handle checkbox question (5)
-    const checkedBoxes = this.querySelectorAll('input[name="question-5"]:checked');
+    const checkedBoxes = this.querySelectorAll<HTMLInputElement>('input[name="question-5"]:checked');
     if (checkedBoxes.length > 0) {
       // For checkboxes, we'll add weights for each selected option
       const question5 = {options: [

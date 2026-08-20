@@ -165,7 +165,7 @@ const menu = getMenu(lang);
                   </button>
                   <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div class="py-2">
-                      {item.children.map(child => {
+                      {item.children.map((child: { href: string; label: string }) => {
                         const childHref = child.href;
                         const childLabel = child.label;
                         const isChildActive = currentPath === childHref || currentPath.startsWith(childHref + '/');
@@ -250,7 +250,7 @@ const menu = getMenu(lang);
               <span class="font-semibold text-sm">{label}</span>
             </summary>
             <div class="ml-4 mt-1 space-y-1">
-              {item.children.map(child => {
+              {item.children.map((child: { href: string; label: string }) => {
                 const childHref = child.href;
                 const childLabel = child.label;
                 const isChildActive = currentPath === childHref || currentPath.startsWith(childHref + '/');
