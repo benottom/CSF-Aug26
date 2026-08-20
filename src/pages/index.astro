@@ -320,106 +320,24 @@ const latestResources = [
 <!-- Trust Bar - WHITE BACKGROUND with subtle border -->
 <section class="py-8 bg-white border-y border-slate-100">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      
-      <!-- Left Side: Text -->
-      <div class="text-center md:text-left">
-        <!-- Decorative element -->
-        <div class="flex items-center gap-3 mb-3 md:justify-start justify-center">
-          <div class="h-px w-8 bg-transparent"></div>
-          <span class="text-[#131c2e] text-xs font-medium tracking-wider uppercase">Trusted Partners</span>
-          <div class="h-px w-8 bg-transparent"></div>
-        </div>
-        
-        <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-slate-800">
-          From compliance<br/>to 
-          <span class="bg-black bg-clip-text text-transparent">
-            competitive advantage
-          </span>.
-        </p>
-        
-        <!-- Rating -->
-        <div class="flex items-center gap-3 mt-3 md:justify-start justify-center">
-          <div class="flex items-center gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <svg class="w-3.5 h-3.5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-              </svg>
-            ))}
-          </div>
-          <span class="text-xs text-slate-500">4.9/5 (200+ reviews)</span>
-        </div>
+
+    <div class="text-center">
+      <!-- Decorative element -->
+      <div class="flex items-center gap-3 mb-3 justify-center">
+        <div class="h-px w-8 bg-transparent"></div>
+        <span class="text-[#131c2e] text-xs font-medium tracking-wider uppercase">Trusted Partners</span>
+        <div class="h-px w-8 bg-transparent"></div>
       </div>
-      
-      <!-- Right Side: Auto-scrolling Logos Carousel -->
-      <div class="relative overflow-hidden">
-        
-        <!-- Label above logos -->
-        <div class="text-center mb-3">
-          <span class="text-xs text-slate-500 uppercase tracking-wider">Trusted by industry leaders</span>
-        </div>
-        
-        <!-- Marquee / Auto-scrolling container -->
-        <div class="overflow-hidden">
-          <div class="flex animate-scroll gap-6 md:gap-8 py-2">
-            
-            {[
-              { src: '/images/nis2.webp', alt: 'NIS2' },
-              { src: '/images/logo-client-1.webp', alt: 'Client 3' },
-              { src: '/images/CRA.jpg', alt: 'CRA' },
-              { src: '/images/SOC-2-logo.jpg', alt: 'SOC2' },
-              { src: '/images/gdpr.webp', alt: 'GDPR' },
-              // Duplicate for seamless loop
-              { src: '/images/nis2.webp', alt: 'NIS2' },
-              { src: '/images/logo-client-1.webp', alt: 'Client 3' },
-              { src: '/images/CRA.jpg', alt: 'CRA' },
-              { src: '/images/SOC-2-logo.jpg', alt: 'SOC2' },
-              { src: '/images/gdpr.webp', alt: 'GDPR' },
-            ].map((logo, idx) => (
-              <div class="flex-shrink-0 flex items-center justify-center h-16 md:h-20 w-24 md:w-32 rounded-xl p-2 md:p-3 hover:scale-105 transition-all duration-300">
-                <img
-  src={logo.src}
-  alt={logo.alt}
-  class="max-h-12 md:max-h-20 w-auto object-contain"
-  loading="lazy"
-/>
-              </div>
-            ))}
-            
-          </div>
-        </div>
-        
-      </div>
-      
+
+      <p class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-slate-800">
+        From compliance<br/>to
+        <span class="bg-black bg-clip-text text-transparent">
+          competitive advantage
+        </span>.
+      </p>
     </div>
   </div>
 </section>
-
-<style>
-  /* Auto-scroll animation */
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  
-  .animate-scroll {
-    animation: scroll 20s linear infinite;
-    width: fit-content;
-  }
-  
-  .animate-scroll:hover {
-    animation-play-state: paused;
-  }
-  
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-</style>
 
 <!-- Featured Packages Section - MATCHING HERO SECTION STYLE -->
 <section class="text-slate-900 md:min-h-screen flex items-center relative overflow-hidden bg-[#f4f1ea]" style="background-image: linear-gradient(#e2dac5 1px, transparent 1px), linear-gradient(90deg, #e2dac5 1px, transparent 1px); background-size: 42px 42px;">
