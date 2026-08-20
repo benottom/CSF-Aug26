@@ -336,6 +336,23 @@ const latestResources = [
         </span>.
       </p>
     </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-10">
+      {[
+        { icon: "globe", title: "Finnish & EU Regulatory Expertise", desc: "NIS2, DORA, GDPR, ISO 27001" },
+        { icon: "cog", title: "Structured Compliance Engineering", desc: "A defined, repeatable methodology" },
+        { icon: "documentChartBar", title: "Audit-Ready, Board-Level Reporting", desc: "Built for executive and regulator scrutiny" },
+        { icon: "userGroup", title: "Dedicated Senior Advisory Team", desc: "Experienced practitioners, not generalists" },
+      ].map((item) => (
+        <div class="text-center">
+          <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-[#f4f1ea] border-2 border-[#003580] flex items-center justify-center">
+            <Icon name={item.icon} class="w-6 h-6 text-[#003580]" />
+          </div>
+          <h3 class="text-sm font-bold text-[#14171a] mb-1">{item.title}</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
