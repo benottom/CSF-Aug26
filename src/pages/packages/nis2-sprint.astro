@@ -7,10 +7,10 @@ const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
 
 // SEO Configuration
 const seoConfig = {
-  title: lang === 'fi' ? "NIS2 Sprint -ohjelma | Cyber Security Finland" : "NIS2 Sprint Program | Cyber Security Finland",
+  title: lang === 'fi' ? "NIS2-vaatimustenmukaisuusohjelma | Cyber Security Finland" : "NIS2 Compliance Program | Cyber Security Finland",
   description: lang === 'fi'
-    ? "Nopea NIS2 direktiivin toteutus 60-90 päivässä. Kattava NIS2 vaatimustenmukaisuuspalvelu kriittisille ja tärkeille entiteeteille."
-    : "Fast NIS2 directive implementation in 60-90 days. Comprehensive NIS2 compliance service for essential and important entities.",
+    ? "Jäsennelty NIS2-direktiivin vaatimustenmukaisuusohjelma keskeisille ja tärkeille toimijoille: soveltuvuusarviointi, aukkoanalyysi ja kontrollien toteutus."
+    : "Structured NIS2 directive compliance program for essential and important entities: applicability assessment, gap analysis, and control implementation.",
   keywords: lang === 'fi'
     ? "NIS2 Suomi, NIS2 direktiivi, NIS2 yhteensopivuus, NIS2 toteutus, kyberturvallisuus Suomi, NIS2 konsultointi"
     : "NIS2 finland, NIS2 directive, NIS2 compliance, NIS2 implementation, cybersecurity finland, NIS2 consulting",
@@ -18,8 +18,8 @@ const seoConfig = {
   schema: {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "NIS2 Sprint Program",
-    "description": "Rapid NIS2 directive compliance implementation for essential and important entities in Finland",
+    "name": "NIS2 Compliance Program",
+    "description": "Structured NIS2 directive compliance program for essential and important entities",
     "provider": {
       "@type": "Organization",
       "name": "Cyber Security Finland",
@@ -46,15 +46,15 @@ const seoConfig = {
 
 const content = {
   en: {
-    title: "NIS2 Sprint Program",
-    subtitle: "Rapid NIS2 Directive Compliance",
-    heroDescription: "Accelerated 12-week program ensuring full NIS2 Directive compliance for critical infrastructure and essential service providers. Our comprehensive program delivers cybersecurity governance, risk management, and incident response capabilities required under the EU NIS2 Directive.",
+    title: "NIS2 Compliance Program",
+    subtitle: "Structured NIS2 Directive Compliance",
+    heroDescription: "A structured program covering the cybersecurity governance, risk management, and incident response capabilities required under the EU NIS2 Directive, for critical infrastructure and essential/important service providers.",
     forWho: "For essential and important entities required to comply with the EU NIS2 Directive.",
-    achieve: "Full NIS2 compliance with enhanced cybersecurity resilience and governance.",
+    achieve: "A clear picture of your NIS2 obligations, a gap-closing roadmap, and implemented cybersecurity governance and technical controls.",
     overview: {
       title: "Overview",
-      description: "The Network and Information Systems (NIS2) Directive strengthens cybersecurity requirements across critical sectors in the EU. Our Sprint Program delivers rapid compliance for organizations that must meet these enhanced cybersecurity obligations.",
-      highlight: "NIS2 compliance is mandatory for all in-scope essential and important entities with enforcement actively monitored by national authorities."
+      description: "The NIS2 Directive strengthens cybersecurity requirements across critical sectors in the EU. Our compliance program helps organizations that fall in scope meet these obligations in a structured way.",
+      highlight: "Applicability depends on factors including sector, entity type, size, and specific statutory exceptions — we start every engagement with a scope assessment rather than assuming applicability."
     },
     nis2Sectors: {
       title: "NIS2 Covered Sectors",
@@ -102,7 +102,7 @@ const content = {
             "Security in acquisition, development and maintenance of systems",
             "Policies and procedures to assess effectiveness of measures"
           ],
-          timeline: "Weeks 1-3"
+          timeline: "Phase 1"
         },
         {
           area: "Technical & Organizational Measures",
@@ -114,11 +114,11 @@ const content = {
             "Backup mechanisms and disaster recovery procedures",
             "Security testing and vulnerability management programs"
           ],
-          timeline: "Weeks 4-7"
+          timeline: "Phase 2"
         },
         {
           area: "Incident Reporting & Response",
-          description: "24/7 incident detection, response, and regulatory notification capabilities",
+          description: "Incident detection, response, and regulatory notification capabilities",
           requirements: [
             "Computer security incident detection and response capabilities",
             "Early warning notifications to relevant authorities",
@@ -126,7 +126,7 @@ const content = {
             "Evidence preservation and forensic investigation protocols",
             "Recovery procedures and lessons learned documentation"
           ],
-          timeline: "Weeks 8-10"
+          timeline: "Phase 3"
         },
         {
           area: "Governance & Human Resources",
@@ -138,16 +138,16 @@ const content = {
             "Third-party risk assessment and vendor security requirements",
             "Regular security audits and penetration testing programs"
           ],
-          timeline: "Weeks 11-12"
+          timeline: "Phase 4"
         }
       ]
     },
     implementationPhases: {
-      title: "8-Week Sprint Implementation",
-      subtitle: "Accelerated implementation methodology to achieve NIS2 compliance quickly and efficiently",
+      title: "Implementation Phases",
+      subtitle: "A structured methodology for working through NIS2 compliance",
       items: [
         {
-          phase: "Weeks 1-3: Foundation & Assessment",
+          phase: "Phase 1: Foundation & Assessment",
           objectives: [
             "NIS2 scope and applicability determination",
             "Cybersecurity posture assessment",
@@ -158,7 +158,7 @@ const content = {
           ]
         },
         {
-          phase: "Weeks 4-7: Technical Implementation",
+          phase: "Phase 2: Technical Implementation",
           objectives: [
             "Critical security controls deployment",
             "Network architecture review",
@@ -169,7 +169,7 @@ const content = {
           ]
         },
         {
-          phase: "Weeks 8-10: Incident Response",
+          phase: "Phase 3: Incident Response",
           objectives: [
             "CSIRT establishment",
             "Incident detection procedures",
@@ -180,7 +180,7 @@ const content = {
           ]
         },
         {
-          phase: "Weeks 11-12: Governance Finalization",
+          phase: "Phase 4: Governance Finalization",
           objectives: [
             "Governance framework finalization",
             "Policy suite development",
@@ -193,13 +193,12 @@ const content = {
       ]
     },
     complianceTimeline: {
-      title: "NIS2 Compliance Timeline",
-      subtitle: "Key milestones and deadlines for NIS2 implementation and ongoing compliance",
+      title: "NIS2 Timeline",
+      subtitle: "Key milestones so far, and what ongoing compliance looks like now",
       items: [
         { date: "January 16, 2023", milestone: "NIS2 Directive Entry into Force", status: "Completed", description: "EU NIS2 Directive officially entered into force" },
-        { date: "October 17, 2024", milestone: "National Implementation Deadline", status: "Completed", description: "EU Member States completed transposition into national law" },
-        { date: "October 17, 2024", milestone: "Compliance Deadline", status: "Active", description: "Organizations must be fully compliant with NIS2 requirements" },
-        { date: "Ongoing", milestone: "Continuous Compliance", status: "Ongoing", description: "Regular audits, incident reporting, and compliance monitoring" }
+        { date: "October 17, 2024", milestone: "National Transposition Deadline", status: "Completed", description: "EU Member States were required to transpose NIS2 into national law by this date; national implementation and enforcement timelines vary by country" },
+        { date: "Ongoing", milestone: "Continuous Compliance", status: "Ongoing", description: "In-scope organizations maintain risk management measures, incident reporting, and governance obligations on an ongoing basis" }
       ]
     },
     penalties: {
@@ -208,8 +207,8 @@ const content = {
       items: [
         {
           severity: "Administrative Fines",
-          amount: "Up to €10 million or 2% of annual turnover",
-          applies_to: "Essential and important entities",
+          amount: "Up to €10M / 2% of global turnover (essential entities); up to €7M / 1.4% (important entities), whichever is higher",
+          applies_to: "Essential and important entities — exact caps and national implementation vary",
           violations: "Non-compliance with cybersecurity measures and incident reporting"
         },
         {
@@ -227,45 +226,42 @@ const content = {
       ]
     },
     packageIncludes: {
-      title: "NIS2 Sprint Program Includes",
-      subtitle: "Comprehensive NIS2 compliance implementation with ongoing support and monitoring",
+      title: "NIS2 Compliance Program Includes",
+      subtitle: "Structured NIS2 compliance implementation with ongoing support",
       items: [
-        "Complete NIS2 applicability and gap assessment",
+        "NIS2 applicability and gap assessment",
         "Cybersecurity risk management framework",
-        "Technical security controls deployment",
-        "24/7 incident response system",
-        "Complete compliance documentation package",
+        "Technical security controls implementation",
+        "Incident response process setup",
+        "Compliance documentation package",
         "Staff training and awareness programs",
-        "Continuous monitoring and threat detection",
-        "12 months post-implementation support",
-        "Quarterly compliance reviews",
-        "Legal compliance verification",
-        "Annual compliance assessment",
-        "24/7 expert support hotline"
+        "Compliance monitoring setup",
+        "Post-implementation support (scope agreed per engagement)",
+        "Periodic compliance reviews"
       ]
     },
     benefitsList: {
       title: "Key Benefits",
       items: [
-        "Full NIS2 compliance in just 8 weeks",
+        "Clear picture of your NIS2 obligations",
         "Comprehensive risk management framework",
-        "Expert guidance throughout the journey",
-        "All required documentation included",
-        "Ongoing support and monitoring",
+        "Expert guidance throughout the engagement",
+        "Required documentation and evidence included",
+        "Ongoing support option after implementation",
         "Enhanced cybersecurity resilience"
       ]
     }
   },
   fi: {
-    title: "NIS2 Sprint -ohjelma",
-    subtitle: "Nopea NIS2-vaatimustenmukaisuus",
-    heroDescription: "Nopeutettu 12 viikon ohjelma, jolla varmistetaan täysi NIS2-direktiivin vaatimustenmukaisuus kriittiselle infrastruktuurille ja keskeisille palveluntarjoajille. Kattava ohjelmamme tarjoaa kyberturvallisuuden hallinnon, riskienhallinnan ja häiriönhallintakyvykkyydet, jotka vaaditaan EU:n NIS2-direktiivissä.",
+    title: "NIS2-vaatimustenmukaisuusohjelma",
+    subtitle: "Jäsennelty NIS2-vaatimustenmukaisuus",
+    heroDescription: "Jäsennelty ohjelma, joka kattaa EU:n NIS2-direktiivin edellyttämät kyberturvallisuuden hallinnon, riskienhallinnan ja häiriönhallintakyvykkyydet kriittiselle infrastruktuurille sekä keskeisille ja tärkeille palveluntarjoajille.",
     forWho: "Keskeisille ja tärkeille toimijoille, joiden on noudatettava EU:n NIS2-direktiiviä.",
-    achieve: "Täysi NIS2-vaatimustenmukaisuus tehostetulla kyberturvallisuuden sietokyvyllä ja hallinnolla.",
+    achieve: "Selkeä kuva NIS2-velvoitteistasi, aukkoja korjaava tiekartta sekä toteutettu kyberturvallisuuden hallinto ja tekniset kontrollit.",
     overview: {
       title: "Yleiskatsaus",
-      description: "Verkko- ja tietoturvadirektiivi (NIS2) vahvistaa kyberturvallisuusvaatimuksia kriittisillä aloilla koko EU:ssa. Sprint-ohjelmamme tarjoaa nopean vaatimustenmukaisuuden organisaatioille, joiden on täytettävä nämä tehostetut kyberturvallisuusvelvoitteet.",
-      highlight: "NIS2-vaatimustenmukaisuus on pakollinen kaikille soveltamisalaan kuuluville keskeisille ja tärkeille toimijoille, ja kansalliset viranomaiset valvovat aktiivisesti vaatimustenmukaisuutta."
+      description: "NIS2-direktiivi vahvistaa kyberturvallisuusvaatimuksia kriittisillä aloilla koko EU:ssa. Vaatimustenmukaisuusohjelmamme auttaa soveltamisalaan kuuluvia organisaatioita täyttämään nämä velvoitteet jäsennellysti.",
+      highlight: "Soveltuvuus riippuu tekijöistä kuten toimiala, toimijatyyppi, koko ja lakisääteiset poikkeukset – aloitamme jokaisen toimeksiannon laajuuden arvioinnilla emmekä oleta soveltuvuutta."
     },
     nis2Sectors: {
       title: "NIS2 Soveltamisalaan kuuluvat sektorit",
@@ -313,7 +309,7 @@ const content = {
             "Turvallisuus järjestelmien hankinnassa, kehityksessä ja ylläpidossa",
             "Politiikat ja menettelyt toimenpiteiden tehokkuuden arvioimiseksi"
           ],
-          timeline: "Viikot 1-3"
+          timeline: "Vaihe 1"
         },
         {
           area: "Tekniset & Organisatoriset toimenpiteet",
@@ -325,11 +321,11 @@ const content = {
             "Varmuuskopiointimekanismit ja palautumismenettelyt",
             "Turvallisuustestaus ja haavoittuvuuksien hallintaohjelmat"
           ],
-          timeline: "Viikot 4-7"
+          timeline: "Vaihe 2"
         },
         {
           area: "Häiriöiden raportointi & Vastaaminen",
-          description: "24/7 häiriöiden havaitsemis-, reagointi- ja viranomaisilmoituskyvykkyydet",
+          description: "Häiriöiden havaitsemis-, reagointi- ja viranomaisilmoituskyvykkyydet",
           requirements: [
             "Tietoturvahäiriöiden havaitsemis- ja reagointikyvykkyydet",
             "Varhaisvaroitukset asianomaisille viranomaisille",
@@ -337,7 +333,7 @@ const content = {
             "Todisteiden säilyttäminen ja tekninen tutkinta",
             "Palautumismenettelyt ja opittujen asioiden dokumentointi"
           ],
-          timeline: "Viikot 8-10"
+          timeline: "Vaihe 3"
         },
         {
           area: "Hallinto & Henkilöstöresurssit",
@@ -349,16 +345,16 @@ const content = {
             "Kolmannen osapuolen riskinarviointi ja toimittajien turvallisuusvaatimukset",
             "Säännölliset turvallisuusauditoinnit ja tunkeutumistestausohjelmat"
           ],
-          timeline: "Viikot 11-12"
+          timeline: "Vaihe 4"
         }
       ]
     },
     implementationPhases: {
-      title: "8 Viikon Sprint -toteutus",
-      subtitle: "Nopeutettu toteutusmenetelmä NIS2-vaatimustenmukaisuuden saavuttamiseksi nopeasti ja tehokkaasti",
+      title: "Toteutusvaiheet",
+      subtitle: "Jäsennelty menetelmä NIS2-vaatimustenmukaisuuden toteuttamiseen",
       items: [
         {
-          phase: "Viikot 1-3: Perusta & Arviointi",
+          phase: "Vaihe 1: Perusta & Arviointi",
           objectives: [
             "NIS2 laajuuden ja sovellettavuuden määrittäminen",
             "Kyberturvallisuuden tilan arviointi",
@@ -369,7 +365,7 @@ const content = {
           ]
         },
         {
-          phase: "Viikot 4-7: Tekninen toteutus",
+          phase: "Vaihe 2: Tekninen toteutus",
           objectives: [
             "Kriittisten turvakontrollien käyttöönotto",
             "Verkkoarkkitehtuurin katselmointi",
@@ -380,7 +376,7 @@ const content = {
           ]
         },
         {
-          phase: "Viikot 8-10: Häiriönhallinta",
+          phase: "Vaihe 3: Häiriönhallinta",
           objectives: [
             "CSIRT-perustaminen",
             "Häiriöiden havaitsemismenettelyt",
@@ -391,7 +387,7 @@ const content = {
           ]
         },
         {
-          phase: "Viikot 11-12: Hallinnon viimeistely",
+          phase: "Vaihe 4: Hallinnon viimeistely",
           objectives: [
             "Hallintokehyksen viimeistely",
             "Käytäntökokonaisuuden kehitys",
@@ -404,13 +400,12 @@ const content = {
       ]
     },
     complianceTimeline: {
-      title: "NIS2 Vaatimustenmukaisuuden Aikajana",
-      subtitle: "Keskeiset virstanpylväät ja määräajat NIS2-toteutukselle ja jatkuvalle vaatimustenmukaisuudelle",
+      title: "NIS2-aikajana",
+      subtitle: "Keskeiset virstanpylväät tähän mennessä ja mitä jatkuva vaatimustenmukaisuus tarkoittaa nyt",
       items: [
-        { date: "16. Tammikuuta 2023", milestone: "NIS2 Direktiivin voimaantulo", status: "Valmis", description: "EU:n NIS2-direktiivi astui virallisesti voimaan" },
-        { date: "17. Lokakuuta 2024", milestone: "Kansallinen täytäntöönpanon määräaika", status: "Valmis", description: "EU:n jäsenvaltiot saattoivat direktiivin osaksi kansallista lainsäädäntöä" },
-        { date: "17. Lokakuuta 2024", milestone: "Vaatimustenmukaisuuden määräaika", status: "Aktiivinen", description: "Organisaatioiden on oltava täysin NIS2-vaatimusten mukaisia" },
-        { date: "Jatkuva", milestone: "Jatkuva vaatimustenmukaisuus", status: "Jatkuva", description: "Säännölliset auditoinnit, häiriöraportointi ja vaatimustenmukaisuuden valvonta" }
+        { date: "16. tammikuuta 2023", milestone: "NIS2-direktiivin voimaantulo", status: "Valmis", description: "EU:n NIS2-direktiivi astui virallisesti voimaan" },
+        { date: "17. lokakuuta 2024", milestone: "Kansallisen täytäntöönpanon määräaika", status: "Valmis", description: "EU:n jäsenvaltioiden tuli saattaa NIS2 osaksi kansallista lainsäädäntöä tähän mennessä; kansallinen toimeenpano ja valvonta vaihtelevat maittain" },
+        { date: "Jatkuva", milestone: "Jatkuva vaatimustenmukaisuus", status: "Jatkuva", description: "Soveltamisalaan kuuluvat organisaatiot ylläpitävät riskienhallintatoimenpiteitä, häiriöraportointia ja hallintovelvoitteita jatkuvasti" }
       ]
     },
     penalties: {
@@ -419,8 +414,8 @@ const content = {
       items: [
         {
           severity: "Hallinnolliset sakot",
-          amount: "Jopa 10 miljoonaa € tai 2% vuosiliikevaihdosta",
-          applies_to: "Keskeiset ja tärkeät toimijat",
+          amount: "Jopa 10 milj. € / 2 % globaalista liikevaihdosta (keskeiset toimijat); jopa 7 milj. € / 1,4 % (tärkeät toimijat), sen mukaan kumpi on suurempi",
+          applies_to: "Keskeiset ja tärkeät toimijat — tarkat rajat ja kansallinen toimeenpano vaihtelevat",
           violations: "Kyberturvatoimenpiteiden ja häiriöraportoinnin laiminlyönti"
         },
         {
@@ -438,31 +433,28 @@ const content = {
       ]
     },
     packageIncludes: {
-      title: "NIS2 Sprint -ohjelma sisältää",
-      subtitle: "Kattava NIS2-vaatimustenmukaisuuden toteutus jatkuvalla tuella ja valvonnalla",
+      title: "NIS2-vaatimustenmukaisuusohjelma sisältää",
+      subtitle: "Jäsennelty NIS2-vaatimustenmukaisuuden toteutus jatkuvalla tuella",
       items: [
-        "Täydellinen NIS2-soveltuvuus- ja puuteanalyysi",
+        "NIS2-soveltuvuus- ja puuteanalyysi",
         "Kyberturvallisuusriskien hallintakehys",
         "Teknisten turvakontrollien käyttöönotto",
-        "24/7 häiriönhallintajärjestelmä",
-        "Täydellinen dokumentaatiopaketti",
+        "Häiriönhallintaprosessin käyttöönotto",
+        "Dokumentaatiopaketti",
         "Henkilöstökoulutusohjelmat",
-        "Jatkuva seuranta ja uhkien havaitseminen",
-        "12 kuukauden tuki toteutuksen jälkeen",
-        "Neljännesvuosittaiset vaatimustenmukaisuuskatsaukset",
-        "Lakisääteisen vaatimustenmukaisuuden varmistus",
-        "Vuosittainen vaatimustenmukaisuusarviointi",
-        "24/7 asiantuntijatuki"
+        "Vaatimustenmukaisuuden seurannan käyttöönotto",
+        "Tuki toteutuksen jälkeen (laajuus sovitaan toimeksiannoittain)",
+        "Säännölliset vaatimustenmukaisuuskatsaukset"
       ]
     },
     benefitsList: {
       title: "Keskeiset edut",
       items: [
-        "Täysi NIS2-vaatimustenmukaisuus vain 8 viikossa",
+        "Selkeä kuva NIS2-velvoitteistasi",
         "Kattava riskienhallintakehys",
-        "Asiantuntijaohjaus koko matkan ajan",
-        "Kaikki vaadittu dokumentaatio mukana",
-        "Jatkuva tuki ja seuranta",
+        "Asiantuntijaohjaus koko toimeksiannon ajan",
+        "Vaadittu dokumentaatio ja näyttö mukana",
+        "Jatkuvan tuen mahdollisuus toteutuksen jälkeen",
         "Tehostettu kyberturvallisuuden sietokyky"
       ]
     }
@@ -798,7 +790,7 @@ function getStatusClass(status: string) {
       <div class="text-center mt-8">
         <a href="/contact?package=nis2-sprint" 
            class="inline-flex items-center justify-center px-6 py-3 rounded-[2px] bg-[#131c2e] text-white hover:bg-[#003580] transition-all duration-300 hover:shadow-lg font-medium">
-          {isFi ? 'Aloita NIS2 Sprint -ohjelma' : 'Start NIS2 Sprint Program'}
+          {isFi ? 'Pyydä vaatimustenmukaisuusarviointi' : 'Request a Compliance Assessment'}
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>

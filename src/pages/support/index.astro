@@ -25,150 +25,26 @@ const supportCategories = [
       { fi: 'Usein kysytyt kysymykset', en: 'Frequently asked questions' },
       { fi: 'Video-ohjeet', en: 'Video tutorials' }
     ]
-  },
-  {
-    icon: 'file-text',
-    titleFi: 'Artikkelit ja viite',
-    titleEn: 'Articles & Reference',
-    descFi: 'Asiantuntija-artikkelit ja viitemateriaali compliance-työhön',
-    descEn: 'Expert articles and reference materials for compliance work',
-    href: '/support/articles',
-    features: [
-      { fi: 'Toteutusartikkelit', en: 'Implementation articles' },
-      { fi: 'Parhaiden käytäntöjen oppaat', en: 'Best practices guides' },
-      { fi: 'Säädösten selitykset', en: 'Regulation explanations' },
-      { fi: 'Tekninen dokumentaatio', en: 'Technical documentation' }
-    ]
-  },
-  {
-    icon: 'download',
-    titleFi: 'Ladattavat resurssit',
-    titleEn: 'Downloadable Resources',
-    descFi: 'Ilmaiset mallit, tarkistuslistat ja työkalut Excel/PDF-muodossa',
-    descEn: 'Free templates, checklists and tools in Excel/PDF format',
-    href: '/support/sample-spreadsheets',
-    features: [
-      { fi: 'Excel-työkalut ja -mallit', en: 'Excel tools and templates' },
-      { fi: 'PDF-tarkistuslistat', en: 'PDF checklists' },
-      { fi: 'Riskinarviointityökalut', en: 'Risk assessment tools' },
-      { fi: 'Audit-valmistelumallit', en: 'Audit preparation templates' }
-    ]
-  },
-  {
-    icon: 'file-plus',
-    titleFi: 'Valkoiset kirjat',
-    titleEn: 'White Papers',
-    descFi: 'Syvälliset tutkimukset ja analyysit kyberturvallisuusaiheista',
-    descEn: 'In-depth research and analysis on cybersecurity topics',
-    href: '/support/whitepapers',
-    features: [
-      { fi: 'Toimialakohtaiset analyysit', en: 'Industry-specific analyses' },
-      { fi: 'Säädösvaikutustutkimukset', en: 'Regulatory impact studies' },
-      { fi: 'Teknologiatrendit', en: 'Technology trends' },
-      { fi: 'Uhka-analyysit', en: 'Threat analyses' }
-    ]
-  }
-];
-
-const tools = [
-  {
-    icon: 'check-square',
-    titleFi: 'ISO 27001 Tarkistuslista',
-    titleEn: 'ISO 27001 Checklist',
-    descFi: 'Kattava 114-kohtainen tarkistuslista ISO 27001 toteutukseen',
-    descEn: 'Comprehensive 114-point checklist for ISO 27001 implementation',
-    format: 'Excel',
-    pages: '15',
-    updated: '2024-12',
-    downloadCount: '5.2k',
-    href: '/downloads/iso27001-checklist.xlsx'
-  },
-  {
-    icon: 'shield',
-    titleFi: 'NIS2 Valmiusarviointi',
-    titleEn: 'NIS2 Readiness Assessment',
-    descFi: 'Itsearviointityökalu NIS2-direktiivin valmiuden kartoittamiseen',
-    descEn: 'Self-assessment tool for mapping NIS2 directive readiness',
-    format: 'Excel',
-    pages: '8',
-    updated: '2024-11',
-    downloadCount: '3.8k',
-    href: '/downloads/nis2-readiness-tool.xlsx'
-  },
-  {
-    icon: 'bar-chart',
-    titleFi: 'Riskinarviointimalli',
-    titleEn: 'Risk Assessment Template',
-    descFi: 'Automaattinen riskinarviointityökalu laskennalla ja visualisoinnilla',
-    descEn: 'Automated risk assessment tool with calculations and visualization',
-    format: 'Excel',
-    pages: '12',
-    updated: '2024-10',
-    downloadCount: '7.1k',
-    href: '/downloads/risk-assessment-template.xlsx'
-  },
-  {
-    icon: 'calendar',
-    titleFi: 'GDPR Compliance Kalenteri',
-    titleEn: 'GDPR Compliance Calendar',
-    descFi: 'Vuosittainen suunnitelma GDPR-vaatimusten ylläpitoon',
-    descEn: 'Annual plan for maintaining GDPR requirements',
-    format: 'PDF',
-    pages: '6',
-    updated: '2024-09',
-    downloadCount: '2.9k',
-    href: '/downloads/gdpr-compliance-calendar.pdf'
   }
 ];
 
 const supportChannels = [
-  {
-    icon: 'message-circle',
-    titleFi: 'Chat-tuki',
-    titleEn: 'Chat Support',
-    descFi: 'Reaaliaikainen keskustelu asiantuntijoiden kanssa',
-    descEn: 'Real-time chat with experts',
-    availability: '9-17 arkisin',
-    availabilityEn: '9-17 weekdays',
-    response: '< 5 min'
-  },
   {
     icon: 'mail',
     titleFi: 'Sähköpostituki',
     titleEn: 'Email Support',
     descFi: 'Yksityiskohtainen apu ja dokumentaatio sähköpostitse',
     descEn: 'Detailed help and documentation via email',
-    availability: '24/7',
-    availabilityEn: '24/7',
-    response: '< 4h'
+    availability: 'info@cybersecurity.fi'
   },
   {
     icon: 'phone',
     titleFi: 'Puhelintuki',
     titleEn: 'Phone Support',
-    descFi: 'Suora yhteys senior-asiantuntijoihimme',
-    descEn: 'Direct connection to our senior experts',
-    availability: '9-17 arkisin',
-    availabilityEn: '9-17 weekdays',
-    response: 'Välitön'
-  },
-  {
-    icon: 'video',
-    titleFi: 'Videoneuvottelu',
-    titleEn: 'Video Consultation',
-    descFi: 'Henkilökohtainen neuvonta ja näytön jako',
-    descEn: 'Personal consultation and screen sharing',
-    availability: 'Varauksesta',
-    availabilityEn: 'By appointment',
-    response: 'Samana päivänä'
+    descFi: 'Suora yhteys tiimiimme',
+    descEn: 'Direct connection to our team',
+    availability: '+358 44 5040308'
   }
-];
-
-const stats = [
-  { valueFi: '98%', valueEn: '98%', labelFi: 'Asiakastyytyväisyys', labelEn: 'Customer satisfaction' },
-  { valueFi: '< 4h', valueEn: '< 4h', labelFi: 'Keskimääräinen vastausaika', labelEn: 'Average response time' },
-  { valueFi: '500+', valueEn: '500+', labelFi: 'Ilmaista työkalua', labelEn: 'Free tools' },
-  { valueFi: '24/7', valueEn: '24/7', labelFi: 'Sähköpostituki', labelEn: 'Email support' }
 ];
 ---
 
@@ -182,44 +58,22 @@ const stats = [
           {lang === 'fi' ? 'Tuki ja työkalut' : 'Support & Tools'}
         </div>
         <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-          {lang === 'fi' ? 'Saa apua ja työkaluja' : 'Get Help & Tools'}
+          {lang === 'fi' ? 'Saa apua' : 'Get Help'}
         </h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          {lang === 'fi' 
-            ? 'Kattava tukipalvelujen ja ilmaisten työkalujen valikoima. Asiantuntija-apua, dokumentaatiota ja valmiita malleja compliance-työhösi.'
-            : 'Comprehensive range of support services and free tools. Expert help, documentation and ready-made templates for your compliance work.'
+          {lang === 'fi'
+            ? 'Kysymyksiä palveluistamme tai compliance-työstäsi? Ota yhteyttä tai tutustu tietopankkiimme.'
+            : 'Questions about our services or your compliance work? Get in touch, or browse our knowledge base.'
           }
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="#tools" variant="primary">
-            {lang === 'fi' ? 'Selaa työkaluja' : 'Browse Tools'}
-          </Button>
-          <Button href="/contact" variant="secondary">
+          <Button href="/contact" variant="primary">
             {lang === 'fi' ? 'Ota yhteyttä' : 'Contact Support'}
           </Button>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Stats Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map((stat) => (
-          <div class="text-center">
-            <div class="text-3xl md:text-4xl font-bold text-[#003580] mb-2">
-              {lang === 'fi' ? stat.valueFi : stat.valueEn}
-            </div>
-            <div class="text-gray-600">
-              {lang === 'fi' ? stat.labelFi : stat.labelEn}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
 
   <!-- Support Categories -->
   <section class="py-20 bg-white">
@@ -294,16 +148,7 @@ const stats = [
             <p class="text-gray-600 text-sm mb-4">
               {lang === 'fi' ? channel.descFi : channel.descEn}
             </p>
-            <div class="space-y-2 text-sm">
-              <div class="flex justify-between">
-                <span class="text-gray-500">{lang === 'fi' ? 'Saatavuus:' : 'Availability:'}</span>
-                <span class="font-medium">{lang === 'fi' ? channel.availability : channel.availabilityEn}</span>
-              </div>
-              <div class="flex justify-between">
-                <span class="text-gray-500">{lang === 'fi' ? 'Vastausaika:' : 'Response:'}</span>
-                <span class="font-medium text-[#003580]">{channel.response}</span>
-              </div>
-            </div>
+            <p class="font-medium text-[#003580] text-sm">{channel.availability}</p>
           </div>
         ))}
       </div>
@@ -317,7 +162,7 @@ const stats = [
         {lang === 'fi' ? 'Tarvitsetko henkilökohtaista apua?' : 'Need Personal Help?'}
       </h2>
       <p class="text-xl text-[#eef1f5] mb-8">
-        {lang === 'fi' 
+        {lang === 'fi'
           ? 'Ota yhteyttä asiantuntijoihimme saadaksesi räätälöityä tukea ja neuvontaa.'
           : 'Contact our experts to get tailored support and consultation.'
         }
@@ -325,9 +170,6 @@ const stats = [
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <Button href="/contact" variant="white">
           {lang === 'fi' ? 'Ota yhteyttä' : 'Contact Us'}
-        </Button>
-        <Button href="/demo" variant="outline-white">
-          {lang === 'fi' ? 'Varaa demo' : 'Book Demo'}
         </Button>
       </div>
     </div>

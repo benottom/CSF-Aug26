@@ -106,6 +106,12 @@ export const menu = [
             label_en: "Third-Party Risk",
             href: "/services/risk-and-assessment-services/third-party-risk",
             children: []
+          },
+          {
+            label_fi: "VAPT / Tietoturvatestaus",
+            label_en: "VAPT / Security Testing",
+            href: "/services/vapt",
+            children: []
           }
         ]
       },
@@ -280,14 +286,7 @@ export const menu = [
         label_fi: "Blogi & Artikkelit",
         label_en: "Blog & Articles",
         href: "/blog",
-        children: [
-          {
-            label_fi: "Tapauskertomukset",
-            label_en: "Case Studies",
-            href: "/blog/case-studies",
-            children: []
-          }
-        ]
+        children: []
       },
       {
         label_fi: "Frameworks",
@@ -385,38 +384,7 @@ export const menu = [
             label_en: "Knowledge Base",
             href: "/support/knowledge-base",
             children: []
-          },
-          {
-            label_fi: "Whitepapers",
-            label_en: "Whitepapers",
-            href: "/support/whitepapers",
-            children: []
-          },
-          {
-            label_fi: "Sample Spreadsheets",
-            label_en: "Sample Spreadsheets",
-            href: "/support/sample-spreadsheets",
-            children: []
           }
-        ]
-      },
-      {
-        label_fi: "Alusta",
-        label_en: "Platform",
-        href: "/platform",
-        children: [
-          {
-            label_fi: "DataNova Core",
-            label_en: "DataNova Core",
-            href: "/downloads/datanova-core",
-            children: []
-          },
-          {
-            label_fi: "Versiot",
-            label_en: "Editions",
-            href: "/downloads/editions",
-            children: []
-          },
         ]
       }
     ]

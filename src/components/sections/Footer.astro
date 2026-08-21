@@ -6,21 +6,21 @@ const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
 
 const footerLinks = {
   services: [
-    { 
-      title: lang === 'fi' ? 'ISO 27001 Palvelut' : 'ISO 27001 Services', 
-      href: '/services/standards-and-certifications/iso-27001-services' 
+    {
+      title: lang === 'fi' ? 'ISO 27001 Palvelut' : 'ISO 27001 Services',
+      href: '/services/iso-27001-services'
     },
-    { 
-      title: lang === 'fi' ? 'NIS2 Yhteensopivuus' : 'NIS2 Compliance', 
-      href: '/services/nis2-compliance' 
+    {
+      title: lang === 'fi' ? 'NIS2 Yhteensopivuus' : 'NIS2 Compliance',
+      href: '/services/nis2-compliance'
     },
-    { 
-      title: lang === 'fi' ? 'GDPR Yhteensopivuus' : 'GDPR Compliance', 
-      href: '/services/regulatory-compliance/gdpr-privacy-services' 
+    {
+      title: lang === 'fi' ? 'GDPR Yhteensopivuus' : 'GDPR Compliance',
+      href: '/services/gdpr-privacy-services'
     },
-    { 
-      title: lang === 'fi' ? 'DORA Yhteensopivuus' : 'DORA Compliance', 
-      href: '/services/regulatory-compliance/dora-compliance' 
+    {
+      title: lang === 'fi' ? 'DORA Yhteensopivuus' : 'DORA Compliance',
+      href: '/services/dora-compliance'
     },
     { 
       title: lang === 'fi' ? 'CISO Palveluna' : 'CISO-as-a-Service', 
@@ -117,7 +117,13 @@ const footerLinks = {
             ? 'Olemme johtava kyberturvallisuuden asiantuntija Suomessa, tarjoamme ISO 27001, NIS2, GDPR ja DORA -yhteensopivuuspalveluja.'
             : 'We help organizations navigate European cybersecurity regulation through compliance engineering, assurance, risk management, and security advisory services, covering NIS2, CRA, EUCC, the AI Act, DORA, GDPR, and ISO 27001.'}
         </p>
-        
+
+        <p class="mt-4 text-slate-500 text-xs leading-relaxed">
+          Cyber Security Finland Oy<br />
+          {lang === 'fi' ? 'Y-tunnus' : 'Business ID'}: 3195889-5<br />
+          Mikonkatu 9, 00100 Helsinki, Finland
+        </p>
+
         <!-- Social Icons -->
         <div class="mt-4 flex space-x-4">
           <!-- LinkedIn -->

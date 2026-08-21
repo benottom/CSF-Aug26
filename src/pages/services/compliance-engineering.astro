@@ -8,14 +8,14 @@ const isFi = lang === 'fi';
 
 const seo = {
   en: {
-    title: "Compliance Engineering: NIS2 & CRA",
-    description: "Engineer EU NIS2 and CRA compliance before the deadline hits. Risk assessments, secure code review and VAPT for critical infrastructure. Book a call.",
-    keywords: "compliance engineering, NIS2 compliance, CRA compliance, Cyber Resilience Act, EUCC certification, EU cybersecurity compliance, VAPT, secure code review"
+    title: "Compliance Engineering: NIS2, CRA & EUCC",
+    description: "CRA compliance engineering — SBOM guidance, PSIRT and vulnerability-disclosure setup, secure development lifecycle, and technical documentation — plus NIS2 and EUCC support for EU organizations.",
+    keywords: "compliance engineering, NIS2 compliance, CRA compliance, Cyber Resilience Act, EUCC certification, EU cybersecurity compliance, VAPT, secure code review, SBOM, PSIRT"
   },
   fi: {
-    title: "Compliance Engineering: NIS2 & CRA",
-    description: "Rakennamme NIS2- ja CRA-vaatimustenmukaisuuden ennen määräaikaa. Riskiarvioinnit, koodikatselmoinnit ja VAPT EU:n kriittiselle infralle. Varaa aika.",
-    keywords: "compliance engineering, NIS2 vaatimustenmukaisuus, CRA vaatimustenmukaisuus, kyberkestävyyssäädös, EUCC-sertifiointi, kyberturvallisuus, haavoittuvuusskannaus"
+    title: "Compliance Engineering: NIS2, CRA ja EUCC",
+    description: "CRA-vaatimustenmukaisuuden toteutus — SBOM-ohjeistus, PSIRT- ja haavoittuvuuksien ilmoituskäytännöt, turvallinen ohjelmistokehitys ja tekninen dokumentaatio — sekä NIS2- ja EUCC-tuki EU-organisaatioille.",
+    keywords: "compliance engineering, NIS2 vaatimustenmukaisuus, CRA vaatimustenmukaisuus, kyberkestävyyssäädös, EUCC-sertifiointi, kyberturvallisuus, haavoittuvuusskannaus, SBOM, PSIRT"
   }
 };
 
@@ -50,50 +50,90 @@ const schema = {
 
 const content = {
   en: {
-    h1: "Compliance Engineering for EU NIS2 & CRA",
+    h1: "Compliance Engineering for NIS2, CRA & EUCC",
     h2: "Audit-ready controls, engineered — not just documented",
-    hero: "NIS2 and the Cyber Resilience Act reward evidence, not good intentions. We engineer the technical controls, risk management processes, and audit trails you need to satisfy NIS2 Article 21, CRA essential requirements, and EUCC criteria, before regulators come asking. Our engineers work inside your stack: threat modeling, secure code review, VAPT, and incident response that produces defensible documentation, not shelfware. For critical infrastructure operators and software vendors, that means fewer audit findings and a security posture built to withstand scrutiny.",
-    ctaPrimary: "Book a Compliance Assessment",
-    ctaSecondary: "Talk to an Engineer",
-    trustTitle: "Trusted by EU Enterprises for Regulatory Compliance",
-    trustSubtitle: "Engineering-led compliance for organizations that can't afford to get NIS2, CRA, or EUCC wrong.",
+    hero: "NIS2 and the Cyber Resilience Act reward evidence, not good intentions. We engineer the technical controls, risk management processes, and audit trails you need to satisfy NIS2 Article 21, CRA essential requirements, and EUCC criteria. NIS2, CRA, and EUCC are our core areas of depth: we work inside your stack on vulnerability handling, secure development lifecycle, and technical documentation that produces defensible evidence, not shelfware.",
+    ctaPrimary: "Request a Compliance Assessment",
+    ctaSecondary: "Explore Compliance Services",
+    trustTitle: "Engineering-Led Compliance for NIS2, CRA & EUCC",
+    trustSubtitle: "We connect regulatory requirements to governance, architecture, technical controls and evidence — not just policy documents.",
     cards: [
       {
         title: "NIS2 Readiness",
         body: "We map your risk management, incident reporting, and supply-chain controls directly to NIS2 Article 21. Gap analysis and remediation are engineered together, not handed off in a slide deck."
       },
       {
-        title: "CRA Alignment",
-        body: "From secure-by-design architecture reviews to vulnerability handling processes, we build the technical file the Cyber Resilience Act requires before your product reaches the EU market."
+        title: "CRA Compliance",
+        body: "SBOM guidance, PSIRT and coordinated vulnerability disclosure setup, secure development lifecycle practices, and the technical documentation the Cyber Resilience Act requires — built with you before your product reaches the EU market."
       },
       {
-        title: "EUCC Preparation",
-        body: "Our engineers prepare products and processes against the European Cybersecurity Certification Scheme, closing evidentiary gaps before formal evaluation begins."
+        title: "EUCC Support",
+        body: "Incident response setup, gap analysis, and hands-on help meeting European Cybersecurity Certification Scheme (EUCC) requirements — one of our strongest areas alongside NIS2 and CRA."
       }
-    ]
+    ],
+    craSection: {
+      title: "CRA Capabilities We Deliver Today",
+      subtitle: "Product security and vulnerability-handling work we're already doing for EU organizations",
+      items: [
+        { title: "SBOM Guidance", body: "Software bill of materials practices to meet CRA transparency and component-tracking expectations." },
+        { title: "PSIRT & Vulnerability Disclosure", body: "Setting up a Product Security Incident Response Team function and coordinated vulnerability disclosure (CVD) processes." },
+        { title: "Secure Development Lifecycle", body: "Embedding security requirements, review gates, and vulnerability handling into your existing development process." },
+        { title: "Technical Documentation", body: "Building the technical documentation and evidence trail CRA conformity assessment expects." }
+      ]
+    },
+    euccSection: {
+      title: "EUCC Support We Deliver Today",
+      subtitle: "Helping organizations meet European Cybersecurity Certification Scheme requirements",
+      items: [
+        { title: "Incident Response", body: "Setting up incident response processes aligned to EUCC expectations." },
+        { title: "Gap Analysis", body: "Identifying where current controls and evidence fall short of EUCC requirements." },
+        { title: "Requirement Support", body: "Hands-on help closing the gaps identified, ahead of formal evaluation." }
+      ]
+    },
+    disclaimer: "This describes our cybersecurity and compliance engineering work — not regulated legal advice. For legal interpretation of CRA, NIS2, or EUCC obligations, we work alongside your legal counsel or partner firms."
   },
   fi: {
-    h1: "Compliance Engineering EU:n NIS2- ja CRA-vaatimuksiin",
+    h1: "Compliance Engineering NIS2-, CRA- ja EUCC-vaatimuksiin",
     h2: "Auditointivalmiit kontrollit — ei vain dokumentteja",
-    hero: "NIS2 ja kyberkestävyyssäädös (CRA) palkitsevat näyttöä, eivät hyviä aikeita. Suunnittelemme tekniset kontrollit, riskienhallintaprosessit ja auditointijäljet, joita tarvitset täyttääksesi NIS2:n 21 artiklan, CRA:n olennaiset vaatimukset ja EUCC-kriteerit – ennen kuin viranomainen kysyy. Insinöörimme työskentelevät järjestelmässäsi: uhkamallinnus, koodikatselmoinnit, VAPT ja poikkeamanhallinta, joka tuottaa puolustettavaa dokumentaatiota. Kriittisen infrastruktuurin toimijoille ja ohjelmistotoimittajille tämä tarkoittaa vähemmän auditointihuomautuksia ja tarkastelua kestävää tietoturva-asentoa.",
-    ctaPrimary: "Varaa vaatimustenmukaisuusarviointi",
-    ctaSecondary: "Keskustele insinöörin kanssa",
-    trustTitle: "EU-yritysten luottama kumppani vaatimustenmukaisuudessa",
-    trustSubtitle: "Insinöörivetoista vaatimustenmukaisuutta organisaatioille, joilla ei ole varaa epäonnistua NIS2:ssa, CRA:ssa tai EUCC:ssä.",
+    hero: "NIS2 ja kyberkestävyyssäädös (CRA) palkitsevat näyttöä, eivät hyviä aikeita. Suunnittelemme tekniset kontrollit, riskienhallintaprosessit ja auditointijäljet, joita tarvitset täyttääksesi NIS2:n 21 artiklan, CRA:n olennaiset vaatimukset ja EUCC-kriteerit. NIS2, CRA ja EUCC ovat vahvinta osaamisaluettamme: työskentelemme järjestelmässäsi haavoittuvuuksien hallinnan, turvallisen ohjelmistokehityksen ja teknisen dokumentaation parissa, jotka tuottavat puolustettavaa näyttöä.",
+    ctaPrimary: "Pyydä vaatimustenmukaisuusarviointi",
+    ctaSecondary: "Tutustu palveluihin",
+    trustTitle: "Insinöörivetoista vaatimustenmukaisuutta NIS2:lle, CRA:lle ja EUCC:lle",
+    trustSubtitle: "Kytkemme sääntelyvaatimukset hallintoon, arkkitehtuuriin, teknisiin kontrolleihin ja näyttöön – emme vain käytäntödokumentteihin.",
     cards: [
       {
         title: "NIS2-valmius",
         body: "Kartoitamme riskienhallintasi, häiriöilmoitusprosessisi ja toimitusketjun kontrollit suoraan NIS2:n 21 artiklaan. Aukkoanalyysi ja korjaustoimet suunnitellaan yhdessä – ei erillisenä diaesityksenä."
       },
       {
-        title: "CRA-yhdenmukaisuus",
-        body: "Suunnittelemme turvallisuuden alusta asti ja rakennamme haavoittuvuuksien hallintaprosessit sekä teknisen tiedoston, jota kyberkestävyyssäädös (CRA) edellyttää ennen tuotteesi tuloa EU:n markkinoille."
+        title: "CRA-vaatimustenmukaisuus",
+        body: "SBOM-ohjeistus, PSIRT- ja koordinoidun haavoittuvuuksien ilmoituskäytännön käyttöönotto, turvallinen ohjelmistokehityksen elinkaari ja kyberkestävyyssäädöksen edellyttämä tekninen dokumentaatio – rakennettuna yhdessä kanssasi ennen tuotteesi tuloa EU:n markkinoille."
       },
       {
-        title: "EUCC-valmistelu",
-        body: "Insinöörimme valmistelevat tuotteet ja prosessit eurooppalaisen kyberturvallisuuden sertifiointijärjestelmän (EUCC) mukaisiksi ja sulkevat näyttöön liittyvät aukot ennen virallista arviointia."
+        title: "EUCC-tuki",
+        body: "Poikkeamanhallinnan käyttöönotto, aukkoanalyysi ja käytännön apu eurooppalaisen kyberturvallisuuden sertifiointijärjestelmän (EUCC) vaatimusten täyttämisessä – yksi vahvimmista osaamisalueistamme NIS2:n ja CRA:n ohella."
       }
-    ]
+    ],
+    craSection: {
+      title: "CRA-osaaminen jota tarjoamme jo nyt",
+      subtitle: "Tuoteturvallisuus- ja haavoittuvuudenhallintatyötä, jota teemme jo EU-organisaatioille",
+      items: [
+        { title: "SBOM-ohjeistus", body: "Ohjelmiston osaluettelokäytännöt CRA:n läpinäkyvyys- ja komponenttiseurantavaatimusten täyttämiseksi." },
+        { title: "PSIRT ja haavoittuvuuksien ilmoittaminen", body: "Product Security Incident Response Team -toiminnon ja koordinoidun haavoittuvuuksien ilmoituskäytännön (CVD) käyttöönotto." },
+        { title: "Turvallinen ohjelmistokehityksen elinkaari", body: "Turvallisuusvaatimusten, katselmointipisteiden ja haavoittuvuuksien hallinnan sisällyttäminen nykyiseen kehitysprosessiisi." },
+        { title: "Tekninen dokumentaatio", body: "CRA:n vaatimustenmukaisuuden arvioinnin edellyttämän teknisen dokumentaation ja näyttöketjun rakentaminen." }
+      ]
+    },
+    euccSection: {
+      title: "EUCC-tuki jota tarjoamme jo nyt",
+      subtitle: "Autamme organisaatioita täyttämään eurooppalaisen kyberturvallisuuden sertifiointijärjestelmän vaatimukset",
+      items: [
+        { title: "Poikkeamanhallinta", body: "EUCC-odotusten mukaisten poikkeamanhallintaprosessien käyttöönotto." },
+        { title: "Aukkoanalyysi", body: "Nykyisten kontrollien ja näytön puutteiden tunnistaminen suhteessa EUCC-vaatimuksiin." },
+        { title: "Vaatimustenmukaisuustuki", body: "Käytännön apu tunnistettujen puutteiden korjaamiseen ennen virallista arviointia." }
+      ]
+    },
+    disclaimer: "Tämä kuvaa kyberturvallisuus- ja vaatimustenmukaisuustyötämme – ei säänneltyä oikeudellista neuvontaa. CRA:n, NIS2:n tai EUCC:n velvoitteiden oikeudellisessa tulkinnassa teemme yhteistyötä lakiasiantuntijasi tai kumppaniyritysten kanssa."
   }
 };
 
@@ -143,7 +183,7 @@ const c = content[lang];
             <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
               {c.ctaPrimary}
             </Button>
-            <Button href={isFi ? '/fi/assessment' : '/assessment'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+            <Button href={isFi ? '/fi/services' : '/services'} variant="secondary" size="lg" className="!rounded-md !font-bold !tracking-tight">
               {c.ctaSecondary}
             </Button>
           </div>
@@ -191,6 +231,62 @@ const c = content[lang];
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- ============ CRA DEPTH SECTION ============ -->
+  <section class="ce-lexend py-16 md:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#131c2e]">
+          {c.craSection.title}
+        </h3>
+        <p class="mt-3 text-base text-slate-600 leading-relaxed">
+          {c.craSection.subtitle}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {c.craSection.items.map((item) => (
+          <div class="bg-[#ece7db] rounded-lg border border-slate-200 p-6 md:p-7">
+            <h4 class="text-base font-bold tracking-tight text-[#131c2e] mb-2">{item.title}</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EUCC DEPTH SECTION ============ -->
+  <section class="ce-lexend py-16 md:py-20 bg-[#ece7db] border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-[#131c2e]">
+          {c.euccSection.title}
+        </h3>
+        <p class="mt-3 text-base text-slate-600 leading-relaxed">
+          {c.euccSection.subtitle}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {c.euccSection.items.map((item) => (
+          <div class="bg-white rounded-lg border border-slate-200 p-6 md:p-7">
+            <h4 class="text-base font-bold tracking-tight text-[#131c2e] mb-2">{item.title}</h4>
+            <p class="text-sm text-slate-600 leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DISCLAIMER + CTA ============ -->
+  <section class="ce-lexend py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-xs text-slate-500 leading-relaxed max-w-2xl mx-auto mb-8">
+        {c.disclaimer}
+      </p>
+      <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary" size="lg" className="!rounded-md !font-bold !tracking-tight">
+        {c.ctaPrimary}
+      </Button>
     </div>
   </section>
 </Layout>

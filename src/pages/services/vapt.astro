@@ -1,0 +1,253 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Icon from '@/components/ui/icons/Icon.astro';
+import Button from '@/components/ui/Button.astro';
+
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
+const title = "VAPT / Security Testing";
+
+const content = {
+  en: {
+    title: "VAPT / Security Testing",
+    subtitle: "Vulnerability Assessment & Penetration Testing",
+    heroDescription: "Technical security testing to support your compliance evidence — vulnerability assessments and penetration testing delivered through our red team partner, Redshield Defense.",
+    forWho: "Organizations that need independent, technical validation of their security controls — for example as evidence toward NIS2, CRA, or ISO 27001 requirements.",
+    achieve: "A clear, prioritized picture of exploitable vulnerabilities in your systems, applications, or infrastructure, with technical findings you can act on.",
+    overview: {
+      title: "How This Works",
+      description: "Cyber Security Finland scopes the engagement together with you — mapping the testing to the specific compliance or risk-management outcome you need — and delivers it through our red team partner, Redshield Defense, which carries out the technical assessment.",
+      highlight: "We stay involved from scoping through to interpreting the results in the context of your compliance program."
+    },
+    testTypes: {
+      title: "What We Cover",
+      subtitle: "Testing scoped to your systems and your compliance requirements",
+      items: [
+        {
+          title: "Vulnerability Assessment",
+          description: "Systematic scanning and analysis to identify known vulnerabilities across your infrastructure and applications.",
+          icon: "shield-check"
+        },
+        {
+          title: "Penetration Testing",
+          description: "Manual, adversary-style testing of applications, networks, and infrastructure to identify exploitable weaknesses.",
+          icon: "lock-closed"
+        },
+        {
+          title: "Compliance-Aligned Reporting",
+          description: "Findings mapped to the regulatory or standards context you need evidence for — NIS2, CRA, or ISO 27001.",
+          icon: "document-chart-bar"
+        }
+      ]
+    },
+    process: {
+      title: "Engagement Process",
+      subtitle: "How a VAPT engagement is scoped and delivered",
+      items: [
+        { number: "01", title: "Scoping", description: "Define systems, objectives, and compliance context with Cyber Security Finland" },
+        { number: "02", title: "Testing", description: "Technical assessment carried out by Redshield Defense" },
+        { number: "03", title: "Findings", description: "Prioritized vulnerabilities with technical detail and risk rating" },
+        { number: "04", title: "Remediation Support", description: "We help translate findings into fixes and compliance evidence" }
+      ]
+    }
+  },
+  fi: {
+    title: "VAPT / Tietoturvatestaus",
+    subtitle: "Haavoittuvuusarviointi ja tunkeutumistestaus",
+    heroDescription: "Teknistä tietoturvatestausta vaatimustenmukaisuuden näytön tueksi — haavoittuvuusarvioinnit ja tunkeutumistestaukset toteutetaan red team -kumppanimme Redshield Defensen kautta.",
+    forWho: "Organisaatioille, jotka tarvitsevat riippumatonta, teknistä vahvistusta turvakontrolleilleen — esimerkiksi näyttönä NIS2-, CRA- tai ISO 27001 -vaatimuksiin.",
+    achieve: "Selkeän, priorisoidun kuvan järjestelmiesi, sovellustesi tai infrastruktuurisi hyödynnettävissä olevista haavoittuvuuksista, teknisin havainnoin joihin voit reagoida.",
+    overview: {
+      title: "Näin se toimii",
+      description: "Cyber Security Finland määrittelee toimeksiannon laajuuden yhdessä kanssasi — kytkien testauksen tarvitsemaasi vaatimustenmukaisuus- tai riskienhallintatavoitteeseen — ja toteutuksen hoitaa red team -kumppanimme Redshield Defense.",
+      highlight: "Olemme mukana laajuuden määrittelystä tulosten tulkintaan vaatimustenmukaisuusohjelmasi kontekstissa."
+    },
+    testTypes: {
+      title: "Mitä katamme",
+      subtitle: "Testaus mitoitettuna järjestelmiisi ja vaatimuksiisi",
+      items: [
+        {
+          title: "Haavoittuvuusarviointi",
+          description: "Järjestelmällinen skannaus ja analyysi tunnettujen haavoittuvuuksien tunnistamiseksi infrastruktuurissasi ja sovelluksissasi.",
+          icon: "shield-check"
+        },
+        {
+          title: "Tunkeutumistestaus",
+          description: "Manuaalista, hyökkääjän näkökulmasta tehtävää testausta sovelluksille, verkoille ja infrastruktuurille hyödynnettävissä olevien heikkouksien löytämiseksi.",
+          icon: "lock-closed"
+        },
+        {
+          title: "Vaatimustenmukaisuuteen sidottu raportointi",
+          description: "Havainnot kytkettynä siihen sääntely- tai standardikontekstiin, johon tarvitset näyttöä — NIS2, CRA tai ISO 27001.",
+          icon: "document-chart-bar"
+        }
+      ]
+    },
+    process: {
+      title: "Toimeksiannon eteneminen",
+      subtitle: "Näin VAPT-toimeksianto määritellään ja toteutetaan",
+      items: [
+        { number: "01", title: "Laajuuden määrittely", description: "Järjestelmät, tavoitteet ja vaatimustenmukaisuuskonteksti määritellään yhdessä Cyber Security Finlandin kanssa" },
+        { number: "02", title: "Testaus", description: "Teknisen arvioinnin toteuttaa Redshield Defense" },
+        { number: "03", title: "Havainnot", description: "Priorisoidut haavoittuvuudet teknisin tiedoin ja riskiluokituksin" },
+        { number: "04", title: "Korjaustuki", description: "Autamme muuttamaan havainnot korjauksiksi ja vaatimustenmukaisuusnäytöksi" }
+      ]
+    }
+  }
+};
+
+const currentContent = content[lang];
+const isFi = lang === 'fi';
+---
+
+<Layout title={title}>
+
+  <!-- Hero Section -->
+  <section class="pt-10 md:pt-14 pb-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">
+          <span class="bg-[#131c2e] bg-clip-text text-transparent">
+            {currentContent.subtitle}
+          </span>
+        </h1>
+        <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          {currentContent.heroDescription}
+        </p>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 text-left">
+            <h2 class="text-xs font-semibold text-[#14171a] mb-1">
+              {isFi ? 'Kelle tämä on tarkoitettu?' : 'Who is this for?'}
+            </h2>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+              {currentContent.forWho}
+            </p>
+          </div>
+
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm p-5 md:p-6 text-left">
+            <h2 class="text-xs font-semibold text-[#14171a] mb-1">
+              {isFi ? 'Mitä saavutat?' : 'What will you achieve?'}
+            </h2>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">
+              {currentContent.achieve}
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary">
+            {isFi ? 'Pyydä vaatimustenmukaisuusarviointi' : 'Request a Compliance Assessment'}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section class="py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto bg-slate-50/80 rounded-xl border border-slate-200 shadow-sm p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-[#131c2e] mb-4">{currentContent.overview.title}</h2>
+        <p class="text-slate-600 leading-relaxed mb-4">{currentContent.overview.description}</p>
+        <div class="bg-blue-50 border-l-4 border-[#003580] p-4 rounded-r-lg">
+          <p class="text-[#131c2e] font-semibold">{currentContent.overview.highlight}</p>
+        </div>
+        <p class="text-slate-500 text-sm mt-4">
+          {isFi ? 'Red team -kumppanimme:' : 'Our red team delivery partner:'}
+          {' '}
+          <a href="https://www.redshielddefense.com/" target="_blank" rel="noopener noreferrer" class="text-[#003580] font-medium hover:underline">Redshield Defense</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Test Types Section -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#003580] mb-2">
+          {currentContent.testTypes.title}
+        </h2>
+        <p class="text-base text-[#131c2e] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.testTypes.subtitle}
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+        {currentContent.testTypes.items.map((item) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
+                      transition-all duration-300
+                      flex flex-col p-5 md:p-6 group relative overflow-hidden text-center">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            <div class="flex justify-center mb-3 relative z-10">
+              <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center
+                          border-2 border-[#003580]
+                          transition-all duration-300
+                          group-hover:bg-[#003580] group-hover:shadow-lg
+                          group-hover:border-transparent">
+                <Icon name={item.icon} class="w-6 h-6 text-[#003580] group-hover:text-white transition-colors duration-300" />
+              </div>
+            </div>
+            <h3 class="text-base font-bold text-[#14171a] mb-1.5 group-hover:text-[#2E6FBA] transition-colors duration-300 relative z-10">
+              {item.title}
+            </h3>
+            <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-12 md:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#003580] mb-2">
+          {currentContent.process.title}
+        </h2>
+        <p class="text-base text-[#131c2e] max-w-3xl mx-auto leading-relaxed">
+          {currentContent.process.subtitle}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {currentContent.process.items.map((step) => (
+          <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                      hover:shadow-xl hover:-translate-y-1 hover:shadow-md
+                      transition-all duration-300
+                      flex flex-col p-4 md:p-5 group relative overflow-hidden text-center">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+            <div class="flex justify-center mb-2 relative z-10">
+              <div class="w-10 h-10 bg-[#003580] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                {step.number}
+              </div>
+            </div>
+            <h3 class="text-sm font-bold text-[#14171a] mb-1 group-hover:text-[#2E6FBA] transition-colors duration-300 relative z-10">
+              {step.title}
+            </h3>
+            <p class="text-xs text-slate-500 group-hover:text-slate-600 transition-colors duration-300 relative z-10">
+              {step.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-12 md:py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-xl md:text-2xl font-bold text-[#131c2e] mb-4">
+        {isFi ? 'Keskustele tietoturvatestaustarpeistasi' : 'Discuss Your Security Testing Needs'}
+      </h2>
+      <Button href={isFi ? '/fi/contact' : '/contact'} variant="primary">
+        {isFi ? 'Pyydä vaatimustenmukaisuusarviointi' : 'Request a Compliance Assessment'}
+      </Button>
+    </div>
+  </section>
+
+</Layout>
