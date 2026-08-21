@@ -22,55 +22,34 @@ const content = {
     security: {
       title: "Security & Compliance",
       items: [
-        { title: "ISO 27001 Certified", description: "Cyber Security Finland maintains ISO 27001 certification, demonstrating our commitment to information security management and best practices in protecting client data." },
-        { title: "GDPR Compliant", description: "We fully comply with the General Data Protection Regulation (GDPR) and maintain robust data protection policies. All personal data is processed lawfully and securely." },
-        { title: "NIS2 Directive Aligned", description: "Our operations and security practices align with the Network and Information Systems Security (NIS2) Directive, ensuring operational resilience and incident management capabilities." }
+        { title: "Our Approach to ISO 27001", description: "We apply ISO 27001 information security management principles in how we operate, and help clients implement ISO 27001 themselves. Cyber Security Finland does not hold ISO 27001 certification as an organization." },
+        { title: "GDPR", description: "As a company processing personal data in the EU, we are subject to GDPR and maintain data protection policies accordingly." }
       ]
     },
     dataProtection: {
       title: "Data Protection Practices",
       items: [
-        { title: "Data Minimization", description: "We collect only the minimum data necessary to provide our services." },
-        { title: "Encryption in Transit and at Rest", description: "All data communications use TLS/SSL encryption, and stored data is encrypted." },
-        { title: "Access Controls", description: "Strict access controls ensure only authorized personnel can access client data." },
-        { title: "Regular Backups", description: "We maintain regular encrypted backups to ensure business continuity and data recovery." },
-        { title: "Incident Response", description: "We have documented incident response procedures and notification protocols." }
-      ]
-    },
-    infrastructure: {
-      title: "Infrastructure Security",
-      items: [
-        { title: "Cloud Infrastructure", description: "Our cloud infrastructure is hosted with leading providers that maintain SOC 2 Type II compliance and advanced security measures." },
-        { title: "Network Security", description: "Advanced firewalls, DDoS protection, and intrusion detection systems protect our infrastructure from threats." },
-        { title: "Vulnerability Management", description: "Regular security assessments and penetration testing identify and remediate vulnerabilities promptly." },
-        { title: "Monitoring & Logging", description: "Continuous monitoring and comprehensive logging ensure we can detect and respond to security incidents." }
+        { title: "Data Minimization", description: "We aim to collect only the data necessary to provide our services." },
+        { title: "Encrypted Transmission", description: "Our website and client-facing systems use TLS/SSL encryption in transit." },
+        { title: "Access Controls", description: "Access to client data is limited to authorized personnel." },
+        { title: "Incident Handling", description: "We have a process for handling and reporting security incidents. Contact us for details relevant to your engagement." }
       ]
     },
     certifications: {
-      title: "Certifications & Standards",
+      title: "Standards We Work With",
       items: [
         "ISO 27001 - Information Security Management",
         "GDPR - General Data Protection Regulation",
         "NIS2 - Network and Information Systems Security Directive",
-        "SOC 2 Type II - Service Organization Control",
-        "OWASP - Web Application Security Practices"
-      ]
-    },
-    businessContinuity: {
-      title: "Business Continuity & Disaster Recovery",
-      description: "We maintain comprehensive business continuity and disaster recovery plans to ensure service availability:",
-      points: [
-        "Recovery Time Objective (RTO): Committed to restoring services within defined timeframes",
-        "Recovery Point Objective (RPO): Minimal data loss through frequent backups",
-        "Regular Testing: DR procedures are tested regularly to ensure effectiveness",
-        "Redundancy: Geographically distributed infrastructure provides failover capabilities"
+        "CRA - Cyber Resilience Act",
+        "DORA - Digital Operational Resilience Act"
       ]
     },
     privacy: {
       title: "Privacy & Transparency",
       items: [
-        { title: "Privacy Policy", description: "Our comprehensive privacy policy outlines how we collect, use, and protect personal data in compliance with GDPR and other regulations.", link: "/about", linkText: "Read our Privacy Policy" },
-        { title: "Data Processing Agreement (DPA)", description: "We provide Data Processing Agreements for clients requiring formal documentation of our data handling practices.", link: "/about", linkText: "Request a DPA" },
+        { title: "Privacy Policy", description: "Our privacy policy outlines how we collect, use, and protect personal data in compliance with GDPR and other regulations.", link: "/privacy", linkText: "Read our Privacy Policy" },
+        { title: "Data Processing Agreement (DPA)", description: "We can provide a Data Processing Agreement for clients requiring formal documentation of our data handling practices.", link: "/contact", linkText: "Request a DPA" },
         { title: "Transparency Reports", description: "We are committed to transparency in our operations and security practices. For questions, please contact us.", link: "mailto:info@cybersecurity.fi", linkText: "Contact Us" }
       ]
     },
@@ -96,55 +75,34 @@ const content = {
     security: {
       title: "Turvallisuus & vaatimustenmukaisuus",
       items: [
-        { title: "ISO 27001 -sertifioitu", description: "Cyber Security Finland ylläpitää ISO 27001 -sertifiointia, mikä osoittaa sitoutumisemme tietoturvallisuuden hallintaan ja parhaisiin käytäntöihin asiakastietojen suojaamisessa." },
-        { title: "GDPR-yhteensopiva", description: "Noudatamme täysin yleistä tietosuoja-asetusta (GDPR) ja ylläpidämme vankkoja tietosuojakäytäntöjä. Kaikkia henkilötietoja käsitellään lainmukaisesti ja turvallisesti." },
-        { title: "NIS2-direktiivin mukainen", description: "Toimintamme ja turvallisuuskäytäntömme ovat NIS2-direktiivin mukaisia, mikä varmistaa operatiivisen resilienssin ja tapahtumien hallintakyvyt." }
+        { title: "Lähestymistapamme ISO 27001:een", description: "Sovellamme ISO 27001 -tietoturvallisuuden hallinnan periaatteita omassa toiminnassamme ja autamme asiakkaita toteuttamaan ISO 27001:n itse. Cyber Security Finlandilla ei ole organisaationa ISO 27001 -sertifiointia." },
+        { title: "GDPR", description: "EU:ssa henkilötietoja käsittelevänä yrityksenä olemme GDPR:n alaisia ja ylläpidämme tietosuojakäytäntöjä sen mukaisesti." }
       ]
     },
     dataProtection: {
       title: "Tietosuojakäytännöt",
       items: [
-        { title: "Tietojen minimointi", description: "Keräämme vain vähimmäismäärän tietoja, jotka ovat tarpeen palvelujemme tarjoamiseksi." },
-        { title: "Salaus siirrossa ja levossa", description: "Kaikki tiedonsiirrot käyttävät TLS/SSL-salausta, ja tallennetut tiedot on salattu." },
-        { title: "Käyttöoikeuksien hallinta", description: "Tiukat käyttöoikeuksien hallintakäytännöt varmistavat, että vain valtuutettu henkilöstö pääsee käsiksi asiakastietoihin." },
-        { title: "Säännölliset varmuuskopiot", description: "Ylläpidämme säännöllisiä salattuja varmuuskopioita liiketoiminnan jatkuvuuden ja tietojen palauttamisen varmistamiseksi." },
-        { title: "Tapahtumien hallinta", description: "Meillä on dokumentoidut tapahtumien hallintamenettelyt ja ilmoitusprotokollat." }
-      ]
-    },
-    infrastructure: {
-      title: "Infrastruktuurin turvallisuus",
-      items: [
-        { title: "Pilvi-infrastruktuuri", description: "Pilvi-infrastruktuurimme on isännöity johtavien palveluntarjoajien kanssa, jotka ylläpitävät SOC 2 Type II -vaatimustenmukaisuutta ja edistyneitä turvatoimia." },
-        { title: "Verkkoturvallisuus", description: "Edistyneet palomuurit, DDoS-suojaus ja tunkeilijoiden havainnointijärjestelmät suojaavat infrastruktuuriamme uhilta." },
-        { title: "Haavoittuvuuksien hallinta", description: "Säännölliset tietoturva-arvioinnit ja tunkeutumistestaukset tunnistavat ja korjaavat haavoittuvuudet nopeasti." },
-        { title: "Valvonta & kirjaus", description: "Jatkuva valvonta ja kattava kirjaus varmistavat, että voimme havaita ja reagoida tietoturvatapahtumiin." }
+        { title: "Tietojen minimointi", description: "Pyrimme keräämään vain palvelujemme tarjoamiseen tarvittavat tiedot." },
+        { title: "Salattu tiedonsiirto", description: "Verkkosivustomme ja asiakasjärjestelmämme käyttävät TLS/SSL-salausta tiedonsiirrossa." },
+        { title: "Käyttöoikeuksien hallinta", description: "Pääsy asiakastietoihin on rajattu valtuutetulle henkilöstölle." },
+        { title: "Poikkeamien käsittely", description: "Meillä on prosessi tietoturvapoikkeamien käsittelyyn ja raportointiin. Ota yhteyttä saadaksesi toimeksiantoosi liittyvät yksityiskohdat." }
       ]
     },
     certifications: {
-      title: "Sertifikaatit & standardit",
+      title: "Standardit, joiden parissa työskentelemme",
       items: [
         "ISO 27001 - Tietoturvallisuuden hallinta",
         "GDPR - Yleinen tietosuoja-asetus",
         "NIS2 - Verkko- ja tietoturvadirektiivi",
-        "SOC 2 Type II - Palveluorganisaation valvonta",
-        "OWASP - Verkkosovellusten turvallisuuskäytännöt"
-      ]
-    },
-    businessContinuity: {
-      title: "Liiketoiminnan jatkuvuus & katastrofipalautus",
-      description: "Ylläpidämme kattavia liiketoiminnan jatkuvuus- ja katastrofipalautussuunnitelmia palveluiden saatavuuden varmistamiseksi:",
-      points: [
-        "Palautumisaikatavoite (RTO): Sitoudumme palauttamaan palvelut määritellyissä aikatauluissa",
-        "Palautuspistetavoite (RPO): Minimaalinen tietohäviö tiheiden varmuuskopioiden avulla",
-        "Säännöllinen testaus: DR-menettelyjä testataan säännöllisesti tehokkuuden varmistamiseksi",
-        "Redundanssi: Maantieteellisesti hajautettu infrastruktuuri tarjoaa vikasietoisuuden"
+        "CRA - Kyberkestävyyssäädös",
+        "DORA - Digitaalisen toimintakyvyn säädös"
       ]
     },
     privacy: {
       title: "Tietosuoja & läpinäkyvyys",
       items: [
-        { title: "Tietosuojakäytäntö", description: "Kattava tietosuojakäytäntömme kuvaa, miten keräämme, käytämme ja suojaamme henkilötietoja GDPR:n ja muiden säännösten mukaisesti.", link: "/about", linkText: "Lue tietosuojakäytäntömme" },
-        { title: "Tietojenkäsittelysopimus (DPA)", description: "Tarjoamme tietojenkäsittelysopimuksia asiakkaille, jotka tarvitsevat muodollista dokumentaatiota tietojenkäsittelykäytännöistämme.", link: "/about", linkText: "Pyydä DPA" },
+        { title: "Tietosuojakäytäntö", description: "Tietosuojakäytäntömme kuvaa, miten keräämme, käytämme ja suojaamme henkilötietoja GDPR:n ja muiden säännösten mukaisesti.", link: "/privacy", linkText: "Lue tietosuojakäytäntömme" },
+        { title: "Tietojenkäsittelysopimus (DPA)", description: "Voimme tarjota tietojenkäsittelysopimuksen asiakkaille, jotka tarvitsevat muodollista dokumentaatiota tietojenkäsittelykäytännöistämme.", link: "/contact", linkText: "Pyydä DPA" },
         { title: "Läpinäkyvyysraportit", description: "Olemme sitoutuneet läpinäkyvyyteen toiminnassamme ja turvallisuuskäytännöissämme. Kysyttävää? Ota yhteyttä.", link: "mailto:info@cybersecurity.fi", linkText: "Ota yhteyttä" }
       ]
     },
@@ -257,44 +215,6 @@ const currentContent = content[lang];
   </div>
 </section>
 
-<!-- Infrastructure Security -->
-<section class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#131c2e] mb-4">
-        {currentContent.infrastructure.title}
-      </h2>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {currentContent.infrastructure.items.map((item) => (
-        <div class="bg-slate-50/50 rounded-xl border border-slate-100
-                    hover:border-blue-300 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-2
-                    transition-all duration-300
-                    p-6 group">
-          
-          <div class="flex justify-end mb-4">
-            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center
-                        transition-all duration-300
-                        group-hover:bg-[#131c2e] group-hover:shadow-lg">
-              <Icon name="server" class="w-6 h-6 text-blue-600 group-hover:text-white transition-colors duration-300" />
-            </div>
-          </div>
-          
-          <h3 class="text-md font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors duration-300 text-left">
-            {item.title}
-          </h3>
-          
-          <p class="text-slate-500 text-xs leading-relaxed text-left">
-            {item.description}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
 <!-- Certifications & Standards -->
 <section class="py-16 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -315,31 +235,6 @@ const currentContent = content[lang];
           <p class="text-slate-700 text-sm group-hover:text-blue-700 transition-colors duration-300">{item}</p>
         </div>
       ))}
-    </div>
-  </div>
-</section>
-
-<!-- Business Continuity -->
-<section class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#131c2e] mb-4">
-        {currentContent.businessContinuity.title}
-      </h2>
-      <p class="text-base md:text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
-        {currentContent.businessContinuity.description}
-      </p>
-    </div>
-
-    <div class="bg-slate-50/50 rounded-xl border border-slate-100 p-8">
-      <ul class="grid md:grid-cols-2 gap-4">
-        {currentContent.businessContinuity.points.map((point) => (
-          <li class="flex items-start gap-3 text-slate-600 text-sm">
-            <span class="text-blue-500">•</span> {point}
-          </li>
-        ))}
-      </ul>
     </div>
   </div>
 </section>
