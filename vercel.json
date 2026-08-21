@@ -38,6 +38,8 @@
     { "source": "/services/governance-and-strategy/business-continuity", "destination": "/services/business-continuity", "permanent": true },
     { "source": "/services/governance-and-strategy/audit-preparation", "destination": "/services/audit-preparation", "permanent": true },
     { "source": "/services/third-party-risk-tprm", "destination": "/services/risk-and-assessment-services/third-party-risk", "permanent": true },
+    { "source": "/webinars", "destination": "/resources", "permanent": true },
+    { "source": "/webinars/:path*", "destination": "/resources", "permanent": true },
 
     { "source": "/fi/services/regulatory-compliance/eidas-digital-trust", "destination": "/fi/services/eidas-digital-trust", "permanent": true },
     { "source": "/fi/services/regulatory-compliance/nis2-compliance", "destination": "/fi/services/nis2-compliance", "permanent": true },
@@ -53,7 +55,9 @@
     { "source": "/fi/services/governance-and-strategy/policy-governance", "destination": "/fi/services/policy-governance", "permanent": true },
     { "source": "/fi/services/governance-and-strategy/business-continuity", "destination": "/fi/services/business-continuity", "permanent": true },
     { "source": "/fi/services/governance-and-strategy/audit-preparation", "destination": "/fi/services/audit-preparation", "permanent": true },
-    { "source": "/fi/services/third-party-risk-tprm", "destination": "/fi/services/risk-and-assessment-services/third-party-risk", "permanent": true }
+    { "source": "/fi/services/third-party-risk-tprm", "destination": "/fi/services/risk-and-assessment-services/third-party-risk", "permanent": true },
+    { "source": "/fi/webinars", "destination": "/fi/resources", "permanent": true },
+    { "source": "/fi/webinars/:path*", "destination": "/fi/resources", "permanent": true }
   ],
   "headers": [
     {

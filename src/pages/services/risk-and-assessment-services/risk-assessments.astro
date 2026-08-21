@@ -10,9 +10,9 @@ const tagline = lang === 'fi' ? 'Tunnista, arvioi ja vähennä kyberturvallisuus
 
 const stats = [
   { value: "3+", label: lang === 'fi' ? 'Palvelualuetta' : 'Service Areas' },
-  { value: "100%", label: lang === 'fi' ? 'Riskien kattavuus' : 'Risk Coverage' },
-  { value: "24/7", label: lang === 'fi' ? 'Asiantuntijatuki' : 'Expert Support' },
-  { value: "98%", label: lang === 'fi' ? 'Asiakastyytyväisyys' : 'Client Satisfaction' }
+  { value: lang === 'fi' ? 'Kiinteä laajuus' : 'Fixed-Scope', label: lang === 'fi' ? 'Arvioinnit' : 'Assessments' },
+  { value: lang === 'fi' ? 'EU-laajuinen' : 'EU-Wide', label: lang === 'fi' ? 'Toimituslaajuus' : 'Delivery Scope' },
+  { value: lang === 'fi' ? 'Suomi' : 'Finland', label: lang === 'fi' ? 'Pääkonttori, EU-laajuinen toimitus' : 'Based, EU-Wide Delivery' }
 ];
 
 const content = {
@@ -29,7 +29,7 @@ const content = {
     },
     methodologies: {
       title: "Used Methodologies",
-      subtitle: "We utilize industry-leading and internationally recognized risk assessment methodologies.",
+      subtitle: "We use internationally recognized risk assessment methodologies.",
       items: [
         { title: "ISO 27005", description: "International standard for information security risk management", icon: "target" },
         { title: "NIST Framework", description: "NIST Cybersecurity Framework-based assessment", icon: "shield-check" },
@@ -81,7 +81,7 @@ const content = {
     },
     methodologies: {
       title: "Käytetyt menetelmät",
-      subtitle: "Hyödynnämme alan parhaita ja kansainvälisesti tunnustettuja riskiarviointimenetelmiä.",
+      subtitle: "Käytämme kansainvälisesti tunnustettuja riskiarviointimenetelmiä.",
       items: [
         { title: "ISO 27005", description: "Kansainvälinen standardi tietoturvariskien hallintaan", icon: "target" },
         { title: "NIST Framework", description: "NIST Cybersecurity Framework -pohjainen arviointi", icon: "shield-check" },
