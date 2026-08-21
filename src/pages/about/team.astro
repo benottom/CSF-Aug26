@@ -17,8 +17,8 @@ const content = {
       subtitle: "Every engagement is structured around these functions"
     },
     certifications: {
-      title: "",
-      subtitle: ""
+      title: "Certifications We Staff For",
+      subtitle: "Engagements are staffed with professionals holding relevant certifications across these areas"
     },
     expertise: {
       title: "Areas of Expertise",
@@ -34,8 +34,8 @@ const content = {
       subtitle: "Jokainen toimeksianto rakentuu näiden roolien ympärille"
     },
     certifications: {
-      title: "",
-      subtitle: ""
+      title: "Sertifikaatit, Joita Hyödynnämme",
+      subtitle: "Toimeksiannot miehitetään ammattilaisilla, joilla on näiden alueiden relevantit sertifikaatit"
     },
     expertise: {
       title: "Asiantuntemuksen Alueet",
@@ -56,6 +56,33 @@ const teamMembers = [
   {
     role: "Technical Security Specialist",
     description: "Supports the technical implementation and validation side of an engagement — architecture, control implementation, and evidence gathering for audit or certification readiness."
+  }
+];
+
+const certificationCategories = [
+  {
+    category: "Information Security",
+    certifications: ["CISSP", "CISM", "CISA", "CCSP", "SSCP"]
+  },
+  {
+    category: "Risk Management",
+    certifications: ["CRISC", "ISO 31000 Risk Manager", "ISO 27005 Risk Manager"]
+  },
+  {
+    category: "Compliance & Audit",
+    certifications: ["ISO 27001 Lead Auditor", "ISO 27001 Lead Implementer", "SOC 2 Practitioner"]
+  },
+  {
+    category: "Privacy & Data Protection",
+    certifications: ["CIPP/E", "CIPM", "CIPT", "GDPR Practitioner"]
+  },
+  {
+    category: "Technical Security",
+    certifications: ["CEH", "OSCP", "OSCE", "GPEN", "GXPN"]
+  },
+  {
+    category: "Cloud Security",
+    certifications: ["CCSP - Certified Cloud Security Professional"]
   }
 ];
 
@@ -152,6 +179,51 @@ const currentContent = content[lang];
               </div>
               <h3 class="text-lg font-bold text-[#14171a] mb-2 group-hover:text-[#2E6FBA] transition-colors duration-300 text-left relative z-10">{member.role}</h3>
               <p class="text-sm text-slate-500 leading-relaxed text-left group-hover:text-slate-600 transition-colors duration-300 relative z-10">{member.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-12 md:py-16 bg-white/90 backdrop-blur-sm relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-left mb-8 md:mb-10">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-[#003580] mb-2">
+            {currentContent.certifications.title}
+          </h2>
+          <p class="text-base text-[#131c2e] max-w-3xl leading-relaxed">
+            {currentContent.certifications.subtitle}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certificationCategories.map((category) => (
+            <div class="bg-white rounded-xl border-2 border-slate-100 shadow-sm
+                        hover:shadow-xl hover:-translate-y-1 hover:shadow-md
+                        transition-all duration-300
+                        flex flex-col p-5 md:p-6 group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#003580] group-hover:h-[6px] transition-all duration-300 z-20"></div>
+
+              <div class="flex justify-start mb-3 relative z-10">
+                <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center
+                            border-2 border-[#003580]
+                            transition-all duration-300
+                            group-hover:bg-[#003580] group-hover:shadow-lg
+                            group-hover:border-transparent">
+                  <svg class="w-4 h-4 text-[#003580] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-base md:text-lg font-bold text-[#14171a] mb-3 group-hover:text-[#2E6FBA] transition-colors duration-300 relative z-10">{category.category}</h3>
+              <div class="flex flex-wrap gap-2 relative z-10">
+                {category.certifications.map((cert) => (
+                  <span class="px-2.5 py-1 text-xs font-medium text-[#003580] bg-white rounded-[2px] border border-[#003580]">
+                    {cert}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
