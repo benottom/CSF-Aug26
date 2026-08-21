@@ -177,21 +177,25 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
           "contactType": "customer service",
           "availableLanguage": ["English", "Finnish"]
         },
+        "legalName": "Cyber Security Finland Oy",
+        "taxID": "3195889-5",
         "address": {
           "@type": "PostalAddress",
-          "addressCountry": "FI",
-          "addressLocality": "Finland"
+          "streetAddress": "Mikonkatu 9",
+          "postalCode": "00100",
+          "addressLocality": "Helsinki",
+          "addressCountry": "FI"
         },
-        "description": "Enterprise cybersecurity and compliance advisory services. ISO 27001, NIS2, GDPR, and DORA implementation with proven methodologies trusted by global organizations.",
+        "description": "Cybersecurity compliance engineering and advisory services for organizations operating under European cybersecurity regulation, including NIS2, CRA, ISO 27001, DORA, and GDPR.",
         "serviceType": [
           "Cybersecurity Consulting",
           "ISO 27001 Implementation",
           "NIS2 Compliance",
+          "CRA Compliance",
           "GDPR Compliance",
           "DORA Implementation",
           "Risk Management",
           "Information Security",
-          "Enterprise Security Advisory",
           "Compliance Framework Implementation"
         ],
         "areaServed": [
@@ -202,19 +206,9 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
           {
             "@type": "Place",
             "name": "European Union"
-          },
-          {
-            "@type": "Place",
-            "name": "Global"
           }
         ],
-        "foundingDate": "2020",
-        "knowsLanguage": ["en", "fi"],
-        "award": [
-          "ISO 27001 Certified",
-          "GDPR Compliance Experts",
-          "NIS2 Directive Specialists"
-        ]
+        "knowsLanguage": ["en", "fi"]
       }
     </script>
 
@@ -236,10 +230,6 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
           {
             "@type": "Place",
             "name": "European Union"
-          },
-          {
-            "@type": "Place",
-            "name": "Global"
           }
         ],
         "offers": {
@@ -249,7 +239,7 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
             "valueAddedTaxIncluded": "true"
           }
         },
-        "description": "Enterprise cybersecurity and compliance advisory services including ISO 27001, NIS2, GDPR, and DORA implementation with proven methodologies for global organizations."
+        "description": "Cybersecurity compliance engineering and advisory services including ISO 27001, NIS2, CRA, GDPR, and DORA implementation for organizations operating in Finland and the EU."
       }
     </script>
 
@@ -264,13 +254,10 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
         "email": "info@cybersecurity.fi",
         "address": {
           "@type": "PostalAddress",
-          "addressCountry": "FI",
-          "addressRegion": "Finland"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 60.1699,
-          "longitude": 24.9384
+          "streetAddress": "Mikonkatu 9",
+          "postalCode": "00100",
+          "addressLocality": "Helsinki",
+          "addressCountry": "FI"
         },
         "url": "https://cybersecurity.fi",
         "openingHoursSpecification": {
@@ -279,10 +266,16 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
           "opens": "09:00",
           "closes": "17:00"
         },
-        "areaServed": {
-          "@type": "Country",
-          "name": "FI"
-        },
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Finland"
+          },
+          {
+            "@type": "Place",
+            "name": "European Union"
+          }
+        ],
         "availableLanguage": ["English", "Finnish"],
         "serviceType": "Cybersecurity Services"
       }

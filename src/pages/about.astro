@@ -13,8 +13,8 @@ const seoConfig = {
     ? "Tietoa meistä | Kyberturvallisuuden asiantuntijat Suomessa"
     : "About Us | Cybersecurity Experts in Finland",
   description: lang === 'fi'
-    ? "Cyber Security Finland on johtava kyberturvallisuuden ja vaatimustenmukaisuuden asiantuntijayritys. Kokemusta ISO 27001, NIS2 ja GDPR -toteutuksista."
-    : "Cyber Security Finland is a leading cybersecurity and compliance consulting firm. Experienced in ISO 27001, NIS2, and GDPR implementations across industries.",
+    ? "Cyber Security Finland on kyberturvallisuuden ja vaatimustenmukaisuuden asiantuntijayritys. Kokemusta ISO 27001, NIS2 ja GDPR -toteutuksista."
+    : "Cyber Security Finland is a cybersecurity and compliance consulting firm. Experienced in ISO 27001, NIS2, and GDPR implementations across industries.",
   keywords: lang === 'fi'
     ? "kyberturvallisuusyritys suomi, ISO 27001 konsultit, vaatimustenmukaisuus asiantuntijat, tietoturva konsultointi suomi"
     : "cybersecurity company finland, ISO 27001 consultants, compliance experts, information security consulting finland",
@@ -23,20 +23,23 @@ const seoConfig = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Cyber Security Finland",
-    "description": "Leading cybersecurity and compliance consulting firm in Finland",
+    "legalName": "Cyber Security Finland Oy",
+    "taxID": "3195889-5",
+    "description": "Cybersecurity and compliance consulting firm based in Finland",
     "url": "https://cybersecurity.fi",
     "logo": "https://cybersecurity.fi/csf-logo-2026.png",
-    "foundingDate": "2020",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "FI",
-      "addressRegion": "Finland"
+      "streetAddress": "Mikonkatu 9",
+      "postalCode": "00100",
+      "addressLocality": "Helsinki",
+      "addressCountry": "FI"
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+358 44 5040308",
       "contactType": "customer service",
-      "areaServed": "Finland",
+      "areaServed": ["FI", "EU"],
       "availableLanguage": ["English", "Finnish"]
     },
     "sameAs": [
@@ -47,36 +50,24 @@ const seoConfig = {
 
 const heroContent = {
   title: "About Cybersecurity.fi",
-  subtitle: "Finland's premier cybersecurity and compliance consultancy.",
-  description: "We help Finnish organizations and international companies operating in the EU navigate complex cybersecurity regulations while building robust, resilient security programs.",
+  subtitle: "A Finland-based cybersecurity and compliance consultancy.",
+  description: "We help organizations operating in Finland and the EU work through cybersecurity regulations while building resilient security programs.",
   primaryCTA: { text: "Meet Our Team", href: "#team" },
   secondaryCTA: { text: "Our Story", href: "#story" }
 };
 
 const teamMembers = [
   {
-    role: "Chief Executive Officer & Founder",
-    description: "Our Chief Executive Officer brings over 15 years of cybersecurity expertise with deep knowledge in compliance frameworks and risk management. Having served as CISO at major financial institutions, they lead our organization with strategic vision in ISO 27001 implementation, enterprise risk management, and cybersecurity strategy development."
+    role: "Engagement Lead",
+    description: "Owns the overall program, coordinates scope and timeline, and is the primary point of contact between your organization and our team throughout the engagement."
   },
   {
-    role: "Chief Technology Officer",
-    description: "Our Chief Technology Officer is a former CISO with exceptional technical expertise in security architecture and threat assessment. They specialize in cloud security, incident response, and penetration testing methodologies."
+    role: "Compliance Specialist",
+    description: "Works through the applicable regulatory or standards requirements (NIS2, CRA, ISO 27001, DORA, GDPR) with your team, translating them into a concrete gap assessment and control set."
   },
   {
-    role: "Compliance Director",
-    description: "Our Compliance Director is a legal and compliance expert specializing in EU cybersecurity regulations. Having served as legal counsel at European cybersecurity agencies, they bring invaluable expertise in NIS2, GDPR, and DORA compliance frameworks."
-  },
-  {
-    role: "Senior Security Consultant",
-    description: "Our Senior Security Consultant is a former Big 4 auditor with extensive experience in security assessments and compliance audits across multiple industries. They specialize in SOC 2 preparations and audit readiness."
-  },
-  {
-    role: "Head of Risk Management",
-    description: "Our Head of Risk Management specializes in enterprise risk management and business continuity planning. As an expert in ISO 31000 and ISO 22301 frameworks, they provide comprehensive risk assessment and business continuity solutions."
-  },
-  {
-    role: "Technical Security Lead",
-    description: "Our Technical Security Lead is a cloud security specialist with multi-cloud platform expertise. Having served as a senior security engineer at major technology companies, they bring deep knowledge in DevSecOps and cloud security architectures."
+    role: "Technical Security Specialist",
+    description: "Supports the technical implementation and validation side of an engagement — architecture, control implementation, and evidence gathering for audit or certification readiness."
   }
 ];
 
@@ -177,19 +168,19 @@ const values = [
     </div>
   </section>
 
-  <!-- Our Leadership Team Section -->
+  <!-- How We Deliver Engagements Section -->
   <section id="team" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-[#131c2e] mb-4">
-          Our Leadership Team
+          How We Deliver Engagements
         </h2>
         <p class="text-base md:text-lg text-slate-500 max-w-3xl mx-auto leading-relaxed">
-          Meet the experienced professionals leading our cybersecurity practice.
+          Every engagement is structured around these functions.
         </p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {teamMembers.map((member, index) => (
           <div class="bg-slate-50/50 rounded-xl border border-slate-100 p-6 hover:border-blue-300 hover:bg-slate-50 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
             <div class="flex items-center gap-4 mb-4">
