@@ -70,6 +70,23 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
 
 <html lang={lang} class="scroll-pt-28">
   <head>
+    <!-- Cookie consent gate: must run BEFORE gtag.js loads, so analytics defaults to
+         disabled until the visitor has actively accepted analytics cookies. -->
+    <script is:inline>
+      (function() {
+        var GA_ID = 'G-V1WCCZBL3S';
+        window['ga-disable-' + GA_ID] = true;
+        try {
+          var consent = localStorage.getItem('cookie_consent');
+          if (consent && consent !== 'rejected') {
+            var prefs = JSON.parse(localStorage.getItem('cookie_preferences') || '{}');
+            if (prefs.analytics) {
+              window['ga-disable-' + GA_ID] = false;
+            }
+          }
+        } catch (e) {}
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1WCCZBL3S" is:inline></script>
@@ -80,7 +97,7 @@ const fiUrl = `${siteUrl}/fi${basePath === '/' ? '' : basePath}`;
 
       gtag('config', 'G-V1WCCZBL3S');
     </script>
-    
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
