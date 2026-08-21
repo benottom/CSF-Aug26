@@ -40,6 +40,7 @@
     { "source": "/services/third-party-risk-tprm", "destination": "/services/risk-and-assessment-services/third-party-risk", "permanent": true },
     { "source": "/webinars", "destination": "/resources", "permanent": true },
     { "source": "/webinars/:path*", "destination": "/resources", "permanent": true },
+    { "source": "/blog/webinars-and-events", "destination": "/resources", "permanent": true },
     { "source": "/blog/trust-center", "destination": "/resources/trust-center", "permanent": true },
 
     { "source": "/fi/services/regulatory-compliance/eidas-digital-trust", "destination": "/fi/services/eidas-digital-trust", "permanent": true },
@@ -59,6 +60,7 @@
     { "source": "/fi/services/third-party-risk-tprm", "destination": "/fi/services/risk-and-assessment-services/third-party-risk", "permanent": true },
     { "source": "/fi/webinars", "destination": "/fi/resources", "permanent": true },
     { "source": "/fi/webinars/:path*", "destination": "/fi/resources", "permanent": true },
+    { "source": "/fi/blog/webinars-and-events", "destination": "/fi/resources", "permanent": true },
     { "source": "/fi/blog/trust-center", "destination": "/fi/resources/trust-center", "permanent": true }
   ],
   "headers": [

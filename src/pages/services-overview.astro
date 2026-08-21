@@ -19,7 +19,7 @@ const serviceCategories = [
         description: lang === 'fi' 
           ? 'Tietosuojan hallinta ja vaatimustenmukaisuus EU:n yleisen tietosuoja-asetuksen mukaisesti.' 
           : 'Privacy governance and compliance with the EU General Data Protection Regulation.',
-        href: '/services/gdpr-compliance',
+        href: '/services/gdpr-privacy-services',
         level: 'Enterprise'
       },
       {
@@ -52,7 +52,7 @@ const serviceCategories = [
         description: lang === 'fi' 
           ? 'Informaation turvallisuuden hallintajärjestelmän toteutus ja sertifiointi.' 
           : 'Information security management system implementation and certification.',
-        href: '/services/iso-27001',
+        href: '/services/iso-27001-services',
         level: 'Enterprise'
       },
       {
@@ -60,7 +60,7 @@ const serviceCategories = [
         description: lang === 'fi' 
           ? 'Pilvipalveluiden tietoturvan ja yksityisyydensuojan sertifiointi.' 
           : 'Security and privacy controls certification for cloud services.',
-        href: '/services/soc-2',
+        href: '/services/soc-2-readiness',
         level: 'Enterprise'
       },
       {
@@ -101,7 +101,7 @@ const serviceCategories = [
         description: lang === 'fi' 
           ? 'Järjestelmällinen riskien tunnistaminen, arviointi ja hallinta.' 
           : 'Systematic identification, assessment, and treatment of risks.',
-        href: '/services/risk-management',
+        href: '/services/risk-and-assessment-services/risk-management',
         level: 'Strategic'
       }
     ]
@@ -200,10 +200,7 @@ const serviceCategories = [
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <Button href="/contact" variant="white">
-            {lang === 'fi' ? 'Ota yhteyttä' : 'Contact Us'}
-          </Button>
-          <Button href="/consultation" variant="outline-white">
-            {lang === 'fi' ? 'Aseta konsultaatiotapaaminen' : 'Schedule Consultation'}
+            {lang === 'fi' ? 'Pyydä vaatimustenmukaisuusarviointi' : 'Request a Compliance Assessment'}
           </Button>
         </div>
       </div>

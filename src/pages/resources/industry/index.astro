@@ -5,71 +5,13 @@ import Icon from '@/components/ui/icons/Icon.astro';
 const currentPath = Astro.url.pathname;
 const lang = currentPath.startsWith('/fi') ? 'fi' : 'en';
 
-const industryResources = {
-  finance: [
-    {
-      title: lang === 'fi' ? 'DORA-sääntelyn noudattaminen rahoitussektorilla' : 'DORA Compliance in Financial Services',
-      description: lang === 'fi' ? 'Käytännönläheinen opas digitaalisen toiminnan resilierenssin sääntelyn noudattamiseen' : 'Practical guide to digital operational resilience act compliance',
-      type: 'Guide',
-      url: '/resources/industry/finance/dora-compliance',
-      date: '2024-03-15'
-    },
-    {
-      title: lang === 'fi' ? 'PCI DSS -tietoturvaohje rahoituslaitoksille' : 'PCI DSS Security Guide for Financial Institutions',
-      description: lang === 'fi' ? 'Krediittikorttitietojen käsittelyn turvallisuus PCI DSS -standardin mukaisesti' : 'Securing credit card data handling according to PCI DSS standards',
-      type: 'Guide',
-      url: '/resources/industry/finance/pci-dss-guide',
-      date: '2024-02-20'
-    },
-    {
-      title: lang === 'fi' ? 'Rahoitussektorin riskienhallintamalli' : 'Financial Sector Risk Management Template',
-      description: lang === 'fi' ? 'Valmis malli rahoitussektorin erityispiirteisiin soveltuvaan riskienhallintaan' : 'Ready-made template for financial sector-specific risk management',
-      type: 'Template',
-      url: '/resources/industry/finance/risk-template',
-      date: '2024-01-30'
-    }
-  ],
-  healthcare: [
-    {
-      title: lang === 'fi' ? 'Terveyssektorin GDPR-vaatimukset' : 'Healthcare GDPR Requirements',
-      description: lang === 'fi' ? 'Potilastietojen käsittely GDPR:n mukaisesti terveydenhuollossa' : 'Handling patient data according to GDPR in healthcare',
-      type: 'Guide',
-      url: '/resources/industry/healthcare/gdpr-requirements',
-      date: '2024-03-05'
-    },
-    {
-      title: lang === 'fi' ? 'Lääketieteellisten laitteiden kyberturvallisuus' : 'Medical Device Cybersecurity',
-      description: lang === 'fi' ? 'Lääketieteellisten laitteiden kyberturvallisuuden hallinta ISO/IEC 81001-5-1 -standardin mukaisesti' : 'Managing medical device cybersecurity according to ISO/IEC 81001-5-1 standard',
-      type: 'Guide',
-      url: '/resources/industry/healthcare/medical-device-security',
-      date: '2024-02-15'
-    }
-  ],
-  technology: [
-    {
-      title: lang === 'fi' ? 'SaaS-palveluiden SOC 2 -valmius' : 'SaaS SOC 2 Readiness',
-      description: lang === 'fi' ? 'SOC 2 Type I & II -valmiuden saavuttaminen pilvipalveluiden tarjoajille' : 'Achieving SOC 2 Type I & II readiness for cloud service providers',
-      type: 'Guide',
-      url: '/resources/industry/technology/saas-soc2-readiness',
-      date: '2024-03-10'
-    },
-    {
-      title: lang === 'fi' ? 'Kolmannen osapuolen hallintamalli teknologiayrityksille' : 'Third-Party Management Template for Tech Companies',
-      description: lang === 'fi' ? 'Toimittajariskien hallinta teknologiapalveluiden ostajille' : 'Managing vendor risks for technology service buyers',
-      type: 'Template',
-      url: '/resources/industry/technology/vendor-risk-template',
-      date: '2024-02-25'
-    }
-  ]
-};
-
 const industries = [
-  { id: 'finance', name: lang === 'fi' ? 'Rahoituspalvelut' : 'Financial Services', icon: 'bank-notes', color: 'bg-blue-500' },
-  { id: 'healthcare', name: lang === 'fi' ? 'Terveysala' : 'Healthcare', icon: 'heart', color: 'bg-green-500' },
-  { id: 'technology', name: lang === 'fi' ? 'Teknologia' : 'Technology', icon: 'computer-desktop', color: 'bg-purple-500' },
-  { id: 'manufacturing', name: lang === 'fi' ? 'Teollisuus' : 'Manufacturing', icon: 'cog', color: 'bg-orange-500' },
-  { id: 'energy', name: lang === 'fi' ? 'Energia' : 'Energy', icon: 'bolt', color: 'bg-yellow-500' },
-  { id: 'government', name: lang === 'fi' ? 'Julkinen sektori' : 'Government', icon: 'building-office', color: 'bg-slate-500' }
+  { id: 'financial-services-fintech', name: lang === 'fi' ? 'Rahoituspalvelut' : 'Financial Services', icon: 'bank-notes', color: 'bg-blue-500' },
+  { id: 'healthcare-life-sciences', name: lang === 'fi' ? 'Terveysala' : 'Healthcare', icon: 'heart', color: 'bg-green-500' },
+  { id: 'saas-technology', name: lang === 'fi' ? 'Teknologia' : 'Technology', icon: 'computer-desktop', color: 'bg-purple-500' },
+  { id: 'manufacturing-industrial', name: lang === 'fi' ? 'Teollisuus' : 'Manufacturing', icon: 'cog', color: 'bg-orange-500' },
+  { id: 'critical-infrastructure-energy', name: lang === 'fi' ? 'Energia' : 'Energy', icon: 'bolt', color: 'bg-yellow-500' },
+  { id: 'public-sector-finland', name: lang === 'fi' ? 'Julkinen sektori' : 'Government', icon: 'building-office', color: 'bg-slate-500' }
 ];
 ---
 
@@ -101,7 +43,7 @@ const industries = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {industries.map(industry => (
           <a 
-            href={`/resources/industry/${industry.id}`}
+            href={lang === 'fi' ? `/fi/industries/${industry.id}` : `/industries/${industry.id}`}
             class="group block bg-white rounded-xl border border-slate-200 p-6 hover:shadow-lg transition-all duration-300"
           >
             <div class="flex items-center">
@@ -114,112 +56,6 @@ const industries = [
             </div>
           </a>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Resources by Industry -->
-  <section class="py-16 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="space-y-16">
-        <!-- Finance Section -->
-        <div>
-          <div class="flex items-center mb-8">
-            <div class="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center text-white mr-3">
-              <Icon name="banknotes" class="w-5 h-5" />
-            </div>
-            <h2 class="text-2xl font-bold text-slate-900">
-              {lang === 'fi' ? 'Rahoituspalvelut' : 'Financial Services'}
-            </h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {industryResources.finance.map(resource => (
-              <div class="bg-white rounded-lg border border-slate-200 p-5 hover:shadow-md transition-shadow">
-                <div class="flex justify-between items-start mb-3">
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-[2px] text-xs font-medium bg-blue-100 text-blue-800">
-                    {resource.type}
-                  </span>
-                  <span class="text-xs text-slate-500">{resource.date}</span>
-                </div>
-                <h3 class="font-semibold text-slate-900 mb-2">{resource.title}</h3>
-                <p class="text-sm text-slate-600 mb-4">{resource.description}</p>
-                <a 
-                  href={resource.url}
-                  class="inline-flex items-center text-sky-600 hover:text-sky-800 text-sm font-medium"
-                >
-                  {lang === 'fi' ? 'Lue lisää' : 'Read more'}
-                  <Icon name="arrowRight" class="w-4 h-4 ml-1" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Healthcare Section -->
-        <div>
-          <div class="flex items-center mb-8">
-            <div class="w-10 h-10 rounded-lg bg-green-500 flex items-center justify-center text-white mr-3">
-              <Icon name="heart" class="w-5 h-5" />
-            </div>
-            <h2 class="text-2xl font-bold text-slate-900">
-              {lang === 'fi' ? 'Terveysala' : 'Healthcare'}
-            </h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {industryResources.healthcare.map(resource => (
-              <div class="bg-white rounded-lg border border-slate-200 p-5 hover:shadow-md transition-shadow">
-                <div class="flex justify-between items-start mb-3">
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-[2px] text-xs font-medium bg-green-100 text-green-800">
-                    {resource.type}
-                  </span>
-                  <span class="text-xs text-slate-500">{resource.date}</span>
-                </div>
-                <h3 class="font-semibold text-slate-900 mb-2">{resource.title}</h3>
-                <p class="text-sm text-slate-600 mb-4">{resource.description}</p>
-                <a 
-                  href={resource.url}
-                  class="inline-flex items-center text-sky-600 hover:text-sky-800 text-sm font-medium"
-                >
-                  {lang === 'fi' ? 'Lue lisää' : 'Read more'}
-                  <Icon name="arrowRight" class="w-4 h-4 ml-1" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Technology Section -->
-        <div>
-          <div class="flex items-center mb-8">
-            <div class="w-10 h-10 rounded-lg bg-purple-500 flex items-center justify-center text-white mr-3">
-              <Icon name="server" class="w-5 h-5" />
-            </div>
-            <h2 class="text-2xl font-bold text-slate-900">
-              {lang === 'fi' ? 'Teknologia' : 'Technology'}
-            </h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {industryResources.technology.map(resource => (
-              <div class="bg-white rounded-lg border border-slate-200 p-5 hover:shadow-md transition-shadow">
-                <div class="flex justify-between items-start mb-3">
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-[2px] text-xs font-medium bg-purple-100 text-purple-800">
-                    {resource.type}
-                  </span>
-                  <span class="text-xs text-slate-500">{resource.date}</span>
-                </div>
-                <h3 class="font-semibold text-slate-900 mb-2">{resource.title}</h3>
-                <p class="text-sm text-slate-600 mb-4">{resource.description}</p>
-                <a 
-                  href={resource.url}
-                  class="inline-flex items-center text-sky-600 hover:text-sky-800 text-sm font-medium"
-                >
-                  {lang === 'fi' ? 'Lue lisää' : 'Read more'}
-                  <Icon name="arrowRight" class="w-4 h-4 ml-1" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   </section>
